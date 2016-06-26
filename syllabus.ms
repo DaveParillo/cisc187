@@ -67,6 +67,9 @@ a good text editor: \fINotepad++\fP, \fIVim\fP, \fIEmacs\fP, or equivalent, and 
 \fIClang\fP version 7 or greater or \fIg++\fP version 4.8.1 or greater are recommended,
 but any ISO-compliant C++ compiler / IDE that supports C++11, such as MS Visual Studio 2015 is sufficient.
 You may also find \fImake\fP helpful.
+
+Completed project must compile on the Mesa cislinux server, mesa-cislinux.sdmesa.sdccd.cc.ca.us.
+To access this server off campus, you will need an ssh client.
 .SH
 Official Course Learning Outcomes
 .RS

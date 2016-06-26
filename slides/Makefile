@@ -1,5 +1,5 @@
 SLIDES = welcome
-
+PAGE= -pet -T pdf -P-l -P-p9,7.5i -ms slides.ms 
 
 
 all: welcome
@@ -7,18 +7,18 @@ all: welcome
 .PHONY: clean
 
 
-grades: ../grading-criteria.ms
+grades:
 	tbl ../grading-criteria.ms > ../grading-criteria.tbl
 
 
-welcome: welcome.ms ../grading-criteria.ms
+welcome:
+	make grades
 #	groff -pet -Tpdf -P-l -P-p13.33i,7.5i -ms slides $< > $@_16x9.pdf
-#	groff -pet -Tpdf -P-l -P-p10,7.5i -ms slides $< > $@_4x3.pdf
-	groff -pet -Tpdf -P-l -P-p10,7.5i -ms slides $< > $@.pdf
+	groff $(PAGE) welcome.ms > $@.pdf
+week1:
+	groff $(PAGE) week1.ms > $@.pdf
 
 clean:
 	rm -f ../grading-criteria.tbl
-	for f in $(SLIDES).pdf; do \
-		rm -f $(f); \
-	done
+	rm -f *.pdf
 

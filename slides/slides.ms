@@ -1,28 +1,14 @@
 .pl 7.5i
 
-.de BO
-.PS
-boxwid = .25
-boxht = .25
-linewid = 0.2
-A: box " "
-line down linewid from A.s
-B: box " " 
-line invis left linewid from B.w
-C: box " "
-line down linewid from B.s
-D: box " "
-line linewid from A.sw to C.n
-.PE
-..
-
 .defcolor blue rgb 0.05 0.25 0.6f
+
 
 .ds RF %
 .fp 1 R H
 .fp 2 I HI
 .fp 3 B HB
 .fp 4 BI HX
+
 
 .nr PO 1.0i
 .nr LL 10i
@@ -51,9 +37,51 @@ line linewid from A.sw to C.n
 ..
 
 .de IT
-.if !"\\$1"" .ds BX \\$1
-.if "\\$1"" .ds BX \(bu
-.IP \\*(BX
+.if !"\\$1"" .ds i0 \\$1
+.if "\\$1"" .ds i0 \s-4\(bu\s+4
+.IP \\*(i0
+..
+
+.de i1
+.RS
+.sp -.5
+.IP -
+\s-4
+..
+
+.de i1e
+\s+4
+.RE
+..
+
+.de i2
+.RS
+.RS
+.sp -.65
+.IP \s-8\N'187'\s+8
+\s-8
+..
+
+.de i2e
+\s+8
+.RE
+.RE
+..
+
+.de i3
+.RS
+.RS
+.RS
+.sp -.5
+.IP \s-(10\(bu\s+(10
+\s-(10
+..
+
+.de i3e
+\s+(10
+.RE
+.RE
+.RE
 ..
 
 .am TL
@@ -64,10 +92,6 @@ line linewid from A.sw to C.n
 .am AU
 .sp 1.0i
 .ps -8
-..
-
-.de CW
-\&\f(CW\\$1\fP\\$2
 ..
 
 .\" .nr PO 0.5i  \" page offset = left margin

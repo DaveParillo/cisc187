@@ -9,28 +9,31 @@ Data Structures in C++
 .SS "Who Am I?"
 .IT
 Dave Parillo
-.RS
-.IT -
+.i1
 dparillo@sdccd.edu
-.RE
+.i1e
 .IT
 BS Mathematics
 .IT
 30-ish years experience in software development
-.RS
-.IT -
+.i1 
 Weather Forecasting
-.IT -
+.i1e
+.i1 
 Sensor performance predictions
-.IT -
+.i1e
+.i1 
 Modeling & simulation
-.IT -
+.i1e
+.i1 
 High-Performance computing
-.IT -
+.i1e
+.i1 
 Cloud computing
-.IT -
+.i1e
+.i1 
 Project management
-.RE
+.i1e
 
 .SS Syllabus
 .IT
@@ -53,102 +56,98 @@ Office hours
 .SS "Course Requirements"
 .IT
 The Basics
-.RS
-.IT -
+.i1 
 A good text editor
-.RS
-.IT
+.i1e
+.i2 
 Notepad++, Vim, Emacs, or an IDE
-.RE
-.RE
-.IT
+.i2e
+.i1 
 You must have access to
-.RS
-.IT -
-C++14 ISO compliant compiler
-.RS
-.IT
+.i1e
+.i2 
+C++11 ISO compliant compiler
+.i2e
+.i3
 .gcolor blue
 \fBclang\fP is \fIhighly recommended\fP:
 .gcolor
 very good error output
 .br
 - gnu C++ is OK, as is MSVS \fB2015\fP
-.RE
-.IT -
+.i3e
+.i2 
 Blackboard
-.RS
-.IT
+.i2e
+.i3
 Course registration required
-.RE
-.RE
-.bp
+.i3e
 .IT 
 Textbook
-.RS 
-.IT  -
+.i1 
 Programming Principles and Practice using C++
-.RE
+.i1e
 .IT 
 Resources
-.RS
-.IT  -
+.i1 
 cppreference.com
-.RE
+.i1e
 
 
-.SS Overview
+.SS "Course Outline"
 .IT 
-Object oriented programming
+Functions
 .IT 
-Objects and state
-.IT 
-Data structures with classes and objects
-.IT 
+Introduction to classes & class design
+.i1
+Operator overloading
+.i1e
+.i1
+Class interfaces
+.i1e
+.i1 
 Enumerations
+.i1e
 .IT 
-Polymorphic data structures
+I/O Streams & Customizing I/O
 .IT 
-Stack & heap
+Pointers and memory management
 .IT 
 Exceptions
 .IT 
-File I/O
-.IT 
-Object serialization 
-.IT 
-Recursion
-.IT 
-Templates & containers
+Containers, Algorithms & function objects
+.IT
+Numerics
+
 .SS "Schedule"
 .IT 
 Blackboard Learning Modules
 .RS
-.IT  -
+.i1
 One each week
-.IT  -
+.i1e
+.i1
 Contains all you need to know
-.RE
+.i1e
 .IT 
 Quiz
-.RS
-.IT  -
+.i1
 One quiz each Wednesday
-.RE
+.i1e
 .IT 
 Lab assignments
-.RS
-.IT  -
+.i1
 Completed in class
-.IT  -
+.i1e
+.i1
 Hand in before leaving each day
-.RE
+.i1e
 .IT
 Projects
-.RS
-.IT -
+.i1
 1 due every 4 weeks
-.RE
+.i1e
+
 .SS Attendance
 .IT
 Based on in-class presence and completion of work
@@ -168,16 +167,14 @@ You collect 4 zero's in a row
 No credit for late quizzes & labs
 .IT 
 If you miss an exam
-.RS
-.IT 
+.i1
 See me so that we can schedule a makeup time
-.RE
+.i1e
 .IT 
 Projects penalized 1% per day
-.RS
-.IT 
+.i1
 As determined by server clock
-.RE
+.i1e
 .SS "Academic Integrity"
 .IT 
 Don't cheat
@@ -198,25 +195,25 @@ You both get a 0
 .SS "Office Hours"
 .IT
 Limited
-.RS
-.IT -
+.i1
 By appointment
-.RS
-.IT
+.i1e
+.i2
 Sorry, I have a FT (non-teaching) job
-.RE
-.IT -
+.i2e
+.i1
 Building I-400, cafe
-.IT -
+.i1e
+.i1
 Other options? 
-.RE
+.i1e
 .IT
 Email is always an option
-.RS
-.IT
+.i1
 dparillo@sdccd.edu
-.IT
+.i1e
+.i1
 Expect an answer within 24 hours, usually after work.
-.RE
+.i1e
 
 
