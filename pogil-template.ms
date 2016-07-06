@@ -4,9 +4,12 @@
 .ds CF %
 .ds crn CRN 40299
 .P1
+.if '\*[.T]'ascii' \{\
+.nr LL 8.5i
+.nr LT 8.5i
+\}
+.
 .TL
-Lab Title
-.SH
 Lab Title
 .B1
 .QI 2i
@@ -50,8 +53,9 @@ Note the time whenever your team starts a new section or question.
 .IP \n+[step].
 Write legibly & neatly so that everyone can read & understand your responses.
 .RE
-.SH
-Exercise 1
+.bp
+.NH
+Exercise title:  XX minutes \fImaximum\fR
 .B1
 .QP
 Start time: 
@@ -60,8 +64,9 @@ Start time:
 .LP
 TBD
 .bp
-.SH
-Exercise 2
+.NH
+Exercise #2: XX minutes \fImaximum\fR
+
 .B1
 .QP
 Start time: 

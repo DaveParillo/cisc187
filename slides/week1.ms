@@ -214,4 +214,139 @@ Inside the campus
 .i3
 All the tools you need to complete your projects are there is you don't have your own C++ toolchain
 .i3e 
+.SS "Parsing command line arguments"
+.IT
+A fundamental part of all *nix programs
+.i1
+*nix is short for \fIUnix & friends, MacOS X, and GNU/Linux\fR
+.i1e
 
+.IT
+Many libraries exist to parse the command line
+.i1
+\fCgetopt\fR is one of the oldest
+.i1e
+.i2
+Ships with all C and C++ compilers
+.i2e
+.i2
+And is pretty easy to use (but a bit limited)
+.i2e
+.i3
+Its limitations are the main motivator behind the numerous alternatives
+.br
+Programmers, expecially *nix programmers hate being told what to do!
+.i3e
+.bp
+.IT
+Function \fCmain()\fR traditionally takes two arguments that provide information
+about the command line
+.i1
+\fCint argc\fR: the total number of arguments, strings separated by whitespace
+.i1e
+.i1
+\fCchar *argv[]\fR: an array of these strings
+.i1e
+.i2
+Can also be specified as: \fCchar **argv\fR, which is the same thing
+.i2e
+.IT
+If you run a program named \fCfoo\fR with the arguments 
+.i1
+\fC-n 10 www.sdmesa.edu\fR
+.i1e
+.i1
+Your \fCargc\fR would be set = 4 and \fCargv\fR would contain
+.RS
+.RS
+.CW
+\s-8
+ argv[0]:  foo
+ argv[1]:  -v
+ argv[2]:  "10"
+ argv[3]:  www.sdmesa.edu
+\s+8
+.R
+.i1e
+.RE
+.RE
+.bp
+.IT
+The \fCgetopt\fR function makes parsing these strings simple
+.LI
+It sets 3 important global variables:
+.i1
+\fCoptarg\fR:A pointer to the current option argument, if there is one
+.i1e
+.i1
+\fCoptind\fR:An index to the next argv pointer to process when \fCgetopt()\fR is called again
+.i1e
+.i1
+\fCoptopt\fR:The last known option provided
+.i1e
+.IT
+Use \fCgetopt()\fR by calling it repeatedly until there are no options left to process.
+The method signature is:
+.i1
+\s-4\fCint getopt (int argc, char* const argv[], const char *optstring)\fR\s+4
+.i1e
+.i2
+\fCoptstring\fR tells \fCgetopt\fR how to interpret the strings encountered in \fCargv[]\fR
+.i2e
+.SS "getopt() Example"
+\s-(10
+.CW
+  #include <iostream>
+.B1
+ #include <unistd.h>        // getopt declaration resides in this header
+.B2
+  using std::string;
+   
+  int main(int argc, char* argv[]) {
+    int c;
+    int debug = 0;
+    int max_critters = 25;
+    string view = "default";
+    string prog = argv[0];
+
+    while ((c = getopt (argc, argv, "?hdv:n:")) != -1) {
+      switch (c) {
+.bp
+      switch (c) {
+        case 'd':
+          debug++;
+          break;
+        case 'n':
+          max_critters = std::atoi(optarg);
+          break;
+        case 'v':
+          view = optarg;
+          break;
+        case 'h':            // fall-through is intentional here
+        default:
+          show_usage(prog);
+          break;
+      }
+.R
+\s+(10
+.SS "Usage statement"
+.IT
+It's typical to display a usage staement on the command line if any argument processes goes wrong.
+\s-(10
+.CW
+  /**
+   * Display a usage statement for this program.
+   * @param name the name of this program as determined by args[0]
+   */
+  static void show_usage(const string name) {
+    std::cerr << "Usage: " << name << " [-hd] [-v view] [-n #]"
+      << "Options:\\n"
+      << "  -h   Show this text\\n"
+      << "  -d   Enable debug output.\\n"
+      << "  -v   Set the UI used.  The default is text based.\\n"
+      << "  -n   Set the number of Critters for each Species.  Default = 25.\\n"
+      << std::endl;
+    exit(0);
+  }
+.R
+\s+(10
