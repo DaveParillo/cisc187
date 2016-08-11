@@ -32,13 +32,11 @@ A player may remove coins only from 1 pile per turn
 After each player turn the game should redraw the current state of all remaining piles.  
 
 Do not display piles with zero coins.
-
 .NH
 Implementation
 .LP
-Some of this program has been written for you.
-
-You are expected to create at most 2 classes:
+You are expected to create a main function that takes command line arguments and
+at most 2 classes:
 .RS
 .nr step 1 1
 .IP \n[step].
@@ -47,12 +45,35 @@ Options
 Controller
 .RE
 
+The computer player class is provided and you don't need to modify it.
+The \fCtest\fR directory contains \fCboost\fR tests for the \fCComputerPlayer\fR class.
 
+Your main method should accept the following command line arguments and should produce
+a usage statement similar to the following:
+.RS
+.CW
+
+  Usage: take-away [-h|?] [-ar] [-p #] [-c #]
+  Options:
+    -a   Use 'AI'.  Set player #2 to the computer.
+         The default is to play a regular two-player game.
+
+    -h|? Show this text
+
+    -r   Use random values for # of piles and coins per pile.
+         Optionally set 'p' or 'c' to define upper bounds
+         on generated values for # of piles and coins per pile.
+         The default is to play a non-random game
+
+    -p   Set the starting number of piles.  Default = 3
+
+    -c   Set the starting number of coins per pile.  Default = 5
+.R
+.RE
 .NH 2
 Options class
 .LP
 The Options class processes the command line and stores it for later use by the Controller.
-
 
 .NH 2
 Controller class
@@ -61,30 +82,30 @@ The game play controller is the 'brains' of the program.
 It manages players, accepts user input, keeps track of whose turn it is, and declares winners.
 The Controller requires 1 field to store piles of coins:
 
+.CW
     /**
      * The piles (heaps) that are the focus of this game.
      * Each item in the vector represents an individual 'pile' of coins.
-     * The value stored at each element represents the size of a specific pile,
+     * The value stored at each element represents the size of a pile,
      * i.e. the number of coins in that pile.
      */
-    std::vector<int> piles;
+    std::vector<size_t> piles;
 
-
+.R
 The Controller class has its own private data:
 .RS
 .nr step 1 1
-.IP \n[step]
+.IP \n[step].
 Strings to hold the name of each player
-.IP \n+[step]
+.IP \n+[step].
 A boolean to keep track of whose turn it is
-.IP \n+[step]
+.IP \n+[step].
 The Options object
+.RE
 
-A complete set of \fIdoxygen\fR documentation is also provided in the \fCdoc\fR directory.
+A complete set of \fIdoxygen\fR documentation is also provided in the \fChtml\fR directory.
 These documents are generated from the example solution source code and
-provide more details about the diesign.
-
-
+provide more details about the design.
 .NH
 Additional Turn in Requirements
 .LP
@@ -96,13 +117,13 @@ Before uploading your project, make sure it meets all of the rubric criteria in 
 .IP \n[step].
 Ensure the top of each source file includes your name and student ID.
 .IP \n+[step].
-Include unit tests for all public classes.
+Include unit tests for all significant public classes.
 .IP \n+[step].
 Include an appropriate level of documentation.  Doxygen should run with no warnings.
 .IP \n+[step].
-The template for this project includs a working \fCmakefile\fR.  
+The template for this project includes a working \fCMakefile\fR.  
 Your finished project should be able to build using \fCmake\fR executed on buffy.
 .IP \n+[step].
-Create a zip file of all of your project files and upload to BlackBoard
+Create a zip file of all of your project files and upload to BlackBoard.
 
 
