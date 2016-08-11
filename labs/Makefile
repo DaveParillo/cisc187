@@ -5,7 +5,7 @@ else
 	page = -pet -T $(format)
 endif
 
-all:  labs
+all:  roles labs
 
 
 help:
@@ -17,13 +17,23 @@ help:
 
 .PHONY: clean
 
+roles: roles.ms
+	tbl roles.ms > roles.tbl
+
 labs:
-	for i in `/bin/ls *.ms`; do \
-	groff $(page) -ms -d the_date=`date "+%Y-%m-%d"` $$i > $$i.$(format); \
+	for i in `/bin/ls lab*.ms`; do \
+	groff $(page) -ms macros.ms -d the_date=`date "+%Y-%m-%d"` $$i > $$i.$(format); \
+	done
+
+
+zip:
+	for i in `find . -type d -name "lab*"`; do \
+	zip -r $$i.zip $$i -x "*.DS_Store*"; \
 	done
 
 
 clean:
+	rm -f roles.tbl
 	rm -f *.ascii
 	rm -f *.pdf
 

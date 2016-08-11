@@ -1,8 +1,7 @@
 .ds LH Data Structures in C++
 .ds CH CISC-187
-.ds RH CRN 20504
+.ds RH CRN 40299
 .ds CF %
-.ds crn CRN 40299
 .TL
 Data Structures in C++
 .AU
@@ -225,7 +224,7 @@ Do not post assignment answers or code in discussion forums or other online repo
 Student Code of Conduct
 .LP
 Students are expected to adhere to the Student Code of Conduct at all times. 
-Students who violate the Student Code of Conduct may be removed from class by the 
+Students who violate the Student Code of Conduct may be removed from class by the p
 faculty for the class meeting in which the behavior occurred, and the next class meeting.
 
 Incidents involving removal of a student from class will be reported to the college 

@@ -1,61 +1,7 @@
-.ds LH Data Structures in C++
-.ds CH Lab #1
-.ds RH \*[the_date]
-.ds CF %
-.ds crn CRN 40299
-.P1
-.if '\*[.T]'ascii' \{\
-.nr LL 8.5i
-.nr LT 8.5i
-\}
-.
+.ds CH Lab #1a
 .TL
-Lab #1: Exploring GNU/Linux and compiling simple programs
-.QI 2i
-.QP
-.B1
-Start date and time: 
-
-.B2
-.LP
-Before you start, complete the form below and assign a role to each member in your group.
-If your group has 3 people, combine the Speaker and Reflector roles.
-
-Everyone should perform all of these steps individually in order to familiarize yourself with the basics, 
-but you are free to help eachother as you go.
-
-.TS
-center box tab (!);
-cb|cb
-l|l
-l|l
-l|l
-l|lw(2.5i).
-Team Roles!Team Member
- ! 
- ! 
-_
-\fBRecorder\fP: records all answers & questions !
-and provides to instructor. !
-_
-\fBSpeaker\fP: talks to instructor. !
- ! 
-_
-\fBManager\fP: keeps track of time and ensures
-everyone contributes appropriately. !
-_
-\fBReflector\fP: considers how the team could work !
-and learn more effectively. !
-.TE
-.LP
-Reminders:
-.RS
-.nr step 1 1
-.IP \n[step].
-Note the time whenever your team starts a new section or question.
-.IP \n+[step].
-Write legibly & neatly so that everyone can read & understand your responses.
-.RE
+Lab #1a: Exploring GNU/Linux and compiling simple programs
+.so cover-page.ms
 
 \fBBackground\fR
 
@@ -74,12 +20,7 @@ often transforming text from one thing into another.
 .bp
 .NH
 Exploring the Linux server:  20 minutes \fImaximum\fR
-.B1
-.QP
-Start time: 
-
-.B2
-.LP
+.time_box
 Manager: Ensure everyone on the team has their user name and default password for buffy.
 
 .nr step 1 1
@@ -107,17 +48,18 @@ How is the output for each person the same?  Different?
 
 
 
-.LP
+
+
+
+
 .IP \n+[step].
-Have 1 team member type \fCman ls\fR
+Have 1 team member type \fCman ls\fR in a terminal
 .QP
 Take a moment to review the output.
 You can press \fCd\fR or \fCf\fR to page forward, \fCd\fR or \fCu\fR to go back.
 You can press the spacebar to page forward.
 
 How does the description of the 'ls' command match your expectations?
-
-
 
 
 
@@ -133,30 +75,19 @@ You already know 2 commands: what are they?
 
 
 
-
 .IP \n+[step].
 What command would you type to gain an understanding of how to use the unix manuals?
 
 
 
-
-
 .IP \n+[step].
 What command would you type to perform a keyword search of the installed manuals?
-
-
-
 .bp
 .NH
 Moving files onto the Linux server:  20 minutes \fImaximum\fR
-.QI 2i
-.QP
-.B1
-Start time: 
+.time_box
 
-.B2
-.LP
- 
+.ce 1
 \fBNOTE\fR
 
 .B1
@@ -243,7 +174,7 @@ Does your program compile and run?
 
 
 .IP \n+[step].
-Briefly explain how \fImake\fR is different from \fIc++\fR and \fIg++\fR.
+Briefly explain how \fImake\fR is different from \fIc++\fR or \fIg++\fR.
 
 
 
@@ -264,13 +195,7 @@ When you are done, show your results to the instructor.
 .bp
 .NH
 Using getopt:  30 minutes \fImaximum\fR
-.QI 2i
-.QP
-.B1
-Start time: 
-
-.B2
-.LP
+.time_box
 All *nix programs, even those with graphical user interfaces (GUIs), accept and process command-line options. 
 For some programs, this is the primary means of interacting with either other programs, or users. 
 Having robust handling of complex command-line arguments makes your application better and more useful. 
@@ -294,31 +219,7 @@ Ensure this program compiles with no errors or warnings.
 
 Show it to your instructor when complete.
 
-
 .bp
-.NH
-Reflection 10 minutes \fImaximum\fR
-.LP
-.nr step 1 1
-.IP \n[step].
-Was this lab useful?  Provide a reason.
+.so reflection.ms
 
-
-
-
-
-
-
-
-.IP \n+[step].
-Could the team have worked together more effectively?
-
-
-
-
-
-
-
-.IP \n+[step].
-Can you suggest any general improvements?
 

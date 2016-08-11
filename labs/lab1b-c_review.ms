@@ -1,107 +1,37 @@
-.ds LH Data Structures in C++
-.ds CH Lab #2
-.ds RH \*[the_date]
-.ds CF %
-.ds crn CRN 40299
-.P1
-.if '\*[.T]'ascii' \{\
-.nr LL 8.5i
-.nr LT 8.5i
-\}
-.
+.ds CH Lab #1b
 .TL
-Lab #2: C/C++ review
-.QI 2i
-.QP
-.B1
-Start date and time: 
-
-.B2
-.LP
-Before you start, complete the form below and assign a role to each member in your group.
-If your group has 3 people, combine the Speaker and Reflector roles.
-
-Everyone should perform all of these steps individually in order to familiarize yourself with the basics, 
-but you are free to help eachother as you go.
-
-.TS
-center box tab (!);
-cb|cb
-l|l
-l|l
-l|l
-l|lw(2.5i).
-Team Roles!Team Member
- ! 
- ! 
-_
-\fBRecorder\fP: records all answers & questions !
-and provides to instructor. !
-_
-\fBSpeaker\fP: talks to instructor. !
- ! 
-_
-\fBManager\fP: keeps track of time and ensures
-everyone contributes appropriately. !
-_
-\fBReflector\fP: considers how the team could work !
-and learn more effectively. !
-.TE
-.LP
-Reminders:
-.RS
-.nr step 1 1
-.IP \n[step].
-Note the time whenever your team starts a new section or question.
-.IP \n+[step].
-Write legibly & neatly so that everyone can read & understand your responses.
-.RE
-
+Lab #1b: C/C++ review
+.so cover-page.ms
 
 .bp
 .NH
 Making change:  15 minutes \fImaximum\fR
-.B1
-.QP
-Start time: 
-
-.B2
-.LP
+.time_box
 Given:
 .RS
 .CW
-#include <iostream> 
-
-int main () 
-{
-  double funds = 1.00;
-  int items = 0;
-
-  for (double price = 0.10; funds >= price; price += 0.10) 
-  {
-    funds -= price;
-    items++;
-  }
-
-  std::cout << "bought " << items << " items.\\n";
-  std::cout << "change " << funds << " cents.\\n";
-  return 0;
-
-}
-
+ #include <iostream> 
+ 
+ int main () 
+ {
+   double funds = 1.00;
+   int items = 0;
+ 
+   for (double price = 0.10; funds >= price; price += 0.10) 
+   {
+     funds -= price;
+     items++;
+   }
+   std::cout << "bought " << items << " items.\\n";
+   std::cout << "change " << funds << " cents.\\n";
+   return 0;
+ }
 .R
 .RE
-
 .nr step 1 1
 .IP \n[step].
 In your own words, without simply rewriting the code as plain text, 
 describe what is this code attempting to do:
-
-
-
-
-
-
 
 
 
@@ -114,18 +44,9 @@ Work through the logic manually (without compiling) and write down the expected 
 
 
 
-
-
-
-
-
 .IP \n+[step].
 Copy this program into a file 'change.cpp'. Compile and run the program.
 Record the output.
-
-
-
-
 
 
 
@@ -140,28 +61,12 @@ Did the actual output match you expectations?  Explain.
 
 
 
-
-
-
-
-
 .IP \n+[step].
 What changes should be made to make the results match expectations?
-
-
-
-
-
-
 .bp
 .NH
 Code puzzles:  5 minutes each \fImaximum\fR 
-.B1
-.QP
-Start time: 
-
-.B2
-.LP
+.time_box
 For each of the problems that follow, describe the intended program output, if any, and
 whether the program compiles or not.
 
@@ -187,14 +92,12 @@ If it doesn't compile or produces unintended output, what changes could be made 
 .R
 .RE
 
-
 .IP \n+[step].
 .RS
 .CW
   #include <iostream>
 
-  int main () 
-  {
+  int main () {
     double x;
     double y = x;
     double z = 2.0 + x;
@@ -202,8 +105,8 @@ If it doesn't compile or produces unintended output, what changes could be made 
     std::cout << y << " and " << z << ".\n";
     return 0;
   }
+.R
 .RE
-
 
 .IP \n+[step].
 .RS
@@ -212,7 +115,6 @@ If it doesn't compile or produces unintended output, what changes could be made 
   #include <string>
 
   int main () {
-
    for (int i = 0; i < 9; i++) {
      int x = 5;
      std::string pet = "Dog - ";
@@ -223,6 +125,7 @@ If it doesn't compile or produces unintended output, what changes could be made 
   }
 .R
 .RE
+
 .bp
 .IP \n+[step].
 
@@ -232,14 +135,11 @@ If it doesn't compile or produces unintended output, what changes could be made 
   #include <string>
 
   int main () {
-   int sa[4][3] = {{1,2,3,4}, {1,2,3}};
+   int sa[4][3] = {{1,2,3,4}, {5,6,7}};
 
    std::cout << "first: " << sa[0][0] << std::endl;
    std::cout << "last:  " << sa[4][3] << std::endl; 
   }
-
-
-
 .R
 .RE
 
@@ -267,7 +167,7 @@ If it doesn't compile or produces unintended output, what changes could be made 
   void print(const std::string& name, 
              const std::string a[], int size) {
     std::cout << "The array " << name << " contains " 
-              << size << " elements:\n";
+              << size << " elements:\\n";
 
     for (int i = 0; i < size; i++)
       std::cout << i << ": " << a[i] << std::endl;
@@ -281,48 +181,47 @@ If it doesn't compile or produces unintended output, what changes could be made 
 For each expression below, indicate if it compiles.  
 If yes, what is the result?
 If no, what's wrong?
-
 .RS
+
 .CW
-
-1.  double x = 5 + 1/2;
-
-
-2.  int y = 5 + 1/2;
+a.  double x = 5 + 1/2;
 
 
-3.  double x = 5 + 1/2.0;
+b.  int y = 5 + 1/2; 
 
 
-4.  int y = 5 + 1/2.0;
+c.  double x = 5 + 1/2.0;
 
 
-5.  double x = 5 + (float)1/2;
+d.  int y = 5 + 1/2.0;
 
 
-6.  double x = 5 + (float)2/3.0;
+e.  double x = 5 + (float)1/2;
 
 
-7.  double x = 5 + 2^3;
+f.  double x = 5 + (float)2/3.0;
 
 
-8.  double x = 5 & 2^3;
+g.  double x = 5 + 2^3;
 
 
-9.  double x = 5 | 2^3;
+h.  double x = 5 & 2^3;
 
 
-10.  double x = (int) 5.0 << 1;
+i.  double x = 5 | 2^3;
 
 
-11.  double x = (int) 10.0 >> 3;
+j.  double x = (int) 5.0 << 1;
 
 
-12.  bool z = true | false;
+k.  double x = (int) 10.0 >> 3;
 
 
-13.  bool z = false; 
-     double x = 4 | (int)(!z); 
+l.  bool z = true | false;  
+
+
+m.  bool z = false; 
+    double x = 4 | (int)(!z);
 .R
 .RE
 
@@ -330,12 +229,7 @@ If no, what's wrong?
 .NH
 Programming pool: 20 minutes \fImaximum\fR 
 .LP
-.B1
-.QP
-Start time: 
-
-.B2
-.LP
+.time_box
 Pull the following code snippets from the pool and place them in the Triangle program where there are underscores in the code.
 
 You may use a snippet more than once.
@@ -345,11 +239,11 @@ You won't need all the snippets.
 The goal is to make a working program that generates the following output:
 .RS
 .CW
-  $ ./trangle
-  Triangle 0: area = 3.0
-  Triangle 1: area = 8.0
-  Triangle 2: area = 15.0
-  Triangle 3: area = 24.0
+  $ ./triangle
+  Triangle 0: area = 3
+  Triangle 1: area = 8
+  Triangle 2: area = 15
+  Triangle 3: area = 24
   Y is: 4, t5 area 15
   t[2] area is now 343
 .R
@@ -399,7 +293,7 @@ Choose from the following code snippets:
       ____.base = x + 3;
       ____
       std::cout << "Triangle " << x << ": area = " 
-                << t[x].area << std::endl;
+                << ____.____ << std::endl;
       ____
     }
     ____
@@ -415,13 +309,7 @@ Choose from the following code snippets:
 .R
 .RE
 
-
-
-
-
-
-
-
-
+.bp
+.so reflection.ms
 
 
