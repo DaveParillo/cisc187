@@ -1,6 +1,6 @@
 .ds CH Lab #2a
 .TL
-Lab #2a: Functions
+Lab #2b: Passing parameters and returning values
 .so cover-page.ms
 
 .bp
