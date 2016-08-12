@@ -44,7 +44,7 @@ CISC 192 with a grade of "C" or better, or equivalent.
 .SH
 Required Text
 .LP
-The following textbook is required for this course. 
+The following textbook is /fBrequired/fR for this course. 
 .RS
 .nr step 1 1
 .IP \n[step].
@@ -54,9 +54,19 @@ Addison-Wesley Professional, 2\*[{]nd\*[}] edition,
 June 2014. ISBN: 978-0321992789.
 .RE
 .LP
+.ce 1
+\fBNOTE\fR
+
+.B1
+.QP
+.ce 1
 Avoid the kindle or e-book editions.
 .br
+.ce 1
 They are not cheaper and the example source code is impossible to read.
+
+.B2
+.LP
 .SH
 Required Supplies
 .LP
@@ -67,8 +77,9 @@ a good text editor: \fINotepad++\fP, \fIVim\fP, \fIEmacs\fP, or equivalent, and 
 but any ISO-compliant C++ compiler / IDE that supports C++11, such as MS Visual Studio 2015 is sufficient.
 You may also find \fImake\fP helpful.
 
-Completed project must compile on the Mesa cislinux server, mesa-cislinux.sdmesa.sdccd.cc.ca.us.
+Completed projects must compile on the Mesa cislinux server, mesa-cislinux.sdmesa.sdccd.cc.ca.us (buffy).
 To access this server off campus, you will need an ssh client.
+.bp
 .SH
 Official Course Learning Outcomes
 .RS

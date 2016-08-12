@@ -96,20 +96,26 @@ If you don't have it already, get the source code for lab.
 
 .B2
 .LP
+On buffy, the command:
+.CW
+    curl https://codeload.github.com/DaveParillo/cisc187/zip/master > master.zip
+.R
+will do the trick.
 .nr step 1 1
 .IP \n[step].
-On a workstation, open a command window in the folder containing the lab source.
+On a workstation, open a command window in the folder containing the lab source bundle from git hub.
 Type 
 .CW
-    scp #filename# #your login name#@buffy:#filename#
+    scp master.zip #your login name#@buffy:master.zip
 .R
-Replace #filename# with the name of the file to copy and #your login name# with your actual login name.
+Replace #your login name# with your actual login name.
 
 
 .IP \n+[step].
-Type
+Close the scp window and login to buffy. Type
 .CW
-    cd labs
+    unzip master.zip
+    cd cisc187-master/labs
     ls
 .R
 
@@ -117,6 +123,7 @@ Observe the contents of the directory, then type
 .CW
     make format=ascii
 .R
+
 What happened?
 
 
