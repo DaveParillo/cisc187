@@ -1,6 +1,6 @@
 .ds CH Lab #5a
 .TL
-Lab #5a: Inout and Output streams
+Lab #5a: Input and Output streams
 .so cover-page.ms
 
 .bp
