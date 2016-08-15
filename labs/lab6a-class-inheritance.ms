@@ -345,7 +345,6 @@ Choose from the following code snippets:
       int len;
 
   };
-  ________::~________(){}
 .R
 .bp
 .CW
@@ -359,8 +358,6 @@ Choose from the following code snippets:
       }
 
   };
-  ________::~________(){}
-
 
   class RowBoat : ________ ________ {
     public:
@@ -371,8 +368,6 @@ Choose from the following code snippets:
       }
 
   };
-
-  ________::~________(){}
 
 
   int main() {
