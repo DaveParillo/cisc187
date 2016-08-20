@@ -5,7 +5,7 @@ Lab #1a: Exploring GNU/Linux and compiling simple programs
 
 \fBBackground\fR
 
-Early in its evolution, the command-line environment of UNIX® (its only user interface back then) 
+Early in its evolution, the command-line environment of UNIX (its only user interface back then) 
 became dominated by dozens of small text-processing tools. 
 These tools were small and generally did one thing well. 
 The tools were chained together in longer command pipelines, one program passing its 

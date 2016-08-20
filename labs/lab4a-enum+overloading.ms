@@ -144,5 +144,3 @@ over using the primitive \fCdouble\fR.
 .bp
 .so reflection.ms
 
-
-

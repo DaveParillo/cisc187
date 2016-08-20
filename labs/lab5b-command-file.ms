@@ -52,5 +52,58 @@ aXYZbc123
 .RE
 .RE
 .bp
+.NH
+Formatted I/O: 30 minutes \fImaximum\fR
+.time_box
+.QP
+.RS
+.nr step 1 1
+.IP \n[step].
+Try reading as octal, hexadecimal, etc.:
+.RS
+.CW
+  std::cin  >> a >> std::oct >> b >> std::hex >> c >> d;
+  std::cout << a << '\t' << b << '\t' << c << '\t' << d << 'n' ;
+.R
+
+Run this code with the input:
+.CW
+  1234 1234 1234 1234
+.R
+
+Explain the results:
+
+
+
+
+Add another \fCcout\fR line that displays the original 4 values entered.
+.RE
+
+.IP \n+[step].
+Write some code to print the number 1234567.89 three times, 
+first using \fCdefaultfloat\fR, then \fCfixed\fR, then \fCscientific\fR forms. 
+Which output form presents the user with the most accurate representation? Explain why.
+
+
+
+
+
+.IP \n+[step].
+Add to the previous example a loop to display the same number in
+\fCdefaultfloat\fR, then \fCfixed\fR, then \fCscientific\fR forms 
+in increasing the output precision on each iteration.
+The loop should start at 0 and end at 8.
+
+When do different values of precision equal the defaults for the different output forms?
+
+
+
+
+
+
+
+
+
+.bp
 .so reflection.ms
 

@@ -7,7 +7,7 @@ Lab #6a: Class inheritance
 .NH
 Base and derived classes: 30 minutes \fImaximum\fR
 .time_box
-.QP
+.RS
 .nr step 1 1
 .IP \n[step].
 Given the following classes:
@@ -46,6 +46,7 @@ Identify which of the versions of the methods called by \fCWolf w\fR are invoked
   w.eat();
   w.sleep();
 .R
+.RE
 .bp
 .IP \n+[step].
 Given the following classes:
@@ -57,8 +58,7 @@ Given the following classes:
   ConcertPianist
 .R
 .RS
-.nr substep 1 1
-.IP \n[substep].
+.IP a.
 Identify appropriate sub classes and super classes.
 
 
@@ -67,7 +67,7 @@ Identify appropriate sub classes and super classes.
 
 
 
-.IP \n+[substep].
+.IP b.
 Draw an inheritance diagram that makes sense.
 Not everything needs to be connected to something else.
 .RE
@@ -93,15 +93,14 @@ Given the following classes:
   Sink
 .R
 .RS
-.nr substep 1 1
-.IP \n[substep].
+.IP a.
 Identify appropriate sub classes and super classes.
 
 
 
 
 
-.IP \n+[substep].
+.IP b.
 Draw an inheritance diagram that makes sense.
 Not everything needs to be connected to something else.
 
@@ -189,8 +188,12 @@ Given the following classes and a main method that uses them:
     }
     return 0;
   }
+
 .R
-For each of the following pairs of code, when inserted at locations "A" and "B":
+
+Examine each of the 4 pairs of code on the next page and
+describe what would happen when inserted at locations "A" and "B".
+For each, answer the following:
 .RS
 .IP \[bu]
 Which do not compile? 
@@ -205,10 +208,10 @@ Which compile and produce the following output?
 .RE
 .IP \[bu]
 For those that compile, but do not produce the output above, explain why they do not.
-.RE
+.bp
+
 .SH
 Pair #1:
-.QP
 .IP A:
 .CW
   bool accelerate(int change) const {
@@ -264,11 +267,8 @@ Pair #3:
   }
 .R
 
-
-
 .SH
 Pair #4:
-.QP
 .IP A:
 .CW
   virtual bool accelerate(int change) const {
@@ -284,7 +284,7 @@ Pair #4:
     return false;
   }
 .R
-
+.RE
 
 .bp
 .NH
