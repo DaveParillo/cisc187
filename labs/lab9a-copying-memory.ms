@@ -13,21 +13,21 @@ Copying memory in arrays: 60 minutes \fImaximum\fR
 .RS
 .nr step 1 1
 .IP \n[step].
-Define a global array \fCint ga\fR of ten \fCint\fRs initialized to 1, 2, 4, 8, 16, etc.
+Define a global array \*[c]int ga\*[r] of ten \*[c]int\*[r]s initialized to 1, 2, 4, 8, 16, etc.
 .IP \n+[step].
-Define a function \fCf()\fR taking an \fCint\fR array argument and an \fCint\fR argument 
+Define a function \*[c]f()\*[r] taking an \*[c]int\*[r] array argument and an \*[c]int\*[r] argument 
 indicating the number of elements in the array.
 .IP \n+[step].
-In \fCf()\fR:
+In \*[c]f()\*[r]:
 .RS
 .IP a.
-Define a local \fCint\fR array \fCla\fR of ten \fCint\fRs.
+Define a local \*[c]int\*[r] array \*[c]la\*[r] of ten \*[c]int\*[r]s.
 .IP b.
-Copy the values from \fCga\fR into \fCla\fR.
+Copy the values from \*[c]ga\*[r] into \*[c]la\*[r].
 .IP c.
-Print out the elements of \fCla\fR.
+Print out the elements of \*[c]la\*[r].
 .IP d.
-Define a pointer \fCp\fR to \fCint\fR and initialize it with an 
+Define a pointer \*[c]p\*[r] to \*[c]int\*[r] and initialize it with an 
 array allocated on the free store with the same number of elements as the argument array.
 .IP e.
 Copy the elements from the argument array into the free-store array.
@@ -37,15 +37,15 @@ Print out the elements of the free-store array.
 Deallocate the free store array.
 .RE
 .IP \n+[step].
-In \fCmain()\fR:
+In \*[c]main()\*[r]:
 .RS
 .IP a.
-Call \fCf()\fR with \fCga\fR as its argument.
+Call \*[c]f()\*[r] with \*[c]ga\*[r] as its argument.
 .IP b.
-Define an array \fCaa\fR with ten elements, and initialize it with 
+Define an array \*[c]aa\*[r] with ten elements, and initialize it with 
 the first ten factorial values (1, 2*1, 3*2*1, 4*3*2*1, etc.).
 .IP c.
-Call \fCf()\fR with \fCaa\fR as its argument.
+Call \*[c]f()\*[r] with \*[c]aa\*[r] as its argument.
 .RE
 .RE
 
@@ -56,33 +56,33 @@ Copying memory in vectors: 60 minutes \fImaximum\fR
 .RS
 .nr step 1 1
 .IP \n[step].
-Define a global \fCvector int gv\fR of ten \fCint\fRs initialized to 1, 2, 4, 8, 16, etc.
+Define a global \*[c]vector int gv\*[r] of ten \*[c]int\*[r]s initialized to 1, 2, 4, 8, 16, etc.
 .IP \n+[step].
-Define a function \fCf()\fR taking an \fCvector<int>\fR argument.
+Define a function \*[c]f()\*[r] taking an \*[c]vector<int>\*[r] argument.
 .IP \n+[step].
-In \fCf()\fR:
+In \*[c]f()\*[r]:
 .RS
 .IP a.
-Define a local \fCvector<int> lv\fR with the same number of elements as the argument \fCvector\fR.
+Define a local \*[c]vector<int> lv\*[r] with the same number of elements as the argument \*[c]vector\*[r].
 .IP b.
-Copy the values from \fCgv\fR into \fClv\fR.
+Copy the values from \*[c]gv\*[r] into \*[c]lv\*[r].
 .IP c.
-Print out the elements of \fClv\fR.
+Print out the elements of \*[c]lv\*[r].
 .IP d.
-Define a local \fCvector<int> lv2\fR and initialize it to be a copy of the argument \fCvector\fR.
+Define a local \*[c]vector<int> lv2\*[r] and initialize it to be a copy of the argument \*[c]vector\*[r].
 .IP e.
-Print out the elements of \fClv2\fR.
+Print out the elements of \*[c]lv2\*[r].
 .RE
 .IP \n+[step].
-In \fCmain()\fR:
+In \*[c]main()\*[r]:
 .RS
 .IP a.
-Call \fCf()\fR with \fCgv\fR as its argument.
+Call \*[c]f()\*[r] with \*[c]gv\*[r] as its argument.
 .IP b.
-Define a \fCvector<int> vv\fR and initialize it with 
+Define a \*[c]vector<int> vv\*[r] and initialize it with 
 the first ten factorial values (1, 2*1, 3*2*1, 4*3*2*1, etc.).
 .IP c.
-Call \fCf()\fR with \fCvv\fR as its argument.
+Call \*[c]f()\*[r] with \*[c]vv\*[r] as its argument.
 .RE
 .RE
 

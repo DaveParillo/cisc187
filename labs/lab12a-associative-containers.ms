@@ -5,23 +5,32 @@ Lab #12a: Associative Containers
 
 .bp
 .NH
-\fCmap\fB vs \fCvector\fB: 60 minutes \fImaximum\fR
+.code 
+map
+.B
+vs
+.code vector
+.B
+: 60 minutes \fImaximum\fR
 .time_box
 .RS
 .nr step 1 1
 .IP \n[step].
-Define a \fCstruct Item { string name; int count; double value; /* . . . */};\fR,
-make a \fCvector<Item>\fR, \fCitems\fR, and fill it with ten items from a file.
+Define a 
+ \*[c]struct Item {string name; int count; double value; /* ... */};\*[r],
+ make a \*[c]vector<Item>\*[r], \*[c]items\*[r], and fill it with ten items from a file.
 .IP \n+[step].
-Sort \fCitems\fR by \fCname\fR and print it.
+Sort \*[c]items\*[r] by \*[c]name\*[r] and print it.
 .IP \n+[step].
-Insert \fCItem{"horse shoe",99,12.34}\fR and \fCItem{"Canon S400",9988,499.95}\fR and print \fCitems\fR.
+Insert 
+ \*[c]Item{"horse shoe",99,12.34}\*[r] and 
+ \*[c]Item{"Canon S400",9988,499.95}\*[r] and print \*[c]items\*[r].
 .IP \n+[step].
-Print the sum of all \fCvalue\fRs in \fCitems\fR.
+Print the sum of all \*[c]value\*[r]s in \*[c]items\*[r].
 .IP \n+[step].
-Sort \fCitems\fR by \fCvalue\fR; print it in order of decreasing value (i.e., largest value first).
+Sort \*[c]items\*[r] by \*[c]value\*[r]; print it in order of decreasing value (i.e., largest value first).
 .IP \n+[step].
-Remove (erase) two \fCItem\fRs identified by \fCname\fR from \fCitems\fR.
+Remove (erase) two \*[c]Item\*[r]s identified by \*[c]name\*[r] from \*[c]items\*[r].
 
 
 Now perform a similar set of operations, but using a map instead.
@@ -30,17 +39,19 @@ Now perform a similar set of operations, but using a map instead.
 
 .nr step 1 1
 .IP \n[step].
-Define a \fCstruct Item { int count; double value; /* . . . */};\fR,
-make a \fCamp<string,Item>\fR, \fCitems\fR, and fill it with ten items from a file.
+Define a 
+ \*[c]struct Item {int count; double value; /* ... */};\*[r],
+ make a \*[c]amp<string,Item>\*[r], \*[c]items\*[r], and fill it with ten items from a file.
 .IP \n+[step].
 Output the (name,value) pairs to cout in some format of your choice.
 .IP \n+[step].
-Insert map entries "horse_shoe", \fCItem{99,12.34}\fR and "Canon S400", 
-\fCItem{9988,499.95}\fR and print \fCitems\fR.
+Insert map entries 
+ \fC"horse_shoe"\fR, \*[c]Item{99,12.34}\*[r] and 
+ \fC"Canon S400"\fR, \*[c]Item{9988,499.95}\*[r] and print \*[c]items\*[r].
 .IP \n+[step].
-Print the sum of all \fCvalue\fRs in \fCitems\fR.
+Print the sum of all \*[c]value\*[r]s in \*[c]items\*[r].
 .IP \n+[step].
-Copy \fCitems\fR int a new \fCmap <int, string>;\fR
+Copy \*[c]items\*[r] int a new \*[c]map <int, string>;\*[r]
 .IP \n+[step].
 Print the new map to cout.
 

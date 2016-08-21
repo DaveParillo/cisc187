@@ -53,11 +53,11 @@ Transform this program like so:
 .RS
 .nr step 1 1
 .IP \n[step].
-Remove the lines that use the variable \fCnum\fR and change the enum into an enum class.
+Remove the lines that use the variable \*[c]num\*[r] and change the enum into an enum class.
 .IP \n+[step].
-Create a header file \fCDirection.h\fR to contain our Direction definitions.
+Create a header file \*[c]Direction.h\*[r] to contain our Direction definitions.
 .IP \n+[step].
-In \fCDirection.h\fR, create a \fCmap\fR that associates each direction in the enum with a specific string.
+In \*[c]Direction.h\*[r], create a \*[c]map\*[r] that associates each direction in the enum with a specific string.
 .br
 The declaration should start like this:
 
@@ -66,13 +66,13 @@ The declaration should start like this:
 .R
 
 .IP \n+[step].
-In \fCDirection.h\fR, create a constant \fCstd::array\fR named \fCdirections\fR that stores each Direction.
+In \*[c]Direction.h\*[r], create a constant \*[c]std::array\*[r] named \*[c]directions\*[r] that stores each Direction.
 .IP \n+[step].
-In main, change the signature of \fCshow_direction\fR to take the \fCenum Direction\fR as a parameter.
+In main, change the signature of \*[c]show_direction\*[r] to take the \*[c]enum Direction\*[r] as a parameter.
 .IP \n+[step].
-Change the \fCcout\fR to use the \fCDirectionNames map\fR to stream the name of the direction to \fCstdout\fR.
+Change the \*[c]cout\*[r] to use the \*[c]DirectionNames map\*[r] to stream the name of the direction to \*[c]stdout\*[r].
 .IP \n+[step].
-In main, loop on the \fCdirections\fR array and call \fCshow_direction\fR on each iteration.
+In main, loop on the \*[c]directions\*[r] array and call \*[c]show_direction\*[r] on each iteration.
 .IP \n+[step].
 Compile the program and run it.
 .RE
@@ -82,7 +82,7 @@ Compile the program and run it.
 A rational number class: 60 minutes \fImaximum\fR
 .time_box
 .QP
-Design and implement a number class \fCRational\fR.
+Design and implement a number class \*[c]Rational\*[r].
 A rational number is a number that can be expressed as a fraction of two integers,
 for example 
 .EQ
@@ -90,7 +90,7 @@ for example
 .EN
 
 Create operators for assignment, addition, subtraction, multiplication, division, and equality.
-Also provide a function to_double() that converts a \fCRational\fR into a \fCdouble\fR primitive.
+Also provide a function to_double() that converts a \*[c]Rational\*[r] into a \*[c]double\*[r] primitive.
 
 The following relationships may prove useful:
 
@@ -125,7 +125,7 @@ Answer the following:
 .RS
 .nr step 1 1
 .IP \n[step].
-How is the \fCRational\fR class better than the primitive \fCdouble\fR? Worse?
+How is the \*[c]Rational\*[r] class better than the primitive \*[c]double\*[r]? Worse?
 
 
 
@@ -133,8 +133,8 @@ How is the \fCRational\fR class better than the primitive \fCdouble\fR? Worse?
 
 
 .IP \n+[step].
-Give an example where the \fCRational\fR class gives a mathematically better result 
-over using the primitive \fCdouble\fR.
+Give an example where the \*[c]Rational\*[r] class gives a mathematically better result 
+over using the primitive \*[c]double\*[r].
 .RE
 
 

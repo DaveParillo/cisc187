@@ -51,10 +51,10 @@ void func()
 
 .R
 Accessing Jill's data is a pain.
-The function \fCget_from_jill()\fR returns a pointer a \fCvector\fR.
+The function \*[c]get_from_jill()\*[r] returns a pointer a \*[c]vector\*[r].
 To get the data, we have to dereference the pointer, however, 
-\fC*jill_data[i]\fR is not what we want: \fC[]\fR has precendence over \fC*\fR
-so we need parentheses: \fC(*jill_data)[i]\fR.
+\*[c]*jill_data[i]\*[r] is not what we want: \*[c][]\*[r] has precendence over \*[c]*\*[r]
+so we need parentheses: \*[c](*jill_data)[i]\*[r].
 You will encounter this kind of ugliness often in legacy code.
 
 What changes could be made to the jill part of func that would improve it?
@@ -68,9 +68,9 @@ Container problems: 60 minutes \fImaximum\fR
 .RS
 .nr step 1 1
 .IP \n[step].
-Explain in your own words why \fCvector\fR does not have a function \fCpush_front()\fR
+Explain in your own words why \*[c]vector\*[r] does not have a function \*[c]push_front()\*[r]
 as part of it's API.  
-Include what would be required if it existed and compare it to \fCpush_back()\fR.
+Include what would be required if it existed and compare it to \*[c]push_back()\*[r].
 
 
 
@@ -100,15 +100,15 @@ Which statement inserted independently at "LINE A" will compile?
 
 What is wrong with the pairs of code that do not compile?
 .IP a.
-\fCreturn new std::list<Inn>;\fR
+\*[c]return new std::list<Inn>;\*[r]
 .IP b.
-\fCreturn new std::list<Hotel>;\fR
+\*[c]return new std::list<Hotel>;\*[r]
 .IP c.
-\fCreturn new std::list<Hotel>*;\fR
+\*[c]return new std::list<Hotel>*;\*[r]
 .IP d.
-\fCreturn new std::list<Business>;\fR
+\*[c]return new std::list<Business>;\*[r]
 .IP e.
-\fCreturn new std::list<Business>*;\fR
+\*[c]return new std::list<Business>*;\*[r]
 .RE
 .RE
 
@@ -120,14 +120,14 @@ Vector vs List: 60 minutes \fImaximum\fR
 
 
 Run a small timing experiment to compare the cost of running vector and list. 
-You can find an explanation of how to time a program in §26.6.1. 
-Generate \fIN\fR random \fCint\fR values in the range [0:\fIN\fR]. 
-As each int insert it into a \fCvector<int>\fR (which grows by one element each time). 
+You can find an explanation of how to time a program in \*[sect]26.6.1. 
+Generate \fIN\fR random \*[c]int\*[r] values in the range [0:\fIN\fR]. 
+As each int insert it into a \*[c]vector<int>\*[r] (which grows by one element each time). 
 Keep the vector sorted; that is a value is inserted after every previous 
 value that is less than or equal to the new value and before every previous 
 value that is larger than the new value. 
-Now do the same experiment using a \fClist<int>\fR to hold the \fCint\fRs. 
-For which \fIN\fR is the \fClist\fR faster than the \fCvector\fR?  
+Now do the same experiment using a \*[c]list<int>\*[r] to hold the \*[c]int\*[r]s. 
+For which \fIN\fR is the \*[c]list\*[r] faster than the \*[c]vector\*[r]?  
 
 
 

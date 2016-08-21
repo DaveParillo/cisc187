@@ -10,11 +10,11 @@ Reading commands from a file: 90 minutes \fImaximum\fR
 .QP
 In this lab, the goal is to perform some of the types of tasks required for project #2.
 
-The basic idea is to manipulate a \fCstring\fR using commands read in from a file.
+The basic idea is to manipulate a \*[c]string\*[r] using commands read in from a file.
 .RS
 .nr step 1 1
 .IP \n[step].
-Create a class \fCSequence\fR. This class should contain 1 private data member, a \fCstring\fR.
+Create a class \*[c]Sequence\*[r]. This class should contain 1 private data member, a \*[c]string\*[r].
 .IP \n+[step].
 Save the following text in a file \fCcommands.txt\fR:
 .RS
@@ -28,20 +28,20 @@ print
 .RE
 .IP \n+[step].
 Create a program that reads \fCcommands.txt\fR and performs the requested operations on the
-string stored in the \fCSequence\fR class. The commands are defined as follows:
+string stored in the \*[c]Sequence\*[r] class. The commands are defined as follows:
 .RS
 .IP \(bu 
 \fBadd \fIstring\fR 
 .br
-The \fCadd\fR command should append the provided value to the string in \fCSequence\fR.
+The \*[c]add\*[r] command should append the provided value to the string in \*[c]Sequence\*[r].
 .IP \(bu 
 \fBprint\fR 
 .br
-The \fCprint\fR command should send the current value of the string in \fCSequence\fR to standard output.
+The \*[c]print\*[r] command should send the current value of the string in \*[c]Sequence\*[r] to standard output.
 .IP \(bu 
 \fBinsert \fIpos string\fR 
 .br
-The \fCinsert\fR command should insert the provided value to the string in \fCSequence\fR at the requested position. Assume positions in the string are 0 based.  That is, position 0 is the first position in the string, so executing \fCinsert 0 X\fR on a string \fCabc\fR would result in \fCXabc\fR.
+The \*[c]insert\*[r] command should insert the provided value to the string in \*[c]Sequence\*[r] at the requested position. Assume positions in the string are 0 based.  That is, position 0 is the first position in the string, so executing \*[c]insert 0 X\*[r] on a string \*[c]abc\*[r] would result in \*[c]Xabc\*[r].
 .RE
 
 When complete, the program should produce:
@@ -76,12 +76,12 @@ Explain the results:
 
 
 
-Add another \fCcout\fR line that displays the original 4 values entered.
+Add another \*[c]cout\*[r] line that displays the original 4 values entered.
 .RE
 
 .IP \n+[step].
 Write some code to print the number 1234567.89 three times, 
-first using \fCdefaultfloat\fR, then \fCfixed\fR, then \fCscientific\fR forms. 
+first using \*[c]defaultfloat\*[r], then \*[c]fixed\*[r], then \*[c]scientific\*[r] forms. 
 Which output form presents the user with the most accurate representation? Explain why.
 
 
@@ -90,7 +90,7 @@ Which output form presents the user with the most accurate representation? Expla
 
 .IP \n+[step].
 Add to the previous example a loop to display the same number in
-\fCdefaultfloat\fR, then \fCfixed\fR, then \fCscientific\fR forms 
+\*[c]defaultfloat\*[r], then \*[c]fixed\*[r], then \*[c]scientific\*[r] forms 
 in increasing the output precision on each iteration.
 The loop should start at 0 and end at 8.
 

@@ -8,8 +8,8 @@ Lab #2a: Functions
 Using multiple source files: 30 minutes \fImaximum\fR
 .time_box
 .QP
-Create 3 files: \fCmy.h\fR, \fCmy.cpp\fR, and \fCuse.cpp\fR.
-The header file \fCmy.h\fR contains:
+Create 3 files: \*[c]my.h\*[r], \*[c]my.cpp\*[r], and \*[c]use.cpp\*[r].
+The header file \*[c]my.h\*[r] contains:
 .RS
 .CW
    extern int foo();
@@ -18,14 +18,14 @@ The header file \fCmy.h\fR contains:
 .R
 .RE
 
-The source code file \fCmy.cpp\fR should include \fCmy.h\fR and \fCiostream\fR, 
-defines \fCprint_foo()\fR to print the value of \fCfoo\fR using \fCcout\fR, and
-\fCprint(int i)\fR to print the value of \fCi\fR using \fCcout\fR.
+The source code file \*[c]my.cpp\*[r] should include \*[c]my.h\*[r] and \*[c]iostream\*[r], 
+defines \*[c]print_foo()\*[r] to print the value of \*[c]foo\*[r] using \*[c]cout\*[r], and
+\*[c]print(int i)\*[r] to print the value of \*[c]i\*[r] using \*[c]cout\*[r].
 
-The source code file \fCuse.cpp\fR should include \fCmy.h\fR and define \fCmain()\fR.
-\fCmain()\fR should set the value of \fCfoo\fR to \fC7\fR and print it using
-\fCprint_foo()\fR, and print the value of \fC99\fR using \fCprint()\fR.
-Note that \fCuse.cpp\fR does not include \fCiostream\fR, as it doesn't directly
+The source code file \*[c]use.cpp\*[r] should include \*[c]my.h\*[r] and define \*[c]main()\*[r].
+\*[c]main()\*[r] should set the value of \*[c]foo\*[r] to \fC7\fR and print it using
+\*[c]print_foo()\*[r], and print the value of \fC99\fR using \*[c]print()\*[r].
+Note that \*[c]use.cpp\*[r] does not include \*[c]iostream\*[r], as it doesn't directly
 use any of those facilities.
 
 Create these files and get them to compile and run.
@@ -69,49 +69,49 @@ Definitions and ! Compiles? !Explanation
 Funtion call ! (Y/N) !
 _
 
-\fCint x = 7;\fP ! !
-\fCint y = 9;\fP ! !
-\fCswap_v(x,y);\fP ! !
+\*[c]int x = 7;\*[r] ! !
+\*[c]int y = 9;\*[r] ! !
+\*[c]swap_v(x,y);\*[r] ! !
 
-\fCswap_r(x,y);\fP ! !
+\*[c]swap_r(x,y);\*[r] ! !
 
-\fCswap_cr(x,y);\fP ! !
-
-_
-
-\fCswap_v(7,9);\fP ! !
-
-\fCswap_r(7,9);\fP ! !
-
-\fCswap_cr(7,9);\fP ! !
+\*[c]swap_cr(x,y);\*[r] ! !
 
 _
 
-\fCconst int cx = 7;\fP ! !
-\fCconst int cy = 9;\fP ! !
-\fCswap_v(cx,cy);\fP ! !
+\*[c]swap_v(7,9);\*[r] ! !
 
-\fCswap_r(cx,cy);\fP ! !
+\*[c]swap_r(7,9);\*[r] ! !
 
-\fCswap_cr(cx,cy);\fP ! !
+\*[c]swap_cr(7,9);\*[r] ! !
 
 _
 
-\fCswap_v(7.5,9.9);\fP ! !
+\*[c]const int cx = 7;\*[r] ! !
+\*[c]const int cy = 9;\*[r] ! !
+\*[c]swap_v(cx,cy);\*[r] ! !
 
-\fCswap_r(7.5,9.9);\fP ! !
+\*[c]swap_r(cx,cy);\*[r] ! !
 
-\fCswap_cr(7.5,9.9);\fP ! !
+\*[c]swap_cr(cx,cy);\*[r] ! !
 
 _
 
-\fCdouble dx = 7.5;\fP ! !
-\fCdouble dy = 9.9;\fP ! !
-\fCswap_v(dx,dy);\fP ! !
+\*[c]swap_v(7.5,9.9);\*[r] ! !
 
-\fCswap_r(dx,dy);\fP ! !
+\*[c]swap_r(7.5,9.9);\*[r] ! !
 
-\fCswap_cr(dx,dy);\fP ! !
+\*[c]swap_cr(7.5,9.9);\*[r] ! !
+
+_
+
+\*[c]double dx = 7.5;\*[r] ! !
+\*[c]double dy = 9.9;\*[r] ! !
+\*[c]swap_v(dx,dy);\*[r] ! !
+
+\*[c]swap_r(dx,dy);\*[r] ! !
+
+\*[c]swap_cr(dx,dy);\*[r] ! !
 
 _
 .TE
@@ -122,8 +122,8 @@ _
 Using namespaces: 30 minutes \fImaximum\fR
 .time_box
 .QP
-Write a program using a \fIsingle file\fR containing 3 namespaces: \fCX\fR, \fCY\fR, and \fCZ\fR.
-Use the following code for function \fCmain()\fR:
+Write a program using a \fIsingle file\fR containing 3 namespaces: \*[c]X\*[r], \*[c]Y\*[r], and \*[c]Z\*[r].
+Use the following code for function \*[c]main()\*[r]:
 .RS
 .CW
    int main() {
@@ -143,8 +143,8 @@ Use the following code for function \fCmain()\fR:
    }
 .R
 
-Each namespace needs to define a variable \fCvar\fR and a function \fCprint()\fR
-that outputs the appropriate \fCvar\fR using \fCcout\fR.
+Each namespace needs to define a variable \*[c]var\*[r] and a function \*[c]print()\*[r]
+that outputs the appropriate \*[c]var\*[r] using \*[c]cout\*[r].
 
 .RE
 

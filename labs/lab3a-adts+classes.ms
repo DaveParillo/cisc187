@@ -5,11 +5,12 @@ Lab #3a: ADT's and classes
 
 .bp
 .NH
-Evolving the \fCDate\fB class: 60 minutes \fImaximum\fR
+Evolving the \*[c]Date\m[]\fB class: 60 minutes \fImaximum\fR
 .time_box
 .QP
-Using the evolving sequence of the Date class from Chapter 9,
-sections 9.1 - 9.4, answer the following:
+Using the evolving sequence of the 
+.code Date
+class from Chapter 9, \*[sect]9.1 - \*[sect]9.4, answer the following:
 .RS
 .nr step 1 1
 .IP \n[step].
@@ -27,7 +28,7 @@ What is the difference between the interface and the implementation in a class?
 
 
 .IP \n+[step].
-What are the issues with the original \fCDate struct\fR presented in the chapter?
+What are the issues with the original \*[c]Date struct\*[r] presented in the chapter?
 
 
 
@@ -36,7 +37,7 @@ What are the issues with the original \fCDate struct\fR presented in the chapter
 
 .IP \n+[step].
 What is an invariant?  Give some examples.
-What are the invariants of the \fCDate\fR class?
+What are the invariants of the \*[c]Date\*[r] class?
 
 
 
@@ -51,7 +52,7 @@ outside of the class?  Why?
 
 
 .IP \n+[step].
-When is it acceptable to use a \fCstruct\fR?  When is it not acceptable?
+When is it acceptable to use a \*[c]struct\*[r]?  When is it not acceptable?
 
 
 .RE
@@ -60,10 +61,10 @@ When is it acceptable to use a \fCstruct\fR?  When is it not acceptable?
 Shape classes: 60 minutes \fImaximum\fR
 .time_box
 .QP
-Design and implement a \fCCircle\fR class.  
-It should store two values: \fClabel\fR and \fCradius\fR, 
-where \fClabel\fR is a \fCstring\fR 
-and \fCradius\fR is a \fCdouble\fR.
+Design and implement a \*[c]Circle\*[r] class.  
+It should store two values: \*[c]label\*[r] and \*[c]radius\*[r], 
+where \*[c]label\*[r] is a \*[c]string\*[r] 
+and \*[c]radius\*[r] is a \*[c]double\*[r].
 
 Ensure all class data is private and implement the following in the class:
 .RS
@@ -78,10 +79,10 @@ Provide functions to return the radius and label.
 Provide methods to change the label, radius and calculate the area and circumfrence.
 .RE
 
-Design and implement a \fCRectangle\fR class.  
-It should store three values: \fClabel\fR, \fCheight\fR, and \fCwidth\fR, 
-where \fClabel\fR is a \fCstring\fR 
-and \fCheight\fR and \fCwidth\fR are \fCdouble\fR.
+Design and implement a \*[c]Rectangle\*[r] class.  
+It should store three values: \*[c]label\*[r], \*[c]height\*[r], and \*[c]width\*[r], 
+where \*[c]label\*[r] is a \*[c]string\*[r] 
+and \*[c]height\*[r] and \*[c]width\*[r] are \*[c]double\*[r].
 
 Ensure all class data is private and implement the following in the class:
 .RS

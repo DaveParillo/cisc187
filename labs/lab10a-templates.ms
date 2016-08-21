@@ -10,45 +10,50 @@ Defining a template: 60 minutes \fImaximum\fR
 .QP
 .nr step 1 1
 .IP \n[step].
-Define \fCtemplate<typename T> struct S { T val; };\fR.
+Define \*[c]template<typename T> struct S { T val; };\*[r].
 .IP \n+[step].
-Add a constructor, so that you can initialize with a \fCT\fR.
+Add a constructor, so that you can initialize with a \*[c]T\*[r].
 .IP \n+[step].
 Define variables of types 
- \fCS<int>\fR, 
- \fCS<char>\fR, 
- \fCS<double>\fR, 
- \fCS<string>\fR, and \fCS<vector<int>>\fR; initialize them with values of your choice.
+ \*[c]S<int>\*[r], 
+ \*[c]S<char>\*[r], 
+ \*[c]S<double>\*[r], 
+ \*[c]S<string>\*[r], and 
+ \*[c]S<vector<int>>\*[r]; 
+ initialize them with values of your choice.
 .IP \n+[step].
 Read those values and print them.
 .IP \n+[step].
-Add a function template \fCget()\fR that returns a reference to \fCval\fR.
+Add a function template \*[c]get()\*[r] that returns a reference to \*[c]val\*[r].
 .IP \n+[step].
-Put the definition of \fCget()\fR outside the class.
+Put the definition of \*[c]get()\*[r] outside the class.
 .IP \n+[step].
-Make \fCval\fR private.
+Make \*[c]val\*[r] private.
 .IP \n+[step].
-Do 4 again using \fCget()\fR.
+Do 4 again using \*[c]get()\*[r].
 .IP \n+[step].
-Add a \fCset()\fR function template so that you can change \fCval\fR.
+Add a \*[c]set()\*[r] function template so that you can change \*[c]val\*[r].
 .IP \n+[step].
-Replace \fCset()\fR with an \fCS<T>::operator=(const T&)\fR. Hint: Much simpler than §19.2.5.
+Replace \*[c]set()\*[r] with an \*[c]S<T>::operator=(const T&)\*[r]. Hint: Much simpler than §19.2.5.
 .IP \n+[step].
-Provide \fCconst\fR and non-\fCconst\fR versions of \fCget()\fR.
+Provide \*[c]const\*[r] and non-\*[c]const\*[r] versions of \*[c]get()\*[r].
 .IP \n+[step].
-Define a function \fCtemplate<typename T> read_val(T& v)\fR that reads from \fCcin\fR into \fCv\fR.
+Define a function \*[c]template<typename T> read_val(T& v)\*[r] that reads from \*[c]cin\*[r] into \*[c]v\*[r].
 .IP \n+[step].
-Use \fCread_val()\fR to read into each of the variables from 3 except the \fCS<vector<int>>\fR variable.
+Use \*[c]read_val()\*[r] to read into each of the variables from 3 except the \*[c]S<vector<int>>\*[r] variable.
 
 .bp
 .NH
-Defining and using \fCstd::make_unique<T>()\fB: 60 minutes \fImaximum\fR
+Defining and using 
+.code std::make_unique<T>()
+.B
+: 60 minutes \fImaximum\fR
 .time_box
 .QP
 Although std::unique_ptr<T>() and std::make_shared<T>() were introduced in C++11,
-The  \fCstd::make_unique<T>()\fR tempalte was not introduced until C++14.
+The  \*[c]std::make_unique<T>()\*[r] tempalte was not introduced until C++14.
 But if you find yourself using a compiler that doesn't know about 
-\fCstd::make_unique<T>()\fR, you can make it yourself pretty easily.
+\*[c]std::make_unique<T>()\*[r], you can make it yourself pretty easily.
 
 .CW
   template<typename T, typename... Args>

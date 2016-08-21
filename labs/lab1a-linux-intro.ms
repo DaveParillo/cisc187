@@ -143,6 +143,9 @@ In your own words, provide an explanation for what is happening.
 
 
 
+.IP \n+[step].
+Use the \fCpasswd\fR prgram to change your login password from the default.
+Pick something you can remember - if you forget it I can't help you and it may take a few days to reset it.
 
 
 

@@ -14,10 +14,20 @@ List every standard library algorithm on \fCen.cppreference.com/w/\fR.
 
 
 
-.RS
-Which of these are available on buffy?  In Visual Studio 2015?
-.RE
 
+
+
+
+
+
+
+
+
+
+
+
+
+Infer which of these are available on buffyand in Visual Studio 2015.
 .RE
 
 
@@ -25,10 +35,10 @@ Which of these are available on buffy?  In Visual Studio 2015?
 
 .bp
 .NH
-Word frequency: 60 minutes \fImaximum\fR
+Word frequency: 30 minutes \fImaximum\fR
 .time_box
 .RS
-Starting with a modified version fo the example in §21.6.1:
+Starting with a modified version of the example in \*[sect]21.6.1:
 .CW
   #include <iostream>
   #include <map>
@@ -54,6 +64,20 @@ Starting with a modified version fo the example in §21.6.1:
 Modify it so that it lists words in order of requency rather than lexicographical order.
 
 Why did I change the example provided from the text?
+
+.NH
+Expunge Letter: 30 minutes \fImaximum\fR
+.time_box
+.QP
+Write a function \fCExpungeLetter\fR that accepts four parameters - 
+two iterators delineating an input range of \fCstrings\fR, 
+one iterator delineating the start of an output range, and a \fCcharacter\fR 
+- then copies the \fCstring\fRs in the input range that \fIdo not\fR contain 
+the specified character into the output range.
+The function should then return an iterator one past the last location written. 
+Do not use loops.
+
+(Hint: Use the remove_copy_if algorithm and a custom functor).
 
 
 .bp

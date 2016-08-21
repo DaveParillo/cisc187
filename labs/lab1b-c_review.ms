@@ -239,7 +239,7 @@ You won't need all the snippets.
 The goal is to make a working program that generates the following output:
 .RS
 .CW
-  $ ./triangle
+  # ./triangle
   Triangle 0: area = 3
   Triangle 1: area = 8
   Triangle 2: area = 15

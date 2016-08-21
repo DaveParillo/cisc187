@@ -17,12 +17,23 @@ Start time:
 .LP
 ..
 
+.EQ
+delim $$
+.EN
+
 .de h1
 .SH 
 \s+4\m[blue]\\$*\m[]\s-4
 ..
 
 
+.de code
+\fC\m[blue]\\$*\m[]\fR
+..
 
 
+.ds c \fC\m[blue]
+.ds r \m[]\fR
+
+.ds sect \[u00A7]
 
