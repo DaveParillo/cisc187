@@ -22,7 +22,7 @@ roles: roles.ms
 
 labs:
 	for i in `/bin/ls lab*.ms`; do \
-	groff $(page) -ms macros.ms -d the_date=`date "+%Y-%m-%d"` $$i > $$i.$(format); \
+	groff $(page) -ms ../macros.ms -d the_date=`date "+%Y-%m-%d"` $$i > $$i.$(format); \
 	done
 
 

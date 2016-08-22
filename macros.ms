@@ -4,6 +4,7 @@
 .defcolor red rgb 0.75f 0.15f 0.05f
 .defcolor green rgb 0.15f 0.6f 0.05f
 .defcolor grey rgb 0.6f 0.6f 0.6f
+.defcolor white rgb 1f 1f 1f
 
 
 
@@ -36,4 +37,17 @@ delim $$
 .ds r \m[]\fR
 
 .ds sect \[u00A7]
+.ds circle \s+4\[u25CB]\0\s-4
+.ds checkmark \s+4\[u2713]\0\s-4
+.ds cross \s+4\[u00D7]\0\s-4
 
+.de choice
+.IP \*[circle]\\$1 .5i
+..
+
+.de right
+.IP \m[green]\*[checkmark]\m[]\\$1 .5i
+..
+.de wrong
+.IP \m[red]\*[cross]\m[]\\$1 .5i
+..
