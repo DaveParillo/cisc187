@@ -132,12 +132,12 @@ Contains all you need to know
 .IT 
 Quiz
 .i1
-One quiz each Wednesday
+One quiz each Monday
 .i1e
 .IT 
 Lab assignments
 .i1
-Completed in class
+Completed in class - in groups or 3 or 4
 .i1e
 .i1
 Hand in before leaving each day
@@ -145,7 +145,13 @@ Hand in before leaving each day
 .IT
 Projects
 .i1
-1 due every 4 weeks
+\m[red]\fBMust\fR be your own work!!\m[]
+.i1e
+.i1
+3 total, 1 due every 4 weeks
+.i1e
+.i1
+First project due week 6
 .i1e
 
 .SS Attendance
@@ -195,6 +201,9 @@ You both get a 0
 .SS "Office Hours"
 .IT
 Limited
+.i1
+The hour before each class (6-7, M & W)
+.i1e
 .i1
 By appointment
 .i1e

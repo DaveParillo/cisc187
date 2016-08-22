@@ -43,10 +43,9 @@ cin and the meaning of statements like:
 
 .RS
 .CW
-  string name;
-  cin >> name;
-  std::cout << "Hello," << name 
-            << "!" << std::endl;
+  std::string  name;
+  std::cin  >> name;
+  std::cout << "Hello," << name << "!\\n";
 .R
 .RE
 .IT
@@ -69,10 +68,14 @@ Legal identifier names
 .i1
 For classes, functions, and variables
 .i1e
+.bp
 .IT
 You know what an object is
 .i1
-Probably have used many and created a few
+Probably have used many 
+.i1e
+.i1
+Perhaps even created a few
 .i1e
 .IT
 Type safety and type conversions
@@ -139,6 +142,8 @@ Ask me to explain it, otherwise I have to assume you already know it!
 
 .SS "What I don't expect you to know"
 .IT
+Pointers
+.IT
 C++
 .i1
 Most of you have learned C, 
@@ -148,7 +153,7 @@ or some strange C/C++ hybrid (CHide)
 The C++ you have learned is not \fIModern C++\fR. It's probably C++98
 .i1e
 .i1
-Be aware that C++ is actually a federation of several languages
+\fBNote:\fR C++ is actually a federation of several languages:
 .PS
 circlerad = 0.5
 
@@ -179,13 +184,11 @@ compile it with C++ and call it a "C++ program"
 .i2
 This course will emphasize modern C++
 .i2e
-.i1
+.IT
 Operators other than +, -, *, and /.
-.i1e
-.i2
+.i1
 We'll cover modulus, bit shifting, bit-wise operators and operator overloading
-.i2e
-.bp
+.i1e
 .IT
 Linux (or Unix) in general
 .i1
@@ -212,7 +215,7 @@ Inside the campus
 .R
 .i3e
 .i3
-All the tools you need to complete your projects are there is you don't have your own C++ toolchain
+All the tools you need to complete your projects are there if you don't have your own C++ toolchain
 .i3e 
 .SS "Parsing command line arguments"
 .IT
@@ -234,7 +237,8 @@ And is pretty easy to use (but a bit limited)
 .i2e
 .i3
 Its limitations are the main motivator behind the numerous alternatives
-.br
+.i3e
+.i3
 Programmers, expecially *nix programmers hate being told what to do!
 .i3e
 .bp
