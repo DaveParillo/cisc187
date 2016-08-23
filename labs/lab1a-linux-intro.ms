@@ -100,18 +100,22 @@ On buffy, the command:
 .CW
     curl https://codeload.github.com/DaveParillo/cisc187/zip/master > master.zip
 .R
+
 will do the trick.
-.nr step 1 1
-.IP \n[step].
-On a workstation, open a command window in the folder containing the lab source bundle from git hub.
-Type 
+
+From a workstation with scp installed, open a command window in the folder 
+containing the lab source bundle from git hub: probably \fIDownloads\fR.
+Type:
+
 .CW
-    scp master.zip #your login name#@buffy:master.zip
+    scp cisc187-master.zip #your login name#@mesa-cislinux.sdmesa.sdccd.cc.ca.us:cisc187-master.zip
 .R
+
 Replace #your login name# with your actual login name.
 
 
-.IP \n+[step].
+.nr step 1 1
+.IP \n[step].
 Close the scp window and login to buffy. Type
 .CW
     unzip master.zip
@@ -124,7 +128,7 @@ Observe the contents of the directory, then type
     make format=ascii
 .R
 
-What happened?
+Type \fCls\fR again.  What changed?
 
 
 
@@ -132,7 +136,7 @@ What happened?
 .IP \n+[step].
 Type
 .CW
-    less lab1.ms.ascii
+    less lab1a-linux-intro.ms.ascii
 .R
 What do you see?
 
@@ -151,7 +155,11 @@ Pick something you can remember - if you forget it I can't help you and it may t
 
 
 .IP \n+[step].
-Write a simple 'hello world' program and save it to 'hello.cpp'
+Write a simple 'hello world' program and save it to 'hello.cpp'.  
+If you have never edited a file on *nix before, use nano.  Start it using the file name you want to create:
+.CW 
+ nano hello.cpp
+.R
 
 .IP \n+[step].
 Compile it using the commnd
@@ -161,14 +169,14 @@ Compile it using the commnd
 What is the output?
 
 
-Does your program compile and run?
+Does your program compile and run? Fix it until it does.
 
 
 
 
 
 .IP \n+[step].
-Type \fR rm hello\fR and then compile it using the commnd
+Type \fR rm hello\fR and then compile hello again using the commnd:
 .CW
     c++ hello.cpp
 .R
