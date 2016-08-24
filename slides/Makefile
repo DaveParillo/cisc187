@@ -7,10 +7,7 @@ else
 	PAGE = -pet -T $(format) -P-l -P-p9,7.5i -ms slides.ms 
 endif
 
-SLIDES = welcome
-
-
-all: welcome
+all: welcome slides
 
 .PHONY: clean
 
@@ -22,8 +19,11 @@ grades:
 welcome:
 	make grades
 	groff $(PAGE) welcome.ms > $@.$(format)
-week1:
-	groff $(PAGE) week1.ms > $@.$(format)
+
+slides:
+	for i in `/bin/ls week*.ms`; do \
+	groff $(PAGE) $$i > $$i.$(format); \
+	done
 
 clean:
 	rm -f ../grading-criteria.tbl

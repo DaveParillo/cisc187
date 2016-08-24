@@ -51,13 +51,13 @@ void ComputerPlayer::evaluate_midgame(const std::vector<size_t>& piles)
       _take = i - tmp;
       choice = int(index);
     }
-    index++;
+    ++index;
   }
   if (choice < 0) { // did not find a playable position
     std::cerr << "Did not find a winning position\n";
     _heap = 0;
     _take = 1;                               // take 1 coin
-    for (auto i=1ul; i< piles.size(); i++) { // take from the biggest heap
+    for (auto i=1ul; i< piles.size(); ++i) { // take from the biggest heap
       if (piles[_heap] < piles[i]) {
         _heap = i;
       }
