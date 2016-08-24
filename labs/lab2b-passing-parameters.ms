@@ -1,4 +1,4 @@
-.ds CH Lab #2a
+.ds CH Lab #2b
 .TL
 Lab #2b: Passing parameters and returning values
 .so cover-page.ms

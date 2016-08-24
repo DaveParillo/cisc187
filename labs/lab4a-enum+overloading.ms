@@ -28,7 +28,7 @@ Consider the following program:
     int num = dir;
     show_direction(num);
 
-    for (int i = north; i < 8; i++) {
+    for (int i = north; i < 8; ++i) {
       show_direction(i);
     }
     return 0;

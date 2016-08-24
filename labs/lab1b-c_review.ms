@@ -20,7 +20,7 @@ Given:
    for (double price = 0.10; funds >= price; price += 0.10) 
    {
      funds -= price;
-     items++;
+     ++items;
    }
    std::cout << "bought " << items << " items.\\n";
    std::cout << "change " << funds << " cents.\\n";
@@ -83,7 +83,7 @@ If it doesn't compile or produces unintended output, what changes could be made 
   int main () {
    const std::string dudes[4] = 
                 {"paco", "fred", "connor", "shoney"};
-   for (int i = 0; i <= 4; i++) {
+   for (int i = 0; i <= 4; ++i) {
      std::cout << dudes[i] << std::endl;
    }
    return 0;
@@ -115,10 +115,10 @@ If it doesn't compile or produces unintended output, what changes could be made 
   #include <string>
 
   int main () {
-   for (int i = 0; i < 9; i++) {
+   for (int i = 0; i < 9; ++i) {
      int x = 5;
      std::string pet = "Dog - ";
-     if (i < 3) f++;
+     if (i < 3) ++f;
      else x += 2;
    }
    std::cout << pet << x << std::endl;
@@ -169,7 +169,7 @@ If it doesn't compile or produces unintended output, what changes could be made 
     std::cout << "The array " << name << " contains " 
               << size << " elements:\\n";
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size; ++i)
       std::cout << i << ": " << a[i] << std::endl;
     std::cout << std::endl;
   }
@@ -255,7 +255,7 @@ Choose from the following code snippets:
  y                   int y = 0;          t(x)   
  x < 4               int x = 1;          t.x     
  x <= 4              int y = x;   
- x < 5               x++;         
+ x < 5               ++x;         
  x += 2;             x -= 1;       
  area                int          
  base                height          
