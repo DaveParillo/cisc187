@@ -102,7 +102,7 @@ If it doesn't compile or produces unintended output, what changes could be made 
     double y = x;
     double z = 2.0 + x;
 
-    std::cout << y << " and " << z << ".\n";
+    std::cout << y << " and " << z << ".\\n";
     return 0;
   }
 .R
