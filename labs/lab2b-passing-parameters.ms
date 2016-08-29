@@ -14,10 +14,5 @@ Also find the shortest \*[c]string\*[r], the longest \*[c]string\*[r], and the l
 and last \*[c]string\*[r]s.
 
 
-How many separate functions would you use for these tasks?  Why?
-
-
-
-
 .bp
 .so reflection.ms

@@ -1,10 +1,12 @@
-.pl 7.5i
+.pl 8.0i
+.nr FM 25000
 
 .defcolor blue rgb 0.05f 0.25f 0.75f
 .defcolor red rgb 0.75f 0.15f 0.05f
 .defcolor green rgb 0.15f 0.6f 0.05f
 .defcolor grey rgb 0.6f 0.6f 0.6f
 
+.nh
 
 .ds RF %
 .fp 1 R H
@@ -33,31 +35,47 @@
 ..
 
 .de SS
-.ds LH \m[blue]\s+(16\f3\\$1\fP\s-(16\m[]
+.ds LH \m[blue]\s+(16\f3\\$*\fP\s-(16\m[]
 .bp
 .LP
 .na
 ..
 
-.de IT
-.if !"\\$1"" .ds i0 \\$1
-.if "\\$1"" .ds i0 \s-4\(bu\s+4
-.IP \\*(i0
+.de code
+\fC\m[blue]\\$*\m[]\fR
 ..
 
-.de i1
+
+.ds c \fC\m[blue]
+.ds r \m[]\fR
+
+
+.de IT
+.ds i0 \s-4\(bu\s+4
+.IP \\*(i0
+\\$*
+..
+
+.de i1s
 .RS
 .sp -.5
 .IP -
 \s-4
 ..
 
+
 .de i1e
 \s+4
 .RE
 ..
 
-.de i2
+.de i1
+.i1s
+\\$*
+.i1e
+..
+
+.de i2s
 .RS
 .RS
 .sp -.65
@@ -71,12 +89,18 @@
 .RE
 ..
 
-.de i3
+.de i2
+.i2s
+\\$*
+.i2e
+..
+
+.de i3s
 .RS
 .RS
 .RS
-.sp -.5
-.IP \s-(10\(bu\s+(10
+.sp -.65
+.IP \s-(10\[u002B]\s+(10
 \s-(10
 ..
 
@@ -85,6 +109,12 @@
 .RE
 .RE
 .RE
+..
+
+.de i3
+.i3s
+\\$*
+.i3e
 ..
 
 .am TL

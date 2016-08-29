@@ -6,6 +6,7 @@
 .defcolor grey rgb 0.6f 0.6f 0.6f
 .defcolor white rgb 1f 1f 1f
 
+.nh
 
 
 .de time_box

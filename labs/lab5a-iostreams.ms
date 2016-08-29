@@ -30,6 +30,29 @@ Read the date from \fCmydata.txt\fR and store it in a new \*[c]vector\*[r] calle
 .IP \n+[step].
 Print the data elements from \*[c]processed_points\*[r].
 
+.NH
+Refactoring: 60 minutes \fImaximum\fR
+.time_box
+.QP
+\fIRefactoring\fR refers to the process of improving a function or class.
+As originally defined by Martin Fowler and Kent Beck, is 
+.QI
+A change made to the internal structure of software to make it easier to understand and 
+cheaper to modify without changing its observable behavior \[u2014] 
+It is a disciplined way to clean up code that minimizes the chances of introducing bugs.
+.QP
+Refactor the \fClong_method.cpp\fR code small from the week 1 example.
+.RE
+.nr step 1 1
+.IP \n[step].
+Eliminate duplication by breaking main into smnaller functions.
+.IP \n+[step].
+Consider simplyfying the user interaction by replacing the \fC-1\fR exit criteria with text.
+.IP \n+[step].
+Consider replacing separate \fCnumber\fR and \fCvalue\fR primitives with a \*[c]vector\*[r].
+
+
+
 .bp
 .so reflection.ms
 
