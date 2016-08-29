@@ -29,8 +29,9 @@ Week 2
 .i1 Rather: \fIPrefer\fR x over y.
 
 .SS Prefer \fCconst\fP to \fC#define\fP
-.IT \fIEffective C++\fR item #1
-.IT There are many reasons to avoid \*[c]#define\*[r]
+.IT \fIEffective C++\fR item #2
+.i1 We also prefer \*[c]inline\*[r] and \*[c]enum\*[r]s over \fC#define\fP
+.IT There are many reasons to avoid \fC#define\fP
 .i1 Parsed by the \fIpreprocessor\fR, not the compiler
 .i1 Functionally always a string
 .i1 Code is harder to debug - defines are not in the symbol table
@@ -51,6 +52,30 @@ Prefer
 .i1 Reserved for macros (i.e. \*[c]#define\*[r])
 .i1 I am not a stickler on this issue.
 .i2 All caps for constants and enums has a long history in many languages.
+.SS Another problem with \fC#define\fP
+.IT If you use #define to create a function-like macro
+.IT Unexpected behaviors are possible
+.IT For example
+.i1 A macro to call some function \*[c]f()\*[r] with the larger of either \*[c]a\*[r] or \*[c]b\*[r]:
+.RS
+\s-4
+.CW
+  #define CALL_WITH_MAX(a,b) f((a) > (b) ? (a) : (b))
+.R
+
+and now use your "function"
+
+.CW
+  int a = 5, b = 0;
+  CALL_WITH_MAX(++a, b);      //a is incremented twice
+  CALL_WITH_MAX(++a, b + 10); //a is incremented once
+.R
+\s+4
+
+The number of times \*[c]a\*[r] is incremented, depend on how it is called. Ouch!
+.IT \*[c]#define\*[r] may seem like a shortcut
+.i1 It's not.
+.i2 Just don't.  Your future coworkers will thank you...
 .SS \s-8Use \fCconst\fP and \fCconstexpr\fP whenever possible\s+8
 .IT \fIEffective C++\fR item #21 and \fIEffective Modern C++\fR item #15 
 .IT \*[c]const\*[r] is an incredibly versatile keyword
@@ -67,7 +92,7 @@ Prefer
 .i3 Avoids making an extra (unneeded) copy
 
 .SS "Passing parameters"
-.IT In C, parameter passing default to pass by value
+.IT In C, parameter passing defaults to pass by value
 .IT Unless you specify otherwise 
 .i1 Function parameters are initialized with \fIcopies\fR of the actual arguments, 
 .i1 Function callers get back a copy of the value returned by the function
@@ -100,11 +125,14 @@ over
 .IT Namespaces are not packages
 .i1 Java packages enforce a class taxonomy
 .i1 This is \fInot\fR the case in C++
+.i1 A class taxonomy is neither required \fInor desired\fR in C++
 .IT Keep C++ namespaces simple
 
 .SS Using namespaces
 .IT What's wrong with \*[c]using namespace std;\*[r]?
 .i1 Nothing, technically.
+.i1 It was a simplification in your first semester classes
+.i2 To avoid 'burdening' you with having to care about this technical detail
 .IT \fIBUT\fR
 .i1 Realize the standard namespace is huge
 .i2 It contains thousands of classes and functions
@@ -117,13 +145,17 @@ over
 
 .SS Summary
 .IT Prefer \fCconst\fP 
-.i1 Use \fCconst\fP and \fCconstexpr\fP whenever possible
+.i1 Use \*[c]const\*[r] and \*[c]constexpr\*[r]whenever possible
+.i2 More on \*[c]const\*[r] when we get into classes over the next few weeks
 .IT Parameter passing
 .i1 Prefer pass-by-reference to pass-by-value
 .i1 \fIBUT\fR
 .i2 Don't return a reference when you must return an object
 .IT Namespaces
 .i1 Partition the global namespace
+.i1 More important for library writers than app developers
+.i1 But all code should consider their use
+.i1 Avoid polluting the global namespace is a best practice
 .i2 In other words: use namespaces - they are your friends
 .i1 Avoid \*[c]using namespace std;\*[r] 
 
