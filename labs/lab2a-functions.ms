@@ -12,7 +12,7 @@ Create 3 files: \*[c]my.h\*[r], \*[c]my.cpp\*[r], and \*[c]use.cpp\*[r].
 The header file \*[c]my.h\*[r] contains:
 .RS
 .CW
-   extern int foo();
+   extern int foo;
    void print_foo();
    void print(int);
 .R
@@ -143,7 +143,7 @@ Use the following code for function \*[c]main()\*[r]:
    }
 .R
 
-Each namespace needs to define a variable \*[c]var\*[r] and a function \*[c]print()\*[r]
+Each namespace needs to define an \*[c]int\*[r]  variable \*[c]var\*[r] and a function \*[c]print()\*[r]
 that outputs the appropriate \*[c]var\*[r] using \*[c]cout\*[r].
 
 .RE
