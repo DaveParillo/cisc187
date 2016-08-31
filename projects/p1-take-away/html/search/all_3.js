@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['evaluate_5fendgame',['evaluate_endgame',['../class_computer_player.html#ab7e07791dfb5d511aab247bd75b78360',1,'ComputerPlayer']]],
-  ['evaluate_5fmidgame',['evaluate_midgame',['../class_computer_player.html#aada4e0543317c0168e6f3738be37f3a3',1,'ComputerPlayer']]],
-  ['evaluate_5fposition',['evaluate_position',['../class_computer_player.html#ad1525975cb5340bb1598b4ddaa0b0ac3',1,'ComputerPlayer']]]
+  ['evaluate_5fendgame',['evaluate_endgame',['../classmesa_1_1_computer_player.html#a5910625d59eee2e40cd43245238ce3c0',1,'mesa::ComputerPlayer']]],
+  ['evaluate_5fmidgame',['evaluate_midgame',['../classmesa_1_1_computer_player.html#a4f5e3625076c0f1c855316b41a9677f6',1,'mesa::ComputerPlayer']]],
+  ['evaluate_5fposition',['evaluate_position',['../classmesa_1_1_computer_player.html#a7522a85dc56f94db85890ca2bfc987d4',1,'mesa::ComputerPlayer']]]
 ];

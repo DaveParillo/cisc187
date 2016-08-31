@@ -3,6 +3,9 @@ var NAVTREE =
   [ "Take-Away project", "index.html", [
     [ "Gameplay", "index.html#Gameplay", null ],
     [ "Structure", "index.html#Structure", null ],
+    [ "Namespaces", null, [
+      [ "Namespace List", "namespaces.html", "namespaces" ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

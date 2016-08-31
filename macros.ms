@@ -41,9 +41,14 @@ delim $$
 .ds circle \s+4\[u25CB]\0\s-4
 .ds checkmark \s+4\[u2713]\0\s-4
 .ds cross \s+4\[u00D7]\0\s-4
+.ds ballotbox \[br]\0\0\[br]\l'|0\[rn]'\l'|0\[ul]'
 
-.de choice
+.de radio
 .IP \*[circle]\\$1 .5i
+..
+
+.de check
+.IP \*[ballotbox]\\0\\$1 .5i
 ..
 
 .de right
