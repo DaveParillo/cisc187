@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 
+using std::cout;
 using std::string;
 using std::vector;
 
@@ -15,6 +16,7 @@ using std::vector;
  */
 int main() {
   vector<string> words;
+
   words.push_back("reach");
   words.push_back("clear");
   words.push_back("fall");
@@ -25,10 +27,15 @@ int main() {
   words.push_back("badge");
   words.push_back("four");
   words.push_back("coherent");
+  // or all on one line as:
+  // vector<string> words = {
+  //   "reach", "clear", "fall", "set", "yard",
+  //   "liquid", "wise", "badge", "four", "coherent"
+  // };
 
-  std::cout << "Word list: \n";
+  cout << "Word list: \n";
   for (string s: words) {
-    std::cout << "  " << s << ", \thas " << s.size() << " letters" << std::endl;
+    cout << "  " << s << ", \thas " << s.size() << " letters\n";
   }
 
   return 0;
