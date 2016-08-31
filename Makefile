@@ -1,6 +1,6 @@
 
 
-all: grades syllabus template 
+all: grades syllabus 
 
 .PHONY: clean
 

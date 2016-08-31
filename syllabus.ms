@@ -92,6 +92,8 @@ Use C++ templates to create extensible, flexible classes.
 Apply the Standard Template Library to solve real-world software problems.
 .IP \n+[step].
 Use C++ to create an Abstract Data Type as a solution to a software problem.
+.IP \n+[step].
+Understand from a C++ perspective, the control of program flow with a looping structure.
 .RE
 .SH
 Course Objectives
