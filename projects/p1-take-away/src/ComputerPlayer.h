@@ -31,7 +31,8 @@ namespace mesa {
        *
        * @return The heap finally chosen by the computer
        */
-      size_t which_heap() const;
+      size_t which_heap() const { return _heap; }
+
       /**
        * Respond to the game query "How many?" coins to pick.
        * 
@@ -39,7 +40,7 @@ namespace mesa {
        * 
        * @return The number of coins finally chosen by the computer
        */
-      size_t how_many() const;
+      size_t how_many() const { return _take; }
 
     private:
       /**

@@ -24,15 +24,6 @@ namespace mesa {
     assert(_take > 0);
   }
 
-  size_t ComputerPlayer::which_heap() const
-  {
-    return _heap;
-  }
-  size_t ComputerPlayer::how_many() const
-  {
-    return _take;
-  }
-
   void ComputerPlayer::evaluate_midgame(const std::vector<size_t>& piles)
   {
     auto sum = 0ul;   // nim sum of all heaps
@@ -67,7 +58,6 @@ namespace mesa {
     }
   }
 
-
   void ComputerPlayer::evaluate_endgame(const std::vector<size_t>& piles)
   {
     int sum = int(piles[0] - piles[1]);
@@ -81,7 +71,6 @@ namespace mesa {
       _take = size_t(-sum);
     }
   }
-
 }
 
 

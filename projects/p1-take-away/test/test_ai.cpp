@@ -5,6 +5,7 @@
 
 #include "../src/ComputerPlayer.h"
 
+using namespace mesa;
 
 BOOST_AUTO_TEST_CASE( ai_one_pile_1 )
 {
