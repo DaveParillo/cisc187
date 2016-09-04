@@ -5,61 +5,13 @@ Lab #3a: ADT's and classes
 
 .bp
 .NH
-Evolving the \*[c]Date\m[]\fB class: 60 minutes \fImaximum\fR
-.time_box
-.QP
-Using the evolving sequence of the 
-.code Date
-class from Chapter 9, \*[sect]9.1 - \*[sect]9.4, answer the following:
-.RS
-.nr step 1 1
-.IP \n[step].
-What are the two parts of a class, as described in this chapter?
-
-
-
-
-
-.IP \n+[step].
-What is the difference between the interface and the implementation in a class?
-
-
-
-
-
-.IP \n+[step].
-What are the issues with the original \*[c]Date struct\*[r] presented in the chapter?
-
-
-
-
-
-
-.IP \n+[step].
-What is an invariant?  Give some examples.
-What are the invariants of the \*[c]Date\*[r] class?
-
-
-
-
-
-.IP \n+[step].
-When should functions be put in the class definition and when should they be defined
-outside of the class?  Why?
-
-
-
-
-
-.IP \n+[step].
-When is it acceptable to use a \*[c]struct\*[r]?  When is it not acceptable?
-
-
-.RE
-.bp
-.NH
 Shape classes: 60 minutes \fImaximum\fR
 .time_box
+.QP
+The goal is to have each team member work on a different part of this lab and 
+then bring them together to get them working as a single program at the end.
+.SH
+Manager
 .QP
 Design and implement a \*[c]Circle\*[r] class.  
 It should store two values: \*[c]label\*[r] and \*[c]radius\*[r], 
@@ -78,7 +30,9 @@ Provide functions to return the radius and label.
 .IP \n+[step].
 Provide methods to change the label, radius and calculate the area and circumfrence.
 .RE
-
+.SH
+Reflector
+.QP
 Design and implement a \*[c]Rectangle\*[r] class.  
 It should store three values: \*[c]label\*[r], \*[c]height\*[r], and \*[c]width\*[r], 
 where \*[c]label\*[r] is a \*[c]string\*[r] 
@@ -98,17 +52,32 @@ Provide methods to change the label and dimensions.
 .IP \n+[step].
 Provide functions to calculate the area and perimeter.
 .RE
+.SH
+Speaker
+.QP
+Create a test program for the two classes.
+
+Implement a main that creates two \*[c]vector\*[r]s, a \*[c]vector<Circle>\*[r]
+and a \*[c]vector<Rectangle>\*[r].  Put at least 3 instances in each.
+Initialize them with data and display the label and area for each.
+For the circles, display the radius and circumference.
+For the rectangles, display the height and width and perimeter.
+
+The only lines in \*[c]main()\*[r] should be 1 or two lines calling your test functions.
+.SH 
+Summary questions for everyone
+.RS
+.nr step 1 1
+.IP \n[step].
+How are your shape classes similar?  
 
 
-How are these classes similar?  
 
 
-
-
-
-
-Using tools covered so far, what could be done to reduce the duplication?
-
+.IP \n+[step].
+Using tools covered so far, what could be done to reduce the duplication? 
+Why can't we have just 1 test vector?
+.RE
 
 .bp
 .so reflection.ms
