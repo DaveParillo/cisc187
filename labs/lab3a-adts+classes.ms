@@ -1,9 +1,7 @@
 .ds CH Lab #3a
+.ds CF -%-
 .TL
 Lab #3a: ADT's and classes
-.so cover-page.ms
-
-.bp
 .NH
 Shape classes: 60 minutes \fImaximum\fR
 .time_box
@@ -11,7 +9,7 @@ Shape classes: 60 minutes \fImaximum\fR
 The goal is to have each team member work on a different part of this lab and 
 then bring them together to get them working as a single program at the end.
 .SH
-Manager
+Manager:
 .QP
 Design and implement a \*[c]Circle\*[r] class.  
 It should store two values: \*[c]label\*[r] and \*[c]radius\*[r], 
@@ -31,7 +29,7 @@ Provide functions to return the radius and label.
 Provide methods to change the label, radius and calculate the area and circumfrence.
 .RE
 .SH
-Reflector
+Speaker/Reflector:
 .QP
 Design and implement a \*[c]Rectangle\*[r] class.  
 It should store three values: \*[c]label\*[r], \*[c]height\*[r], and \*[c]width\*[r], 
@@ -53,7 +51,7 @@ Provide methods to change the label and dimensions.
 Provide functions to calculate the area and perimeter.
 .RE
 .SH
-Speaker
+Recorder:
 .QP
 Create a test program for the two classes.
 
@@ -64,6 +62,7 @@ For the circles, display the radius and circumference.
 For the rectangles, display the height and width and perimeter.
 
 The only lines in \*[c]main()\*[r] should be 1 or two lines calling your test functions.
+.bp
 .SH 
 Summary questions for everyone
 .RS
@@ -79,7 +78,6 @@ Using tools covered so far, what could be done to reduce the duplication?
 Why can't we have just 1 test vector?
 .RE
 
-.bp
+
+
 .so reflection.ms
-
-

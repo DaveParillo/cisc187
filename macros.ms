@@ -27,6 +27,14 @@ delim $$
 .SH 
 \s+4\m[blue]\\$*\m[]\s-4
 ..
+.de h2
+.SH 
+\s+2\m[blue]\\$*\m[]\s-2
+..
+.de h3
+.SH 
+\m[blue]\\$*\m[]
+..
 
 
 .de code
