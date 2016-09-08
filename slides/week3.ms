@@ -1,7 +1,9 @@
 
 .TL
 .gcolor blue
-Functions
+Introduction to 
+
+Data Structures and Classes 
 .gcolor
 .LP
 .ce 1
