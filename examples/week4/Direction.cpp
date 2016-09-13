@@ -4,7 +4,7 @@
 #include <string>
 
 namespace mesa {
-  const std::string& direction_to_string(Direction dir)
+  const std::string direction_to_string(Direction dir)
   {
     std::map<Direction, const std::string> dirs = 
     {

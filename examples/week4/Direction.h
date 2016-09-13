@@ -16,7 +16,7 @@ namespace mesa {
    *
    *     cout << "Direction is " << direction_to_string(Direction::SOUTH) << endl;
    */
-  const std::string& direction_to_string(Direction type);
+  const std::string direction_to_string(Direction type);
 
 
 
