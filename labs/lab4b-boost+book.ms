@@ -64,9 +64,7 @@ Use all CAPS for the enum members of Month
 .IP \n+[step].
 Place the date class in the \*[c]mesa\*[r] namespace and save the interface in \*[c]Date.h\*[r].
 .IP \n+[step].
-Omit the functions to increment a day, month or year.
-.IP \n+[step].
-Implement a method to evaluate wheter a prodided year is a leap year.
+Implement a method to evaluate whether a provided year is a leap year.
 .IP \n+[step].
 Implement a method to convert an \*[c]int\*[r] primitive into a \*[c]mesa::Month\*[r].
 .RE
