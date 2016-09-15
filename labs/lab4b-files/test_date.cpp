@@ -9,18 +9,17 @@
 BOOST_AUTO_TEST_CASE( to_month )
 {
   BOOST_CHECK_EQUAL(static_cast<int>(mesa::to_month(1)), static_cast<int>(mesa::Month::JAN));
-  BOOST_CHECK_EQUAL(static_cast<int>(mesa::to_month(2)), static_cast<int>(mesa::Month::FEB));
-  BOOST_CHECK_EQUAL(static_cast<int>(mesa::to_month(3)), static_cast<int>(mesa::Month::MAR));
-  BOOST_CHECK_EQUAL(static_cast<int>(mesa::to_month(4)), static_cast<int>(mesa::Month::APR));
-  BOOST_CHECK_EQUAL(static_cast<int>(mesa::to_month(5)), static_cast<int>(mesa::Month::MAY));
-  BOOST_CHECK_EQUAL(static_cast<int>(mesa::to_month(6)), static_cast<int>(mesa::Month::JUN));
-  BOOST_CHECK_EQUAL(static_cast<int>(mesa::to_month(7)), static_cast<int>(mesa::Month::JUL));
-  BOOST_CHECK_EQUAL(static_cast<int>(mesa::to_month(8)), static_cast<int>(mesa::Month::AUG));
-  BOOST_CHECK_EQUAL(static_cast<int>(mesa::to_month(9)), static_cast<int>(mesa::Month::SEP));
-  BOOST_CHECK_EQUAL(static_cast<int>(mesa::to_month(10)), static_cast<int>(mesa::Month::OCT));
-  BOOST_CHECK_EQUAL(static_cast<int>(mesa::to_month(11)), static_cast<int>(mesa::Month::NOV));
-  BOOST_CHECK_EQUAL(static_cast<int>(mesa::to_month(12)), static_cast<int>(mesa::Month::DEC));
-  BOOST_CHECK_EQUAL(static_cast<int>(mesa::to_month(12)), static_cast<int>(mesa::Month::DEC));
+  BOOST_CHECK_EQUAL(int(mesa::to_month(2)),  int(mesa::Month::FEB));
+  BOOST_CHECK_EQUAL(int(mesa::to_month(3)),  int(mesa::Month::MAR));
+  BOOST_CHECK_EQUAL(int(mesa::to_month(4)),  int(mesa::Month::APR));
+  BOOST_CHECK_EQUAL(int(mesa::to_month(5)),  int(mesa::Month::MAY));
+  BOOST_CHECK_EQUAL(int(mesa::to_month(6)),  int(mesa::Month::JUN));
+  BOOST_CHECK_EQUAL(int(mesa::to_month(7)),  int(mesa::Month::JUL));
+  BOOST_CHECK_EQUAL(int(mesa::to_month(8)),  int(mesa::Month::AUG));
+  BOOST_CHECK_EQUAL(int(mesa::to_month(9)),  int(mesa::Month::SEP));
+  BOOST_CHECK_EQUAL(int(mesa::to_month(10)), int(mesa::Month::OCT));
+  BOOST_CHECK_EQUAL(int(mesa::to_month(11)), int(mesa::Month::NOV));
+  BOOST_CHECK_EQUAL(int(mesa::to_month(12)), int(mesa::Month::DEC));
   BOOST_CHECK_THROW (mesa::to_month(0), std::invalid_argument);
   BOOST_CHECK_THROW (mesa::to_month(13), std::invalid_argument);
 }
@@ -35,7 +34,7 @@ BOOST_AUTO_TEST_CASE( leapyear )
 {
   BOOST_CHECK(mesa::is_leapyear(1976) == true);
   BOOST_CHECK(mesa::is_leapyear(1965) == false);
-  BOOST_CHECK(mesa::is_leapyear(2000) == false);
+  BOOST_CHECK(mesa::is_leapyear(2000) == true);
 }
 BOOST_AUTO_TEST_CASE( simple_date )
 {
