@@ -12,7 +12,7 @@ Week 4
 .IT Member or Non-member?
 .IT Common operators to overload
 .SS Why bother?
-.IT When we say \fIoperator overlaod\fR in C++
+.IT When we say \fIoperator overload\fR in C++
 .i1 We \fIdon't\fR mean \fCMyClass.subtract()\fR
 .IT We want to be able to write code like
 .RS
