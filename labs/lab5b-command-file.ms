@@ -19,11 +19,11 @@ Create a class \*[c]Sequence\*[r]. This class should contain 1 private data memb
 Save the following text in a file \fCcommands.txt\fR:
 .RS
 .CW
-add abc
-print
-insert 1 XYZ
-add 123
-print
+  add abc
+  print
+  insert 1 XYZ
+  add 123
+  print
 .R
 .RE
 .IP \n+[step].
@@ -41,14 +41,30 @@ The \*[c]print\*[r] command should send the current value of the string in \*[c]
 .IP \(bu 
 \fBinsert \fIpos string\fR 
 .br
-The \*[c]insert\*[r] command should insert the provided value to the string in \*[c]Sequence\*[r] at the requested position. Assume positions in the string are 0 based.  That is, position 0 is the first position in the string, so executing \*[c]insert 0 X\*[r] on a string \*[c]abc\*[r] would result in \*[c]Xabc\*[r].
+The \*[c]insert\*[r] command should insert the provided value to the string in \*[c]Sequence\*[r] at the requested position. Assume positions in the string are 0 based.  That is, position 0 is the first position in the string, so executing \*[c]insert 0 X\*[r] on a string \*[c]abc\*[r] would result in \*[c]Xabc\*[r]. Hint: std::string has insert and append functions.
 .RE
 
 When complete, the program should produce:
 
 .RS
-abc
-aXYZbc123
+.CW
+ abc
+ aXYZbc123
+.R
+.RE
+
+.B Gameplan
+.RS
+.IP a.
+Create a \fIsimple\fR \fCSequence\fR class with the required API (print, insert, add)
+.IP b.
+Create an \*[c]ifstream\*[r] to read the file.
+.IP c.
+While not at and of file, read an entire line and process it.
+.IP d.
+Create a function to operate on the \fCSequence\fR object, 
+based on the contents of the line.
+Hint: std::istringstream can be used to create a input stream from a string.
 .RE
 .RE
 .bp
