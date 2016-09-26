@@ -10,7 +10,7 @@ namespace mesa
    * 
    * Every message must define a single LogLevel.
    * The log level controls when the message is printed.
-   * Messages equal to or grater in severity to the current log level are printed.
+   * Messages equal to or greater in severity to the current log level are printed.
    */
   enum class LogLevel 
   {
