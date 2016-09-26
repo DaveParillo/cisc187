@@ -1,0 +1,39 @@
+# Basic insert
+insert 0 DNA gaagat
+print   0
+transcribe 0     
+print   0
+
+insert 5 dna acgt
+PRINT
+# Check invalid insert
+Insert 3   DNA  cup
+Insert 3   RNA  cua
+print
+remove 3
+print
+
+copy 5 6
+print
+transcribe 5
+print
+
+insert 7 dna aaacccgggttt
+print 7
+clip 7 6 3
+print 7
+
+insert 2 dna cccttt
+insert 3 dna aaaggg
+print 2
+print 3
+swap 2 3 3 3
+print 2
+print 3
+
+#clip 3 4
+#print
+#print
+#insert 8 dna acgt
+#transcribe -1
+#remove 8
