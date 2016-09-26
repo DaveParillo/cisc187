@@ -20,7 +20,7 @@
 #
 ##############################################################################
 SHELL=bash
-CC = clang++
+CC = c++
 
 # Basic configuration variables.
 config=debug
@@ -31,7 +31,7 @@ module_obj_dir=obj
 module_bin_dir=.
 
 ifeq ($(config),debug)
-	CXXFLAGS = -g -Weverything -c -Wextra -pedantic  -std=c++11 -Wno-c++98-compat -Wno-padded
+	CXXFLAGS = -g -Wall -c -Wextra -pedantic  -std=c++11 -Wno-c++98-compat -Wno-padded
 else
 	CXXFLAGS = -Wall -c -Wextra -pedantic -std=c++11
 endif
