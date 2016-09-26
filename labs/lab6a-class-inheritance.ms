@@ -23,6 +23,7 @@ Given the following classes:
   class Canine : public Animal {
     public:
     void roam() {}
+    void eat() {}
   };
 
 
@@ -34,19 +35,23 @@ Given the following classes:
   };
 .R
 
-And given a new wolf object:
+And given: 
 .CW
-  Wolf w;
+  int main () {
+    Wolf w;
+
+    w.make_noise();
+    w.roam();
+    w.eat();
+    w.sleep();
+
+    return 0;
+  }
 .R
 
-Identify which of the versions of the methods called by \fCWolf w\fR are invoked:
-.CW
-  w.make_noise();
-  w.roam();
-  w.eat();
-  w.sleep();
-.R
+Identify which of the versions of the methods called by \fCWolf w\fR are invoked.
 .RE
+
 .bp
 .IP \n+[step].
 Given the following classes:

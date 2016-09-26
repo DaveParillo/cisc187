@@ -4,6 +4,15 @@ Lab #4b:
 .code Boost::Test
 .B
 and Book software lab
+
+.SH
+TODO
+.LP
+This lab needs to provide stubs for all the classes in advance, 
+so that it compiles, but tests fail.
+
+
+
 .so cover-page.ms
 
 
