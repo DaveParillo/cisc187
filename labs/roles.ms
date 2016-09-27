@@ -18,6 +18,6 @@ _
 \fBManager\fP: keeps track of time and ensures
 everyone contributes appropriately. !
 _
-\fBReflector\fP: considers how the team could work !
-and learn more effectively. !
+\fBQuestioner\fP: question actions and decisions !
+made by the team.  !
 .TE

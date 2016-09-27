@@ -10,7 +10,7 @@ Week 6
 .IT The \fIIS-A\fR relationship
 .IT Object composition
 .i1 The \fIHAS-A\fR relationship
-.IT Multiple Interitance
+.IT Multiple Inheritance
 .IT Design Considerations
 .SS Ensure inheritance models \fIIS-A\fP
 .IT Effective C++ #35: Make sure public inheritance models "IS-A"
@@ -210,4 +210,4 @@ arrow to C.s from D.n
 .IT Composition means means \fIHAS-A\fR
 .IT Use pure virtual functions to define \fIinterfaces\fR
 .IT Use simple virtual functions to define \fIinterfaces\fR \fBand\fR a \fIdefault implementation\fR
-.IT Bases classes with no-virtual functions are \fIdefining a mandatory implementation\fR
+.IT Bases classes with non-virtual functions are \fIdefining a mandatory implementation\fR

@@ -22,6 +22,9 @@ Everyone should perform all of these steps individually in order to familiarize 
 but you are free to help eachother as you go.
 
 .so roles.tbl
+
+Everyone needs to consider how the team could work together more effectively.
+
 .LP
 Reminders:
 .RS
