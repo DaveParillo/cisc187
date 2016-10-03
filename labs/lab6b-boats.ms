@@ -45,7 +45,7 @@ Choose from the following code snippets:
     ________
       Boat() : ________
       {}
-      ________ ~________();
+      ________ ~________(){}
 
       void ________(int length) {
         ________ = ________;
@@ -68,7 +68,7 @@ Choose from the following code snippets:
 
   class SailBoat : ________ Boat {
     public:
-      virtual ~________();
+      virtual ~________(){}
       ________ move() ________ ________ {
         ________ << " ________ ";
 
@@ -78,7 +78,7 @@ Choose from the following code snippets:
 
   class RowBoat : ________ ________ {
     public:
-      virtual ~________();
+      virtual ~________(){}
       void row() ________ {
         std::cout << " ________ ";
 
