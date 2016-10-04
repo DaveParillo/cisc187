@@ -7,10 +7,35 @@ Pointers
 .ce 1
 Week 7
 .SS Overview
+.IT Constant pointers
 .IT Destroying memory
 .IT \*[c]#include <memory>\*[r] 
 .IT Pointers to \*[c]void*\*[r]
 .IT Casts
+.SS Constant pointers
+.IT Pointers can be declared \*[c]const\*[r] same as any primitive or class
+.IT Where const appears controls what is constant
+.i1s
+Same as \*[c]const\*[r] member functions
+\s-4
+.CW
+    int x;
+          int *       p1 = &x;  // non-const pointer to non-const int
+    const int *       p2 = &x;  // non-const pointer to const int
+          int * const p3 = &x;  // const pointer to non-const int
+    const int * const p4 = &x;  // const pointer to const int 
+
+.R
+\s+4
+.i1e
+.i1 In p1, either the pointer or the value being pointed to can change
+
+.i1 For p2, the pointer can be reassigned, but x cannot be modified
+
+.i1 For p3, the pointer can't be reassigned, but x can change
+
+.i1 In p4, both are held constant
+
 .SS Destroying memory
 .IT Some noticed on Monday how easy it is to incorrectly cleanup 
 pointers even when they are all in a single function
@@ -67,8 +92,9 @@ the old C \*[c]malloc\*[r] and \*[c]free\*[r]
 .IT Prefer \*[c]unique_ptr\*[r] and \*[c]shared_ptr\*[r] instead
 .SS Using unique_ptr
 .IT Unique pointers \fIown\fR their pointers.
+.IT Use a \*[c]unique_ptr\*[r] like a local variable and it automatically destroys its pointer
 .i1s
-Use a unique_ptr like a local variable and it automatically destroys its pointer
+Given:
 .CW
   #include <iostream>
   #include <memory>
@@ -84,24 +110,30 @@ Use a unique_ptr like a local variable and it automatically destroys its pointer
   {
     std::cout << "f(const Foo&)\n";
   }
-.bp     
+.bp
+.R
+.IT Use our Foo safely
+.i1s
+Create a \*[c]unique_ptr\*[r] of Foo
+.CW
+\s-4
   int main()
   {
-    std::unique_ptr<Foo> p1(new Foo);  // p1 owns Foo
+    std::unique_ptr<Foo> p1(new Foo);          // p1 owns Foo
     if (p1) p1->bar();
      
-    {
+    {                                          // a scope for p2
       std::unique_ptr<Foo> p2(std::move(p1));  // now p2 owns Foo
       f(*p2);
      
-      p1 = std::move(p2);  // ownership returns to p1
-      std::cout << "destroying p2...\n";
-    }
+      p1 = std::move(p2);                      // now p1 owns Foo
+    }                                          // p2 scope ends
+    std::cout << "destroyed p2...\n";
      
     if (p1) p1->bar();
-    // Foo instance is destroyed when p1 goes out of scope
-  }
+  }                           // Foo destroyed when p1 scope ends
 .R
+.i1e
 .SS void pointers
 .IT \*[c]void*\*[r] means
 .i1 Pointer to some memory the compiler doesn't know the type of
