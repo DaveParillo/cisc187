@@ -157,7 +157,7 @@ There are no objects of type void
 .CW
   int*    i  = new int{5}; 
   double* x  = new double[10];
-  int*    j  = i;             // error
+  int*    j  = i;             // OK
   void*   p1 = i;             // OK
   void*   p2 = d;             // OK
   int*    i2 = p1;            // error

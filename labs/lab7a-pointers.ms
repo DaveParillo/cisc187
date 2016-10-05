@@ -64,7 +64,7 @@ Print out the value of \fBp1\fR and of the \*[c]int\*[r] it points to.
 Allocate an array of seven \*[c]int\*[r]s; initialize it to 1, 2, 4, 8, etc.; 
 and assign its address to a variable \fBp2\fR.
 .IP \n+[step].
-Print out the value of \fBp1\fR and of the \*[c]int\*[r] it points to.
+Print out the value of \fBp2\fR and of the \*[c]int\*[r] it points to.
 .IP \n+[step].
 Declare an int* called \fBp3\fR and initialize it with \fBp2\fR.
 .IP \n+[step].
