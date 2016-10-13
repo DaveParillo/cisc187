@@ -90,7 +90,7 @@ must \fIalways\fR be member functions.
 .i1 Assignment
 .RS
 .CW
-  Foo& Foo::operator=(Foo rhs)
+  Foo& Foo::operator=(const Foo& rhs)
   {
     std::swap(rhs);
     return *this;
