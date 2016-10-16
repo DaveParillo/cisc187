@@ -1,6 +1,6 @@
 
 //
-// This is example code from Chapter 18.6.3 "Palindromes using pointers" of
+// This is example code from Chapter 18.7.3 "Palindromes using pointers" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 

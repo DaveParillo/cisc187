@@ -1,6 +1,6 @@
 
 //
-// This is example code from Chapter 18.5 "Arrays" of
+// This is example code from Chapter 18.6 "Arrays" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 

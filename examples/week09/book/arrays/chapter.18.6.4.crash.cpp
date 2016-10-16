@@ -1,6 +1,6 @@
 
 //
-// This is example code from Chapter 18.5.4 "Pointer problems" of
+// This is example code from Chapter 18.6.4 "Pointer problems" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 

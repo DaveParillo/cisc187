@@ -1,6 +1,6 @@
 
 //
-// This is example code from Chapter 18.5.3 "Array initialization" of
+// This is example code from Chapter 18.6.3 "Array initialization" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 

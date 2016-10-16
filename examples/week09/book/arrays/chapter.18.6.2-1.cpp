@@ -1,6 +1,6 @@
 
 //
-// This is example code from Chapter 18.5.2 "Pointers and arrays" of
+// This is example code from Chapter 18.6.2 "Pointers and arrays" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 
@@ -12,10 +12,10 @@ char* p = ch; // Here p is initialized to &ch[0].
 
 //------------------------------------------------------------------------------
 
-int strlen(const char a[])    // similar to the standard-library strlen()
+int strlen(const char* p)    // similar to the standard-library strlen()
 {
     int count = 0;
-    while (a[count]) { ++count; }
+    while (*p) { ++count; ++p; }
     return count;
 }
 

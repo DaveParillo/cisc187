@@ -1,6 +1,6 @@
 
 //
-// This is example code from Chapter 18.6.3 "Palindromes using pointers" of
+// This is example code from Chapter 18.7.2 "Palindromes using arrays" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 
@@ -11,13 +11,15 @@ using namespace std;
 
 //------------------------------------------------------------------------------
 
-bool is_palindrome(const char* first, const char* last)
-// first points to the first letter, last to the last letter
+bool is_palindrome(const char s[], int n)
+// s points to the first character of an array of n characters
 {
-    while (first < last) {        // we  haven't reached the middle
-        if (*first!=*last) return false;
-        ++first;    // move forward
-        --last;        // move backwards
+    int first = 0;         // index of first letter
+    int last = n-1;        // index of last letter
+    while (first < last) { // we haven't reached the middle
+        if (s[first]!=s[last]) return false;
+        ++first;           // move forward
+        --last;            // move backwards
     }
     return true;
 }
@@ -29,7 +31,7 @@ istream& read_word(istream& is, char* buffer, int max)
 {
     is.width(max);         // read at most max-1 characters in the next >>
     is >> buffer;          // read whitespace terminated word,
-    // add zero after the last character read into p
+                           // add zero after the last character read into p
     return is;
 }
 
@@ -41,7 +43,7 @@ int main()
     char s[max];
     while (read_word(cin,s,max)) { 
         cout << s << " is";
-        if (!is_palindrome(&s[0],&s[strlen(s)-1])) cout << " not";
+        if (!is_palindrome(s,strlen(s))) cout << " not";
         cout << " a palindrome\n";
     }
 }

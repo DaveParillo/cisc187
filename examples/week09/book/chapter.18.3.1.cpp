@@ -1,63 +1,58 @@
 
 //
-// This is example code from Chapter 18.3.1 "Debugging constructors and destructors" of
+// This is example code from Chapter 18.2.1 "Copy constructors" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 
 #include <iostream>
-#include <string>
-#include <vector>
 
-using namespace std;
+using std::cout;
 
 //------------------------------------------------------------------------------
 
-struct X {    // simple test class
-    int val;
+class vector {
+    int sz;
+    double* elem;
+    void copy(const vector& arg);                 // copy elements from arg into *elem
+public:
+    vector(int s) :sz(s), elem(new double[s]) { } // constructor
+    vector(const vector&) ;                       // copy constructor: define copy
+    ~vector() { delete[] elem; }                  // destructor
 
-    void out(const string& s)
-    { cerr << this <<  "->" << s << ": " << val << "\n"; }
+    int size() const { return sz; }               // the current size
 
-    X(){ out("X()"); val=0; }
-    X(int v) { out( "X(int)"); val=v; }
-    X(const X& x){ out("X(X&) "); val=x.val; }
-    X& operator=(const X& a) { out("X::operator=()"); val=a.val; return *this; }
-    ~X() { out("~X()"); }
+    double get(int n) { return elem[n]; }         // access: read
+    void set(int n, double v) { elem[n]=v; }      // access: write
+    // ...
 };
 
 //------------------------------------------------------------------------------
 
-X glob(2);            // a global variable
+void vector::copy(const vector& arg)
+// copy elements [0:arg.sz-1]
+{
+    for (int i = 0; i<arg.sz; ++i) elem[i] = arg.elem[i];
+}
 
-X copy(X a) { return a; }
+//------------------------------------------------------------------------------
 
-X copy2(X a) { X aa = a; return aa; }
-
-X& ref_to(X& a) { return a; }
-
-X* make(int i) { X a(i); return new X(a); }
-
-struct XX { X a; X b; };
+vector:: vector(const vector& arg)
+// allocate elements, then initialize them by copying
+    :sz(arg.sz), elem(new double[arg.sz])
+{
+    copy(arg);
+}
 
 //------------------------------------------------------------------------------
 
 int main()
 {
-    X loc(4);        // local variable
-    X loc2 = loc;
-    loc = X(5);
-    loc2 = copy(loc); 
-    loc2 = copy2(loc);
-    X loc3(6);
-    X& r = ref_to(loc3);
-    delete make(7); 
-    delete make(8);
-    vector<X> v(4); 
-    XX loc4;
-    X* p = new X(9);    // an X on the free store
-    delete p;
-    X* pp = new X[5];    // an array of Xs on the free store
-    delete[] pp;
+    vector v(3);
+    vector v2 = v;
+
+    v.set(1,99);         // set v[1] to 99
+    v2.set(0,88);        // set v2[0] to 88
+    cout << v.get(0) << ' ' << v2.get(1); 
 }
 
 //------------------------------------------------------------------------------

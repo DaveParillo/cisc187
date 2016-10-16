@@ -1,38 +1,42 @@
 
 //
-// This is example code from Chapter 18.6.1 "Palindromes using string" of
+// This is example code from Chapter 18.6.1 "Pointers to array elements" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 
 #include <iostream>
-#include <string>
 
 using namespace std;
 
-//------------------------------------------------------------------------------
-
-bool is_palindrome(const string& s)
-{
-    int first = 0;            // index of first letter
-    int last = s.length()-1;  // index of last letter
-    while (first < last) {    // we haven't reached the middle
-        if (s[first]!=s[last]) return false;
-        ++first;              // move forward
-        --last;               // move backwards
-    }
-    return true;
-}
 
 //------------------------------------------------------------------------------
 
 int main()
 {
-    string s;
-    while (cin>>s) {
-        cout << s << " is";
-        if (!is_palindrome(s)) cout << " not";
-        cout << " a palindrome\n";
-    }
+    double ad[10];
+    double* p = &ad[5]; // point to ad[5]
+
+    *p =7;
+    p[2] = 6;
+    p[-3] = 9;
+
+    p += 2;             // move p two elements to the right
+    p -= 5;             // move p five elements to the left
+    p += 1000;          // insane: p points into an array with just 10 elements
+    double d = *p;      // illegal: probably a bad value
+                        //            (definitely an unpredictable value)
+    *p = 12.34;         // illegal: probably scrambles some unknown data
+
+    for (double* p = &ad[0]; p<&ad[10]; ++p) cout << *p << '\n';
+
+    // Or backwards:
+
+    for (double* p = &ad[9]; p>=&ad[0]; --p) cout << *p << '\n';
+
+    double* p1 = &ad[0];
+    double* p2 = p1+7;
+    double* p3 = &p1[7];
+    if (p2 != p3) cout << "impossible!\n";
 }
 
 //------------------------------------------------------------------------------

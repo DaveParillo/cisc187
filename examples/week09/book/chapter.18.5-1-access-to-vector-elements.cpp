@@ -1,6 +1,6 @@
 
 //
-// This is example code from Chapter 18.4 "Access to vector elements" of
+// This is example code from Chapter 18.5 "Access to vector elements" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 

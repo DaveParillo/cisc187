@@ -1,6 +1,6 @@
 
 //
-// This is example code from Chapter 18.5.2 "Pointers and arrays" of
+// This is example code from Chapter 18.6.2 "Pointers and arrays" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 
