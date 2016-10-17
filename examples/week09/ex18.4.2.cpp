@@ -24,7 +24,7 @@ struct X {    // simple test class
       cerr << s << ": " << val << ' '; 
       if (lf) cerr << '\n';
     }
-
+    // default constructor
     X()
     { 
       out("X()", false); 
@@ -32,6 +32,7 @@ struct X {    // simple test class
       out("X() after", true); 
     }
 
+    // one arg constructor
     X(int v) 
     { 
       out( "X(int)", false); 
@@ -39,11 +40,20 @@ struct X {    // simple test class
       out( "X(int) after", true); 
     }
 
+    // copy constructor
     X(const X& x)
     { 
       out("X(X&) ", false); 
       val=x.val; 
       out( "X(X&) after", true); 
+    }
+    // move constructor
+    X(X&& x)
+    { 
+      out("X(X&&) ", false); 
+      val=x.val; 
+      x.val = 0; 
+      out( "X(X&&) after", true); 
     }
 
     X& operator=(const X& a) 
