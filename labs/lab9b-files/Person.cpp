@@ -10,12 +10,12 @@ Person::Person(const Person& p)
 {
 }
 
-Person& Person::operator=(const Person* p)
+Person& Person::operator=(const Person& p)
 {
 }
 
 
-std::ostream& operator<<(std::ostream& os, Person*& p)
+std::ostream& operator<<(std::ostream& os, Person& p)
 {
 }
 

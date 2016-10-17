@@ -35,7 +35,8 @@ for example:
   deleting Bob in Alice
 .R
 .IP c.
-Implement the Person copy constructor so that the program produces something similar to:
+Implement the Person copy constructor and copy assignment operator.
+When complete, the program should produce something similar to:
 .CW
  Copy 1: 
  Original: Alice	Bob	Carol	 	Copy: Alice	Bob	Carol	  
@@ -56,8 +57,12 @@ Implement the Person copy constructor so that the program produces something sim
 When finished, submit the completed source code using the turnitin script,
 or zip the source directory and upload to Blackboard.
 .RE
-
-
+.IP \n+[step].
+In \fCmain\fR, add \*[c]delete\*[r] statements for \fCPerson* b\fR and \fCPerson* c\fR.
+.br
+Compile and run this changed version.
+.br
+Observe the results and explain.
 .RE
 .bp
 .so reflection2.ms
