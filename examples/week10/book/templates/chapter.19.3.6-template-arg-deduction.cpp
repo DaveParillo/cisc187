@@ -1,6 +1,6 @@
 
 //
-// This is example code from Chapter 19.3.5 "Template argument deduction" of
+// This is example code from Chapter 19.3.6 "Template argument deduction" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 

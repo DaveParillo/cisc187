@@ -4,7 +4,7 @@
 class Robot {
 
   public:
-    virtual ~Robot();
+    virtual ~Robot() {}
 
     virtual int charge_remaining() const = 0;
 };

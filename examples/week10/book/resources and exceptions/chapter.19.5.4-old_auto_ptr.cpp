@@ -3,6 +3,8 @@
 // This is example code from Chapter 19.5.4 "Auto_ptr" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
+// This is from the first edition of the book.
+// The second edition now covers unique_ptr
 
 #include <iostream>
 #include <memory>

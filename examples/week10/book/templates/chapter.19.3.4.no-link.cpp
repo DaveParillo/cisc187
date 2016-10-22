@@ -1,6 +1,6 @@
 
 //
-// This is example code from Chapter 19.3.3 "Containers and inheritance" of
+// This is example code from Chapter 19.3.4 "Containers and inheritance" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 

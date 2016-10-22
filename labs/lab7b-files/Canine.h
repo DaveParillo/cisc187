@@ -9,8 +9,10 @@
 class Canine : public Animal {
 
   public:
-    ~Canine();
-    virtual std::string make_sound()       const override;
+    virtual ~Canine() {}
+    virtual std::string make_sound()       const override {
+      return "woof!";
+    }
     virtual bool        is_domesticated()  const = 0;
 
 };

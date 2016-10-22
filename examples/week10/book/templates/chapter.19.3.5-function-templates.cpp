@@ -1,6 +1,6 @@
 
 //
-// This is example code from Chapter 19.3.4 "Integers as template parameters" of
+// This is example code from Chapter 19.3.5 "Integers as template parameters" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 

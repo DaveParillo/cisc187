@@ -57,6 +57,7 @@ When complete, the program should produce:
 .RS
 .IP a.
 Create a \fIsimple\fR \fCSequence\fR class with the required API (print, insert, add)
+Consider using \*[c]operator<<\*[r] to handle print tasks.
 .IP b.
 Create an \*[c]ifstream\*[r] to read the file.
 .IP c.
@@ -112,14 +113,6 @@ The loop should start at 0 and end at 8.
 
 When do different values of precision equal the defaults for the different output forms?
 
-
-
-
-
-
-
-
-
 .bp
-.so reflection.ms
+.so reflection2.ms
 

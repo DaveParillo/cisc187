@@ -5,7 +5,7 @@
 class Animal {
 
   public:
-    virtual ~Animal();
+    virtual ~Animal() {}
 
     virtual std::string make_sound() const = 0;
 

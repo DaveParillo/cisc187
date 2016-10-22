@@ -1,6 +1,6 @@
 
 //
-// This is example code from Chapter 19.3.6 "Generalizing vector" of
+// This is example code from Chapter 19.3.7 "Generalizing vector" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 

@@ -10,28 +10,7 @@ Questions: 30 minutes \fImaximum\fR
 .RS
 .nr step 1 1
 .IP \n[step].
-List every standard library algorithm on \fCen.cppreference.com/w/\fR.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Infer which of these are available on buffyand in Visual Studio 2015.
-.RE
-
-
-
+List every standard library algorithm on \fChttp://en.cppreference.com/w/\fR.
 
 .bp
 .NH
