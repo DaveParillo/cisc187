@@ -5,7 +5,7 @@ Copying Memory
 .gcolor
 .LP
 .ce 1
-Week 7
+Week 9
 .SS Overview
 .IT Midterm results
 .IT Copying memory
@@ -84,12 +84,12 @@ F sub n = F sub {n-1} + F sub {n-2} roman {", with "} F sub 1 = 1, F sub 2 = 1
 .i1e
 .IT A software definition
 .i1 Any method that calls itself
-.SS Definitons
+.SS Definitions
 .IT Recursive functions are not infinite loops
 .i1 Base case
 .i2 Provides final conditions
 .i2 Values for which no recursion required
-.i2 Prevents the definition from being completely cirsular
+.i2 Prevents the definition from being completely circular
 .i3 \fCF1 = 1, F2 = 1\fR
 .i1 Recursive case
 .i2 Implements the definition of the recursion
@@ -108,7 +108,7 @@ F sub n = F sub {n-1} + F sub {n-2} roman {", with "} F sub 1 = 1, F sub 2 = 1
 .IT Indirectly recursive
 .i1 Function A calls B (which calls C), which  calls A
 .i2 Use sparingly!
-.SS Usefuleness
+.SS Usefulness
 .IT Recursion is useful because it is often the simplest solution to a problem
 .IT Aids in analysis
 .IT It is often neither the most time or space efficient solution!
@@ -116,7 +116,7 @@ F sub n = F sub {n-1} + F sub {n-2} roman {", with "} F sub 1 = 1, F sub 2 = 1
 .i1 Typically the function needs to be \fItail recursive\fR
 .i1 That is, the recursive call is the last line of the function
 
-.SS When to use recusrsion
+.SS When to use recursion
 .IT Given some problem, \fIP\fR
 .IT If there is a smallest problem of type \fIP\fR
 .i1 Can solve directly and trivially
@@ -132,7 +132,7 @@ F sub n = F sub {n-1} + F sub {n-2} roman {", with "} F sub 1 = 1, F sub 2 = 1
 .IT can be rewritten as a recursive function
 .IT Any recursive function
 .i1 Can be rewritten as a while loop
-.IT Tradeoffs
+.IT Trade-offs
 .i1 Recursive functions can be easier to write and understand
 .i1 Fibonacci sequence, Towers of Hanoi, Grammar / Syntax checking
 .IT Recursive solutions are (almost) guaranteed to use more memory and run more slowly
