@@ -8,6 +8,7 @@ Lab #10a: Templates
 Defining a template: 60 minutes \fImaximum\fR
 .time_box
 .QP
+.RS
 .nr step 1 1
 .IP \n[step].
 Define \*[c]template<typename T> struct S { T val; };\*[r].
@@ -40,8 +41,13 @@ Provide \*[c]const\*[r] and non-\*[c]const\*[r] versions of \*[c]get()\*[r].
 .IP \n+[step].
 Define a function \*[c]template<typename T> read_val(T& v)\*[r] that reads from \*[c]cin\*[r] into \*[c]v\*[r].
 .IP \n+[step].
-Use \*[c]read_val()\*[r] to read into each of the variables from 3 except the \*[c]S<vector<int>>\*[r] variable.
+Use \*[c]read_val()\*[r] to read into each of the variables from step #3 except the \*[c]S<vector<int>>\*[r] variable.
 
+Extra credit:
+Define input and output operators (>> and <<) for \*[c]vector<T>\*[r]s. 
+For both input and output use a \fC[ val, val, val ]\fR format. 
+That will allow \fCread_val()\fR to also handle the \fCS<vector<int>>\fR variable.
+.RE
 .bp
 .NH
 Defining and using 
@@ -51,7 +57,7 @@ Defining and using
 .time_box
 .QP
 Although std::unique_ptr<T>() and std::make_shared<T>() were introduced in C++11,
-The  \*[c]std::make_unique<T>()\*[r] tempalte was not introduced until C++14.
+The  \*[c]std::make_unique<T>()\*[r] template was not introduced until C++14.
 But if you find yourself using a compiler that doesn't know about 
 \*[c]std::make_unique<T>()\*[r], you can make it yourself pretty easily.
 
