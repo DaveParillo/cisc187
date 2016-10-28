@@ -104,7 +104,7 @@ Only the code that detects the error, \fCf5()\fR,
 and the code that handles the error, \fCf1()\fR, have any clutter
 .i1e
 .IT Do not use \*[c]try\*[r] blocks to reclaim resources
-.i1 This si a Java technique
+.i1 This is a Java technique
 .i1 Great for java, not needed in C++
 .i1 In C++, use RAII
 .i2 Use destructors to clean up resources
