@@ -53,10 +53,10 @@ Week 11
 .i1 'Natural order' is a type of sort
 .i2 Strings: A, B, C
 .i2 Integers: 1, 2, 3
-.i1 Containers can never be sorted but unordered
 .IT Sorted
 .i1 The container order is defined by rules: the sort order
 .i1 Sorting is based on object properties
+.i1 Containers can \fInever\fR be sorted \fBand\fR unordered
 .SS Linear ADT's
 .IT We've been working with one all semester
 .i1 \*[c]vector\*[r] is a \fIlinear ADT\fR
@@ -170,8 +170,24 @@ box "d"
 .IT As a linear ADT, 
 .IT stack operations are limited to one end of the backing store
 .i1 By convention, called the 'top'
-.IT Size
-.i1 Number of elements in the stack
+.IT A \*[c]stack\*[r] is a \fIcontainer adapter\fR
+.i1 It \fIadapts\fR another linear container
+.i1 To provide the properties of a \*[c]stack\*[r]
+.i1 The container must be able to provide
+.i2 \fCback(), push_back(),\fR and \fC pop_back()\fR
+.IT The containers \*[c]vector\*[r], \*[c]list\*[r], and \*[c]deque\*[r]
+.i1s
+Can be adapted to create a \*[c]stack\*[r]
+.CW
+ template< 
+    class T, 
+    class Container = std::deque<T> 
+ > class stack;
+.R
+.i1e
+.IT If a \*[c]vector\*[r] is used to form a \*[c]stack\*[r], 
+which element of the vector is the 'top' of the \*[c]stack\*[r]? 
+.i1 Why is this a good choice?
 .SS Queue
 .IT A queue is
 .i1 A fancy name for waiting in line
@@ -196,6 +212,23 @@ Song Zhipeng, Next Please. Retrieved from http://www.creativebloq.com/3d/how-que
 .IT Print spooling
 .IT CPU schedulers
 .IT Network packet routing
+.SS Queue Properties
+.IT A \*[c]queue\*[r] is a \fIcontainer adapter\fR
+.i1 It \fIadapts\fR another linear container
+.i1 To provide the properties of a \*[c]queue\*[r]
+.i1 The container must be able to provide
+.i2 \fCback(), front(), push_back(),\fR and \fC pop_front()\fR
+.IT The containers \*[c]list\*[r] and \*[c]deque\*[r]
+.i1s
+Can be adapted to create a \*[c]queue\*[r]
+.CW
+ template< 
+    class T, 
+    class Container = std::deque<T> 
+ > class queue;
+.R
+.i1e
+
 .SS Deque
 .IT A Deque is a 'double ended queue'
 .i1 Element add and removal can be done on the front or the back
@@ -203,6 +236,7 @@ Song Zhipeng, Next Please. Retrieved from http://www.creativebloq.com/3d/how-que
 .i2 For the ends
 .i2 Accessing data in the middle of a deque is still like a \*[c]list\*[r]
 .i1 Resize does not involve an expensive memory copy operation
+.IT In C++, one of it's more important roles is as an adapter
 .SS Overview
 .IT Containers in the STL
 .IT Linear ADT's
