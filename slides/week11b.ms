@@ -58,3 +58,51 @@ Sure we could use a traditional loop
 .i1 Implement iterator interface in container
 .i1 Clients (calling code) asks container to provide iterator object
 .i2 Use iterator to retrieve correct element
+.SS Iterattor categories
+.IT The 5 iterator categories define the types of operations you can perform on them
+.IT InputIterator
+.i1 Read
+.i1 Increment (without multiple passes)
+.IT ForwardIterator
+.i1 All input iterator operations, plus
+.i1 Increment with multiple passes
+.IT BidirectionalIterator
+.i1 All forward iterator operations, plus
+.i1 Decrement
+.IT RandomAccessIterator
+.i1 All bi-directional iterator operations, plus
+.i1 Random access
+
+.IT OutputIterator
+.i1 Write
+.i1 Increment (without multiple passes)
+
+.IT ContiguousIterator (since C++17)
+.SS Iterator loops
+.IT Doing things the 'manual way'
+.CW
+ std::vector<int> myvector;
+  for (int i=1; i<=5; i++) myvector.push_back(i);
+
+  std::cout << "myvector contains:";
+  for (std::vector<int>::iterator it = myvector.begin() ; it != myvector.end(); ++it)
+    std::cout << ' ' << *it;
+  std::cout << '\n';
+.R
+.IT Prduces \fC myvector contains: 1 2 3 4 5 \fR
+.SS Compare to range-for
+.IT The range-for, while 'obviously better' has limits
+.IT Non-linear steps
+.IT No equivalent to
+.CW
+  for (int i=n; i>0; i/=2) {...
+.R
+.IT Filtering
+.i1 If you need to traverse a collection 
+.i1 and remove items you need an explicit iterator so that you can call it’s remove method
+.IT Transforming
+.i1 Likewise, if you need to add or modify the collection, you need an iterator or array index
+.IT Parallel iteration
+.i1 Walking through multiple collections
+.i1 Possibly at different rates (i++, j+=2)
+
