@@ -9,8 +9,9 @@ Week 11
 .SS Overview
 .IT Iterators
 .i1 Iterator Design Pattern
-.i1 Iterator interfaces
-
+.i1 Iterator categories
+.IT Range-for loops and their limits
+.IT \*[c]auto\*[r] keyword
 .SS Question
 .IT How can we view each element of an ADT
 .IT And remain ignorant of the implementation details?
@@ -58,7 +59,41 @@ Sure we could use a traditional loop
 .i1 Implement iterator interface in container
 .i1 Clients (calling code) asks container to provide iterator object
 .i2 Use iterator to retrieve correct element
-.SS Iterattor categories
+.SS Iterators in C++
+.IT Basic structure
+.IT Define two iterators to define the beginning and end of a sequence
+.PSPIC -L images/iterator.eps
+.IT The element defined by \*[c]begin\*[r] is part of the sequence
+.IT The element defined by \*[c]end\*[r] is not! 
+.i1 It is \fIone past the last\fR 
+.i1 This is a common source of error
+.SS Basic iterator operations
+\s-4
+.TS
+center tab(:);
+lb lb
+lb l.
+Operation:Result
+_
+\fCp == q\fR:true if and only if \fBp\fR and \fBq\fR 
+ :point to the same element or both point to \*[c]end\*[r]
+
+\fCp != q\fR:negation of above
+
+\fC*p\fR:refers to the element pointed to by \fBp\fR
+
+\fC*p = val\fR:writes \fCval\fR to the element
+ :pointed to by \fBp\fR
+
+\fCval = *p\fR:reads from the element
+ :pointed to by \fBp\fR and writes to \fCval\fR 
+
+\fC++p\fR:increments the pointer - making it 
+ :point to the next element in the container, or to \*[c]end\*[r]
+.TE
+\s+4
+
+.SS Iterator categories
 .IT The 5 iterator categories define the types of operations you can perform on them
 .IT InputIterator
 .i1 Read
@@ -89,7 +124,7 @@ Sure we could use a traditional loop
     std::cout << ' ' << *it;
   std::cout << '\n';
 .R
-.IT Prduces \fC myvector contains: 1 2 3 4 5 \fR
+.IT Produces \fC myvector contains: 1 2 3 4 5 \fR
 .SS Compare to range-for
 .IT The range-for, while 'obviously better' has limits
 .IT Non-linear steps
@@ -99,10 +134,24 @@ Sure we could use a traditional loop
 .R
 .IT Filtering
 .i1 If you need to traverse a collection 
-.i1 and remove items you need an explicit iterator so that you can call it’s remove method
+.i1 and remove items you need an explicit iterator so that you can call it's remove method
 .IT Transforming
 .i1 Likewise, if you need to add or modify the collection, you need an iterator or array index
 .IT Parallel iteration
 .i1 Walking through multiple collections
 .i1 Possibly at different rates (i++, j+=2)
+.SS Summary
+.IT Iterator Design Pattern
+.i1 Recall \*[c]end()\*[r] points just past the last element in the container
+.IT Iterator categories
+.i1 InputIterator
+.i1 ForwardIterator
+.i1 BidirectionalIterator
+.i1 RandomAccessIterator
+.i1 OutputIterator
+.IT Range-for loops
+.i1 Preferred, when it makes sense to use it
+.i1 Prefer iterators over indexed access
+.IT \*[c]auto\*[r] keyword
+.i1 No implicit type conversion
 
