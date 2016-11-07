@@ -9,8 +9,7 @@ Week 12
 .SS Overview
 .IT Motivation
 .IT Maps, sets, and trees
-.IT Unordered maps
-.IT Hash functions
+.IT the \*[c]map\*[r] API
 .SS Search and Sort (briefly)
 .mk
 .PSPIC -R images/closet-messy.eps
@@ -81,7 +80,8 @@ delim $$
 .IT Maps add a new wrinkle
 .IT Maps focus on a \fBpair\fR of things
 .i1 Traditionally called the \fIKey\fR and \fIValue\fR
-.i1 Sometimes 'KVP' and in cppreference.com, just \fBP\fR
+.i1 Sometimes 'KVP', for key-value-pair
+.i2 In cppreference.com, often just \fIP\fR
 .i1 \fIValues\fR are retrieved from the map using the \fIKey\fR
 .i1 The key & value are not normally the same type
 .IT Keys must be unique
@@ -98,7 +98,7 @@ Index: <reference, resource>
   map<string, int> name_counts {
     {"Alice", 27}, {"Bob", 3}, {"Alice", 1}};
 
-  for (const auto &pair : name_counts) {
+  for (const auto& pair : name_counts) {
     std::cout << pair.first << ": " 
               << pair.second << '\\n';
   }
@@ -118,8 +118,10 @@ Index: <reference, resource>
 .IT Lookup
 .i1 count(), find(), equal_range(), 
 .i1 upper_bound() and lower_bound()
-.IT Note: no push_back() 
-.i1 The \*[c]map\*[r] decides where elements go, not you.
+.IT Note 
+.i1 No push_back() 
+.i2 The \*[c]map\*[r] decides where elements go, not you.
+.i1 All access requires either knowing the key or having an iterator
 .SS Map structure
 .IT Internally, a \*[c]map\*[r] is a sorted \fIcomplete\fR tree
 .PSPIC -L images/tree-complete.eps
@@ -129,101 +131,29 @@ Index: <reference, resource>
 .IT Searching for elements is faster than vector for large maps.
 .i1 Linear ADT's force a linear search
 .i1 Map search is a function of tree height
-.SS Unordered map
-.IT We said that 'maps are trees'
-.i1 Is this the only way to make a map?
-.IT Trees have $log sub 2 (n)$ access
-.i1 But unsorted vectors have constant-time access
-.i1 Is it possible to make a map with constant-time access?
-.i1 Yes.
-.IT Problem
-.i1 We want to store a map like a vector
-.i2 As a linear ADT
-.i2 So it has an index we can access in 1 step.
-.i1 But a map has a 'key', not an 'index'
-.IT \fIhash code\fR to the rescue
-.i1 We \fIcompute\fR an index into an array using the map key
-.SS Hashtable
-.IT The default map implementation in most other languages uses a \fIhash table\fR
-.i1 The C++ equivalent is an \*[c]unordered_map\*[r]
-.IT A hashtable is an indexed collection
-.i1 Backing store is commonly an array
-.IT Each indexed location is called a \fBbucket\fR
-.IT Holds one (or more) map entries (<K,V>)
-.IT A \fIhash function\fR takes a key
-.i1 Returns an index
-.i1 The index identifies the bucket
-.i1 Which can the be used to get values
-.IT Only \fIhashable object\fR can be used as keys in an unordered map
-.i1 Override \*[c]std::hash\*[r] to make you own hashable keys
-.SS Unordered map buckets
-.mk
-.PSPIC -R images/chained-hashing.eps
-.rt
-.IT unordered maps typically have
-.i1 \fIFar\fR fewer buckets than values
-.i2 That might conceivably be stored
-.i1 Consider keys of
-.i2 \*[c]long\*[r] 
-.i3 $2 sup 63 - 1$ possible keys
-.i2 16 character strings
-.i3 $26 sup 16$ possible keys 
-.i3 assuming basic Latin alphabet
-.IT Main idea
-.i1 Create 'just enough' buckets
-.i1 Somewhat more than actual keys used
+.SS Custom Compare for map
+.IT First
 .i1s
-Far less than potential 
-.br
- max number of keys
-.i1e
-.i1 Much more space efficient
-.i1 Some keys will likely need to be stored in the same bucket
-.i1 Each bucket either contains an element
-.i2 or a linked list of elements
-.SS Overriding std::hash
-.IT Consider a \fCstruct Point\fR
-\s-8
+Create a class with 1 override
 .CW
-  struct Point {
-    int x;
-    int y;
-  }
-  namespace std {
-    // hashable Point
-    template <>
-      struct hash<Point>
-      {
-        std::size_t operator()(const Point& p) const
-        {
-          return ((std::hash<int>()(7919)
-                ^ (std::hash<int>()(p.x) << 1)) >> 1)
-                ^ (std::hash<int>()(p.y) << 1);
-        }
-      };
-  }
-.R
-\s+8
-.SS A general hash algorithm
-.IT The previous algorithm works, but hard to remember
-.i1 This general approach is serviceable for many applications
-.IT Store a constant non-zero prime in a variable result.
-.i1 Examples: 17, 7919, 131
-.IT For each significant field used in \*[c]operatpr=\*[r]
-.i1 Compute an int hash code (c) for the member, \fCf\fR
-.i1 If a built-in type \fCT\fR, call \fCstd::hash<T>()(f)
-.i1 If the field is an object reference, either
-.i2 Recursively invoke hash on f, or
-.i2 Create a 'canonical representation' of the field & compute the hash on that
-.i1 If the field is an array, then treat each element as a separate value
-.i1s
-Combine the field as follows
-.CW
- result = 31 * result + c
+  struct compare_size {
+    bool operator()(const std::string& lhs, 
+                    const std::string& rhs) const {
+      return lhs.size() < rhs.size();
+    }
+  };
 .R
 .i1e
-.IT Return result
-
+.IT Then
+.i1s
+Pass this class in as the third template argument of a map
+.CW
+  std::map<std::string, 
+           std::string, compare_size> size_map;
+.R
+.i1e
+.IT Note that in this example we are saying it's the \fIlength\fR of a string that defines it's uniqueness
+.i1 Only 1 string of size = \fIn\fR can be stored in size_map
 .SS Sets
 .IT Think '\*[c]map\*[r]', but with no values
 .IT A \*[c]set\*[r] is an ordered collection of things
@@ -234,7 +164,9 @@ Combine the field as follows
 .i1 By default uses \*[c]operator<\*[r]
 .i1 You can provide a custom Compare object
 .SS Multiset (and multimap)
+.IT Multiset
 .i1 A set that allows duplicate keys
+.i2 Sounds like a contradiction
 .i1 No overwrite, but
 .i1 You can retrieve multiple values for a single key
 .IT \*[c]multiset\*[r] functions
@@ -242,8 +174,9 @@ Combine the field as follows
 .i2 Returns a  \*[c]std::pair\*[r] of iterators
 .i2 If no match, then pair.first ==  \*[c]end\*[r] 
 .SS Summary
+.IT Searching and sorting goals
 .IT Maps, sets, and trees
-.i1 map vs unordered_map and multimap
-.i1 set vs unordered_set and multiset
-.IT Unordered maps
-.IT Hash functions
+.i1 map and multimap
+.i1 set and multiset
+.IT The \*[c]map\*[r] API
+
