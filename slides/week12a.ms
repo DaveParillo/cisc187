@@ -96,7 +96,7 @@ delim $$
 Index: <reference, resource>
 .CW
   map<string, int> name_counts {
-    {"Alice", 27}, {"Bob", 3}, {"Alice", 1}};
+    {"Alice", 27}, {"Bob", 3}, {"Clara", 1}};
 
   for (const auto& pair : name_counts) {
     std::cout << pair.first << ": " 

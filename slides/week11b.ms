@@ -122,7 +122,7 @@ _
   std::cout << "myvector contains:";
   for (std::vector<int>::iterator it = myvector.begin() ; it != myvector.end(); ++it)
     std::cout << ' ' << *it;
-  std::cout << '\n';
+  std::cout << '\\n';
 .R
 .IT Produces \fC myvector contains: 1 2 3 4 5 \fR
 .SS Compare to range-for
