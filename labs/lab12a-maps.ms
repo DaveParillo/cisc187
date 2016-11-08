@@ -1,15 +1,15 @@
 .ds CH Lab #12a
 .TL
-Lab #12a: Working woth maps
+Lab #12a: Working with maps
 .so cover-page.ms
 
 .bp
 .NH
-Working with 
+Working with the
 .code 
 map
 .B
-: 60 minutes \fImaximum\fR
+class: 60 minutes \fImaximum\fR
 .time_box
 .RS
 .nr step 1 1
