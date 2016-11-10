@@ -45,7 +45,8 @@ delim $$
 .i1 Which can the be used to get values
 .IT Only \fIhashable object\fR can be used as keys in an unordered map
 .i1 \fBMust\fR override \*[c]std::hash\*[r] and
-.i1 \*[c]operator=\*[r] before an unordered_map will compile.
+.i1 \*[c]operator==\*[r] and
+.i1 \*[c]operator<\*[r] before an unordered_map will compile.
 .SS Unordered map buckets
 .mk
 .PSPIC -R images/chained-hashing.eps
@@ -99,7 +100,7 @@ Far less than potential
 .i1 This general approach is serviceable for many applications
 .IT Store a constant non-zero prime in a variable result.
 .i1 Examples: 17, 7919, 131
-.IT For each significant field used in \*[c]operator=\*[r]
+.IT For each significant field used in \*[c]operator==\*[r]
 .i1 Compute an int hash code (c) for the member, \fCf\fR
 .i1 If a built-in type \fCT\fR, call \fCstd::hash<T>()(f)
 .i1 If the field is an object reference, either
