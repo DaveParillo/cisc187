@@ -1,6 +1,6 @@
-.ds CH Lab #12a
+.ds CH Lab #12b
 .TL
-Lab #12a: Working with hash maps
+Lab #12b: Working with hash maps
 .so cover-page.ms
 
 .bp
