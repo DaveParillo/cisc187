@@ -5,50 +5,76 @@ Lab #13a: Function objects
 
 .bp
 .NH
-ROT128 cipher: 30 minutes \fImaximum\fR
+ROT13 cipher: 60 minutes \fImaximum\fR
 .time_box
 .QP
 
-The ROT128 cipher is a weak encryption cipher that works by adding 128 to the value of each
-character in a string to produce a garbled string. 
-Since \*[c]char\*[r] can only hold 256 different values,
-two successive applications of ROT128 will produce the original string. 
-Write a function \*[c]ApplyROT128\*[r]
-that accepts a \*[c]string\*[r] and returns the \*[c]string\*[r]'s ROT128 cipher equivalent.
+The ROT13 cipher is a weak encryption cipher that works by adding 13 to the value of each
+letter in a string.
+It has a rich history going back to Julius Ceaser and 
+is sometimes called Ceaser's cipher for this reason.
+See https://en.wikipedia.org/wiki/Caesar_cipher
 
+Given a function:
+.CW
+  void rot13_func(char& c) {
+    if (not std::isalpha(c)) return;
+
+    // will rotate upper or lower case
+    // need to know where the alphabet 'starts'
+    char const start = std::islower(c) ? 'a' : 'A';
+    c = (c - start + 13) % 26 + start;
+  }
+.R
+
+Write a program that accepts a string from standard input,
+calls \fCrot13_func\fR on each character
+and displays the encrypted text.
+
+Once complete, add a functor to do the same encryption.
+Change the behavior so that \*[c]operator()\*[r] in the functor
+does not modify the \*[c]char\*[r] parameter.
+
+Use the functor twice.
+Encrypt the input string first using a \*[c]for\*[r] loop,
+then encrypt the input string again using the \*[c]for_each\*[r] algorithm.
+
+.bp
 .NH
-Standard deviation: 60 minutes \fImaximum\fR
+Function vs Functor times: 60 minutes \fImaximum\fR
 .time_box
 .QP
-The \fIstandard deviation\fR of a set of data is a measure of how much the data varies 
-from its average value. 
-Data with a small standard deviation tends to cluster around a point, 
-while data with large standard deviation will be more spread out.
-The formula for the standard deviation of a set of data ${x sub 1, x sub 2, ..., x sub n}$ is
-.EQ
-sqrt { 1 over n sum from {i = 1} to n {(x sub i - {x bar}) sup 2} }
-.EN
+Make a new program using the Lab 11b \*[c]vector\*[r] vs \*[c]list\*[r] 
+timing study as a starting point.
 
-Here, $x bar$ is the average of the data points.
+Modify it so that instead of testing 
+\*[c]vector\*[r] vs \*[c]list\*[r],
+you're testing 
+\fCrot13_func\fR vs your rot13 functor.
 
-To give a feeling for this formula, given the data points 1, 2, 3, the average of the data points is 2, so
-the standard deviation is given by
-.ps -2
-.EQ
-sqrt { 1 over n sum from {i = 1} to n {(x sub i - {x bar}) sup 2} }
-= sqrt { 1 over 3 sum from {i = 1} to 3 {(x sub i - 2) sup 2} }
-= sqrt { 1 over 3 ((1 - 2) sup 2 + (2 - 2) sup 2 + (3 - 2) sup 2 ) }
-= sqrt { 1 over 3 (1 + 0 + 1) } = sqrt {2 over 3}
-.EN
-.ps +2
+If you are copying my solution, don't worry about trying to make a single test function
+that takes a function as a parameter.
+Create your tests functions with the following signature:
 
-Write a function \*[c]StandardDeviation\*[r] that accepts an input range of iterators over 
-\*[c]double\*[r]s (or values implicitly convertible to doubles) 
-and returns its standard deviation. 
-Do not use any loops - instead use the \*[c]accumulate\*[r] function to compute the average, 
-then use \*[c]accumulate\*[r] once more to compute the sum. 
-(Hint: To get the number of elements in the range, you can use the \*[c]distance\*[r] function)
+.RS
+.CW
+ void test_func(const string& plaintext, int max);
+ void test_functor(const string& plaintext, int max);
+.R
+.RE
 
+In each test function, setup \fCchrono\fR and 
+then run your test \fCmax\fR number of times.
+
+When you are ready to compile, set the compiler optimization level to O3.
+.br
+On buffy:
+
+.RS
+.CW
+ c++ -std=c++11 times.cpp -O3 -o times
+.R
+.RE
 .bp
 .so reflection.ms
 

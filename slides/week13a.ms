@@ -125,7 +125,24 @@ or omit the temporary object
   }
 .R
 .i1e
-.IT This seems like a lot of code for such a simple task
+.SS Advanges of functors
+.IT Function object are "smart functions." 
+.i1 Objects that behave like pointers are smart pointers
+.i1 Function objects may have other member functions and attributes
+.i2 Function objects have a state
+.IT Each function object has its own type.
+.i1 Ordinary functions have different types only when their signatures differ
+.i1 Function objects can have different types when their signatures are the same
+.i2 Each functional behavior defined by a function object has its own type
+.i2 Implication: you can pass functional behavior as a template parameter
+.IT Function objects are usually faster than ordinary functions
+.i1 Templates usually allow better optimization 
+.i2 More details are defined at compile time
+.IT BUT
+.i1 This seems like a lot of code for such a simple task
+.i1 ShorterThan only uses \*[c]operator()\*[r]
+.i2 But we still had to wrap it in a class
+.IT Is there a way to get the compiler to generate the 'boiler plate' code around our function?
 .SS Lambda expressions
 .IT Introduced in C++11
 .i1 a.k.a closures, lambda functions, function literals, or just lambdas
