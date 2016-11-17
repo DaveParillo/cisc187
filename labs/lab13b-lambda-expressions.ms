@@ -45,7 +45,7 @@ What are the implications of your observations?
 
 .RE
 
-.bp
+
 .NH
 Captures: 30 minutes \fImaximum\fR
 .time_box
@@ -92,5 +92,5 @@ How many objects are created and destroyed?
 
 .RE
 .bp
-.so reflection.ms
+.so reflection2.ms
 
