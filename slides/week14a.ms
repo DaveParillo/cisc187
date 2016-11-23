@@ -122,9 +122,9 @@ class \fCT\fR must support \fC+\fR and \fC=\fR
 .IT And to use it
 \s-8
 .CW
-  float a[] = {1,1,2,3,5,8,13,21,34};
-  size_t end = a+sizeof(a)/sizeof(*a);
-  double d = 0;
+  float a[]  = {1,1,2,3,5,8,13,21,34};
+  float* end = a+sizeof(a)/sizeof(*a);
+  double d   = 0;
   d = sum (a, end, d);
 .R
 \s+8
@@ -207,7 +207,6 @@ Let's allow any binary operator
 \*[c]multiplies\*[r] is a STL function for object multiplying
 .CW
   #include <numeric>
-  #include <functional>
   void f(list<double>& ld)
   {
     double product = 
