@@ -296,7 +296,7 @@ One for the 'sum part' and one for the the 'multiply part'
 .IT \fCcopy(b,e,b2)\fR
 .i1 copy [b,e) to [b2,b2+(e-b))
 .RS
-\s-4 there had better be enough space after b2\s+4
+\s-4 there had better be enough space after b2!\s+4
 .RE
 .IT \fCunique_copy(b,e,b2)\fR
 .i1 copy [b,e) to [b2,b2+(e-b))

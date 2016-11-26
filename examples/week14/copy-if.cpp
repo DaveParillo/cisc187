@@ -6,10 +6,10 @@
 using std::list;
 using std::vector;
 
-
 namespace mesa {
 
-  // this template is NOT in the STL
+  // contrary to the textbook, this template IS in the STL
+  // as of C++11
   
   template<class In, class Out, class Pred>
     Out copy_if(In first, In last, Out res, Pred p)

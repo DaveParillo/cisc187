@@ -10,14 +10,14 @@ using std::vector;
 // Compute the sum of all the elements in an array
 
 template<class Iter, class T>
-  T sum(Iter first, Iter last, T s)
-  {
-    while (first != last) {
-      s = s + *first;
-      ++first;
-    }
-    return s;
+T sum(Iter first, Iter last, T s)
+{
+  while (first != last) {
+    s = s + *first;
+    ++first;
   }
+  return s;
+}
 
 
 int main()
