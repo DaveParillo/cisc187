@@ -147,7 +147,7 @@ class \fCT\fR must support \fC+\fR and \fC=\fR
 .SS Algorithms: find()
 .IT Goal: find the first element in a container that equals a value
 .i1s
-Find an int in a vactor
+Find an int in a vector
 .CW
   void func(vector<int>& v, int x
   {
@@ -355,7 +355,7 @@ Manual write, increment, write...
 
   *oo = "Hello, ";  // aka cout << "Hello, "
   ++oo;             // increment output pointer
-  *oo = "world!\n"; // aka cout << "world!\n"
+  *oo = "world!\\n"; // aka cout << "world!\\n"
 .R
 .i1e
 .bp
