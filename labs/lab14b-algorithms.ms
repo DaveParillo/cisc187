@@ -39,7 +39,7 @@ Why did I change the example provided from the text?
 Expunge Letter: 30 minutes \fImaximum\fR
 .time_box
 .QP
-Write a function \*[c]ExpungeLetter\*[r] that accepts four parameters - 
+Write a function \*[c]expunge_letter\*[r] that accepts four parameters - 
 two iterators delineating an input range of \*[c]strings\*[r], 
 one iterator delineating the start of an output range, and a \*[c]character\*[r] 
 - then copies the \*[c]string\*[r]s in the input range that \fIdo not\fR contain 
