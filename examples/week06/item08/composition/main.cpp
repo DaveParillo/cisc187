@@ -7,7 +7,10 @@
 // This example correctly adds a 'color' feature to a point using composition
 //
 // It's still very minimal.
-//
+// 
+// This example is a C++ port of the example in 
+// Effective Java - Pages 37 - 38
+
 int main ()
 {
   Point p {3,4};

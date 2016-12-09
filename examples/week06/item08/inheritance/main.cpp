@@ -8,6 +8,16 @@
 //
 // Not reccommended.
 //
+// This example is drawn from
+// Effective Java - Pages 37 - 38
+//
+// Joshua Bloch does a good job explaining the problem
+// and note that this is largely a problem related to object oriented programming in general
+// It's not a "C++" or a "Java" problem.
+//
+// While one could argue that this is exactly what was indended,
+// in the real world, it is almost always a bug.
+//
 int main ()
 {
   Point      a {3, 4};

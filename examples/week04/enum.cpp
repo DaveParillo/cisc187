@@ -20,5 +20,5 @@ int main() {
 
 
 void show_direction(const Direction d) {
-  std::cout << "Direction: " << direction_to_string(d) << std::endl;
+  std::cout << "Direction: " << d << std::endl;
 }

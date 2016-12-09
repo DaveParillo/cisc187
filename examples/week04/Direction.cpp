@@ -1,20 +1,19 @@
 #include "Direction.h"
 
-#include <map>
 #include <string>
 
 namespace mesa {
-  const std::string direction_to_string(Direction dir)
-  {
-    std::map<Direction, const std::string> dirs = 
-    {
-      {Direction::NORTH, "NORTH"},
-      {Direction::EAST, "EAST"},
-      {Direction::SOUTH, "SOUTH"},
-      {Direction::WEST, "WEST"}
-    };
 
-    return dirs[dir];
+  std::ostream& operator<<(std::ostream& os, const Direction& rhs) {
+    std::string dir;
+    switch (rhs) {
+      case Direction::NORTH: dir = "NORTH"; break;
+      case Direction::EAST:  dir = "EAST";  break;
+      case Direction::SOUTH: dir = "SOUTH"; break;
+      case Direction::WEST:  dir = "WEST";  break;
+    }
+    return os << dir;
+
   }
 }
 

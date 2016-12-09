@@ -1,7 +1,6 @@
 #pragma once
 
 #include <array>
-#include <map>
 #include <string>
 
 namespace mesa {
@@ -14,9 +13,10 @@ namespace mesa {
    * Allows the Direction class members to be printed with meaningful strings.
    * Example:
    *
-   *     cout << "Direction is " << direction_to_string(Direction::SOUTH) << endl;
+   *     cout << "Direction is " << Direction::SOUTH << endl;
    */
-  const std::string direction_to_string(Direction type);
+  std::ostream& operator<<(std::ostream& os, const Direction& rhs);
+
 
 
 
