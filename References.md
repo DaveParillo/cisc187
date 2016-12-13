@@ -16,8 +16,7 @@ provided by Bjarne Stroustrup for this textbook.
   * Atom (Win, OSX, or Linux)
   * Or, if you want to go 'old school', you may consider Vim or Emacs
 
-More to explore
-...............
+### More to explore
 
-Jeff Atwood''s blog: [Code smells](https://blog.codinghorror.com/code-smells/)
+* Jeff Atwood's blog: [Code smells](https://blog.codinghorror.com/code-smells/)
 
