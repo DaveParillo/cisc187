@@ -1,7 +1,13 @@
 References
 ==========
+
 * [Powerpoint slides](http://stroustrup.com/Programming/lecture-slides.html)
 as provided by Bjarne Stroustrup for this textbook.
+
+[1](#Week-1) | 
+[2](#Week-2) | 
+[3](#Week-3) | 
+[4](#Week-4) | 
 
 Week 1
 ------
@@ -35,6 +41,13 @@ Week 2
   [functions](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-functions) from GitHub
 * cppreference.com tutorial on [functions](http://www.cplusplus.com/doc/tutorial/functions/)
 
+
+Week 3
+------
+
+
+Week 4
+------
 
 
 
