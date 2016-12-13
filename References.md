@@ -5,22 +5,22 @@ References
 as provided by Bjarne Stroustrup for this textbook.
 
 Week: 
-[1](#Week-1) | 
-[2](#Week-2) | 
-[3](#Week-3) | 
-[4](#Week-4) | 
-[5](#Week-5) | 
-[6](#Week-6) | 
-[7](#Week-7) | 
-[8](#Week-8) | 
-[9](#Week-9) | 
-[10](#Week-10) | 
-[11](#Week-11) | 
-[12](#Week-12) | 
-[13](#Week-13) | 
-[14](#Week-14) | 
-[15](#Week-15) | 
-[16](#Week-16)
+[1](#week-1) | 
+[2](#week-2) | 
+[3](#week-3) | 
+[4](#week-4) | 
+[5](#week-5) | 
+[6](#week-6) | 
+[7](#week-7) | 
+[8](#week-8) | 
+[9](#week-9) | 
+[10](#week-10) | 
+[11](#week-11) | 
+[12](#week-12) | 
+[13](#week-13) | 
+[14](#week-14) | 
+[15](#week-15) | 
+[16](#week-16)
 
 ## Week 1
 
