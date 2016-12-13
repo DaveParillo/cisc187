@@ -16,10 +16,7 @@ Week 1
   * [Atom](https://atom.io/) (Win, OSX, or Linux)
   * Or, if you want to go 'old school', you may consider 
     [Vim](http://www.vim.org/) or [Emacs](http://www.gnu.org/software/emacs/)
-
-
 ### More to explore
-
 * Jeff Atwood's blog: [Code smells](https://blog.codinghorror.com/code-smells/)
 
 Week 2
@@ -31,10 +28,10 @@ Week 2
   the [auto specifier](http://en.cppreference.com/w/cpp/language/auto), 
   [const qualifier](http://en.cppreference.com/w/cpp/language/cv) and 
   [constexpr](http://en.cppreference.com/w/cpp/language/constant_expression)
-* More to explore
-  * C++ Core Guidelines for 
-    [functions](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-functions) from GitHub
-  * cppreference.com tutorial on [functions](http://www.cplusplus.com/doc/tutorial/functions/)
+### More to explore
+* C++ Core Guidelines for 
+  [functions](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-functions) from GitHub
+* cppreference.com tutorial on [functions](http://www.cplusplus.com/doc/tutorial/functions/)
 
 
 
