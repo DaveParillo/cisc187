@@ -143,7 +143,7 @@ Week:
   * C++ Concepts: [Iterator](http://en.cppreference.com/w/cpp/concept/Iterator) and 
     [ForwardIterator](http://en.cppreference.com/w/cpp/concept/ForwardIterator)
   * [vector::begin()](http://en.cppreference.com/w/cpp/container/vector/begin) and 
-    [vector::end(http://en.cppreference.com/w/cpp/container/vector/end)]
+    [vector::end](http://en.cppreference.com/w/cpp/container/vector/end)
   * Overview of the [container](http://en.cppreference.com/w/cpp/container) library
 
 ## Week 12
@@ -178,7 +178,7 @@ Week:
     [std::count_if](http://en.cppreference.com/w/cpp/algorithm/count_if)
   * [for_each](http://en.cppreference.com/w/cpp/algorithm/for_each) and 
     [make_heap](http://en.cppreference.com/w/cpp/algorithm/make_heap)
-  * [istream_iterator](http://en.cppreference.com/w/cpp/iterator/istream_iterator, 
+  * [istream_iterator](http://en.cppreference.com/w/cpp/iterator/istream_iterator), 
     [ostream_iterator](http://en.cppreference.com/w/cpp/iterator/ostream_iterator) and 
     [back_inserter](http://en.cppreference.com/w/cpp/iterator/back_inserter)
 * Other Algorithm libraries
