@@ -1,9 +1,15 @@
 #include<stdio.h>
 
-#define PI 3.14159265358979323846
+// This horriible little program is seen often enough to warrant including as an example.
+//
+// This is an anti-pattern: how *not* to implement polymorphism in C
+//
+// It's a C version of a 'tagged class' - an equally bad OO version of the same anti-pattern.
+
+const int PI = 3.14159265358979323846;
 
 struct Shape {
-  int type;
+  int type;       // is this Shape a Circle or a Rectangle?
   float area;
   float length;
 };

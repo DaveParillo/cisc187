@@ -7,9 +7,9 @@ _
  :
 Programming Projects:25 %
 Lab Assignments:25 %
-Quizzes:10 %
-Midterm Exam:20 %
-Final Exam:20 %
+Quizzes:20 %
+Midterm Exam:15 %
+Final Exam:15 %
 _
  :
 Extra Credit:3 % (max)

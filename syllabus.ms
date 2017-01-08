@@ -1,7 +1,8 @@
 .ds LH Data Structures in C++
 .ds CH CISC-187
-.ds RH CRN 40299
+.ds RH CRN 20504
 .ds CF %
+.ds deadline 10 Feb 2017
 .TL
 Data Structures in C++
 .AU
@@ -10,7 +11,6 @@ Dave Parillo
 \fBE-Mail: \fP dparillo@sdccd.edu
 \fBOffice Hours: \fP M & W 6:00 - 7:00 PM, K201B
 \fBClass Meets: \fP M & W, 7:05 - 10:00 PM, K201B
-\# source external file:     .so defines.s
 .SH
 Course Description
 .LP
@@ -22,19 +22,7 @@ and implementation in C++.
 This course is designed for students majoring in computer information systems and 
 professionals in the field who want to update their skills.
 
-.TS
-center box tab (:);
-cb|cb
-l|l.
-Transfer Credit:California State University System
-_
-Content Learning hours per week:3
-_
-Equivalent lab hours per week:3
-_
-Advisory:English 51 with a grade of C or better 
-:or equivalent or assessment skill level W5
-.TE
+Associate Degree Credit & transfer to CSU. UC Transfer Course List. 
 .SH
 Prerequisites
 .RS
@@ -44,7 +32,7 @@ CISC 192 with a grade of "C" or better, or equivalent.
 .SH
 Required Text
 .LP
-The following textbook is /fBrequired/fR for this course. 
+The following textbook is \fBrequired\fR for this course. 
 .RS
 .nr step 1 1
 .IP \n[step].
@@ -53,53 +41,39 @@ The following textbook is /fBrequired/fR for this course.
 Addison-Wesley Professional, 2\*[{]nd\*[}] edition,
 June 2014. ISBN: 978-0321992789.
 .RE
-.LP
-.ce 1
-\fBNOTE\fR
-
-.B1
-.QP
-.ce 1
-Avoid the kindle or e-book editions.
-.br
-.ce 1
-They are not cheaper and the example source code is impossible to read.
-
-.B2
-.LP
 .SH
 Required Supplies
 .LP
 Within the class & lab, no additional supplies are required.  
 Students wishing to complete work outside of class will need access to a computer, 
-a good text editor: \fINotepad++\fP, \fIVim\fP, \fIEmacs\fP, or equivalent, and a modern C++ tool-chain.
-\fIClang\fP version 7 or greater or \fIg++\fP version 4.8.1 or greater are recommended,
-but any ISO-compliant C++ compiler / IDE that supports C++11, such as MS Visual Studio 2015 is sufficient.
-You may also find \fImake\fP helpful.
+a good text editor: \fIAtom\fP, \fIVim\fP, \fIEmacs\fP, or equivalent, and a modern C++ tool-chain.
+\fIClang\fP version 3.7 or greater or \fIg++\fP version 4.8.1 or greater are recommended,
+but any ISO-compliant C++ compiler / IDE that supports C++11 is sufficient.
+Note that MS Visual Studio 2015 has a few minor C++11 issues that may cause occasional difficulties.
 
 Completed projects must compile on the Mesa cislinux server, mesa-cislinux.sdmesa.sdccd.cc.ca.us (buffy).
 To access this server off campus, you will need an ssh client.
-.bp
+For windows, \fIputty\fR is recommended: (http://www.chiark.greenend.org.uk/~sgtatham/putty/).
 .SH
-Official Course Learning Outcomes
+Student Learning Outcomes
 .RS
-.nr step 1 1
-.IP \n[step].
-Apply appropriate design patterns to solve real-world software problems.
+.nr step 0 1
 .IP \n+[step].
-Use C++ templates to create extensible, flexible classes.
+Understand from a C++ perspective the control of program flow based on the conditional evaluation of a boolean expression.
 .IP \n+[step].
-Apply the Standard Template Library to solve real-world software problems.
+Use C++ to provide an if-else structure as a solution to a software problem.
 .IP \n+[step].
-Use C++ to create an Abstract Data Type as a solution to a software problem.
+Use the Standard Template Library to solve real-world software problems.
+.IP \n+[step].
+Use C++ to provide a looping structure as a solution to a software problem.
 .IP \n+[step].
 Understand from a C++ perspective, the control of program flow with a looping structure.
 .RE
+.bp
 .SH
-Course Objectives
+Student Learning Objectives
 .LP
-Upon successful completion of this course, you will have achieved the following 
-Student Learning Outcomes (SLOs):
+Upon successful completion of this course, the student will be able to:
 .RS
 .IP \[bu] 2
 Compare, contrast and apply the concepts of the main phases (disciplines) of 
@@ -126,22 +100,14 @@ Identify and apply the various approaches pursued in C-family languages to
 manage memory, including their respective impacts on program performance and efficiency. 
 .RE
 .SH
-Weekly Schedule 
-.LP
-Maintained in Blackboard, there is a Learning Module for each week of the semester.  
-Each module contains the complete list of what is due for that week, 
-including links to the resources needed to complete the tasks.
-.B
-Always use the Learning Modules for a complete list of everything due each week.
-.R
-.SH
 Attendance Requirements
 .LP
-Consistent participation is critical to learning. 
-Students who fail to participate will fall behind in acquiring course content 
-and skills, resulting in reduced academic success.
+The final grade in this class will be affected by active participation, 
+including attendance, as follows:
 
-Your attendance is based on your presence in class and in Blackboard activities. 
+Labs, quizzes and exams are completed \fIin class\fR.
+
+Attendance is based on work completed in class and in Blackboard activities. 
 Permanent removal from the course for lack of attendance is at my discretion, 
 following standard Community College District course attendance guidelines:  
 failure to show up for class or failure to complete assignments, tests or quizzes. 
@@ -157,54 +123,53 @@ alternatives for which they may be eligible.
 
 If a student decides to withdraw or drop from this course, they must do so on 
 or before the date specified by the Academic Calendar as to the last day to withdraw or drop. 
-Failure to drop by the "last day to drop" date will result in a grade being assigned, 
+Failure to drop by the "last day to drop" date, 
+\*[deadline] will result in a grade being assigned, 
 regardless of attendance. 
 Students are responsible for processing the WITHDRAWAL or DROP action.
-
-In Summary:
-.RS
-.IP \[bu] 2
-It is the student's responsibility to drop all classes in which he/she is no longer participating.
-.IP \[bu] 2
-It is the instructor's discretion to withdraw a student after the add/drop deadline due to excessive absences. 
-.IP \[bu] 2
-Students who remain enrolled in a class beyond the published withdrawal deadline, 
-as stated in the class schedule, will receive an evaluative letter grade in this class. 
-.RE
 .SH
 Policy Regarding Late or Incomplete Work
 .LP
 .B
-Zero credit for late quizzes and tests!
+Zero credit for late work!
 .R
-There is no process for "making up" quizzes.  
-If you cannot take an exam on the scheduled date, see me to arrange a makeup date.  
+There is no process for "making up" labs and quizzes.  
+If you cannot complete an exam or project on the scheduled date, 
+see me to arrange a makeup date.  
+If you have a serious medical condition and will miss more than 2 classes,
+please see me so that we can make arrangments.
 No extra-credit activities will be given as a replacement for late work. 
-All other work is penalized 1% per day. The number of days late is calculated 
-as the difference between the assignment due date and the actual date submitted 
-as recorded on the Blackboard server.  No exceptions.
+No exceptions.
 .SH
-Online Behavior and Student Code of Conduct
+Academic Integrity
 .LP
-Students are expected to respect and obey standards of student conduct while in 
-communication online and while on campus in person. No foul language or conduct 
-that disrupts learning will be tolerated. Respectful communication with the 
-instructor and fellow students using English language syntax and structure 
-appropriate for an academic environment is expected. 
-The Student Code of Conduct, Disciplinary Procedure, and Student Due Process 
-(Policies 3100, 3100.1, and 3100.2) are documented in the College Catalog and at 
-the Office of the Dean of Student Affairs (Room H-500). 
-Charges of misconduct and disciplinary sanctions may be imposed upon students 
-who violate these standards of conduct or provisions of college regulations.
+Students are expected to be honest and ethical at all times in the pursuit of academic goals. 
+Students found to be in violation of Administrative Procedure 3100.3 Honest Academic Conduct, 
+will receive a grade of zero on the assignment, quiz, or exam in question and may be referred 
+for disciplinary action in accordance with Administrative Procedure 3100.2, 
+Student Disciplinary Procedures.  
+There is an academic integrity quiz that is the first assignment in Blackboard.  
+I will not grade any labs or projects until you complete this.
+.SH
+Student Code of Conduct
+.LP
+Students are expected to adhere to the Student Code of Conduct at all times. 
+Students who violate the Student Code of Conduct may be removed from class 
+by the faculty for the class meeting in which the behavior occurred, 
+and the next class meeting.
+No make up opportunity exists for work missed due to removal from class.
+
+Incidents involving removal of a student from class will be reported to 
+the college disciplinary officer for follow up.
+
+The Student Code of Conduct can be found in Board of Trustees Policy, 
+BP 3100, Student Rights, Responsibilities, Campus Safety and Administrative Due Process 
+posted on the District website at: 
+.br
+http://www.sdccd.edu/public/district/policies/index.shtml
 .SH
 Accommodation of Disability
 .LP
-I have made every effort to make this course accessible to all students, 
-including students with disabilities. 
-If you encounter a problem accessing anything in this course, 
-please contact me immediately by email and also contact the college's 
-Disability Support Programs and Services (DSPS) Office.
-
 Students with disabilities who may need academic accommodations are encouraged to discuss 
 their authorized accommodations from Disability Support Programs and Services (DSPS) 
 with their professors early in the semester so that accommodations may be 
@@ -217,35 +182,6 @@ made for each student. By law, it is up to the DSPS Office what constitutes
 Students that need evacuation assistance during campus emergencies should also 
 meet with the instructor as soon as possible to assure the health and safety 
 of all students.
-.SH
-Academic Integrity
-.LP
-Students are expected to be honest and ethical at all times in the pursuit of academic goals. 
-Students found to be in violation of Administrative Procedure 3100.3 Honest Academic Conduct, 
-will receive a grade of zero on the assignment, quiz, or exam in question and may be referred 
-for disciplinary action in accordance with Administrative Procedure 3100.2, 
-Student Disciplinary Procedures.  
-There is an academic integrity quiz that is the first assignment in Blackboard.  
-I will not grade any labs or projects until you complete this.
-
-.B
-Class Communication Caveat
-.R
-.LP
-Do not post assignment answers or code in discussion forums or other online repositories.
-.SH
-Student Code of Conduct
-.LP
-Students are expected to adhere to the Student Code of Conduct at all times. 
-Students who violate the Student Code of Conduct may be removed from class by the p
-faculty for the class meeting in which the behavior occurred, and the next class meeting.
-
-Incidents involving removal of a student from class will be reported to the college 
-disciplinary officer for follow up.  
-The Student Code of Conduct can be found in Board of Trustees Policy, 
-BP 3100, Student Rights, Responsibilities, Campus Safety and 
-Administrative Due Process posted on the District website at: 
-http://www.sdccd.edu/public/district/policies/index.shtml
 .SH
 Evaluation
 .LP
@@ -274,18 +210,6 @@ Grading
 .IP \fBF\fP
 < 60
 .RE
-.SH
-Instructional Approach
-.LP
-Active learning is encouraged and best accomplished through doing.  
-Make the most effective use of in-class exercises and lab time.
-
-All activities must be completed individually unless otherwise noted.
-
-All submissions associated with any activity are to be typed and submitted electronically. 
-Handwritten assignments or any other format than the one specified online will not be accepted.
-
-
 
 
 

@@ -1,14 +1,13 @@
-.ds CH Lab #1b
+.ds CH Lab #1b C/C++ review
 .TL
-Lab #1b: C/C++ review
-.so cover-page.ms
-
-.bp
+\*[CH]
+.LP
+This lab should review the core programming concepts you learned in your first semester of C++.
 .NH
 Making change:  15 minutes \fImaximum\fR
 .time_box
-Given:
 .RS
+Given:
 .CW
  #include <iostream> 
  
@@ -27,12 +26,10 @@ Given:
    return 0;
  }
 .R
-.RE
-.nr step 1 1
-.IP \n[step].
+.nr step 0 1
+.IP \n+[step].
 In your own words, without simply rewriting the code as plain text, 
 describe what is this code attempting to do:
-
 
 
 
@@ -43,30 +40,26 @@ Work through the logic manually (without compiling) and write down the expected 
 
 
 
-
 .IP \n+[step].
-Copy this program into a file 'change.cpp'. Compile and run the program.
+Copy this program into a file 'change.cpp'. Compile and run the program on buffy.
 Record the output.
 
 
 
 
-
 .IP \n+[step].
-Did the actual output match you expectations?  Explain.
-
-
-
-
+Did the actual output match your expectations?  Explain.
 
 
 
 .IP \n+[step].
 What changes should be made to make the results match expectations?
+.RE
 .bp
 .NH
 Code puzzles:  5 minutes each \fImaximum\fR 
 .time_box
+.RS
 For each of the problems that follow, describe the intended program output, if any, and
 whether the program compiles or not.
 
@@ -143,40 +136,6 @@ If it doesn't compile or produces unintended output, what changes could be made 
 .R
 .RE
 
-
-.IP \n+[step].
-
-.RS
-.CW
-  #include <iostream>
-  #include <string>
-
-  std::string a[] = { "one", "two", "three" };
-  std::string b[] = {};
-
-  int main() {
-    int size_of_a = sizeof(a) / sizeof(a[0]);
-    int size_of_b = sizeof(b) / sizeof(std::string);
-
-    void print(const std::string&, const std::string*, int);
-
-    print("a[]", a, size_of_a);
-    print("b[]", b, size_of_b);
-  }
-
-  void print(const std::string& name, 
-             const std::string a[], int size) {
-    std::cout << "The array " << name << " contains " 
-              << size << " elements:\\n";
-
-    for (int i = 0; i < size; ++i)
-      std::cout << i << ": " << a[i] << std::endl;
-    std::cout << std::endl;
-  }
-.R
-.RE
-
-.bp
 .IP \n+[step].
 For each expression below, indicate if it compiles.  
 If yes, what is the result?
@@ -187,49 +146,33 @@ If no, what's wrong?
 a.  double x = 5 + 1/2;
 
 
-b.  int y = 5 + 1/2; 
+b.  double x = 5 + 1/2.0;
 
 
-c.  double x = 5 + 1/2.0;
+c.  int y = 5 + 1/2.0;
 
 
-d.  int y = 5 + 1/2.0;
+d.  double x = 5 + (float)2/3.0;
 
 
-e.  double x = 5 + (float)1/2;
+e.  double x = 5 + 2^3;
 
 
-f.  double x = 5 + (float)2/3.0;
+f.  double x = (int) 5.0 << 1;
 
 
-g.  double x = 5 + 2^3;
-
-
-h.  double x = 5 & 2^3;
-
-
-i.  double x = 5 | 2^3;
-
-
-j.  double x = (int) 5.0 << 1;
-
-
-k.  double x = (int) 10.0 >> 3;
-
-
-l.  bool z = true | false;  
-
-
-m.  bool z = false; 
+g.  bool z = false; 
     double x = 4 | (int)(!z);
 .R
+.RE
 .RE
 
 .bp
 .NH
-Programming pool: 20 minutes \fImaximum\fR 
+Extra Credit: Programming pool: 20 minutes \fImaximum\fR 
 .LP
 .time_box
+.RS
 Pull the following code snippets from the pool and place them in the Triangle program where there are underscores in the code.
 
 You may use a snippet more than once.
@@ -268,7 +211,7 @@ Choose from the following code snippets:
  t.x.set_area();
  t[x].set_area();
 .R
-
+.RE
 .bp
 .RS
 .CW
@@ -308,8 +251,4 @@ Choose from the following code snippets:
   }
 .R
 .RE
-
-.bp
-.so reflection.ms
-
 

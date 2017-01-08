@@ -4,6 +4,11 @@
 //
 // Does is make sense for a Square to inherit from Rectangle?
 
+#include "Rectangle.h"
+#include <iostream>
+
+using std::size_t;
+
 class Square : public Rectangle {
   public:
     void   height(size_t new_height) override;
@@ -14,4 +19,7 @@ class Square : public Rectangle {
     size_t _ht = 3;
     size_t _wd = 3;
 };
+
+std::ostream& operator<<(std::ostream& os, const Square& s);
+
 

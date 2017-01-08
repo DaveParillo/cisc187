@@ -4,6 +4,10 @@
 //
 // Does is make sense for a Square to inherit from Rectangle?
 
+#include <iostream>
+
+using std::size_t;
+
 class Rectangle {
   public:
     virtual ~Rectangle(){}
@@ -15,4 +19,6 @@ class Rectangle {
     size_t _ht = 3;
     size_t _wd = 5;
 };
+
+std::ostream& operator<<(std::ostream& os, const Rectangle& r);
 

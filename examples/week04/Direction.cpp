@@ -1,5 +1,6 @@
 #include "Direction.h"
 
+#include <iostream>
 #include <string>
 
 namespace mesa {
@@ -13,7 +14,6 @@ namespace mesa {
       case Direction::WEST:  dir = "WEST";  break;
     }
     return os << dir;
-
   }
 }
 

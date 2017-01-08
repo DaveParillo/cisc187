@@ -1,7 +1,10 @@
-CXXFLAGS=-Wall -Weverything -pedantic -std=c++11 -Wno-c++98-compat
+CXXFLAGS=-Wall -Wextra -pedantic -std=c++11 -Wno-c++98-compat
+
+hello : clean
+	c++ ${CXXFLAGS} -o $@ Hello.cpp main.cpp
 
 enum : clean
-	c++ ${CXXFLAGS} -o $@ *.cpp
+	c++ ${CXXFLAGS} -o $@ Direction.cpp enum.cpp
 
 clean : 
-	rm -f enum *.o
+	rm -f enum hello *.o

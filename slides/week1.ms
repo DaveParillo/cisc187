@@ -50,6 +50,10 @@ cin and the meaning of statements like:
 .IT Type safety and type conversions
 .i1 Widening conversions
 .i1 Narrowing conversions
+.IT File Input and output
+.i1 C-style \*[c]printf\*[r] and \*[c]scanf\*[r]
+.i1 C++-style input and output file streams
+.i2 Possibly also using \*[c]stringstream\*[r]s
 
 .SS "Statements and Branching"
 .IT You've used different primitives to get things done

@@ -1,7 +1,5 @@
+#include "call-stack.h"
 #include <iostream>
-
-void dig();
-void deeper();
 
 int main()
 {

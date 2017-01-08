@@ -1,8 +1,6 @@
 
 #include <iostream>
 
-using namespace std;
-
 // Declare a function that takes a parameter.
 void printFavorite(int x);
 
@@ -14,5 +12,5 @@ int main()
 
 // define the function
 void printFavorite(int x){
-  cout << "my favorite numbner is " << x << endl;
+  std::cout << "my favorite numbner is " << x << '\n';
 }

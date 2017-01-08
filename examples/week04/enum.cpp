@@ -1,6 +1,6 @@
-#include <iostream>
 
 #include "Direction.h"
+#include <iostream>
 
 using namespace mesa;
 
