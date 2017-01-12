@@ -64,21 +64,23 @@ very good error output
 .IT STL containers
 .IT STL algorithms
 .SS "Schedule"
+.IT This is a \fIprogramming intensive\fR course!
+.i1 Every lab involves writing code
+.i1 Projects are about 3 hours per week outside of class
+.i1 Reading the textbook should involve an hour or two of coding
 .IT Blackboard Learning Modules
 .i1 One each week
-.i1 Contains all you need to know
+.i2 Contains all you need to know
 .IT Code Readings
 .i1 Each Monday - I expect everyone to come to class prepared
 .i2 That means you completed the assigned reading
 .IT Quiz each Wednesday
 .IT Lab assignments
 .i1 Completed in class - typically in groups or 3 or 4
-.i1 Some labs are meant to be completed alone
-.i1 Hand in before leaving each day
+.i2 Some labs are meant to be completed alone
 .IT Projects
 .i1 \m[red]\fBMust\fR be your own work!!\m[]
-.i1 3 total, 1 due every 4 weeks
-.i1 First project due week 6
+.i1 3 total, due roughly every 4 weeks
 .SS Attendance
 .IT Based on in-class presence and completion of work
 .IT I will drop you from the class if

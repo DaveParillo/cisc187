@@ -1,146 +1,219 @@
 
 .TL
 .gcolor blue
-Exceptions
+Operator Overloading
 .gcolor
 .LP
 .ce 1
-Week 10
+Week 4
 .SS Overview
-.IT Exceptions
-.i1 When to use them
-.i1 When not to use them
-.i1 Writing idiomatic C++
-.SS Exceptions
-.IT Basic anatomy of an exception
-.i1s
-Surround using \*[c]try\*[r] and \*[c]catch\*[r] block 
-.CW
-  try {
-    // execute potentially dangerous statements
-  } 
-
-  // catch a specific class of exceptions
-  catch (const std::exception& e)
-  {  
-    std::cout << "Exception occurred.\\n";
-    std::cout << "Details: " << e.what() << std::endl;
-  }
-.R
-.i1e
-.i1 If you specify a \*[c]try\*[r], you must include at least 1 \*[c]catch\*[r] 
-.i1 Passing catch parameters by const reference is considered a best practice
-.SS Using exceptions
-.IT std::exception.what()
-.i1 Returns a description of what caused the error
-
-
-.IT More than one \*[c]catch\*[r] block is acceptable
-.i1s
-The special catch
-.CW
-  catch (...)     // catch any exception
-.R
-.i1e
-.SS Standard exceptions
-.IT The standard exceptions in C++ are organized in a class hierarchy
-.i1 \*[c]std::exception\*[r] is the base class for all exceptions
-.i1 Children of \*[c]std::exception\*[r] 
-.i2 \*[c]std::bad_alloc\*[r]: thrown by \*[c]new\*[r] and other memory allocation errors 
-.i2 \*[c]std::bad_cast\*[r]: thrown by \*[c]dynamic_cast\*[r] and similar
-.i2 \*[c]std::bad_typeid\*[r]: thrown by \*[c]typeid\*[r]  
-.i2 \*[c]std::bad_exception\*[r]: runtime unexpected or pointer exceptions
-.i2 \*[c]std::logic_error\*[r]: exceptions that \fIshould\fR be detected by reading the code 
-.i2 \*[c]std::runtime_error\*[r]: exceptions that theoretically can't be detected by reading the code
-.i2 \*[c]std::logic_error\*[r], and \*[c]std::runtime_error\*[r] are also exception bases
-.i1 Children of \*[c]std::logic_error\*[r]
-.i2 \*[c]std::domain_error\*[r]: invalid mathematical domain
-.i2 \*[c]std::invalid_argument\*[r]: bad parameters or arguments used
-.i2 \*[c]std::length_error\*[r]: Thrown when a std::string is too large
-.i2 \*[c]std::out_of_range\*[r]: Used for range checked access, vector.at(x)
-.i1 Children of \*[c]std::runtime_error\*[r]
-.i2 \*[c]std::overflow_error\*[r]: mathematical overflow
-.i2 \*[c]std::range_error\*[r]: Thrown when storing an out of range value
-.i2 \*[c]std::underflow_error\*[r]: mathematical underflow
-.SS Using exceptions
-.IT C++ exceptions are designed to support \fIerror handling\fR
-.i1 Use \*[c]throw\*[r] only to signal an error 
-.i1 Use \*[c]catch\*[r] only to specify error handling actions when 
-.i2 You know you can handle it 
-.i3 Possibly by translating it to another type and rethrowing an exception of that type
-.i3 Such as catching a bad_alloc and rethrowing a no_space_for_file_buffers
-.IT \fBDo not\fR use throw to catch a coding error in usage of a function. 
-.i1 Use assert or other mechanism to either send the process into a debugger 
-.IT \fBDo not\fR use throw if you discover unexpected violation of an invariant of your component
-.i1 Use assert or other mechanism to terminate the program 
-.i1 Throwing an exception will not cure memory corruption and may lead to further corruption of important user data.
-.IT Use \*[c]try\*[r] and \*[c]catch\*[r] block 
-.i1 If the logic is more clear than checking a condition and \*[c]return\*[r]ing a value
-.bp
-.IT Use \*[c]try\*[r] and \*[c]catch\*[r] block 
-.i1s
-If you \fBneed\fR to propagate errors several levels up the stack
+.IT General Syntax of operator overloading
+.IT Basic Rules of operator overloading
+.IT Member or Non-member?
+.IT Common operators to overload
+.SS Why bother?
+.IT When we say \fIoperator overload\fR in C++
+.i1 We \fIdon't\fR mean \fCMyClass.subtract()\fR
+.IT We want to be able to write code like
+.RS
 \s-8
 .CW
-  void f1() {
-    try {
-      f2();
-    } catch (const some_exception& e) {
-      // ... handle error
-    }
-  }
-  void f2() { ...; f3(); ...; }
-  void f3() { ...; f4(); ...; }
-  void f4() { ...; f5(); ...; }
-  void f5()
+ Complex x;
+ Rational a {2,3}, b{6,1}, c{5,3};
+ x = (-b + std::sqrt(b*b + 4*a*c)) / (2*a);
+.R
+
+\s+8
+instead of
+\s-8
+.br
+.CW
+ Complex  x   = new Complex(0,0);
+ Rational a   = new Rational(2,3);
+ Rational b   = new Rational(6,1);
+ Rational c   = new Rational(5,3);
+ x.setComplex((-1.0 * b.add(
+      Math.sqrt(b.multiply(b)
+      .add(c.multiply(a.multiply(4)))))) 
+      / (a.multiply(2));
+.R
+.RE
+.SS General syntax
+.IT You cannot change the meaning of operators for built-in types 
+.i1 The \fC+\fR for int, double is fixed
+.IT Overloads must be user-defined types
+.i1 At least one of the operands has to be of a user-defined type
+.i1 Operators can be overloaded for a certain set of parameters only once
+.i2 You can overload more often, but the parameter list must be different.
+.IT Operator overloads are just functions with special names
+.RS 
+.CW
+ Rational operator+(Rational lhs, const Rational& rhs)
+.R
+.RE
+.IT Generally implemented as either
+.i1 A member function of their left operand's type or 
+.i1 As non-member functions 
+.SS Basic concepts
+.IT Don't overload everything
+.i1 Whenever the meaning of an operator is not obviously clear and undisputed, it should not be overloaded 
+.i2 Use a function instead and use a clear function name
+.IT Don't change expected behavior
+.i1 it is perfectly legal to overload \*[c]operator+\*[r] to subtract from the right operand
+.i1 Just don't
+.IT Overload all related operators
+.i1 When overloading addition, for example
+.i2 consider postfix and prefix \*[c]operator++\*[r] 
+.i1 Don't overload \*[c]operator<\*[r] without also \*[c]operator>\*[r]
+.IT When we get to maps at the end of the semster, we will spend a whole day on overloading \*[c]operator==\*[r]
+.i1 Yes, it's that important.   
+.SS Member or Non-member?
+.IT In general, the choice is yours, but there are some guidelines
+.IT \*[c]operator<<\*[r] and \*[c]operator>>\*[r] are almost always non-member
+.i1 The LHS parameter (the left operand) cannot be modified by you
+.IT \*[c]operator[]\*[r], \*[c]operator=\*[r] (assignment), and a few others
+must \fIalways\fR be member functions.
+.i1 This is a C++ language requirement
+.IT For other operators
+.i1 If the operator is \fIunary\fR
+.i2 Implement the overload as a \fBmember\fR function
+.i1 If the operator is \fIbinary\fB and\fR the operator does not change either operand
+.i2 Implement the overload as a \fBnon-member\fR function
+.i1 If the operator is \fIbinary\fB and\fR the operator does not treat the two operands the same
+.i2 As in, the left operand might change
+.i1 Consider implementing the overload as a \fBmember\fR function
+.i2 If it needs access to private class functions
+.SS Common operators to overload
+.IT Most overloads are 'boiler-plate'
+.i1 Good solutions already exist, no need to reinvent.
+.i1 Overloads in different classes tend to look very similar
+.i1 Assignment
+.RS
+.CW
+  Foo& Foo::operator=(const Foo& rhs)
   {
-    if ( /*...some error condition...*/ )
-      throw some_exception();
+    std::swap(rhs);
+    return *this;
   }
 .R
 \s+8
+.RE
+.i1 Stream I/O
+.RS
+.CW
+  std::ostream& operator<<(std::ostream& os, const T& rhs)
+  {
+    // write rhs object to stream
 
-Only the code that detects the error, \fCf5()\fR, 
-and the code that handles the error, \fCf1()\fR, have any clutter
-.i1e
-.IT Do not use \*[c]try\*[r] blocks to reclaim resources
-.i1 This is a Java technique
-.i1 Great for java, not needed in C++
-.i1 In C++, use RAII
-.i2 Use destructors to clean up resources
-.IT Do not use \*[c]try\*[r] blocks as a proxy for error return codes
-.i1 Results in too many \*[c]try\*[r] blocks cluttering up functions
-.i2 Harms readability if nothing else
-.SS IO Exception notes
-.IT\*[c] std::basic_ios::exceptions\*[r]
-.i1 Gets and sets the exception mask of the stream. 
-.i1 The exception mask determines which error states, 
-.i2 in the stream will throw an exception of type failure.
-.i1s
-Example:
-.CW
-  std::ifstream ifs("in.txt");
-  ifs.exceptions(std::ifstream::failbit);
-.R
-At this point, only the \fCfailbit\fR will trigger an exception.
-.i1e
-.IT IO Streams throw ios_base::failure
-.IT Since C++11 this class inheritance changed
-.i1 Inherits from std::system_error
-.i1s
-Adds an \fCerror_code\fR member to the exception object
-.CW
-catch (const ios_base::failure& e)
-  {  
-    std::cout << "I/O exception occurred.\\n";
-    std::cout << "Details: " << e.what() << std::endl;
-    std::cout << "Code: " << e.code() << std::endl;
+    return os;
   }
 .R
-.SS Sumamry
-.IT Exceptions
-.IT When to use them
-.IT When not to use them
-.IT Writing idiomatic C++
-.IT Changes related to IO stream exceptions
+.RE
+.SS Comparison operators
+.IT Some algorithms, like \*[c]sort()\*[r] expect \*[c]operator<\*[r] to be overloaded
+.IT However, if you overload 1 boolean operator
+.i1 Users of your classes will expect them all
+.IT Define \*[c]operator<\*[r] and \*[c]operator==\*[r] first
+.RS
+\s-8
+.CW
+  inline bool operator==(const T& lhs, const T& rhs)
+  { 
+    /* do actual comparison */ 
+  }
 
+  inline bool operator< (const T& lhs, const T& rhs)
+  { 
+    /* do actual comparison */ 
+  }
+.R
+.RE
+.bp
+.IT Then define the others in terms of \*[c]operator<\*[r] and \*[c]operator==\*[r] 
+.RS
+\s-8
+.CW
+  inline bool operator!=(const T& lhs, const T& rhs)
+  {
+    return !operator==(lhs,rhs);
+  }
+  inline bool operator> (const T& lhs, const T& rhs)
+  {
+    return  operator< (rhs,lhs);
+  }
+  inline bool operator<=(const T& lhs, const T& rhs)
+  {
+    return !operator> (lhs,rhs);
+  }
+  inline bool operator>=(const T& lhs, const T& rhs)
+  {
+    return !operator< (lhs,rhs);
+  }
+.R
+.RE
+.SS Arithmetic operators
+.IT Unary operators come in two flavors
+.i1 \fCpostfix\fR and \fCprefix\fR
+.IT The \fCpostfix\fR version takes an additional dummy \*[c]int\*[r] argument
+.i1 Always implement both
+.RS
+.CW
+  class Foo {
+    Foo& operator++()         // prefix ++
+    {
+      // do actual increment
+      return *this;
+    }
+    Foo operator++(int)       // postfix ++
+    {
+      Foo tmp(*this);         // copy!
+      operator++();
+      return tmp;
+    }
+  };
+.R
+.RE
+.SS Binary arithmetic operators
+.IT Always overload normal infix and compound assignment
+.i1 For example, \fC+\fR and \fC+=\fR
+.RS
+.CW
+  class X {
+    X& operator+=(const X& rhs)
+    {
+      // actual addition of rhs to *this
+      return *this;
+    }
+  };
+  inline X operator+(X lhs, const X& rhs)
+  {
+    lhs += rhs;
+    return lhs;
+  }
+.R
+.RE
+.IT Notice the different returns (reference vs copy)
+.i1 Really no way around this
+.i1 When you type \fCa + b\fR, you expect the result to be a new value
+.SS Conversion operators
+.IT C++ allows you to create operators to convert between your type and other ADT's
+.i1 Can perform \fIimplicit conversion\fR
+.i1 or \fIexplicit conversion\fR
+.IT Implicit conversion operators can be troublesome
+.i1 They can get used by the compiler when you don't expect it
+.i2 It \fBis\fR an \fIimplicit conversion\fR, after all!
+.IT Explicit conversion
+.i1 As the name implies, only get called when code uses an explicit conversion
+.RS
+\s-8
+.CW
+  class Foo {
+    public:
+      explicit operator bool() const {return true;}
+    private:
+      int _x;
+  };
+.R
+.RE
+.IT A complete example is at
+.i1 http://en.cppreference.com/w/cpp/language/explicit

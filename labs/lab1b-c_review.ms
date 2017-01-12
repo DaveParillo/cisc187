@@ -1,10 +1,11 @@
 .ds CH Lab #1b C/C++ review
+.so headings.ms
 .TL
 \*[CH]
 .LP
-This lab should review the core programming concepts you learned in your first semester of C++.
+This lab reviews the core programming concepts you learned in your first semester of C++.
 .NH
-Making change:  15 minutes \fImaximum\fR
+Making change:  30 minutes \fImaximum\fR
 .time_box
 .RS
 Given:
@@ -57,9 +58,12 @@ What changes should be made to make the results match expectations?
 .RE
 .bp
 .NH
-Code puzzles:  5 minutes each \fImaximum\fR 
+Code quiz:  5 minutes each \fImaximum\fR 
 .time_box
 .RS
+The quizzes conducted each Wednesday are primarily in this format.
+Consider this a dry run for the rest of the semester.
+
 For each of the problems that follow, describe the intended program output, if any, and
 whether the program compiles or not.
 
@@ -169,7 +173,7 @@ g.  bool z = false;
 
 .bp
 .NH
-Extra Credit: Programming pool: 20 minutes \fImaximum\fR 
+Extra Credit: Programming pool: 30 minutes \fImaximum\fR 
 .LP
 .time_box
 .RS

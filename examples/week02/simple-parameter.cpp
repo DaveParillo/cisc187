@@ -2,6 +2,7 @@
 #include <iostream>
 
 // Declare a function that takes a parameter.
+// This parameter could be const
 void printFavorite(int x);
 
 int main()

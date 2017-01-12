@@ -15,7 +15,7 @@ Is there anything you \fIexpected\fR to learn this week but didn't?
 
 
 .IP \n+[step].
-Describe one topic that everyone on the team learned most thoroughly.
+Describe one topic that you learned most thoroughly.
 
 
 
@@ -24,7 +24,7 @@ Describe one topic that everyone on the team learned most thoroughly.
 
 
 .IP \n+[step].
-Describe one topic the team continues to struggle with or is confused about.
+Describe one topic you continue to struggle with or remain confused about.
 
 
 
@@ -33,7 +33,7 @@ Describe one topic the team continues to struggle with or is confused about.
 
 
 .IP \n+[step].
-Suggest at least \fBone\fR change the professor could make to improve understanding of this week's material.
+Suggest at least \fBone\fR change the professor could make to improve understanding of this material.
 .RE
 
 

@@ -1,4 +1,3 @@
-.so headings.ms
 .QP
 .B1
 Start date and time: 

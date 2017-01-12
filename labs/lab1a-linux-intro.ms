@@ -44,7 +44,22 @@ Take a few moments to explore the following commands:
  \fCmv\fR - move files or directories
 .IP g.
  \fCrm\fR - remove files or directories
+.IP h.
+ \fCpasswd\fR - change your login password
 .RE
+.IP \n+[step].
+Use the \fCpasswd\fR program to change your login password from the default.
+
+Pick something you can remember!!
+
+If you forget it I can't help you and it may take a few days to reset it.
+.IP \n+[step].
+Use the \fCcp\fR command to copy the script \fCturnitin.sh\fR from
+\fC/var2/home/turnitin.sh\fR to the \fCbin\fR directory in your own home directory.
+
+Type \fCchmod 750 ~/bin/turnitin.sh\fR to change the mode of the script you copied
+and make it executable by you.
+
 .RE
 .bp
 .NH
@@ -75,21 +90,23 @@ Observe the contents of the directory, then type
     make format=ascii
 .R
 .br
-Type \fCls\fR again.  What changed?
-
+Type \fCls\fR again.  
+You should have a file '.ascii' for every lab listed in the previous step.
 .IP \n+[step].
 Type
 .CW
     less lab1a-linux-intro.ms.ascii
 .R
-What do you see?
 
-In your own words, provide an explanation for what is happening.
-
+If you do not see the text of this lab, ask for help.
 .IP \n+[step].
-Use the \fCpasswd\fR prgram to change your login password from the default.
-Pick something you can remember - 
-if you forget it I can't help you and it may take a few days to reset it.
+Type
+.CW
+    make clean
+.R
+
+Verify the files created by make in the previous step are removed.
+
 
 .IP \n+[step].
 Write a simple 'hello world' program and save it to 'hello.cpp'.  
@@ -104,7 +121,6 @@ Compile it on buffy using the commnd
 .CW
     make hello
 .R
-What is the result?
 
 Does your program compile and run? Fix it until it does.
 .RE

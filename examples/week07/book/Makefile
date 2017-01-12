@@ -12,7 +12,7 @@
 
 INCLUDES = 
 LIBS     = -lstdc++ 
-CXXFLAGS = $(INCLUDES) -Wall -O3 -DNDEBUG -Wno-unused-variable -std=c++11
+CXXFLAGS = $(INCLUDES) -Wall -O3 -DNDEBUG -Wno-unused-variable
 
 .SUFFIXES: .cpp .o
 

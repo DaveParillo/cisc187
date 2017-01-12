@@ -1,6 +1,7 @@
-.ds CH Lab #15a
+.ds CH Lab #15a: Critters
+.so headings.ms
 .TL
-Lab #15a: Critters
+\*[CH]
 .so cover-page.ms
 
 .bp
@@ -41,6 +42,5 @@ Unpack the archive and read the documentation.
 There are API's that you are expected to implement to have a functional critter.
 .IP \n+[step].
 In order to test your Critter, you need to add it to \fCmain.cpp\fR.
-
 
 

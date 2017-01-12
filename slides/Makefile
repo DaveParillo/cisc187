@@ -19,7 +19,11 @@ grades:
 
 welcome:
 	make grades
-	groff $(PAGE) welcome.ms > $@.$(format)
+	if [ $(format) = "ascii" ]; then \
+		groff $(PAGE) welcome.ms > $@.$(format); \
+	else \
+		groff $(PAGE) welcome.ms | ps2pdf - welcome.pdf; \
+	fi 
 
 slides:
 	for i in `/bin/ls week*.ms`; do \

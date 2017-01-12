@@ -55,72 +55,6 @@ Week:
 
 ## Week 3
 
-* [Chapter 9 slides](http://stroustrup.com/Programming/9_classes.ppt) from textbook.
-* [Classes I](http://www.cplusplus.com/doc/tutorial/classes/) tutorial from cplusplus.com
-* [Initialization](http://en.cppreference.com/w/cpp/language/initialization)
-   and [Constructors and member initialization lists](http://en.cppreference.com/w/cpp/language/initializer_list)
-   from cppreference.com
-* Two perspectives on struct vs classes: 
-  [cplusplus.com beginner forums](http://www.cplusplus.com/forum/beginner/5980/)
-   and Colin Walls' [blog](https://blogs.mentor.com/colinwalls/blog/2014/06/02/struct-vs-class-in-c/)
-
-## Week 4
-
-* [Chapter 9 slides](http://stroustrup.com/Programming/9_classes.ppt) from textbook.
-* C++ Core Guidelines for 
-  [enumerations](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-enum), 
-  [interfaces](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-interfaces), and 
-  [overloading](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#SS-overload) on GitHub
-* [Classes II](http://www.cplusplus.com/doc/tutorial/templates/) tutorial from cplusplus.com
-* [Operator overloading](http://stackoverflow.com/questions/4421706/operator-overloading/16615725) from StackOverflow C++ FAQ
-* [Initialization](http://en.cppreference.com/w/cpp/language/initialization) and 
-  [Constructors and member initialization lists](http://en.cppreference.com/w/cpp/language/initializer_list) from cppreference.com
-
-## Week 5
-
-* [Ch. 10](http://stroustrup.com/Programming/10_iostreams.ppt) and 
-  [Ch. 11](http://stroustrup.com/Programming/11_custom_io.ppt) slides from textbook.
-* [Basic Input/Output](http://www.cplusplus.com/doc/tutorial/basic_io/) and 
-  [File I/O](http://www.cplusplus.com/doc/tutorial/files/) from cplusplus.com
-* A very brief description of 
-  "[extract method](http://refactoring.com/catalog/extractMethod.html)" from Martin Fowler's Refactoring site.
-* [ExtractMethod](http://c2.com/cgi/wiki?ExtractMethod) discussion from the 
-  [PortlandPatternRepository](http://c2.com/cgi/wiki?PortlandPatternRepository) - the very first wiki
-
-## Week 6
-
-* [Chapter 14](http://stroustrup.com/Programming/14_class_design.ppt) slides from textbook.
-* [Inheritance](http://www.cplusplus.com/doc/tutorial/inheritance/) and 
-  [Polymorphism](http://www.cplusplus.com/doc/tutorial/polymorphism/) from cplusplus.com
-* A good article from Herb Sutter on [virtual functions](http://www.gotw.ca/publications/mill18.htm)
-
-
-## Week 7
-
-* [Chapter 17](http://stroustrup.com/Programming/17_free_store.ppt) slides from textbook.
-* cppreference.com desriptions of 
-  * [unique_ptr](http://en.cppreference.com/w/cpp/memory/unique_ptr) and 
-    [memory](http://en.cppreference.com/w/cpp/memory)
-  * [static cast](http://en.cppreference.com/w/cpp/language/static_cast), 
-    [const cast](http://en.cppreference.com/w/cpp/language/const_cast), 
-    [reinterpret cast](http://en.cppreference.com/w/cpp/language/reinterpret_cast), and 
-    [dynamic cast](http://en.cppreference.com/w/cpp/language/dynamic_cast),
-* [Pointers vs references](http://www.cplusplus.com/articles/ENywvCM9/) from cplusplus.com
-
-## Week 8
-
-
-## Week 9
-
-* [Chapter 18](http://stroustrup.com/Programming/18_arrays.ppt) slides from textbook.
-* From cppreference.com: [copy constructors](http://en.cppreference.com/w/cpp/language/copy_constructor) 
-  and [copy assignment](http://en.cppreference.com/w/cpp/language/copy_assignment).
-* [CppCoreGuidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) 
-  summary of 
-  [Resource management guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-resource) on GitHub
-* [Rule of Five / three / zero](http://en.cppreference.com/w/cpp/language/rule_of_three)
-
-## Week 10
 
 * [Chapter 19](http://stroustrup.com/Programming/19_vector.ppt) slides from textbook.
 * From cppreference.com
@@ -134,7 +68,14 @@ Week:
   * [try-catch](http://en.cppreference.com/w/cpp/language/try_catch) and 
     [throw](http://en.cppreference.com/w/cpp/language/throw)
 
-## Week 11
+## Week 4
+
+* Descriptions of [lambda expressions](https://msdn.microsoft.com/en-us/library/dd293608.aspx)
+  from Microsoft's MSDN
+* From cppreference.com
+  * [Lambda functions](http://en.cppreference.com/w/cpp/language/lambda)
+
+## Week 5
 
 * [Chapter 20](http://stroustrup.com/Programming/20_containers.ppt) slides from textbook.
 * From cppreference.com
@@ -146,7 +87,7 @@ Week:
     [vector::end](http://en.cppreference.com/w/cpp/container/vector/end)
   * Overview of the [container](http://en.cppreference.com/w/cpp/container) library
 
-## Week 12
+## Week 6
 
 * [Chapter 21](http://stroustrup.com/Programming/21_algorithms.ppt) slides from textbook.
 * From cppreference.com
@@ -160,16 +101,7 @@ Week:
     [std::hash](http://en.cppreference.com/w/cpp/utility/hash)
   * Overview of the [container](http://en.cppreference.com/w/cpp/container) library
 
-## Week 13
-
-* [Chapter 21](http://stroustrup.com/Programming/21_algorithms.ppt) slides from textbook.
-* Descriptions of [lambda expressions](https://msdn.microsoft.com/en-us/library/dd293608.aspx)
-  from Microsoft's MSDN
-* From cppreference.com
-  * Overview of [function objects](http://en.cppreference.com/w/cpp/utility/functional)
-  * [Lambda functions](http://en.cppreference.com/w/cpp/language/lambda)
-
-## Week 14
+## Week 7
 
 * [Chapter 21](http://stroustrup.com/Programming/21_algorithms.ppt) slides from textbook.
 * From cppreference.com
@@ -184,6 +116,74 @@ Week:
 * Other Algorithm libraries
   * [SGI's STL](http://www.sgi.com/tech/stl/)
   * Boost [algorithms](http://www.boost.org/doc/libs/1_62_0/libs/libraries.htm#Algorithms)
+
+## Week 8
+
+## Week 9
+* [Chapter 9 slides](http://stroustrup.com/Programming/9_classes.ppt) from textbook.
+* [Classes I](http://www.cplusplus.com/doc/tutorial/classes/) tutorial from cplusplus.com
+* [Initialization](http://en.cppreference.com/w/cpp/language/initialization)
+   and [Constructors and member initialization lists](http://en.cppreference.com/w/cpp/language/initializer_list)
+   from cppreference.com
+* Two perspectives on struct vs classes: 
+  [cplusplus.com beginner forums](http://www.cplusplus.com/forum/beginner/5980/)
+   and Colin Walls' [blog](https://blogs.mentor.com/colinwalls/blog/2014/06/02/struct-vs-class-in-c/)
+
+
+## Week 10
+* [Chapter 9 slides](http://stroustrup.com/Programming/9_classes.ppt) from textbook.
+* C++ Core Guidelines for 
+  [enumerations](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-enum), 
+  [interfaces](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-interfaces), and 
+  [overloading](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#SS-overload) on GitHub
+* [Classes II](http://www.cplusplus.com/doc/tutorial/templates/) tutorial from cplusplus.com
+* [Operator overloading](http://stackoverflow.com/questions/4421706/operator-overloading/16615725) from StackOverflow C++ FAQ
+  * Overview of [function objects](http://en.cppreference.com/w/cpp/utility/functional) from cppreference.com
+* [Initialization](http://en.cppreference.com/w/cpp/language/initialization) and 
+  [Constructors and member initialization lists](http://en.cppreference.com/w/cpp/language/initializer_list) from cppreference.com
+
+
+## Week 11
+
+* [Chapter 14](http://stroustrup.com/Programming/14_class_design.ppt) slides from textbook.
+* [Inheritance](http://www.cplusplus.com/doc/tutorial/inheritance/) and 
+  [Polymorphism](http://www.cplusplus.com/doc/tutorial/polymorphism/) from cplusplus.com
+* A good article from Herb Sutter on [virtual functions](http://www.gotw.ca/publications/mill18.htm)
+
+
+## Week 12
+
+* [Chapter 17](http://stroustrup.com/Programming/17_free_store.ppt) slides from textbook.
+* cppreference.com desriptions of 
+  * [unique_ptr](http://en.cppreference.com/w/cpp/memory/unique_ptr) and 
+    [memory](http://en.cppreference.com/w/cpp/memory)
+  * [static cast](http://en.cppreference.com/w/cpp/language/static_cast), 
+    [const cast](http://en.cppreference.com/w/cpp/language/const_cast), 
+    [reinterpret cast](http://en.cppreference.com/w/cpp/language/reinterpret_cast), and 
+    [dynamic cast](http://en.cppreference.com/w/cpp/language/dynamic_cast),
+* [Pointers vs references](http://www.cplusplus.com/articles/ENywvCM9/) from cplusplus.com
+
+
+## Week 13
+
+* [Chapter 18](http://stroustrup.com/Programming/18_arrays.ppt) slides from textbook.
+* From cppreference.com: [copy constructors](http://en.cppreference.com/w/cpp/language/copy_constructor) 
+  and [copy assignment](http://en.cppreference.com/w/cpp/language/copy_assignment).
+* [CppCoreGuidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) 
+  summary of 
+  [Resource management guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-resource) on GitHub
+* [Rule of Five / three / zero](http://en.cppreference.com/w/cpp/language/rule_of_three)
+
+## Week 14
+
+* [Ch. 10](http://stroustrup.com/Programming/10_iostreams.ppt) and 
+  [Ch. 11](http://stroustrup.com/Programming/11_custom_io.ppt) slides from textbook.
+* [Basic Input/Output](http://www.cplusplus.com/doc/tutorial/basic_io/) and 
+  [File I/O](http://www.cplusplus.com/doc/tutorial/files/) from cplusplus.com
+* A very brief description of 
+  "[extract method](http://refactoring.com/catalog/extractMethod.html)" from Martin Fowler's Refactoring site.
+* [ExtractMethod](http://c2.com/cgi/wiki?ExtractMethod) discussion from the 
+  [PortlandPatternRepository](http://c2.com/cgi/wiki?PortlandPatternRepository) - the very first wiki
 
 ## Week 15
 

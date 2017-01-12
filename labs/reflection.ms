@@ -7,7 +7,8 @@ Reflect on the effectiveness of your team today and respond to the following.
 
 .nr step 1 1
 .IP \n[step].
-Describe at least one strength of the team and explain \fBwhy\fR it is a strength.
+When working in teams, 
+describe at least one strength of the team and explain \fBwhy\fR it is a strength.
 
 
 
@@ -16,7 +17,8 @@ Describe at least one strength of the team and explain \fBwhy\fR it is a strengt
 
 
 .IP \n+[step].
-Describe how the team have worked together more effectively.
+When working in teams, 
+describe how the team have worked together more effectively.
 
 
 
@@ -25,8 +27,8 @@ Describe how the team have worked together more effectively.
 
 
 .IP \n+[step].
-Suggest at least \fBone\fR general improvement the team could implement in the next lab.
-Explain how the team could achieve that improvement.
+What parts of the textbook were particularly confusing, if any?
+Cite specific examples.
 
 
 
