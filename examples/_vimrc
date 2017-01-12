@@ -1,6 +1,6 @@
 " Use pathogen plugin to autoload any plugins in the bundle directory
 " assumes in ~/.vim/autoload
-execute pathogen#infect()
+"execute pathogen#infect()
 
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
@@ -8,24 +8,28 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 
 filetype plugin indent on          " Turn on filetype detection for tagbar
-colorscheme twilight
+colorscheme darkblue
 
 "Override the name of the base colorscheme with the name of this custom one
 let g:colors_name = "mycustom"
-" Tweak fg colors and no italics!
+" Tweak fg colors 
 hi clear Comment
 hi clear Type
-hi Comment guifg=#303030 guibg=#1a1a1a
-hi Type guifg=#e3d796 guibg=#1a1a1a
+hi Comment guifg=#303030 guibg=#000040
+" tone down the green brightness for types
+hi Type guifg=#40cc40 guibg=#000040
 
 
 set nobackup
-set ts=4
-set sw=4
+set noundofile
+set ts=2
+set sw=2
 set expandtab
 set autowrite
 set autoread
 set autochdir                      " Change directory to the current buffer when opening files.
+
+:setlocal cm=blowfish2             " medium strong method
 
 " explicitly reference ctags file
 set tags=~/.tags
