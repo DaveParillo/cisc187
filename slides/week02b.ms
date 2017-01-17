@@ -51,6 +51,61 @@ Week 2
 .i2 A variable or function declared in some scope
 .i3 is valid (in scope) from the point of declaration to the end of that scope
 .i1 Whenever you can, avoid complicated nesting of scopes. Keep it simple.
+.SS Keyword: extern
+.IT A major source of confusion!
+.IT Primarily handy for global variables
+.i1 You'll inherit code with globals, I'm sure
+.i1 Prefer to minimize globals in your own code
+.i1s
+Declare the existence of a variable
+.BI
+in a header file
+.R
+.CW
+  #ifndef HEADER_H
+  #define HEADER_H
+
+  \m[green]// any source file that includes this 
+  // will be able to use "global_x"\m[]
+  extern int global_x;
+
+  void print_global_x();
+
+  #endif
+.R
+.i1e
+.i1 At this point, the compiler only knows the type and the name
+.i2 We have \fIdeclared\fR, but not yet \fIdefined\fR \fCglobal_x\fR
+.bp
+.IT Now we need to define \fCglobal_x\fR
+.i1s
+We can define it in only 1 place, or the compiler complains
+
+Source file 1:
+.CW
+  #include "header.h"
+  \m[green]// it needs to be defined\m[]
+  int global_x;
+
+  int main()
+  {
+      \m[green]// and initialized!\m[]
+      global_x = 5;
+      print_global_x();
+  }
+.R
+
+Source file 1:
+.CW
+  #include <iostream>
+  #include "header.h"
+  \m[green]// defining global_x again here is an error\m[]
+  void print_global_x()
+  {
+      \m[green]// global_x is in scope everywhere!\m[]
+      std::cout << global_x << std::endl;
+  }
+.R
 .SS Backups
 .DS
 Useful information to follow

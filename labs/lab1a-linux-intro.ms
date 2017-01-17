@@ -6,11 +6,14 @@
 \fBBackground\fR
 
 Early in its evolution, the command-line environment of UNIX (its only user interface back then) 
-became dominated by dozens of small text-processing tools. 
-These tools were small and generally did one thing well. 
-The tools were chained together in longer command pipelines, one program passing its 
-output to the next as input, and controlled by a variety of command-line options and arguments.
-This is one aspect of UNIX that makes it a supremely powerful environment for processing 
+became dominated by dozens of small text-processing tools and are still in common use today.
+These tools are small and generally do one thing well. 
+Most read from 'standard input' and write to 'standard output'.
+The tools are commonly chained together in longer command pipelines, 
+one program passing its output to the next as input, 
+and controlled by a variety of command-line options and arguments.
+
+This is one aspect of UNIX that makes it a powerful environment for processing 
 text-based data, one of its first uses in a corporate environment. 
 Dump some text in one end of a command pipeline and retrieve processed output from the other end.
 As programmers, this is useful, because at its core, programming involves manipulating text:
@@ -92,6 +95,7 @@ Observe the contents of the directory, then type
 .br
 Type \fCls\fR again.  
 You should have a file '.ascii' for every lab listed in the previous step.
+Feel free to type \fCmake help\fR to see what other options are available for this Makefile.
 .IP \n+[step].
 Type
 .CW

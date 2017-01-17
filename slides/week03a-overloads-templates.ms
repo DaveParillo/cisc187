@@ -29,7 +29,6 @@ programming
 .R 
 in C++
 .i1 When we get into classes, we will cover some more
-
 .SS Function overloads
 .IT In C++, two different functions can have the same name 
 .i1 If their parameters are different 

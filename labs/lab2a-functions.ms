@@ -3,34 +3,7 @@
 .TL
 \*[CH]
 .so cover-page.ms
-
 .bp
-.NH
-Using multiple source files: 30 minutes \fImaximum\fR
-.time_box
-.QP
-Create 3 files: \*[c]my.h\*[r], \*[c]my.cpp\*[r], and \*[c]use.cpp\*[r].
-The header file \*[c]my.h\*[r] contains:
-.RS
-.CW
-   extern int foo;
-   void print_foo();
-   void print(int);
-.R
-.RE
-
-The source code file \*[c]my.cpp\*[r] should include \*[c]my.h\*[r] and \*[c]iostream\*[r], 
-and define \*[c]print_foo()\*[r] to print the value of \*[c]foo\*[r] using \*[c]cout\*[r], and
-\*[c]print(int i)\*[r] to print the value of \*[c]i\*[r] using \*[c]cout\*[r].
-
-The source code file \*[c]use.cpp\*[r] should include \*[c]my.h\*[r] and define \*[c]main()\*[r].
-\*[c]use.cpp\*[r] should set the value of \*[c]foo\*[r] to \fC7\fR and print it using
-\*[c]print_foo()\*[r], and print the value of \fC99\fR using \*[c]print()\*[r].
-Note that \*[c]use.cpp\*[r] does not include \*[c]iostream\*[r], as it doesn't directly
-use any of those facilities.
-
-Create these files and get them to compile and run.
-.LP
 .NH
 Pass by reference and pass by value: 30 minutes \fImaximum\fR
 .time_box
@@ -112,10 +85,10 @@ _
 
 .bp
 .NH
-Using namespaces: 30 minutes \fImaximum\fR
+Using namespaces: 60 minutes \fImaximum\fR
 .time_box
 .QP
-Write a program using a \fIsingle file\fR containing 3 namespaces: \*[c]X\*[r], \*[c]Y\*[r], and \*[c]Z\*[r].
+Write a program using a containing 3 namespaces: \*[c]X\*[r], \*[c]Y\*[r], and \*[c]Z\*[r].
 Use the following code for function \*[c]main()\*[r]:
 .RS
 .CW
@@ -138,6 +111,8 @@ Use the following code for function \*[c]main()\*[r]:
 
 Each namespace needs to define an \*[c]int\*[r]  variable \*[c]var\*[r] and a function \*[c]print()\*[r]
 that outputs the appropriate \*[c]var\*[r] using \*[c]cout\*[r].
+
+Keep your declarations and defintions separate.
 
 .RE
 .bp

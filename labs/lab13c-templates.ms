@@ -35,7 +35,7 @@ Do 4 again using \*[c]get()\*[r].
 .IP \n+[step].
 Add a \*[c]set()\*[r] function template so that you can change \*[c]val\*[r].
 .IP \n+[step].
-Replace \*[c]set()\*[r] with an \*[c]S<T>::operator=(const T&)\*[r]. Hint: Much simpler than §19.2.5.
+Replace \*[c]set()\*[r] with an \*[c]S<T>::operator=(const T&)\*[r]. Hint: Much simpler than \*[sect]19.2.5.
 .IP \n+[step].
 Provide \*[c]const\*[r] and non-\*[c]const\*[r] versions of \*[c]get()\*[r].
 .IP \n+[step].
