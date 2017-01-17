@@ -1,0 +1,24 @@
+
+top_dir=~/public_html/cisc187-master
+rm -rf $top_dir
+
+curl https://codeload.github.com/DaveParillo/cisc187/zip/master > master.zip
+unzip master.zip -d public_html
+rm master.zip
+
+cd $top_dir
+for i in . labs slides
+# 
+# the use of 'touch' here is to silence make warnings about clock skew.
+# The buffy clock is several minutes slow
+#
+do
+  cd $i
+  touch Makefile *.ms  
+  make
+  cd $top_dir
+done
+
+cd ~/public_html
+chmod -R 755 .
+
