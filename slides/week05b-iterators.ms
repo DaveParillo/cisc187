@@ -5,7 +5,7 @@ Iterators
 .gcolor
 .LP
 .ce 1
-Week 11
+Week 5
 .SS Overview
 .IT Iterators
 .i1 Iterator Design Pattern
@@ -46,7 +46,9 @@ Sure we could use a traditional loop
 .R 
 .IT This syntax isn't just better
 .IT It is
-.BI obviously better
+.BI 
+obviously better
+.R
 .IT We have abstracted away the idea of moving from one element to the next
 .IT We say the array is 
 .BI Iterable

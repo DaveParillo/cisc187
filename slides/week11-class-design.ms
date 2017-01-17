@@ -5,7 +5,7 @@ Class Design
 .gcolor
 .LP
 .ce 1
-Week 6
+Week 11
 .SS Overview
 .IT The \fIIS-A\fR relationship
 .IT Object composition

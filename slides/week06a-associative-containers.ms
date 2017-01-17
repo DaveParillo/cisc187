@@ -5,7 +5,7 @@ Associative Containers
 .gcolor
 .LP
 .ce 1
-Week 12
+Week 6
 .SS Overview
 .IT Motivation
 .IT Maps, sets, and trees
@@ -102,8 +102,8 @@ Index: <reference, resource>
     std::cout << pair.first << ": " 
               << pair.second << '\\n';
   }
-  name_counts["Bob"] = 42;   // update existing value
-  name_counts["Darla"] = 9;  // insert a new value
+  name_counts["Bob"] = 42;   \m[green]// update existing value\m[]
+  name_counts["Darla"] = 9;  \m[green]// insert a new value\m[]
 .R
 .i1e
 .SS Selected map functions

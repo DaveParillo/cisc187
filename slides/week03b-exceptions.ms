@@ -17,10 +17,10 @@ Week 3
 Surround using \*[c]try\*[r] and \*[c]catch\*[r] block 
 .CW
   try {
-    // execute potentially dangerous statements
+    \m[green]// execute potentially dangerous statements\m[]
   } 
 
-  // catch a specific class of exceptions
+  \m[green]// catch a specific class of exceptions\m[]
   catch (const std::exception& e)
   {  
     std::cout << "Exception occurred.\\n";
@@ -39,7 +39,7 @@ Surround using \*[c]try\*[r] and \*[c]catch\*[r] block
 .i1s
 The special catch
 .CW
-  catch (...)     // catch any exception
+  catch (...)     \m[green]// catch any exception\m[]
 .R
 .i1e
 .SS Standard exceptions
@@ -86,7 +86,7 @@ If you \fBneed\fR to propagate errors several levels up the stack
     try {
       f2();
     } catch (const some_exception& e) {
-      // ... handle error
+      \m[green]// ... handle error\m[]
     }
   }
   void f2() { ...; f3(); ...; }
@@ -94,7 +94,7 @@ If you \fBneed\fR to propagate errors several levels up the stack
   void f4() { ...; f5(); ...; }
   void f5()
   {
-    if ( /*...some error condition...*/ )
+    if ( \m[green]/*...some error condition...*/\m[] )
       throw some_exception();
   }
 .R

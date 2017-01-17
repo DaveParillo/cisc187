@@ -2,10 +2,14 @@
 .TL
 .gcolor blue
 I/O streams
+
+and
+
+Serialization
 .gcolor
 .LP
 .ce 1
-Week 5
+Week 14
 .SS Overview
 .IT Fundamental I/O concepts
 .IT Files
@@ -13,6 +17,8 @@ Week 5
 .i1 Reading and writing streams 
 .IT I/O errors
 .IT Reading a single integer
+.IT Serialization
+
 
 .SS Input and Output
 .IT Input
@@ -166,9 +172,9 @@ H: box
     std::cout << "Please enter input file name: ";
     std::string iname;
     std::cin >> iname;
-    std::ifstream ist {iname}; // declare 'input stream from a file'
-                               // ifstream has a name string
-                               // opens the named file for reading
+    std::ifstream ist {iname}; \m[green]// declare 'input stream from a file'\m[]
+                               \m[green]// ifstream has a name string\m[]
+                               \m[green]// opens the named file for reading\m[]
     if (!ist) {
       std::cerr << "can't open input file " << iname;
     }
@@ -189,9 +195,9 @@ H: box
     std::cout << "Please enter output file name: ";
     std::string oname;
     std::cin >> oname;
-    std::ofstream ofs {oname}; // declare 'output stream to a file'
-                               // ofstream has a name string
-                               // opens the named file for writing
+    std::ofstream ofs {oname}; \m[green]// declare 'output stream to a file'\m[]
+                               \m[green]// ofstream has a name string\m[]
+                               \m[green]// opens the named file for writing\m[]
     if (!ofs) {
       std::cerr << "can't open output file " << iname;
     }
@@ -220,20 +226,20 @@ H: box
 .RS
 \s-8
 .CW
-  struct Reading {	// a temperature reading
-    int hour;	// hour after midnight [0:23]
+  struct Reading {	\m[green]// a temperature reading\m[]
+    int hour;	\m[green]// hour after midnight [0:23]\m[]
     double temperature;
   };
 
-  vector<Reading> temps;	// to store the readings
+  vector<Reading> temps;	\m[green]// to store the readings\m[]
 
   int hour;
   double temperature;
-  while (ist >> hour >> temperature) {            // read
-    if (hour < 0 || 23 <hour) {                   // check
+  while (ist >> hour >> temperature) {            \m[green]// read\m[]
+    if (hour < 0 || 23 <hour) {                   \m[green]// check\m[]
       std::cerr << "hour out of range";
     }
-    temps.push_back( Reading{hour,temperature} );	// store
+    temps.push_back( Reading{hour,temperature} );	\m[green]// store\m[]
   }
 .R
 .RE
@@ -278,15 +284,15 @@ H: box
   int n = 0;
 
   while (cin >> n) {
-    if (cin) {                     // we got an integer
-                                   // now check it
+    if (cin) {                     \m[green]// we got an integer\m[]
+                                   \m[green]// now check it\m[]
       if (1<=n && n<=10) {
         break;
       }
       cout << "Sorry, " << n 
            << " is not in the [1:10] range\\n";
     }
-    // not an int...
+    \m[green]// not an int...\m[]
 .bp
 .R
 .RE
@@ -296,23 +302,23 @@ H: box
 \s-8
 .CW
     else if (cin.fail()) 
-      cin.clear();	        // we'd like to look at the characters
+      cin.clear();	        \m[green]// we'd like to look at the characters\m[]
       cout << "Sorry, that was not a number; please try again\n";
 
-      for (char ch; cin>>ch && !isdigit(ch); ) 	// throw away non-digits
+      for (char ch; cin>>ch && !isdigit(ch); ) 	\m[green]// throw away non-digits\m[]
         /* nothing */ ;
 
       if (!cin) {
-        print_error("no input");      // provide some feedback
+        print_error("no input");      \m[green]// provide some feedback\m[]
       } else {
-        cin.unget()                   // put the digit back
+        cin.unget()                   \m[green]// put the digit back\m[]
       }
     }
     else {
-      error("no input");	// eof or bad: give up
+      error("no input");	\m[green]// eof or bad: give up\m[]
     }
   }
-  // if we get here n is in the desired range
+  \m[green]// if we get here n is in the desired range\m[]
 
 .R
 .RE
@@ -379,16 +385,16 @@ Separate functions that do the logically separate actions
 .CW
   void skip_to_int()
   {
-    if (std::cin.fail()) {	      	  // not an integer
-      std::cin.clear();	              // prepare to look at characters
-      for(char ch; std::cin>>ch; ) {  // throw away non-digits
+    if (std::cin.fail()) {	      	  \m[green]// not an integer\m[]
+      std::cin.clear();	              \m[green]// prepare to look at characters\m[]
+      for(char ch; std::cin>>ch; ) {  \m[green]// throw away non-digits\m[]
         if (isdigit(ch) || ch=='-') {
-          std::cin.unget()            // return last char to stream
+          std::cin.unget()            \m[green]// return last char to stream\m[]
           return;
         }
       }
     }
-    print_error("no input");	// eof or bad: give up
+    print_error("no input");	\m[green]// eof or bad: give up\m[]
   }
 .R
 .RE

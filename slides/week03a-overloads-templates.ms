@@ -114,7 +114,7 @@ You can explicitly provide the type
     std::cout << sum<int> (10,20) << '\\n';
     std::cout << sum<double> (1.0,1.5) << '\\n';
 
-    // or let the compiler deduce the type
+    \m[green]// or let the compiler deduce the type\m[]
     std::cout << sum (10,20) << '\\n';
     std::cout << sum (1.0,1.5) << '\\n';
   }
@@ -145,14 +145,17 @@ You can explicitly provide the type
 .CW
   #include <iostream>
 
-  template <class T, int N>
-  T multiply (T val) {
-    return val * N;
-  }
+  template <class T, int N> T multiply (T val);
 
   int main() {
     std::cout << multiply<int,2>(10) << '\\n';
     std::cout << multiply<int,3>(10) << '\\n';
+  }
+
+  \m[green]// note the definition includes ALL of the declaration
+  // including the template information \m[]
+  template <class T, int N> T multiply (T val) {
+    return val * N;
   }
 .R
 \s-4

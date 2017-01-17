@@ -5,53 +5,11 @@ Classes and enumerations
 .gcolor
 .LP
 .ce 1
-Week 4
+Week 10
 .SS Overview
-.IT Reflection
+.IT Classes
+.i1 Anatomy of a class
 .IT Enumerations
-.SS Reflection
-.IT Some common themes from recent reflections
-.i1 Linux 'cheat sheet'
-.i2 So that we can keep up with your demonstrations
-.i2 A list of commands to use buffy more easily
-.i1 Bonus questions n labs or quizzes
-.i1 More time for labs
-.i1 More explanation and examples
-.i2 Which kinda conflicts with the previous request
-.i1 More examples outside of the book expressed in labs
-.SS Linux cheats
-.IT What cheats would be most useful?
-.IT This is a very broad request
-.i1 I suspect, it's less about Linux and more about how to 'follow along'?
-.IT What would really be helpful here?
-.IT There is no requirement to use buffy for all your work.
-.IT Personally I would recommend CodeBlocks over VisualStudio
-.i1 Especially since it's week 4 and still not installed in the lab
-.i1 And it creates non-portable code
-.i1 Which will create more work for you when you finally need to get your project running on buffy
-.bp
-.IT An asside about "online code interpreters"
-.i1 a.k.a \fCcpp.sh\fR
-.i1 Long term, I think you are hurting yourself if you choose to use this vice a real compiler
-.i1 Labs are an opportunity to learn a programming environment
-.i2 It's about more than just finishing this lab
-.i1 When it's time for you to work on your project, the pain will start to hit
-.i1 My advice?  Take your lumps now
-.SS Labs and Time management
-.IT What is more important
-.i1 Me talking?
-.i1 You banging out code?
-.IT Labs and quizzes already take longer than I would like
-.i1 My initial estimates appear off by about 100%
-.i1 I'm reluctant to make long activities longer
-.i2 Bad lab smell
-.i1 Thoughts?
-.IT More time for labs
-.i1 The only way to achieve this is for me to talk lots less
-.i2 Which I am OK with
-.i1 If I only provided slides, labs & examples...
-.i1 And let people go though it and ask questions...
-.i1 Would people generally feel that was enough?
 
 .SS Enumerations
 .IT Consider the following program:

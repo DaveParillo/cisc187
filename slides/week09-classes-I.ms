@@ -7,7 +7,7 @@ Data Structures and Classes
 .gcolor
 .LP
 .ce 1
-Week 3
+Week 9
 .SS Overview
 .IT Data Structures
 .IT Software Reuse
@@ -63,9 +63,9 @@ What are the issues with the original \*[c]Date struct\*[r] presented in the cha
 
   struct Date
   {
-    int y;    // year
-    int m;    // month
-    int d;    // day
+    int y;    \m[green]// year\m[]
+    int m;    \m[green]// month\m[]
+    int d;    \m[green]// day\m[]
   }
 .R
 

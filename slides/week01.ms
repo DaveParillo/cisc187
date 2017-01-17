@@ -241,7 +241,7 @@ The method signature is:
 .CW
   #include <iostream>
 .B1
- #include <unistd.h>        // getopt declaration resides in this header
+ #include <unistd.h>        \m[green]// getopt declaration resides in this header\m[]
 .B2
   using std::string;
    
@@ -263,7 +263,7 @@ The method signature is:
         case 'v':
           view = optarg;
           break;
-        case 'h':            // fall-through is intentional here
+        case 'h':            \m[green]// fall-through is intentional here\m[]
         default:
           show_usage(prog);
           break;

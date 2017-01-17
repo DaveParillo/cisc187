@@ -1,32 +1,29 @@
 
 .TL
 .gcolor blue
-Pointers, casts & lambdas
+Pointers & lambda functions
 .gcolor
 .LP
 .ce 1
 Week 4
 .SS Overview
 .IT Constant pointers
-.IT Destroying memory
-.IT \*[c]#include <memory>\*[r] 
+.IT Function pointers
 .IT Pointers to \*[c]void*\*[r]
-.IT Casts
 .IT Lambda expressions
 .IT Lambda and their relation to classes
 .SS Constant pointers
 .IT Pointers can be declared \*[c]const\*[r] 
 .i1 Same as any other type 
-.IT Where const appears controls what is constant
 .i1s
-Same as \*[c]const\*[r] member functions
+Where \*[c]const\*[r] appears controls what is constant
 \s-4
 .CW
     int x;
-          int *       p1 = &x;  // non-const pointer to non-const int
-    const int *       p2 = &x;  // non-const pointer to const int
-          int * const p3 = &x;  // const pointer to non-const int
-    const int * const p4 = &x;  // const pointer to const int 
+          int *       p1 = &x;  \m[green]// non-const pointer to non-const int\m[]
+    const int *       p2 = &x;  \m[green]// non-const pointer to const int\m[]
+          int * const p3 = &x;  \m[green]// const pointer to non-const int\m[]
+    const int * const p4 = &x;  \m[green]// const pointer to const int\m[]
 
 .R
 \s+4
@@ -46,97 +43,34 @@ pointers even when they are all in a single function
 Consider the following:
 \s-4
 .CW
-    // calc returns a pointer to a double
-    double* calc(int res_size, int max)
-    // the caller is responsible for the memory allocated for res
-    {
-        double* p = new double[max];        //temp memory
-        double* res = new double[res_size];
-        // use p to calculate results to be put in res
-        delete[] p;    // free temp memory 
-        return res;    // can't free this here!
-    }
-    int main()
-    {
-        double* r = calc(100,1000);
-        // use r
-        delete[] r;    // easy to forget, error prone
-    }
-.i1e
-.bp
-.IT Rules of thumb
-.IT If you \fBmust\fR use raw \*[c]new\*[r] and \*[c]delete\*[r]
-.i1 Keep raw \*[c]new\*[r] in your constructors 
-.i1 Keep raw \*[c]delete\*[r] in your destructors 
-.IT This ensures you call \*[c]delete\*[r] once for each \*[c]new\*[r]
-.IT Deleting a \fInull pointer\fR does nothing
-\s-4
-.CW
-    double* d = nullptr;  // C++11 preferred syntax
-    double* x = 0;        // 'classic' syntax
-    delete d;
-    delete d;
-    delete d;   // unlike a non-null, no crash
-.R
-\s+4
-.SS Dynamic memory management
-.IT There are safer ways since C++11 to manage memory
-.IT especially outside of constructors
-.IT Raw \*[c]new\*[r] and \*[c]delete\*[r] aren't much better than 
-the old C \*[c]malloc\*[r] and \*[c]free\*[r]
-.i1 Still largely a manual process
-.i1 \*[c]new\*[r] can throw exceptions
-.IT C++11 provides the header \*[c]<memory>\*[r]
-.i1 'Smart pointers'
-.i1 Provides automatic, exception-safe, object lifetime management
-.IT One of the first was \*[c]auto_ptr\*[r]
-.i1 You'll still see lots of suggestions for it's use
-.i1 It is deprecated since C++11 and will be removed in C++17
-.IT Prefer \*[c]unique_ptr\*[r] and \*[c]shared_ptr\*[r] instead
-.SS Using unique_ptr
-.IT Unique pointers \fIown\fR their pointers.
-.IT Use a \*[c]unique_ptr\*[r] like a local variable and it automatically destroys its pointer
-.i1s
-Given:
-.CW
-  #include <iostream>
-  #include <memory>
-     
-  struct Foo
+  \m[green]// calc returns a pointer to a double\m[]
+  double* calc(int res_size, int max)
+  \m[green]// the caller is responsible for the memory allocated for res\m[]
   {
-    Foo()      { std::cout << "Foo::Foo\\n";  }
-    ~Foo()     { std::cout << "Foo::~Foo\\n"; }
-    void bar() { std::cout << "Foo::bar\\n";  }
-  };
-     
-  void f(const Foo &)
-  {
-    std::cout << "f(const Foo&)\n";
+    double* p = new double[max];        \m[green]//temp memory\m[]
+    double* res = new double[res_size];
+    \m[green]// use p to calculate results to be put in res\m[]
+    delete[] p;    \m[green]// free temp memory \m[]
+    return res;    \m[green]// can't free this here!\m[]
   }
-.bp
-.R
-.IT Use Foo on the heap safely
-.i1s
-Create a \*[c]unique_ptr\*[r] of Foo
-.CW
-\s-4
   int main()
   {
-    std::unique_ptr<Foo> p1(new Foo);          // p1 owns Foo
-    if (p1) p1->bar();
-     
-    {                                          // a scope for p2
-      std::unique_ptr<Foo> p2(std::move(p1));  // now p2 owns Foo
-      f(*p2);
-     
-      p1 = std::move(p2);                      // now p1 owns Foo
-    }                                          // p2 scope ends
-    std::cout << "destroyed p2...\\n";
-     
-    if (p1) p1->bar();
-  }                           // Foo destroyed when p1 scope ends
+    double* r = calc(100,1000);
+    \m[green]// use r\m[]
+    delete[] r;    \m[green]// easy to forget, error prone\m[]
+  }
 .R
 .i1e
+.IT Note
+.i1 Deleting a \fInull pointer\fR does nothing
+.CW
+    double* d = nullptr;  \m[green]// C++11 preferred syntax\m[]
+    double* x = 0;        \m[green]// 'classic' syntax\m[]
+    delete d;
+    delete d;
+    delete d;   \m[green]// unlike a non-null, no crash\m[]
+.R
+\s+4
 .SS void pointers
 .IT \*[c]void*\*[r] means
 .i1 Pointer to some memory the compiler doesn't know the type of
@@ -150,9 +84,9 @@ Create a \*[c]unique_ptr\*[r] of Foo
 .i1s
 There are no objects of type void
 .CW
-  int i;           // declare an int
-  void x;          // error!  void is not a type
-  void print();    // function returns nothing
+  int i;           \m[green]// declare an int\m[]
+  void x;          \m[green]// error!  void is not a type\m[]
+  void print();    \m[green]// function returns nothing\m[]
 .R
 .i1e
 .i1s
@@ -160,10 +94,10 @@ There are no objects of type void
 .CW
   int*    i  = new int{5}; 
   double* x  = new double[10];
-  int*    j  = i;             // OK
-  void*   p1 = i;             // OK
-  void*   p2 = d;             // OK
-  int*    i2 = p1;            // error
+  int*    j  = i;             \m[green]// OK\m[]
+  void*   p1 = i;             \m[green]// OK\m[]
+  void*   p2 = d;             \m[green]// OK\m[]
+  int*    i2 = p1;            \m[green]// error\m[]
 .R
 .i1e
 
@@ -173,8 +107,8 @@ There are no objects of type void
 \*[c]void\*[r] isn't a type, so it has no size
 .CW
   int*    i = new int{5}; 
-  void*   p = i;             // OK
-  int*    j = p;             // error
+  void*   p = i;             \m[green]// OK\m[]
+  int*    j = p;             \m[green]// error\m[]
 .R
 .i1e
 .IT We have to give the compiler size information
@@ -182,7 +116,7 @@ There are no objects of type void
 .i1s
 To another pointer type that has a size
 .CW
-  // explicit conversion with cast
+  \m[green]// explicit conversion with cast\m[]
   int*    j = static_cast<int*>(p);
 .R
 .i1e
@@ -196,7 +130,7 @@ To another pointer type that has a size
 .i2 Explicitly converts between types with different \*[c]const\*[r] qualifications
 .i1 \*[c]reinterpret_cast\*[r]
 .i2 Converts between types by reinterpreting the underlying bit pattern
-.i3 Literally, treat the a sequence of bits \fIas if it were a new type\fR
+.i3 Literally, treat a sequence of bits \fIas if it were a new type\fR
 .SS Lambdas
 .IT Motivation
 .i1 Many functions in the STL take a function as an argument.
@@ -243,10 +177,6 @@ Sadly, we can't use this function in \fCcount_if\fR
 .SS Lambda expressions
 .IT Introduced in C++11
 .i1 a.k.a closures, lambda functions, function literals, or just lambdas
-.IT Reduce 'boiler plate' code
-.i1 Like the \fCShorterThan\fR class
-.IT A syntactic short-cut for a functor
-.i1 Anything you could do with a functor, you can do with a lambda
 .IT Lambda basic syntax
 \s-8
 .CW
@@ -408,8 +338,6 @@ We can send different lambdas to the function
 .IT Destroy memory carefully
 .i1 Too much gets you in as much trouble as too little
 .i1 Memory 'leaks' are the #1 source of bugs in C/C++ programs
-.IT Prefer \*[c]unique_ptr\*[r] and \*[c]shared_ptr\*[r] over 
-raw \*[c]new\*[r] and \*[c]delete\*[r]
 .IT Pointers to \*[c]void*\*[r]
 .i1 Use when you must, don't otherwise
 .i2 You're giving up what little checking the compiler can do
@@ -420,9 +348,5 @@ raw \*[c]new\*[r] and \*[c]delete\*[r]
 .i1 Even less code than functors
 .i1 Expressive, just-in-time functions, right when you need them
 .i1 Passing lambdas using \fCstd::function\fR
-
-
-
-
 
 

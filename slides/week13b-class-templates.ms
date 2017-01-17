@@ -1,11 +1,11 @@
 
 .TL
 .gcolor blue
-Templates
+Class Templates
 .gcolor
 .LP
 .ce 1
-Week 10
+Week 13
 .SS Overview
 .IT Project #1
 .IT Accessing private class members
@@ -59,13 +59,13 @@ always include an optimization to anticipate storage needs
 .CW
 \s-8
   class vector {
-      int sz;       // number of elements
-      double* elem; // address of first element
-      int space;    // number of elements plus "free space"/"slots"
-                    // for new elements ("the current allocation")
+      int sz;       \m[green]// number of elements\m[]
+      double* elem; \m[green]// address of first element\m[]
+      int space;    \m[green]// number of elements plus "free space"/"slots"\m[]
+                    \m[green]// for new elements ("the current allocation")\m[]
   public:
       vector();
-      // ...
+      \m[green]// ...\m[]
   };
 .R
 
@@ -118,12 +118,12 @@ spline dashed from C.s down boxwid right boxwid \
 .CW
   void vector::reserve(int newalloc)
   {
-      if (newalloc<=space) return;      // never decrease allocation
-      double* p = new double[newalloc]; // allocate new space
+      if (newalloc<=space) return;      \m[green]// never decrease allocation\m[]
+      double* p = new double[newalloc]; \m[green]// allocate new space\m[]
       for (int i=0; i<sz; ++i) {
-        p[i] = elem[i];                 // copy old elements
+        p[i] = elem[i];                 \m[green]// copy old elements\m[]
       }
-      delete[ ] elem;                   // deallocate old space
+      delete[ ] elem;                   \m[green]// deallocate old space\m[]
       elem = p;
       space = newalloc;        
   }
@@ -147,15 +147,15 @@ Needs to call reserve
 .CW
   void vector::push_back(double d)
   {
-      // no more free space: get more
+      \m[green]// no more free space: get more\m[]
       if (space==0)
           reserve(8);
       else 
       if (space==sz)
           reserve(2*space);
 
-      elem[sz] = d;    // add d at end
-      ++sz;            // increase the size
+      elem[sz] = d;    \m[green]// add d at end\m[]
+      ++sz;            \m[green]// increase the size\m[]
   }
 .R
 .IT Keep in mind \fCsz\fR is keeping track of the number of elements used
@@ -170,9 +170,9 @@ Needs to call reserve
 \s-8
 .CW
   class vector {
-    int sz;           // the number of elements stored
-    double* elem;     // backing storage
-    int space;        // size plus number of free slots
+    int sz;           \m[green]// the number of elements stored\m[]
+    double* elem;     \m[green]// backing storage\m[]
+    int space;        \m[green]// size plus number of free slots\m[]
   public:
     vector() 
       : sz(0), elem(0), space(0) { }
@@ -182,19 +182,19 @@ Needs to call reserve
         for (int i=0; i<sz; ++i) elem[i]=0;
     }    
 
-    // copy and delete functions
+    \m[green]// copy and delete functions\m[]
     vector(const vector&);
     vector& operator=(const vector&);
     ~vector() { delete[ ] elem; }
 .bp
-    // access to individual elements using [ ]
+    \m[green]// access to individual elements using [ ]\m[]
     double& operator[ ](int n);
     const double& operator[ ](int n) const;
 
     int size() const { return sz; }    
     int capacity() const { return space; }
 
-    // change the size of the vector
+    \m[green]// change the size of the vector\m[]
     void resize(int newsize);
     void push_back(double d);
     void reserve(int newalloc);
@@ -210,14 +210,14 @@ Needs to call reserve
 .i1 or function
 \s-8
 .CW 
-                        // declare a type 'T'
-                        // now every 'double' in the old class
-                        // can be replaced with 'T'
+                        \m[green]// declare a type 'T'\m[]
+                        \m[green]// now every 'double' in the old class\m[]
+                        \m[green]// can be replaced with 'T'\m[]
   template<typename T>
   class vector {
-    int sz;        // the number of elements stored
-    T* elem;       // backing storage
-    int space;     // size plus number of free slots
+    int sz;        \m[green]// the number of elements stored\m[]
+    T* elem;       \m[green]// backing storage\m[]
+    int space;     \m[green]// size plus number of free slots\m[]
 
     public:
       T& operator[ ] (int n);
@@ -278,14 +278,14 @@ as a container of the base class
 \s-8
 .CW
   template<class T, int N> struct array {
-    T elem[N];        // hold N elements in member array
+    T elem[N];        \m[green]// hold N elements in member array\m[]
 
-    // rely on the default constructors, destructor, and assignment
+    \m[green]// rely on the default constructors, destructor, and assignment\m[]
 
     T& operator[ ] (int n) { return elem[n]; } 
     const T& operator[ ] (int n) const { return elem[n]; }
 
-    T* data() { return elem; }  // conversion to T*
+    T* data() { return elem; }  \m[green]// conversion to T*\m[]
     const T* data() const { return elem; }
 
     int size() const  { return N; }    
@@ -297,25 +297,25 @@ as a container of the base class
 .IT We can initialize our smart array:
 \s-8
 .CW
-  array<int,256>  g_ai;  // 256 integers
+  array<int,256>  g_ai;  \m[green]// 256 integers\m[]
   array<double,6> g_ad = { 0.0, 1.1, 2.2, 3.3, 4.4, 5.5 };
 .R
 \s+8
 .IT And use them
 \s-8
 .CW
-  // print a container
+  \m[green]// print a container\m[]
   template<class C> void printout(const C& c) {
     for(int i = 0; i<c.size(); ++i) cout << c[i] <<'\\n';
   }
   int main() {
-    //double* p = g_ad;      // error: no implicit conversion
-    double* q = g_ad.data(); // ok: explicit conversion
+    \m[green]//double* p = g_ad;      // error: no implicit conversion\m[]
+    double* q = g_ad.data(); \m[green]// ok: explicit conversion\m[]
 
     vector<int> vi;
 
-    printout(g_ad);          // print array
-    printout(vi);            // print vector
+    printout(g_ad);          \m[green]// print array\m[]
+    printout(vi);            \m[green]// print vector\m[]
   }
 
 .R

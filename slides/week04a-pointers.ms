@@ -37,11 +37,11 @@ The \fIaddress of\fR operator \*[c]&\*[r] allows us to pass by reference
     std::cout << "the address of beta is " 
               << &beta << '\\n';
 
-    by_value(beta);       // just pass in beta
+    by_value(beta);       \m[green]// just pass in beta\m[]
 
     std::cout << "beta = " << beta << '\\n';
 
-    by_reference(beta);  // just pass in beta
+    by_reference(beta);  \m[green]// just pass in beta\m[]
 
     std::cout << "beta is now " 
               << beta << '\\n';
@@ -72,19 +72,19 @@ manipulations, How?
 .IT A pointer is defined by the operator \*[c]*\*[r] \fBand\fR a type
 .CW
 
-  // get (allocate) a new uninitialized int 
-  int* p1 = new int;         // dangerous
+  \m[green]// get (allocate) a new uninitialized int\m[]
+  int* p1 = new int;         \m[green]// dangerous\m[]
 
-  // get a new int initialized to 5
+  \m[green]// get a new int initialized to 5\m[]
   int* p2 = new int{5};
-  int* p2 = new int(5);  // ditto
-  int* p2 = new int[5];  // an array of 5 
-                         // uninitialized ints
+  int* p2 = new int(5);  \m[green]// ditto\m[]
+  int* p2 = new int[5];  \m[green]// an array of 5 \m[]
+                         \m[green]// uninitialized ints\m[]
 .R
 .IT And you can assign the value a pointer points to
 .CW
 
-  int x = *p1;  // wonder what this points to...
+  int x = *p1;  \m[green]// wonder what this points to...\m[]
   int y = *p2;
 
 .R
@@ -101,9 +101,9 @@ manipulations, How?
 
   int main() 
   {
-    int* p = new int{5};    // add p to free store
-    by_reference(*p);       // use p
-    delete p;               // release p memory
+    int* p = new int{5};    \m[green]// add p to free store\m[]
+    by_reference(*p);       \m[green]// use p\m[]
+    delete p;               \m[green]// release p memory\m[]
   }
 .R
 \s+8
@@ -118,7 +118,7 @@ manipulations, How?
 .i1 A pointer \fBis\fR a type
 .CW
 
-  double* p2 = new int[5];  // error
+  double* p2 = new int[5];  \m[green]// error\m[]
 
 .R
 .i1 There is no 'implicit conversion' of pointer types
@@ -138,7 +138,7 @@ manipulations, How?
     int* p1 = new int;
     int* p2 = new int{5};
 
-    int x = *p1;  // put the int pointed to by p1 in x
+    int x = *p1;  \m[green]// put the int pointed to by p1 in x\m[]
     int y = *p2;
 
     cout << "P1:  " << p1  << "P2:  " << p2  << endl;

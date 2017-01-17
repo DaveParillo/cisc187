@@ -5,7 +5,7 @@ Unordered maps
 .gcolor
 .LP
 .ce 1
-Week 12
+Week 6
 .EQ
 delim $$
 .EN
@@ -81,7 +81,7 @@ Far less than potential
     int y;
   }
   namespace std {
-    // hashable Point
+    \m[green]// hashable Point\m[]
     template <>
       struct hash<Point>
       {

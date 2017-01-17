@@ -5,7 +5,7 @@ STL Algorithms
 .gcolor
 .LP
 .ce 1
-Week 14
+Week 7
 .EQ
 delim $$
 .EN
@@ -154,9 +154,9 @@ Find an int in a vector
     vector<int>::iterator p = 
         find(v.begin(),v.end(),x);
     if (p!=v.end()) { 
-       // we found  x
+       \m[green]// we found  x\m[]
     }
-    // ...
+    \m[green]// ...\m[]
   }
 .R
 .i1e
@@ -223,12 +223,12 @@ Let's allow any binary operator
 For example
 .CW
   struct Record {
-    int units;		// number of units sold
+    int units;		\m[green]// number of units sold\m[]
     double unit_price;
   };
 
-  // let the 'update the init value' function 
-  // extract data from a Record element:
+  \m[green]// let the 'update the init value' function \m[]
+  \m[green]// extract data from a Record element:\m[]
   double price(double v, const Record& r)
   { 
     return v + r.unit_price * r.units;
@@ -353,9 +353,9 @@ Manual write, increment, write...
 .CW
   ostream_iterator<string> oo(cout);
 
-  *oo = "Hello, ";  // aka cout << "Hello, "
-  ++oo;             // increment output pointer
-  *oo = "world!\\n"; // aka cout << "world!\\n"
+  *oo = "Hello, ";  \m[green]// aka cout << "Hello, "\m[]
+  ++oo;             \m[green]// increment output pointer\m[]
+  *oo = "world!\\n"; \m[green]// aka cout << "world!\\n"\m[]
 .R
 .i1e
 .bp
@@ -374,7 +374,7 @@ Write a vector to standard output
 Or fill a vector from standard input
 .CW
   copy( istream_iterator<int>( cin ),
-        istream_iterator<int>(),   // <-- note "end()"
+        istream_iterator<int>(),   \m[green]// <-- note "end()"\m[]
         back_inserter( v ) );
 .R
 .i1e

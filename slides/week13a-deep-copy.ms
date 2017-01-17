@@ -5,9 +5,8 @@ Copying Memory
 .gcolor
 .LP
 .ce 1
-Week 9
+Week 13
 .SS Overview
-.IT Midterm results
 .IT Copying memory
 .IT Rule of 3 / 5 / 0 
 .IT Recursion (briefly)

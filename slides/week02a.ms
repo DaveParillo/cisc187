@@ -76,8 +76,8 @@ and now use your "function"
 
 .CW
   int a = 7, b = 0;
-  CALL_WITH_MAX(++a, b);      //a incremented twice
-  CALL_WITH_MAX(++a, b + 10); //here once (probably)
+  CALL_WITH_MAX(++a, b);      \m[green]//a incremented twice\m[]
+  CALL_WITH_MAX(++a, b + 10); \m[green]//here once (probably)\m[]
 .R
 \s+4
 
