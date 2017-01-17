@@ -31,6 +31,24 @@ set autochdir                      " Change directory to the current buffer when
 
 :setlocal cm=blowfish2             " medium strong method
 
+:let mapleader = " "
+
+map <silent> <Leader>p  :bp<CR>
+map <silent> <Leader>n  :bNext<CR>
+
+" resize split windows by a % of current size
+nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>. :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <Leader>, :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+" move between splits
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
+nnoremap <Leader>= <C-w>=
+
+
 " explicitly reference ctags file
 set tags=~/.tags
 
