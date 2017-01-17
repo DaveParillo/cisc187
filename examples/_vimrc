@@ -13,9 +13,9 @@ colorscheme darkblue
 "Override the name of the base colorscheme with the name of this custom one
 let g:colors_name = "mycustom"
 " Tweak fg colors 
-hi clear Comment
+"hi clear Comment
 hi clear Type
-hi Comment guifg=#303030 guibg=#000040
+"hi Comment guifg=#303030 guibg=#000040
 " tone down the green brightness for types
 hi Type guifg=#40cc40 guibg=#000040
 
