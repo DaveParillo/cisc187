@@ -1,0 +1,91 @@
+" Use pathogen plugin to autoload any plugins in the bundle directory
+" assumes in ~/.vim/autoload
+"execute pathogen#infect()
+
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+filetype plugin indent on          " Turn on filetype detection for tagbar
+colorscheme darkblue
+
+"Override the name of the base colorscheme with the name of this custom one
+let g:colors_name = "mycustom"
+" Tweak fg colors 
+hi clear Comment
+hi clear Type
+hi Comment guifg=#303030 guibg=#000040
+" tone down the green brightness for types
+hi Type guifg=#40cc40 guibg=#000040
+
+
+set nobackup
+set noundofile
+set ts=2
+set sw=2
+set expandtab
+set autowrite
+set autoread
+set autochdir                      " Change directory to the current buffer when opening files.
+
+:setlocal cm=blowfish2             " medium strong method
+
+" explicitly reference ctags file
+set tags=~/.tags
+
+" netrw preferences
+let g:netrw_liststyle = 3          " tree style
+
+let g:netrw_browse_split = 4       " Open selected file in previous window
+let g:netrw_preview = 1            " split vertically
+let g:netrw_altv = 1               " file with :vsplit to the right of the browser.
+
+" Toggle VExplore with Ctrl-E
+function! ToggleVExplorer()
+  if exists("t:expl_buf_num")
+      let expl_win_num = bufwinnr(t:expl_buf_num)
+      if expl_win_num != -1
+          let cur_win_nr = winnr()
+          exec expl_win_num . 'wincmd w'
+          close
+          exec cur_win_nr . 'wincmd w'
+          unlet t:expl_buf_num
+      else
+          unlet t:expl_buf_num
+      endif
+  else
+      exec '1wincmd w'
+      Vexplore
+      let t:expl_buf_num = bufnr("%")
+  endif
+endfunction
+map <silent> <C-W>e :call ToggleVExplorer()<CR>
+
+
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let eq = ''
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      let cmd = '""' . $VIMRUNTIME . '\diff"'
+      let eq = '"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+
