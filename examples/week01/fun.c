@@ -1,3 +1,11 @@
+/**
+ * A fun, but obscure program.
+ *
+ * This program ticks every key attribute normally beloved by 
+ * C programmers. 
+ * It is concise and efficient.
+ * There is a typo in the output.  Fix it!
+ */
 #include <stdio.h> 
 main(t,_,a) 
 char *a; 

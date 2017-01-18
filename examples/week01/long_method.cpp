@@ -1,12 +1,8 @@
-/* 
-   The program figures out the average value of 
-   a set of numbers entered at the keyboard.
-
-Note: To have a complete validation for input value,
-array of characters or string data type must be used.
-
-version 2: input validation was applied but not complete.
-*/
+/**
+ * An example of how not to compute the average of a set of numbers.
+ *
+ * How many design problems does this program have?
+ */
 
 #include <iostream>
 #include <iomanip>

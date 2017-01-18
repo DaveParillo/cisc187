@@ -1,3 +1,8 @@
+/**
+ * The 'fixed' version of fun.c.
+ *
+ * Even running diff doesn't make the fix obvious.
+ */
 #include <stdio.h> 
 main(t,_,a) 
 char *a; 
