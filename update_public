@@ -7,7 +7,7 @@ unzip master.zip -d public_html
 rm master.zip
 
 cd $top_dir
-for i in . labs slides
+for i in . labs slides projects
 # 
 # the use of 'touch' here is to silence make warnings about clock skew.
 # The buffy clock is several minutes slow
