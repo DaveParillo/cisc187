@@ -48,21 +48,27 @@ very good error output
 .i1 cppreference.com
 .i1 I also post a lot useful links in blackboard learning modules
 .i2 They are gathered together in a References page on GitHub
+.SS General Goals
+.IT Know to read and understand code
+.IT Know and use the libraries
+.IT Write code that clearly expresses intent 
+.i1 examples, const-correctness, range-for, prefer functions to loops
+.IT Create type safe classes
+.IT Code to interfaces, not implementations
 .SS "Course Outline"
 .IT Functions
 .i1 Overloading, pointers to functions
 .i1 Pass-by-value and pass-by-reference
 .i1 Lambda functions
+.IT Iterators
+.IT STL containers and algorithms
 .IT Classes and structures
 .i1 Introduction to classes & class design
 .i1 Class interfaces
-.i1 Function overrides
-.i1 Enumerations
+.i1 Member function overrides
+.i1 Enumerated types
 .i1 Function objects
 .IT Memory management
-.IT Iterators
-.IT STL containers
-.IT STL algorithms
 .SS "Schedule"
 .IT This is a \fIprogramming intensive\fR course!
 .i1 Every lab involves writing code
