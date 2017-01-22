@@ -137,7 +137,6 @@ You may assume that all values will be stored in an \*[c]long\*[r],
 but it is up to you to handle numeric overflow.
 For now, it is acceptable to discard strings from standard input that are 
 too large to fit in a standard \*[c]long\*[r].
-That problem is for the next project.
 However, two valid \*[c]long\*[r]s may be added or multiplied and the result may be 
 too large to fit in a standard \*[c]long\*[r].
 This is the type of error you need to handle now.
@@ -231,7 +230,8 @@ same input file with verbose output enabled:
 .h2 Output when bad inputs received
 .LP
 Under no circumstances should your program throw an unhandled exception, abort, or crash.
-The following exmples show what handling bad inputs might look like.
+The following exmples show what handling bad inputs might look like on a computer with 64 bit longs.
+On buffy, substitute \fC9223372036854775807\fR with \fC2147483647\fR.
 
 Given inputs:
 .CW
