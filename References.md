@@ -67,6 +67,7 @@ Week:
     [exceptions](http://en.cppreference.com/w/cpp/language/exceptions)
   * [try-catch](http://en.cppreference.com/w/cpp/language/try_catch) and 
     [throw](http://en.cppreference.com/w/cpp/language/throw)
+* Post from Eric Lippert on [vexing exceptions](https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/)
 
 ## Week 4
 
