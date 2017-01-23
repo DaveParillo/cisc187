@@ -105,6 +105,10 @@ You collect 4 zero's in a row
 .i1 See me so that we can schedule a makeup time
 .IT Projects "late" is based on when it is uploaded to blackboard
 .i1 As determined by server clock
+.IT On a happier note
+.i1 Projects handed in \fIearly\fR earn +1% for each day before the deadline 
+.i2 Maximum of 10% added to the project grade.
+.i2 The maximum score for a project is still 100%
 .SS "Academic Integrity"
 .IT Don't cheat
 .IT If I think you have cheated, then you get a 0
