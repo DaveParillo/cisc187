@@ -1,5 +1,6 @@
 /**
  * An example of how not to compute the average of a set of numbers.
+ * Presented as a solution to a programming problem here on campus.
  *
  * How many design problems does this program have?
  */

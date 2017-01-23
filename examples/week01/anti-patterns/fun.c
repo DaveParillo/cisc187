@@ -1,6 +1,8 @@
 /**
  * A fun, but obscure program.
  *
+ * Actually it won an obscure programming contest in 1998.
+ *
  * This program ticks every key attribute normally beloved by 
  * C programmers. 
  * It is concise and efficient.
