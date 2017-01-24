@@ -5,9 +5,9 @@
 .TL
 \*[LH]
 .LP
-The goal of this project is to extend the simple 32 bit integer precision calculator
-from project 1.
-The first project was based on a simplified \fIprefix\fR notation that only
+The goal of this project is to extend the functinional calculator
+from project 2.
+The previous project still used a simplified \fIprefix\fR notation that only
 processed 1 operation at a time.
 In that calculator, 
 first an operation was read in, 
@@ -15,12 +15,11 @@ then that operation was applied to all the numbers read in after.
 While it is possible to construct a \fIprefix\fR notation calculator,
 changing our calculator to use \fIpostfix\fR notation simplifies things a bit.
 
-In project 2, the calculator will use \fIpostfix\fR notation 
-and be able to to solve unsingned equations of unlimited length.
-It will also transition from a purely functional program to using
-C++ objects.
-It will use the Chain of Responsibility pattern to abstract away the actual operations performed
-from the calculator class.
+In this project, the calculator will use \fIpostfix\fR notation.
+It will also transition from a mostly functional program to using
+C++ objects working together using a \fIdesign pattern\fR.
+It will use the \fIChain of Responsibility\fR pattern 
+to abstract away the actual operations performed from the calculator class.
 The calculator class is transformed into a simple driver with no knowledge about
 the actual calculations performed.
 .h1 Turn in Requirements
@@ -56,7 +55,7 @@ and the output should be
 .BI
 directed to standard output
 .R . 
-All the requirements from project 1 related to standard input and output apply.
+All the requirements from previous projects related to standard input and output apply.
 
 The input stream will consist of a series of arithmetic expressions. 
 To simplify the project, all expressions will be in \fIpostfix\fR notation.  
@@ -82,18 +81,14 @@ of the following requirements:
 .RS
 .nr step 0 1
 .IP \n+[step].
-All of the project requirements from project #1 also apply to this project.
+All of the project requirements from projects #1 and #2 also apply to this project,
+except as listed below.
 .IP \n+[step].
 Process input strings containing equations in postfix notation.
 Each equation should reside in a single line of input.
 .IP \n+[step].
 Process equations using a mix of symbols (addition, multiplication, exponentiation)
-.IP \n+[step].
-The input file should now be able to contain arbitrary spaces anywhere 
-in the file without changing the results.
-
-It should also skip 'comment lines'.
-Lines where the first non-whitespace character is '#' should be treated as a comment and ignored.
+containing numbers of arbitrary length
 .IP \n+[step].
 Encapsulate each operation in a class that inherits from \fCCommand\fR.
 Also encapsulate the code to convert strings to numbers in the same way - by extending \fCCommand\fR.
@@ -113,8 +108,9 @@ Use the provided class to abstract the computation logic.
         // @param operands a stack of unsigned integers.
         // @param token to be evaluated and used during execution.
         //    If the token is not 'appropriate' for this object, 
-        //    then do nothing.\m[]
-        virtual void execute(std::stack<std::size_t>& operands, 
+        //    then do nothing.
+        // @return true if this command was executed.\m[]
+        virtual bool execute(std::stack<mesa::BigInt>& operands, 
                              const std::string& token) const = 0;
     };
   }
@@ -126,17 +122,12 @@ Do not attempt to store operators on the stack.
 .RE
 
 .LP
-For now, it is acceptable to discard strings from standard input that are 
-too large to fit in a standard \*[c]long\*[r].
-That problem is for the next project.
-However, two valid \*[c]long\*[r]s may be added or multiplied and the result may be 
-too large to fit in a standard \*[c]long\*[r].
-You still need to handle this type of error.
 .h2 The Chain of Responsibility Pattern
 .LP
 The \fIChain of Responsibility design pattern\fR allows an object to execute 
 a command without knowing what object will receive and handle it.
-Traditionally, each member in the 'chain' is a link in a linked list data structure,
+Each member in the chain is a link in a linked list data structure.
+Objects in the chain are followed until one that can handle the command to be executed,
 but for this lab, all of the objects that implement the \fCCommand\fR interface
 can simply be stored in a \*[c]std::vector\*[r] and iterated over.
 
@@ -161,6 +152,8 @@ If the token is an operand, then it is pushed onto the stack provided as a param
 If the token is an operator, then two operands are popped off the stack, 
 the appropriate operation is performed, 
 and the result is pushed back onto the stack.
+Once \fCexecute\fR returns \*[c]true\*[r], 
+processing should continue to the next token.
 .h3 References
 .RS
 .nr step 0 1
@@ -173,66 +166,34 @@ http://www.oodesign.com/command-pattern.html
 .RE
 .h1 Example usage
 .LP
-This section provides expected outputs from your finished progrsm.
+This section provides expected outputs from your finished program.
 The character \fC#\fR represents the command prompt.
 It may look different on your computer.
-In the following examples, assume the file \fCinput.txt\fR contains:
-.CW
-  2 3 +
-  # spaces and tabs
-   1  2  3   4 5 6 7 8 9 10 + +   + +  + +  + + + 
-  2 3 * 10 +
-  2 3 ^ 10 +
-.R
-.h2 Using incorrect command line arguments
-.LP
-.CW
-  # ~/bin/calc -x
-  Usage: ~/bin/calc [-h] [-v] 
-  #
-.R
 .h2 Invoke help
 .LP
-.CW
-  # ~/bin/calc -h
-  Usage: ~/bin/calc [-h] [-v] 
-  to run the program interactively. To run using standard input:
-    echo 'equation' | ./calc
-  where 'equation' is a single postfix notation equation, i.e. '2 2 +'
-  or:
-    ~/bin/calc < input_file.txt
-  where 'input_file.txt' contains postfix notation equations, 
-  one per line
-
-  Options:
-    -h   Show this text
-    -v   Set a verbose output flag.  Default = false.
-
-  Running with no input from standard in enters 'interactive mode'.
-  The program runs until 'quit' is the first word on a line or 
-  EOF is reached.
-  #
-.R
-.bp
+This should only require minor modification to account for postfix notation.
+The help text should be mostly unchanged from project 1.
 .h2 Using an input file
 .LP
 With the verbose output option set:
 .CW 
   # ./calc -v < input.txt 
-  2 3 + = 5
-  1  2  3   4 5 6 7 8 9 10 + +   + +  + +  + + + = 55
-  2 3 * 10 + = 16
-  2 3 ^ 10 + = 18
+  000000056669777     99999911111 + 352324012 + 03 ^      555557778 * = 562400792227677956625810678708149922000000
+  99999999 990001 * 01119111 55565    33333 + * +  88888888              + = 99099674628565
+  123456789 1111111111 * 111119 2111111 9111111 * + *  1 ^ = 2638486500477638652325851269760
+  9 1 +     5 *     00000000 + = 50
+  999999999  0 * = 0
+  9 0 ^ = 1
   #
 .R
 .h2 Interactive mode
 .LP
 .CW
   # ./calc
-  2 2 +
-  4
-  1 2 + 3 + 4 ^ 5 6 + +
-  1307
+  000000056669777     99999911111 + 352324012 + 03 ^      555557778 *
+  562400792227677956625810678708149922000000
+  1 2 + 3 * 4 ^
+  6561
   quit
   #
 .R

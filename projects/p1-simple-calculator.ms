@@ -149,7 +149,7 @@ the better off you will be for the rest of the term.
 .bp
 .h1 Example usage
 .LP
-This section provides expected outputs from your finished progrsm.
+This section provides expected outputs from your finished program.
 The character \fC#\fR represents the command prompt.
 It may look different on your computer.
 
