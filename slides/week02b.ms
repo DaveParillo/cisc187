@@ -142,7 +142,8 @@ will be far, far less than if you packed everything into one monster function
 .i2 It should be obvious: do not trust \fCargv[]\fR
 .SS How not to read a number
 .IT Let's do everything in 1 function!
-.RS
+.i1s
+This is an anti-pattern ...
 \s-8
 .CW
   cout << "Please enter an integer 
@@ -159,12 +160,12 @@ will be far, far less than if you packed everything into one monster function
            << " is not in the [1:10] range\\n";
     }
     \m[green]// not an int...\m[]
-.bp
 .R
-.RE
+.i1e
+.bp
 .IT Not an int
-.IT So do error handling
-.RS
+.i1s
+So do error handling ...
 \s-8
 .CW
     else if (cin.fail()) 
@@ -187,7 +188,8 @@ will be far, far less than if you packed everything into one monster function
   \m[green]// if we get here n is in the desired range\m[]
 
 .R
-.RE
+\s+8
+.i1e
 .IT But this function is a mess!
 .SS The problem
 .IT Trying to do everything at once
