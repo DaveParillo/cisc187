@@ -7,6 +7,7 @@ Associative Containers
 .ce 1
 Week 6
 .SS Overview
+.IT Section 21.6 of the text
 .IT Motivation
 .IT Maps, sets, and trees
 .IT the \*[c]map\*[r] API

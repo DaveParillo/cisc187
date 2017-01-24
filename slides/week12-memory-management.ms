@@ -7,6 +7,7 @@ Memory management
 .ce 1
 Week 12
 .SS Overview
+.IT Chapter 17 of the text
 .IT Destroying memory
 .IT 'Smart' pointers
 .IT \*[c]#include <memory>\*[r] 

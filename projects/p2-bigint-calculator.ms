@@ -14,7 +14,7 @@ no overflow happened.
 What if we could remove this constraint?
 
 The primary goal of this project is to replace the arithmetic done using 
-fundamental types with integers of effectively unlimitied size: Big Integers.
+fundamental types with integers of effectively unlimited size: Big Integers.
 Many languages include a BigInteger class or some means to represent
 integers of arbitrarily large size, but in C++,
 you need to use a third party library.
@@ -37,7 +37,6 @@ Add documentation where it makes sense to do so.
 .IP \n+[step].
 Ensure all project requirements are met and all results are correct.
 .IP \n+[step].
-The template for this project includes a working \fCMakefile\fR.  
 Your finished project should be able to build using \fCmake\fR executed on buffy.
 .IP \n+[step].
 Create a zip file of all of your project files and upload to BlackBoard.

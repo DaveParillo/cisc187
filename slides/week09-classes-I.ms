@@ -9,6 +9,7 @@ Data Structures and Classes
 .ce 1
 Week 9
 .SS Overview
+.IT Sections 9.1 - 9.4 of the text
 .IT Data Structures
 .IT Software Reuse
 .IT Implementing Data Structures

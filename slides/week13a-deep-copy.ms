@@ -7,6 +7,7 @@ Copying Memory
 .ce 1
 Week 13
 .SS Overview
+.IT Chapter 18 of the text
 .IT Copying memory
 .IT Rule of 3 / 5 / 0 
 .IT Recursion (briefly)

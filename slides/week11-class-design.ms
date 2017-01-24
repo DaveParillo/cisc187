@@ -7,6 +7,7 @@ Class Design
 .ce 1
 Week 11
 .SS Overview
+.IT Chapter 14 of the text
 .IT The \fIIS-A\fR relationship
 .IT Object composition
 .i1 The \fIHAS-A\fR relationship

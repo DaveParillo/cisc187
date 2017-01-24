@@ -7,6 +7,7 @@ Functions
 .ce 1
 Week 2
 .SS Overview
+.IT You have \fBalready\fR read Chapter 8 of the text
 .IT Transitioning to Modern C++
 .IT Using \*[c]const\*[r]
 .IT Passing parameters and return values

@@ -7,6 +7,7 @@ Classes and enumerations
 .ce 1
 Week 10
 .SS Overview
+.IT The remainder of Chapter 9 of the text
 .IT Classes
 .i1 Anatomy of a class
 .IT Enumerations

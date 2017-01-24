@@ -11,6 +11,10 @@ Serialization
 .ce 1
 Week 14
 .SS Overview
+.IT Review chapters 10 and 11
+.i1 For basic File I/O and formatting I/O
+.i1 The textbook does not have much to say about object serialization
+.i2 Other than it's a byte stream, which is true
 .IT Fundamental I/O concepts
 .IT Files
 .i1 Opening

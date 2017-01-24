@@ -37,7 +37,6 @@ Add documentation where it makes sense to do so.
 .IP \n+[step].
 Ensure all project requirements are met and all results are correct.
 .IP \n+[step].
-The template for this project includes a working \fCMakefile\fR.  
 Your finished project should be able to build using \fCmake\fR executed on buffy.
 .IP \n+[step].
 Create a zip file of all of your project files and upload to BlackBoard.

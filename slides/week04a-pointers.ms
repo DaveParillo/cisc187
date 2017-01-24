@@ -7,6 +7,7 @@ Pointers
 .ce 1
 Week 4
 .SS Overview
+.IT Section 21.4 of the text
 .IT References review
 .IT References and Pointers
 .IT Pointers

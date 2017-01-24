@@ -11,6 +11,7 @@ Function overloads
 .ce 1
 Week 3
 .SS Overview
+.IT You have \fBalready\fR read sections 19.3, 19.4, 19.5 and 5.6 of the text
 .IT Generic programming
 .IT Function overloads
 .IT Function templates

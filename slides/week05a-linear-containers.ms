@@ -7,6 +7,7 @@ Linear Containers
 .ce 1
 Week 5
 .SS Overview
+.IT Chapter 20 of the text
 .IT Containers in the STL
 .IT Linear ADT's
 .i1 \*[c]array\*[r]

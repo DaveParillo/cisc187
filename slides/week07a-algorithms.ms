@@ -10,6 +10,7 @@ Week 7
 delim $$
 .EN
 .SS Overview
+.IT Chapter 21 of the text
 .IT Motivation
 .IT Generic programming
 .IT Algorithms and parameterization
