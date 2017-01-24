@@ -84,7 +84,7 @@ Even when the number is a valid \fCDirection\fR.
 .i1 But still lack many of the conveniences found in other languages
 .i2 A C++ \*[c]class enum\*[r] is \fBnot\fR a \*[c]class\*[r]
 .i2 Compare to Java, where it actually is a class
-.i1 A \*[c]class enum\*[r] is lightweight for efficiency reasons
+.i1 A \*[c]class enum\*[r] is lightweight for 'efficiency reasons'
 .i2 But we can add convenience functions
 .bp
 .IT Change our \*[c]enum\*[r] to be a \*[c]class enum\*[r]

@@ -188,7 +188,7 @@ arrow to C.s from D.n
 .SS Design Considerations
 .IT Good class design is hard
 .i1 Because designing good data types is hard.
-.IT Good data types have a natural syntax and intuitve semantics
+.IT Good data types have a natural syntax and intuitive semantics
 .IT C++ classes \fIare\fR data types
 .IT Nearly every new class requires thinking about the following
 .i1 Creation / Destruction 

@@ -152,7 +152,7 @@ A simple \fCcount_if\fR example
 .i1 \fCless_than_10\fR, etc.
 .IT Gets tedious quickly
 .i1 And not very flexible 
-.i2 Every new comaprison is a recompile
+.i2 Every new comparison is a recompile
 .bp
 .IT Goal
 .i1 Avoid writing a new function for every value to compare

@@ -73,8 +73,9 @@ instead of
 .i1 When overloading addition, for example
 .i2 consider postfix and prefix \*[c]operator++\*[r] 
 .i1 Don't overload \*[c]operator<\*[r] without also \*[c]operator>\*[r]
-.IT When we get to maps at the end of the semster, we will spend a whole day on overloading \*[c]operator==\*[r]
-.i1 Yes, it's that important.   
+.IT Some classes only work when overloading a specific operator
+.i1 set: \*[c]operator<\*[r]
+.i1 unordered_map: \*[c]operator==\*[r]
 .SS Member or Non-member?
 .IT In general, the choice is yours, but there are some guidelines
 .IT \*[c]operator<<\*[r] and \*[c]operator>>\*[r] are almost always non-member
@@ -255,7 +256,7 @@ A simple \fCcount_if\fR example
 .i1 \fCless_than_10\fR, etc.
 .IT Gets tedious quickly
 .i1 And not very flexible 
-.i2 Every new comaprison is a recompile
+.i2 Every new comparison is a recompile
 .bp
 .IT Goal
 .i1 Avoid writing a new function for every value to compare
@@ -340,7 +341,7 @@ or omit the temporary object
   }
 .R
 .i1e
-.SS Advanges of functors
+.SS Advantages of functors
 .IT Function objects are "smart functions." 
 .i1 Objects that behave like pointers are smart pointers
 .i1 Function objects may have other member functions and attributes
@@ -356,7 +357,7 @@ or omit the temporary object
 .i2 More details are defined at compile time
 .IT BUT
 .i1 This seems like a lot of code for such a simple task
-.i1 ShorterThan only uses \*[c]operator()\*[r]
+.i1 \fCShorterThan\fR only uses \*[c]operator()\*[r]
 .i2 But we still had to wrap it in a class
 .IT Is there a way to get the compiler to generate the 'boiler plate' code around our function?
 .i1 Yes!

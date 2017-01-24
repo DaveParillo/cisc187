@@ -137,7 +137,7 @@ catch (const ios_base::failure& e)
     std::cout << "Code: " << e.code() << std::endl;
   }
 .R
-.SS Sumamry
+.SS Summary
 .IT Exceptions
 .IT When to use them
 .IT When not to use them

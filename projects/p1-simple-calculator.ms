@@ -97,9 +97,9 @@ which you can continue to work with in the normal way.
 The input stream will consist of a series of arithmetic expressions. 
 To simplify the project, all expressions will be in \fIprefix\fR notation.  
 In prefix notation, the operator comes before the operands. 
-For example, you normally see multiplication written \fC(a * b)\fR - 
+For example, you normally see multiplication written \fCa * b\fR - 
 this is referred to as \fIinfix\fR notation. 
-In prefix, this expression would appear as \fC(* a b)\fR. 
+In prefix, this expression would appear as \fC* a b\fR. 
 .h1 Project Requirements
 .LP
 In order to receive full credit, your project must satisfy \fBall\fR
@@ -151,14 +151,6 @@ the better off you will be for the rest of the term.
 This section provides expected outputs from your finished program.
 The character \fC#\fR represents the command prompt.
 It may look different on your computer.
-
-In the following examples, assume the file \fCinput.txt\fR contains:
-.CW
-  + 2 3
-  + 1 2 3 4 5 6 7 8 9 10
-  * 2 3
-  ^ 2 3
-.R
 .h2 Using incorrect command line arguments
 .LP
 .CW
@@ -191,6 +183,13 @@ In the following examples, assume the file \fCinput.txt\fR contains:
 .R
 .h2 Using an input file
 .LP
+In the following examples, assume the file \fCinput.txt\fR contains:
+.CW
+  + 2 3
+  + 1 2 3 4 5 6 7 8 9 10
+  * 2 3
+  ^ 2 3
+.R
 .CW
   # ./calc < input.txt 
   5
@@ -201,7 +200,6 @@ In the following examples, assume the file \fCinput.txt\fR contains:
 .R
 
 same input file with verbose output enabled:
-
 .CW 
   # ./calc -v < input.txt 
   + 2 3 = 5
@@ -245,7 +243,6 @@ Given inputs:
 .R
 
 The results should be:
-
 .CW
   # ./calc -v < input.txt
   + 1 addition failed: result is too big

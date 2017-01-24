@@ -21,8 +21,8 @@ delim $$
 .i1 Algorithms not in the STL
 .SS Review
 .IT A pair of iterators defines a sequence
-.i1 \fCbegin()\fR points to the first elment, if any
-.i1 \fCend()\fR points to one beyond the last elment
+.i1 \fCbegin()\fR points to the first element, if any
+.i1 \fCend()\fR points to one beyond the last element
 .PSPIC images/iterator.eps
 .IT An \fIiterator\fR is a \fBtype\fR that supports iterator operations
 .i1 \*[c]++\*[r], point to the next element
@@ -133,7 +133,7 @@ class \fCT\fR must support \fC+\fR and \fC=\fR
 .SS The STL
 .IT Part of the ISO C++ standard
 .IT Mostly non-numeric in nature
-.i1 Only 4 standardalgorithms specifically do computations
+.i1 Only 4 standard algorithms specifically do computations
 .i2 Accumulate, inner_product, partial_sum, adjacent_difference
 .i1 Works string and numeric data
 .IT Basic Model
@@ -262,7 +262,7 @@ Multiply two vectors (yielding a scalar)
 .IT Like \fCaccumulate\fR, we can make inner product even more generic by supplying our own operations
 .IT Two custom operations
 .i1s
-One for the 'sum part' and one for the the 'multiply part'
+One for the 'sum part' and one for the 'multiply part'
 .CW
   template<class In, class In2, 
            class T, 

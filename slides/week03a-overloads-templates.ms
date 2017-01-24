@@ -18,7 +18,7 @@ Week 3
 .SS Generic programming
 .IT C provides only 1 way to write \fIpolymorphic\fR code
 .i1 Pointers
-.IT C++ provides more tools for writing reuable, polymorphic code
+.IT C++ provides more tools for writing reusable, polymorphic code
 .IT Today we look at two of them
 .i1 Function overloading
 .i1 Function templates

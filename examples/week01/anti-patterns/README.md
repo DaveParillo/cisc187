@@ -13,5 +13,5 @@ Sadly, most of these was downloaded from the internet and was presented as somet
 a beginning programmer could use and learn from.
 
 And for the record, you can write 
-[bad code]9https://github.com/Droogans/unmaintainable-code) in any language:
+[bad code](https://github.com/Droogans/unmaintainable-code) in any language.
 

@@ -155,8 +155,8 @@ box "d"
 .i1 A Last-In-First-Out (LIFO) ADT
 .IT Values: items of type T
 .IT Operations
-.i1 \fCpush(T)\fR: Put element on top of stack
-.i1 \fCT pop()\fR: Remove element from top of stack
+.i1 \fCvoid push(T)\fR: Put element on top of stack
+.i1 \fCvoid pop()\fR: Remove element from top of stack
 .i1 \fCT top()\fR (also known as 'peek')
 .PSPIC images/stack.eps
 .SS Real-world examples
@@ -195,8 +195,8 @@ which element of the vector is the 'top' of the \*[c]stack\*[r]?
 .i1 A First-In-First-Out (FIFO) ADT
 .IT Values: items of type T
 .IT Operations
-.i1 \fCpush(T)\fR: Place element at back of line
-.i1 \fCT pop()\fR: Remove element from front of line
+.i1 \fCvoid push(T)\fR: Place element at back of line
+.i1 \fCvoid pop()\fR: Remove element from front of line
 .i1 \fCT front()\fR: Look at the front of the queue
 .i1 \fCT back()\fR: Look at the back of the queue
 .PSPIC images/queue.eps

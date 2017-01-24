@@ -222,7 +222,7 @@ Your \fCargc\fR would be set = 4 and \fCargv\fR would contain
 .RE
 .IT The examples directory contains example command line argument processing for
 .i1 getopt
-.i1 Boost::prograam_options
+.i1 Boost::program_options
 .i1 Two different ways to parse using standard C and C++
 .bp
 .IT The \fCgetopt\fR function makes parsing these strings simple

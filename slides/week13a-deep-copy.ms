@@ -48,7 +48,7 @@ it almost certainly requires all three.
 .i1 Limit memory management to as few classes as possible
 .i1 Most of your classes should be able to use the compiler defaults
 .i2 And you won't have to write any of these functions
-.IT Expception: Abstract Base classes
+.IT Exception: Abstract Base classes
 .i1 A base class with a public virtual destructor
 .i2 Prevents the declaration of implicitly defined moves and copies
 .IT Best practice: Declare them as default explicitly

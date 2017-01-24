@@ -5,7 +5,7 @@
 .TL
 \*[LH]
 .LP
-The goal of this project is to extend the functinional calculator
+The goal of this project is to extend the functional calculator
 from project 2.
 The previous project still used a simplified \fIprefix\fR notation that only
 processed 1 operation at a time.
@@ -59,19 +59,19 @@ All the requirements from previous projects related to standard input and output
 The input stream will consist of a series of arithmetic expressions. 
 To simplify the project, all expressions will be in \fIpostfix\fR notation.  
 In postfix notation, the operands come before the operator. 
-For example, you normally see multiplication written \fC(a * b)\fR - 
+For example, you normally see multiplication written \fCa * b\fR - 
 this is referred to as \fIinfix\fR notation. 
-In postfix, this expression would appear as \fC(a b *)\fR. 
+In postfix, this expression would appear as \fCa b *\fR. 
 For expressions with more than one operator, 
 each time an operator is encountered, 
 it operates on the two immediately preceding sub-expressions. 
-For example, \fC(a+b*c)\fR in "normal" notation would be \fC(a b c * +)\fR in postfix. 
+For example, the infix \fCa+b*c\fR would be \fCa b c * +\fR in postfix. 
 This means that b and c are multiplied, 
 then the results of the multiplication are added to a.
 In postfix, there is no operator precedence; 
 operators are evaluated left to right. 
 Thus, the expression \fC((a + b) * c)\fR is written \fCa b + c *\fR in postfix.  
-Postfix also eliminates the need for parentheses.
+Postfix eliminates the need for parentheses.
 .bp
 .h1 Project Requirements
 .LP
