@@ -24,7 +24,7 @@ Week 2
 .i2 it specifies the interface for a function, variable, or class
 .i1 In a header file the compiler reads the declarations it needs to understand our code
 .IT Definitions
-.i1 A \fIdefinition\fR is an implemenation of a declaration
+.i1 A \fIdefinition\fR is an implementation of a declaration
 .i1 A declaration may also fully specify the entity declared 
 .i2 This is called a \fIdefinition\fR
 .bp
@@ -117,7 +117,7 @@ Read and ask questions if you have any.
 
 .IT Avoid \fIpremature optimization\fR
 
-.IT Avoid \fIpremature pessimization\fR
+.IT Avoid \fIpremature "pessimization"\fR
 .i1 That is, prefer faster when \fBequally\fR clear
 .bp
 .IT Keep functions short
@@ -140,10 +140,212 @@ will be far, far less than if you packed everything into one monster function
 .IT Check function parameters for validity
 .i1 Unless you \fIcompletely\fR trust the caller (and their caller...)
 .i2 It should be obvious: do not trust \fCargv[]\fR
+.SS How not to read a number
+.IT Let's do everything in 1 function!
+.RS
+\s-8
+.CW
+  cout << "Please enter an integer 
+           in the range 1 to 10 (inclusive):\n";
+  int n = 0;
 
+  while (cin >> n) {
+    if (cin) {                     \m[green]// we got an integer\m[]
+                                   \m[green]// now check it\m[]
+      if (1<=n && n<=10) {
+        break;
+      }
+      cout << "Sorry, " << n 
+           << " is not in the [1:10] range\\n";
+    }
+    \m[green]// not an int...\m[]
+.bp
+.R
+.RE
+.IT Not an int
+.IT So do error handling
+.RS
+\s-8
+.CW
+    else if (cin.fail()) 
+      cin.clear();	        \m[green]// we'd like to look at the characters\m[]
+      cout << "Sorry, that was not a number; please try again\n";
+
+      for (char ch; cin>>ch && !isdigit(ch); ) 	\m[green]// throw away non-digits\m[]
+        /* nothing */ ;
+
+      if (!cin) {
+        print_error("no input");      \m[green]// provide some feedback\m[]
+      } else {
+        cin.unget()                   \m[green]// put the digit back\m[]
+      }
+    }
+    else {
+      error("no input");	\m[green]// eof or bad: give up\m[]
+    }
+  }
+  \m[green]// if we get here n is in the desired range\m[]
+
+.R
+.RE
+.IT But this function is a mess!
+.SS The problem
+.IT Trying to do everything at once
+.IT We have all mixed together
+.i1 Reading values
+.i1 Prompting the user for input
+.i1 Writing error messages
+.i1 Skipping past "bad" input characters
+.i1 Testing the input against a range
+
+.IT Solution: Split into logically separate parts
+.SS What do we want?
+.IT Weed parts for
+.i1s 
+Read an int and range check it
+.RS
+.CW
+  int get_int(int low, int high);
+.R
+.RE
+.i1e
+.i1s 
+Get any \*[c]int\*[r]
+.RS
+.CW
+  void get_int();
+.R
+.RE
+.i1e
+.i1s 
+Try to find an int in some non-int garbage
+.RS
+.CW
+  void skip_to_int();
+.R
+.RE
+.i1e
+
+
+Separate functions that do the logically separate actions
+.SS Get any int
+.RS
+\s-8
+.CW
+  int get_int()
+  {
+    int n = 0;
+    while (true) {
+      if (std::cin >> n) {
+        return n; 	
+      }
+      std::cout << "Sorry, that was not a number\\n";
+      skip_to_int();
+    }
+  }
+.R
+.RE
+.SS Skip garbage
+.RS
+\s-8
+.CW
+  void skip_to_int()
+  {
+    if (std::cin.fail()) {	      	  \m[green]// not an integer\m[]
+      std::cin.clear();	              \m[green]// prepare to look at characters\m[]
+      for(char ch; std::cin>>ch; ) {  \m[green]// throw away non-digits\m[]
+        if (isdigit(ch) || ch=='-') {
+          std::cin.unget()            \m[green]// return last char to stream\m[]
+          return;
+        }
+      }
+    }
+    print_error("no input");	\m[green]// eof or bad: give up\m[]
+  }
+.R
+.RE
+.SS Get an int with a given range
+.RS
+\s-8
+.CW
+  int get_int(int low, int high)
+  {
+    std::cout << "Please enter an integer in the range "
+              << low << " to " << high << " (inclusive):\\n";
+    while (true) {
+      int n = get_int();
+      if (low<=n && n<=high) return n;
+      std::cout << "Sorry, "
+                << n << " is not in the [" << low << ':' << high
+                << "] range; please try again\\n";
+    }
+  }
+.R
+.RE
+.SS Use what we've got so far
+.IT This sort of works
+.RS
+.CW
+  int n = get_int(1,10);
+  cout << "n: " << n << endl;
+
+  int m = get_int(2,300);
+  cout << "m: " << m << endl;
+.R
+.RE
+.IT But limited.  We can't provide explicit instructions
+.IT Yes, we have functions
+.IT No, they are not very reusable
+
+.IT Problem
+.i1 The 'dialog' with the user is still all mixed in
+.SS What do we \fIreally\fP want?
+.IT \fIParameterize\fR the conversation
+.RS
+\s-8
+.CW
+  int strength = get_int(1, 10,
+                         "enter strength",
+                         "Not in range, try again");
+  cout << "strength: " << strength << endl;
+
+  int altitude = get_int(0, 50000,
+                         "please enter altitude in feet",
+                         "Not in range, please try again");
+  cout << "altitude: " << altitude  << "ft. above sea level\\n";
+
+.R
+.RE
+.IT Knowing what we \fIreally\fR want is often the most important question
+.IT Ask it repeatedly during software development
+.IT As you learn about a problem & it's solutions
+.i1 Your answers improve
+.SS Parameterized get_int in range
+.RS
+\s-8
+.CW
+  int get_int(int low, int high,
+              const string& prompt, const string& sorry)
+  {
+    std::cout << prompt
+              << low << " to " << high << " (inclusive):\\n";
+    while (true) {
+      int n = get_int();
+      if (low<=n && n<=high) return n;
+      std::cout << sorry 
+                << n << " is not in the [" << low << ':' << high
+                << "] range; please try again\\n";
+    }
+  }
+.R
+.RE
+.IT And could do the same thing for \fCget_int()\fR
+.IT General rule: utility functions don't produce their own messages
+.IT \fIReal\fR library functions often don't display anything at all
+.i1 They throw exceptions with message text
 .SS Compiling functions (and other code)
 .IT Prefer compile-time and link-time errors to runtime errors
-.IT .i1 Effective C++ item #46
+.i1 Effective C++ item #46
 .IT C++ doesn't offer much of a 'safety net'
 .i1 Once past the compiler you are on your own
 .i2 The things we got away with in the week 1 lab hopefully convinced you...
