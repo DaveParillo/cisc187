@@ -272,54 +272,6 @@ Needs to call reserve
 as a container of the base class
 .i1 The derived class is effectively truncated
 .i2 Technically called \fIslicing\fR
-.SS Function Templates
-.IT Templates can be used to make generic functions in the same was as a generic class
-.IT Suppose we want to make a smarter array:
-\s-8
-.CW
-  template<class T, int N> struct array {
-    T elem[N];        \m[green]// hold N elements in member array\m[]
-
-    \m[green]// rely on the default constructors, destructor, and assignment\m[]
-
-    T& operator[ ] (int n) { return elem[n]; } 
-    const T& operator[ ] (int n) const { return elem[n]; }
-
-    T* data() { return elem; }  \m[green]// conversion to T*\m[]
-    const T* data() const { return elem; }
-
-    int size() const  { return N; }    
-  };
-
-.R
-\s+8
-.bp
-.IT We can initialize our smart array:
-\s-8
-.CW
-  array<int,256>  g_ai;  \m[green]// 256 integers\m[]
-  array<double,6> g_ad = { 0.0, 1.1, 2.2, 3.3, 4.4, 5.5 };
-.R
-\s+8
-.IT And use them
-\s-8
-.CW
-  \m[green]// print a container\m[]
-  template<class C> void printout(const C& c) {
-    for(int i = 0; i<c.size(); ++i) cout << c[i] <<'\\n';
-  }
-  int main() {
-    \m[green]//double* p = g_ad;      // error: no implicit conversion\m[]
-    double* q = g_ad.data(); \m[green]// ok: explicit conversion\m[]
-
-    vector<int> vi;
-
-    printout(g_ad);          \m[green]// print array\m[]
-    printout(vi);            \m[green]// print vector\m[]
-  }
-
-.R
-\s+8
 .SS Summary
 .IT Accessing private class members
 .IT Finishing the \*[c]vector\*[r] API
@@ -331,5 +283,3 @@ as a container of the base class
 .i1 Inheritance, overriding \*[c]virtual\*[r] functions
 .i1 Relies on run-time resolution
 .IT Slicing
-.IT Function Templates
-.i1 Template argument deduction
