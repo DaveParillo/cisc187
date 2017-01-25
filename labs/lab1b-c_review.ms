@@ -4,6 +4,8 @@
 \*[CH]
 .LP
 This lab reviews the core programming concepts you learned in your first semester of C++.
+.so cover-page.ms
+.bp
 .NH
 Making change:  30 minutes \fImaximum\fR
 .time_box

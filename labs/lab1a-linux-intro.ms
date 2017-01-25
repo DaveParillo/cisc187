@@ -17,7 +17,8 @@ This is one aspect of UNIX that makes it a powerful environment for processing
 text-based data, one of its first uses in a corporate environment. 
 Dump some text in one end of a command pipeline and retrieve processed output from the other end.
 As programmers, this is useful, because at its core, programming involves manipulating text:
-often transforming text from one thing into another.
+transforming source code into executable machine code, 
+converting database query results into readable reports, etc.
 .NH
 Exploring the Linux server:  30 minutes \fImaximum\fR
 .LP
@@ -58,9 +59,10 @@ Pick something you can remember!!
 If you forget it I can't help you and it may take a few days to reset it.
 .IP \n+[step].
 Use the \fCcp\fR command to copy the script \fCturnitin.sh\fR from
+.br
 \fC/var2/home/turnitin.sh\fR to the \fCbin\fR directory in your own home directory.
 
-Type \fCchmod 750 ~/bin/turnitin.sh\fR to change the mode of the script you copied
+Then type \fCchmod 750 ~/bin/turnitin.sh\fR to change the mode of the script you copied
 and make it executable by you.
 
 .RE
@@ -114,7 +116,8 @@ Verify the files created by make in the previous step are removed.
 
 .IP \n+[step].
 Write a simple 'hello world' program and save it to 'hello.cpp'.  
-If you have never edited a file on *nix before, use nano.  Start it using the file name you want to create:
+If you have never edited a file on *nix before, use nano.  
+Start it using the file name you want to create:
 .CW 
  nano hello.cpp
 .R
