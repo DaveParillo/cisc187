@@ -43,6 +43,5 @@ Note that \*[c]use.cpp\*[r] does not include \*[c]iostream\*[r], as it doesn't d
 use any of those facilities.
 
 Create these files and get them to compile and run.
-.bp
 .so reflection2.ms
 

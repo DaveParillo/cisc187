@@ -2,6 +2,8 @@
 .so headings.ms
 .TL
 \*[CH]
+.so cover-page.ms
+.bp
 .NH
 Vector vs List: 60 minutes \fImaximum\fR
 .time_box
@@ -32,6 +34,14 @@ value that is larger than the new value.
 Now do the same experiment using a \*[c]list<int>\*[r] to hold the \*[c]int\*[r]s. 
 For which \fIN\fR is the \*[c]list\*[r] faster than the \*[c]vector\*[r]?  
 
+You could use \*[c]rand\*[r], but the STL includes a random library:
+.CW
+  int randint(int max)
+  {
+    static std::default_random_engine eng;
+    return std::uniform_int_distribution<int> {0, max} (eng);
+  }
+.R
 
 
 

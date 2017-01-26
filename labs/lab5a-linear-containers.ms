@@ -2,6 +2,8 @@
 .so headings.ms
 .TL
 \*[CH]
+.so cover-page.ms
+.bp
 .NH
 Stacks: 60 minutes \fImaximum\fR
 .time_box
@@ -100,5 +102,3 @@ You will encounter this kind of ugliness often in legacy code.
 
 What changes could be made to the jill part of func that would improve it?
 .RE
-
-
