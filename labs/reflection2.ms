@@ -2,11 +2,11 @@
 Reflection: 20 minutes \fImaximum\fR
 .time_box
 .RS
-Reflect on the material we covered this week and respond to the following.
+Reflect on the material we covered this week (or recently) and respond to the following.
 
 .nr step 1 1
 .IP \n[step].
-Is there anything you \fIexpected\fR to learn this week but didn't?
+Is there anything you \fIexpected\fR to learn this week (or recently) but didn't?
 
 
 

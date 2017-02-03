@@ -3,6 +3,7 @@
 .TL
 \*[CH]
 .so cover-page.ms
+.bp
 .NH
 Shape area: 60 minutes \fImaximum\fR
 .time_box
@@ -44,12 +45,15 @@ where:
 The apothem is the shortest line from the polygon center to a side.
 It will always be a perpendicular bisector of a side.
 .EQ
-a = s over {2 tan ({180 over n})}
+a = s over {2 tan 
+left { {180 over n} right }
+}
 .EN
 \fBArea\fR
 .EQ
 Area = {a times p} over 2
 .EN
+where:
 .RS
 \fBa\fR = apothem
 .br

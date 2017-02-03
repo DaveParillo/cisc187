@@ -63,11 +63,9 @@ Understand from a C++ perspective the control of program flow based on the condi
 .IP \n+[step].
 Use C++ to provide an if-else structure as a solution to a software problem.
 .IP \n+[step].
-Use the Standard Template Library to solve real-world software problems.
+Understand from a C++ perspective, the control of program flow with a looping structure.
 .IP \n+[step].
 Use C++ to provide a looping structure as a solution to a software problem.
-.IP \n+[step].
-Understand from a C++ perspective, the control of program flow with a looping structure.
 .RE
 .bp
 .SH
