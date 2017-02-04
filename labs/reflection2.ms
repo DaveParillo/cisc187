@@ -36,4 +36,3 @@ Describe one topic you continue to struggle with or remain confused about.
 Suggest at least \fBone\fR change the professor could make to improve understanding of this material.
 .RE
 
-

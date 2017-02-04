@@ -9,15 +9,17 @@ Passing and returning values: 60 minutes \fImaximum\fR
 .QP
 Write a program that takes a \*[c]vector<string>\*[r] and returns a \*[c]\fCvector<int>\*[r]
 containing the number of characters in each \*[c]string\*[r].
-The program should contain at least 1 function, but can contain as many as you think
-is appropriate.
-
 The program should also find the shortest \*[c]string\*[r], the longest \*[c]string\*[r], 
 and the first and last \*[c]string\*[r]s, 
 where 'first' and 'last' is determined by their alphabetical sorted position.
 Accomplish this \fIwithout\fR sorting the vector.
 
+The program should contain at least 1 function, but can contain as many as you think
+is appropriate.  
+Hint: this is a \fIteam\fR lab.
+
 How many separate functions did you decide to write for these tasks?  Why?
+.bp
 .NH
 Using multiple source files: 30 minutes \fImaximum\fR
 .time_box
@@ -41,7 +43,8 @@ The source code file \*[c]use.cpp\*[r] should include \*[c]my.h\*[r] and define 
 \*[c]print_foo()\*[r], and print the value of \fC99\fR using \*[c]print()\*[r].
 Note that \*[c]use.cpp\*[r] does not include \*[c]iostream\*[r], as it doesn't directly
 use any of those facilities.
-
-Create these files and get them to compile and run.
+Get these files to compile and run.
+You can't get full credit if \fBany\fR source file includes \*[c]my.cpp\*[r] or \*[c]use.cpp\*[r].
+.br
 .so reflection2.ms
 
