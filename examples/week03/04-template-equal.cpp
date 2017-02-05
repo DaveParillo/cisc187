@@ -12,9 +12,9 @@ bool are_equal (T a, U b) {
 
 int main () {
   if (are_equal(10,10.0)) {
-    std::cout << "x and y are equal\\n";
+    std::cout << "x and y are equal\n";
   } else {
-    std::cout << "x and y are not equal\\n";
+    std::cout << "x and y are not equal\n";
   }
 }
 

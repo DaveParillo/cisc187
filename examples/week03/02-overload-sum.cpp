@@ -16,8 +16,8 @@ double sum (double a, double b) {
 int main () {
   int x=5,y=2;
   double n=5.45,m=2.55;
-  std::cout << operate (x,y) << '\n';
-  std::cout << operate (n,m) << '\n';
+  std::cout << sum (x,y) << '\n';
+  std::cout << sum (n,m) << '\n';
 }
 
 

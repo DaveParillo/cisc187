@@ -236,6 +236,8 @@ Read and ask questions if you have any.
 
 .IT Avoid \fIpremature "pessimization"\fR
 .i1 That is, prefer faster when \fBequally\fR clear
+.IT Minimize side-effects
+.i1 See \fCexamples/week02/anti-patterns/side-effects\fR
 .bp
 .IT Keep functions short
 .i1 A function should do \fIone\fR thing well
@@ -462,6 +464,7 @@ Separate functions that do the logically separate actions
 .IT General rule: utility functions don't produce their own messages
 .IT \fIReal\fR library functions often don't display anything at all
 .i1 They throw exceptions with message text
+.i1 See \fCexamples/week02/anti-patterns/chapter.10*\fR for a working example of the problem and one possible solution 
 .SS Summary
 .IT Functions
 .i1 Keep them short
