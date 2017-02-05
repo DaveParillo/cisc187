@@ -12,10 +12,11 @@ Write a set of function overloads for finding the absolute value of a number.
 Do \fBnot\fR use any built-in or standard library functions to compute the absolute value.
 .IP 2.
 Include enough overloads to cover all the C++ fundamental types.
+
+Keep your declarations and defintions separate.
 .IP 3.
 Repeat step 1, but this time use a template.
 
-Keep your declarations and defintions separate.
 .RE
 
 
@@ -34,6 +35,5 @@ and copy the two overload files from the week 3 examples directory:
 .IP 2.
 Refactor these two programs to use templates.
 
-Keep your declarations and defintions separate.
 .RE
 

@@ -126,6 +126,8 @@ Then our previous sum functions collapse down to
 .i1e
 .IT The identifier 'T' is traditional
 .i1 But any valid variable name could be used
+.IT Templates are completely specified in header files normally
+.i1 A template is a \fIrecipe\fR for creating functions
 .SS Using templated functions
 .IT Not very different from a non-templated function
 .i1s
@@ -190,4 +192,5 @@ You can explicitly provide the type
 .i1 Type of local variable
 .i1 Argument to another function
 .IT Non-template arguments behave like function parameters
+.IT Templates must be implemented in the include file
 
