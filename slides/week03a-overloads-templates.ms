@@ -63,8 +63,29 @@ For example
 .i1 7 different functions just for absolute value 
 .i2 abs, llabs, fabs, fabsf, etc.
 .i1 13 different functions for different types of division operation
+.SS Overload anti-patterns
+.IT How many parameters are too many?
+.i1s
+For example
+.CW
+  int operate (float a, int b, long c, double d) { ...
+.R
+.i1e
+.i1 More parameters = more complexity
+.i2 Limit the number of parameters you need in a given method, 
+.i2 Or use an object to combine parameters
+.IT Be wary of overloads with the same number of parameters and different types
+.i1s
+For example
+.CW
+  int operate (double a, int b) { ...
+  int operate (int a, double b) { ...
+.R
+.i1e
+.i1 I \fIguarantee\fR you will invoke the wrong version on occasion
+
 .SS Function templates
-.IT Overloads help this quite a bit
+.IT Overloads help avoid writing many similar functions
 .IT But there is still duplication to eliminate
 .i1s
 What if our functions do basically the same thing?

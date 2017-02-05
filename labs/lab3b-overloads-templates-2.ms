@@ -16,7 +16,7 @@ Create a program that computes the area in a number of different ways.
 Use the following assumptions / guidelines:
 .RS
 .IP a.
-The area function 1 parameter should compute the area of a circle.
+An area function with 1 parameter should compute the area of a circle.
 The parameter can represent either radius or diameter: document your choice.
 .IP b.
 An area function with two parameters should compute the area of a square.
