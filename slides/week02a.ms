@@ -57,6 +57,58 @@ For example
 .IT Once defined, a function can be called
 .i1 And its task can be executed as often as needed
 .i1 See \fCexamples/week02/add.cpp\fR and \fCcall-stack.cpp\fR 
+.SS "Passing parameters"
+.IT In C, parameter passing defaults to pass by value
+.i1 See \fCexamples/week02\fR
+.IT Unless you specify otherwise 
+.i1 Function parameters are initialized with \fIcopies\fR of the actual arguments, 
+.i1 Function callers get back a copy of the value returned by the function
+.IT For large / complex data types, this becomes expensive even in small programs
+.IT
+Prefer passing references over pass by value:
+.i1 Effective C++ #22: Prefer pass-by-reference to pass-by-value
+.i1s 
+For example, we prefer 
+.br
+\s-4\fC  const mesa::Student get_student (const std::string& name);\fR 
+.br
+over
+.br
+\fC  const mesa::Student  get_student (const std::string  name);\fR \s+4
+.i1e
+.IT Finally
+.i1 Don't return a reference when you must return an object
+.i1 In other words
+.i2 Don't go so crazy on pass-by-reference that you strive to \fInever\fR return a value
+.i1 We will talk more about this when we get into classes
+.SS General function writing guidelines
+.IT Write for clarity and correctness \fBfirst\fR
+
+.IT Avoid \fIpremature optimization\fR
+
+.IT Avoid \fIpremature "pessimization"\fR
+.i1 That is, prefer faster when \fBequally\fR clear
+.IT Minimize side-effects
+.i1 See \fCexamples/week02/anti-patterns/side-effects\fR
+.bp
+.IT Keep functions short
+.i1 A function should do \fIone\fR thing well
+.i2 If you see a function doing more then one thing
+.i3 Consider breaking it up into multiple functions
+.i1 Is this (slightly) more work?
+.i2 In the short run, maybe.
+.i2s 
+In the long run, your total time spent 
+.br
+debugging, testing, maintaining, and modifying
+.br
+will be far, far less than if you packed everything into one monster function
+.i2e
+.i2 Unit testing is practically impossible once functions reach a certain size.
+.IT Strive to write a function \fIonce\fR and never have to touch it again.
+.IT Check function parameters for validity
+.i1 Unless you \fIcompletely\fR trust the caller (and their caller...)
+.i2 It should be obvious: do not trust \fCargv[]\fR
 .SS Using const
 .IT Use \*[c]const\*[r] to instruct the compiler to hold something constant
 .IT The \*[c]const\*[r] keyword can modify the behavior of anything, depending on where it is used
@@ -136,30 +188,6 @@ See \fCexamples/week02/define.cpp\fR
 .i3 Avoids making an extra (unneeded) copy
 .i3 Prevents unintended modification
 
-.SS "Passing parameters"
-.IT In C, parameter passing defaults to pass by value
-.i1 See \fCexamples/week02\fR
-.IT Unless you specify otherwise 
-.i1 Function parameters are initialized with \fIcopies\fR of the actual arguments, 
-.i1 Function callers get back a copy of the value returned by the function
-.IT For large / complex objects, this becomes expensive even in small programs
-.IT
-Prefer passing references over pass by value:
-.i1 Effective C++ #22: Prefer pass-by-reference to pass-by-value
-.i1s 
-For example, we prefer 
-.br
-\s-4\fC  const mesa::Student get_student (const std::string& name);\fR 
-.br
-over
-.br
-\fC  const mesa::Student  get_student (const std::string  name);\fR \s+4
-.i1e
-.IT Finally
-.i1 Don't return a reference when you must return an object
-.i1 In other words
-.i2 Don't go so crazy on pass-by-reference that you strive to \fInever\fR return a value
-.i1 We will talk more about this when we get into objects
 .SS Partition the global namespace
 .IT Effective C++ #28
 .IT The main problem with the global namespace?
@@ -229,36 +257,6 @@ Useful information to follow
 
 Read and ask questions if you have any.
 .DE
-.SS General function writing guidelines
-.IT Write for clarity and correctness \fBfirst\fR
-
-.IT Avoid \fIpremature optimization\fR
-
-.IT Avoid \fIpremature "pessimization"\fR
-.i1 That is, prefer faster when \fBequally\fR clear
-.IT Minimize side-effects
-.i1 See \fCexamples/week02/anti-patterns/side-effects\fR
-.bp
-.IT Keep functions short
-.i1 A function should do \fIone\fR thing well
-.i2 If you see a function doing more then one thing
-.i3 Consider breaking it up into multiple functions
-.i2 Is this (slightly) more work?
-.i3 In the short run, maybe.
-.i3s 
-In the long run, your total time spent 
-.br
-debugging, testing, maintaining, and modifying
-.br
-will be far, far less than if you packed everything into one monster function
-.i3e
-.i3 Unit testing is practically impossible once functions reach a certain size.
-.bp
-.IT Strive to write a function \fIonce\fR and never have to touch it again.
-
-.IT Check function parameters for validity
-.i1 Unless you \fIcompletely\fR trust the caller (and their caller...)
-.i2 It should be obvious: do not trust \fCargv[]\fR
 .SS How not to read a number
 .IT Let's do everything in 1 function!
 .i1s
