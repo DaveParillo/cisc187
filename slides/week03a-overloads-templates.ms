@@ -54,15 +54,17 @@ For example
   }
 .R
 .i1e
-.IT \fBNOTE:\fR The return type is \fBnot\fR part of the overload
-.i1 Two functions in the same namespace that differ only in return type will not compile
 .IT This is a huge advantage over C
-.i1 Where every function is global
+.i1 Where (nearly) every function is global
 .i1 And every function name must be unique
-.IT Example
+.IT For example
 .i1 7 different functions just for absolute value 
 .i2 abs, llabs, fabs, fabsf, etc.
 .i1 13 different functions for different types of division operation
+
+.IT \fBNOTE\fR 
+.i1 The return type is \fBnot\fR part of the overload
+.i1 Two functions in the same namespace that differ only in return type will not compile
 .SS Overload anti-patterns
 .IT How many parameters are too many?
 .i1s
@@ -73,7 +75,7 @@ For example
 .i1e
 .i1 More parameters = more complexity
 .i2 Limit the number of parameters you need in a given method, 
-.i2 Or use an object to combine parameters
+.i2 Or use a struct to combine parameters
 .IT Be wary of overloads with the same number of parameters and different types
 .i1s
 For example
@@ -107,7 +109,9 @@ What if our functions do basically the same thing?
 .R
 .i1e
 .bp
-.IT In C++, we can define a function with a \fIgeneric type\fR
+.IT In C++, we can define a \fItemplate\fR for a function
+.i1 The template defines a function generating recipe 
+.i1 Using a \fIgeneric type\fR as a placeholder
 .IT New keyword: \*[c]template\*[r]
 .i1 Followed by template parameters in angle brackets <>
 .i1s
@@ -126,8 +130,8 @@ Then our previous sum functions collapse down to
 .i1e
 .IT The identifier 'T' is traditional
 .i1 But any valid variable name could be used
+.i2 In beginner tutorials \fCAnyType\fR is not uncommon
 .IT Templates are completely specified in header files normally
-.i1 A template is a \fIrecipe\fR for creating functions
 .SS Using templated functions
 .IT Not very different from a non-templated function
 .i1s

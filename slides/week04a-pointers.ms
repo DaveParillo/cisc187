@@ -7,7 +7,9 @@ Pointers
 .ce 1
 Week 4
 .SS Overview
-.IT Section 21.4 of the text
+.IT Sections 17.2 - 17.4 & 21.4.3 of the text
+.i1 Ch 17 should be a rview of what you already learned about pointers last semester
+.i1 Ch 21, section 21.4.3 gives a far too brief description of lambdas
 .IT References review
 .IT References and Pointers
 .IT Pointers

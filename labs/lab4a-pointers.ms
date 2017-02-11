@@ -57,25 +57,23 @@ But if you find yourself using a compiler that doesn't know about
 
 .CW
   template<typename T, typename... Args>
-  std::unique_ptr<T> make_unique(Args&&... args)
-  {
+  std::unique_ptr<T> make_unique(Args&&... args) {
     return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
   }
 
-  int main()
-  {
-    // Use the default constructor.
+  int main() {
+    \m[green]// Use the default constructor.\m[]
     std::unique_ptr<Foo> v1 = std::make_unique<Foo>();
-    // Use the constructor that matches these arguments
+    \m[green]// Use the constructor that matches these arguments\m[]
     std::unique_ptr<Foo> v2 = std::make_unique<Foo>(0, 1, 2);
-    // Create a unique_ptr to an array of 5 elements
+    \m[green]// Create a unique_ptr to an array of 5 elements\m[]
     std::unique_ptr<Foo[]> v3 = std::make_unique<Foo[]>(5);
    
-    std::cout << "make_unique<Foo>():      " << *v1 << '\n'
-              << "make_unique<Foo>(0,1,2): " << *v2 << '\n'
-              << "make_unique<Foo[]>(5):   " << '\n';
+    std::cout << "make_unique<Foo>():      " << *v1 << '\\n'
+              << "make_unique<Foo>(0,1,2): " << *v2 << '\\n'
+              << "make_unique<Foo[]>(5):   " << '\\n';
     for (int i = 0; i < 5; i++) {
-      std::cout << "     " << v3[i] << '\n';
+      std::cout << "     " << v3[i] << '\\n';
     }
   }
 .R

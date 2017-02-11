@@ -1,4 +1,5 @@
 format=pdf
+o=lab
 ifeq ($(format),ascii)
 	page = -pet -T $(format) -P-c 
 else
@@ -21,7 +22,7 @@ roles: roles.ms
 	tbl roles.ms > roles.tbl
 
 labs:
-	for i in `/bin/ls lab*.ms`; do \
+	for i in `/bin/ls $(o)*.ms`; do \
 	groff $(page) -ms ../macros.ms -d the_date=`date "+%Y-%m-%d"` $$i > $$i.$(format); \
 	done
 

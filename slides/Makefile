@@ -1,4 +1,5 @@
 format=ps
+o=week
 ifeq ($(format),ascii)
 	PAGE = -pet -T $(format) -P-c -ms slides.ms 
 else
@@ -26,7 +27,7 @@ welcome:
 	fi 
 
 slides:
-	for i in `/bin/ls week*.ms`; do \
+	for i in `/bin/ls $(o)*.ms`; do \
 		if [ $(format) = "ascii" ]; then \
 			groff $(PAGE) $$i > $$i.$(format); \
 		else \

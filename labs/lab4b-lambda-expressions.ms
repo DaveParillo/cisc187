@@ -79,12 +79,12 @@ What constructors are called?
 
 
 .IP \n+[step].
-Create a simple closure.
+Create a simple closure (lambda).
 Pass an instance of the \*[c]struct\*[r] to the lambda.
 .IP \n+[step].
 Create a loop that executes 10 times and
 call the closure from the body of the loop.
-How many objects are created and destroyed?
+How many copies of Data are created and destroyed?
 
 
 .IP \n+[step].
