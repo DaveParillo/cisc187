@@ -23,6 +23,7 @@ Week:
 [16](#week-16)
 
 ## Week 1
+C/C++ review, tools and using the command line in GNU/Linux
 
 * From: cppreference.com: 
 [C++ operator precedence](http://en.cppreference.com/w/cpp/language/operator_precedence)
@@ -39,6 +40,7 @@ Week:
 * Jeff Atwood's blog: [Code smells](https://blog.codinghorror.com/code-smells/)
 
 ## Week 2
+Function basics
 
 * [Chapter 8](http://stroustrup.com/Programming/8_functions.ppt) slides from textbook.
 * From: cppreference.com: 
@@ -51,18 +53,23 @@ Week:
 * C++ Core Guidelines for 
   [functions](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-functions) from GitHub
 * cppreference.com tutorial on [functions](http://www.cplusplus.com/doc/tutorial/functions/)
+* A very brief description of 
+  "[extract method](http://refactoring.com/catalog/extractMethod.html)" from Martin Fowler's Refactoring site.
+* [ExtractMethod](http://c2.com/cgi/wiki?ExtractMethod) discussion from the 
+  [PortlandPatternRepository](http://c2.com/cgi/wiki?PortlandPatternRepository) - the very first wiki
 
 
 ## Week 3
+Function templates and exception handling
 
 
 * [Chapter 19](http://stroustrup.com/Programming/19_vector.ppt) slides from textbook.
 * From cppreference.com
   * C++ [templates](http://en.cppreference.com/w/cpp/language/templates) overview
-  * [class](http://en.cppreference.com/w/cpp/language/class_template) and 
-    [function](http://en.cppreference.com/w/cpp/language/function_template) templates
+  * [function](http://en.cppreference.com/w/cpp/language/function_template) templates
   * Template [parameters and template arguments](http://en.cppreference.com/w/cpp/language/template_parameters) and 
     [template argument deduction](http://en.cppreference.com/w/cpp/language/template_argument_deduction)
+  * [static cast](http://en.cppreference.com/w/cpp/language/static_cast) 
   * Overview of the [error handling](http://en.cppreference.com/w/cpp/error) library and 
     [exceptions](http://en.cppreference.com/w/cpp/language/exceptions)
   * [try-catch](http://en.cppreference.com/w/cpp/language/try_catch) and 
@@ -70,6 +77,7 @@ Week:
 * Post from Eric Lippert on [vexing exceptions](https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/)
 
 ## Week 4
+Function pointers and lambda expressions
 
 * Descriptions of [lambda expressions](https://msdn.microsoft.com/en-us/library/dd293608.aspx)
   from Microsoft's MSDN
@@ -77,6 +85,7 @@ Week:
   * [Lambda functions](http://en.cppreference.com/w/cpp/language/lambda)
 
 ## Week 5
+Linear containers and iterators
 
 * [Chapter 20](http://stroustrup.com/Programming/20_containers.ppt) slides from textbook.
 * From cppreference.com
@@ -89,6 +98,7 @@ Week:
   * Overview of the [container](http://en.cppreference.com/w/cpp/container) library
 
 ## Week 6
+Associative containers
 
 * [Chapter 21](http://stroustrup.com/Programming/21_algorithms.ppt) slides from textbook.
 * From cppreference.com
@@ -103,6 +113,7 @@ Week:
   * Overview of the [container](http://en.cppreference.com/w/cpp/container) library
 
 ## Week 7
+STL algorithms
 
 * [Chapter 21](http://stroustrup.com/Programming/21_algorithms.ppt) slides from textbook.
 * From cppreference.com
@@ -119,8 +130,11 @@ Week:
   * Boost [algorithms](http://www.boost.org/doc/libs/1_62_0/libs/libraries.htm#Algorithms)
 
 ## Week 8
+Midterm
 
 ## Week 9
+Structure and class basics
+
 * [Chapter 9 slides](http://stroustrup.com/Programming/9_classes.ppt) from textbook.
 * [Classes I](http://www.cplusplus.com/doc/tutorial/classes/) tutorial from cplusplus.com
 * [Initialization](http://en.cppreference.com/w/cpp/language/initialization)
@@ -132,6 +146,8 @@ Week:
 
 
 ## Week 10
+Class interfaces and overloading
+
 * [Chapter 9 slides](http://stroustrup.com/Programming/9_classes.ppt) from textbook.
 * C++ Core Guidelines for 
   [enumerations](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-enum), 
@@ -145,14 +161,19 @@ Week:
 
 
 ## Week 11
+Class inheritance and polymorphism
 
 * [Chapter 14](http://stroustrup.com/Programming/14_class_design.ppt) slides from textbook.
+* [class templates](http://en.cppreference.com/w/cpp/language/class_template) cppreference 
+  * Template [parameters and template arguments](http://en.cppreference.com/w/cpp/language/template_parameters) and 
+    [template argument deduction](http://en.cppreference.com/w/cpp/language/template_argument_deduction)
 * [Inheritance](http://www.cplusplus.com/doc/tutorial/inheritance/) and 
   [Polymorphism](http://www.cplusplus.com/doc/tutorial/polymorphism/) from cplusplus.com
 * A good article from Herb Sutter on [virtual functions](http://www.gotw.ca/publications/mill18.htm)
 
 
 ## Week 12
+Memory management
 
 * [Chapter 17](http://stroustrup.com/Programming/17_free_store.ppt) slides from textbook.
 * cppreference.com desriptions of 
@@ -166,6 +187,7 @@ Week:
 
 
 ## Week 13
+Copying and moving memory
 
 * [Chapter 18](http://stroustrup.com/Programming/18_arrays.ppt) slides from textbook.
 * From cppreference.com: [copy constructors](http://en.cppreference.com/w/cpp/language/copy_constructor) 
@@ -176,19 +198,21 @@ Week:
 * [Rule of Five / three / zero](http://en.cppreference.com/w/cpp/language/rule_of_three)
 
 ## Week 14
+Serialization
 
-* [Ch. 10](http://stroustrup.com/Programming/10_iostreams.ppt) and 
-  [Ch. 11](http://stroustrup.com/Programming/11_custom_io.ppt) slides from textbook.
-* [Basic Input/Output](http://www.cplusplus.com/doc/tutorial/basic_io/) and 
-  [File I/O](http://www.cplusplus.com/doc/tutorial/files/) from cplusplus.com
-* A very brief description of 
-  "[extract method](http://refactoring.com/catalog/extractMethod.html)" from Martin Fowler's Refactoring site.
-* [ExtractMethod](http://c2.com/cgi/wiki?ExtractMethod) discussion from the 
-  [PortlandPatternRepository](http://c2.com/cgi/wiki?PortlandPatternRepository) - the very first wiki
+* Boost [serialization](http://www.boost.org/doc/libs/1_62_0/libs/serialization/doc/index.html)
+
+
+* Review of stream I/O
+  * [Ch. 10](http://stroustrup.com/Programming/10_iostreams.ppt) and 
+    [Ch. 11](http://stroustrup.com/Programming/11_custom_io.ppt) slides from textbook.
+  * [Basic Input/Output](http://www.cplusplus.com/doc/tutorial/basic_io/) and 
+    [File I/O](http://www.cplusplus.com/doc/tutorial/files/) from cplusplus.com
 
 ## Week 15
 
 
 ## Week 16
+Final Exam
 
 
