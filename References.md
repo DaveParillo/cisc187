@@ -23,7 +23,7 @@ Week:
 [16](#week-16)
 
 ## Week 1
-C/C++ review, tools and using the command line in GNU/Linux
+#### C/C++ review, tools and using the command line in GNU/Linux
 
 * From: cppreference.com: 
 [C++ operator precedence](http://en.cppreference.com/w/cpp/language/operator_precedence)
@@ -40,8 +40,7 @@ C/C++ review, tools and using the command line in GNU/Linux
 * Jeff Atwood's blog: [Code smells](https://blog.codinghorror.com/code-smells/)
 
 ## Week 2
-Function basics
-
+#### Function basics
 * [Chapter 8](http://stroustrup.com/Programming/8_functions.ppt) slides from textbook.
 * From: cppreference.com: 
   [function declarations](http://en.cppreference.com/w/cpp/language/function), 
@@ -60,9 +59,7 @@ Function basics
 
 
 ## Week 3
-Function templates and exception handling
-
-
+#### Function templates and exception handling
 * [Chapter 19](http://stroustrup.com/Programming/19_vector.ppt) slides from textbook.
 * From cppreference.com
   * C++ [templates](http://en.cppreference.com/w/cpp/language/templates) overview
@@ -74,19 +71,19 @@ Function templates and exception handling
     [exceptions](http://en.cppreference.com/w/cpp/language/exceptions)
   * [try-catch](http://en.cppreference.com/w/cpp/language/try_catch) and 
     [throw](http://en.cppreference.com/w/cpp/language/throw)
+
+### More to explore
 * Post from Eric Lippert on [vexing exceptions](https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/)
 
 ## Week 4
-Function pointers and lambda expressions
-
+#### Function pointers and lambda expressions
 * Descriptions of [lambda expressions](https://msdn.microsoft.com/en-us/library/dd293608.aspx)
   from Microsoft's MSDN
 * From cppreference.com
   * [Lambda functions](http://en.cppreference.com/w/cpp/language/lambda)
 
 ## Week 5
-Linear containers and iterators
-
+#### Linear containers and iterators
 * [Chapter 20](http://stroustrup.com/Programming/20_containers.ppt) slides from textbook.
 * From cppreference.com
   * C++ Concepts: [Container](http://en.cppreference.com/w/cpp/concept/Container) and 
@@ -98,8 +95,7 @@ Linear containers and iterators
   * Overview of the [container](http://en.cppreference.com/w/cpp/container) library
 
 ## Week 6
-Associative containers
-
+#### Associative containers
 * [Chapter 21](http://stroustrup.com/Programming/21_algorithms.ppt) slides from textbook.
 * From cppreference.com
   * C++ Concepts: 
@@ -110,11 +106,9 @@ Associative containers
     [std::map](http://en.cppreference.com/w/cpp/container/map)
   * [std::unordered_map](http://en.cppreference.com/w/cpp/container/unordered_map) and 
     [std::hash](http://en.cppreference.com/w/cpp/utility/hash)
-  * Overview of the [container](http://en.cppreference.com/w/cpp/container) library
 
 ## Week 7
-STL algorithms
-
+#### STL algorithms
 * [Chapter 21](http://stroustrup.com/Programming/21_algorithms.ppt) slides from textbook.
 * From cppreference.com
   * Overview of the [algorithms](http://en.cppreference.com/w/cpp/algorithm) library
@@ -125,29 +119,30 @@ STL algorithms
   * [istream_iterator](http://en.cppreference.com/w/cpp/iterator/istream_iterator), 
     [ostream_iterator](http://en.cppreference.com/w/cpp/iterator/ostream_iterator) and 
     [back_inserter](http://en.cppreference.com/w/cpp/iterator/back_inserter)
+
+### More to explore
 * Other Algorithm libraries
   * [SGI's STL](http://www.sgi.com/tech/stl/)
   * Boost [algorithms](http://www.boost.org/doc/libs/1_62_0/libs/libraries.htm#Algorithms)
 
 ## Week 8
-Midterm
+#### Midterm
 
 ## Week 9
-Structure and class basics
-
+#### Structure and class basics
 * [Chapter 9 slides](http://stroustrup.com/Programming/9_classes.ppt) from textbook.
 * [Classes I](http://www.cplusplus.com/doc/tutorial/classes/) tutorial from cplusplus.com
 * [Initialization](http://en.cppreference.com/w/cpp/language/initialization)
    and [Constructors and member initialization lists](http://en.cppreference.com/w/cpp/language/initializer_list)
    from cppreference.com
+
+### More to explore
 * Two perspectives on struct vs classes: 
   [cplusplus.com beginner forums](http://www.cplusplus.com/forum/beginner/5980/)
    and Colin Walls' [blog](https://blogs.mentor.com/colinwalls/blog/2014/06/02/struct-vs-class-in-c/)
 
-
 ## Week 10
-Class interfaces and overloading
-
+#### Class interfaces and overloading
 * [Chapter 9 slides](http://stroustrup.com/Programming/9_classes.ppt) from textbook.
 * C++ Core Guidelines for 
   [enumerations](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-enum), 
@@ -159,22 +154,20 @@ Class interfaces and overloading
 * [Initialization](http://en.cppreference.com/w/cpp/language/initialization) and 
   [Constructors and member initialization lists](http://en.cppreference.com/w/cpp/language/initializer_list) from cppreference.com
 
-
 ## Week 11
-Class inheritance and polymorphism
-
+#### Class inheritance and polymorphism
 * [Chapter 14](http://stroustrup.com/Programming/14_class_design.ppt) slides from textbook.
 * [class templates](http://en.cppreference.com/w/cpp/language/class_template) cppreference 
   * Template [parameters and template arguments](http://en.cppreference.com/w/cpp/language/template_parameters) and 
     [template argument deduction](http://en.cppreference.com/w/cpp/language/template_argument_deduction)
 * [Inheritance](http://www.cplusplus.com/doc/tutorial/inheritance/) and 
   [Polymorphism](http://www.cplusplus.com/doc/tutorial/polymorphism/) from cplusplus.com
+
+### More to explore
 * A good article from Herb Sutter on [virtual functions](http://www.gotw.ca/publications/mill18.htm)
 
-
 ## Week 12
-Memory management
-
+#### Memory management
 * [Chapter 17](http://stroustrup.com/Programming/17_free_store.ppt) slides from textbook.
 * cppreference.com desriptions of 
   * [unique_ptr](http://en.cppreference.com/w/cpp/memory/unique_ptr) and 
@@ -183,12 +176,12 @@ Memory management
     [const cast](http://en.cppreference.com/w/cpp/language/const_cast), 
     [reinterpret cast](http://en.cppreference.com/w/cpp/language/reinterpret_cast), and 
     [dynamic cast](http://en.cppreference.com/w/cpp/language/dynamic_cast),
+
+### More to explore
 * [Pointers vs references](http://www.cplusplus.com/articles/ENywvCM9/) from cplusplus.com
 
-
 ## Week 13
-Copying and moving memory
-
+#### Copying and moving memory
 * [Chapter 18](http://stroustrup.com/Programming/18_arrays.ppt) slides from textbook.
 * From cppreference.com: [copy constructors](http://en.cppreference.com/w/cpp/language/copy_constructor) 
   and [copy assignment](http://en.cppreference.com/w/cpp/language/copy_assignment).
@@ -198,11 +191,10 @@ Copying and moving memory
 * [Rule of Five / three / zero](http://en.cppreference.com/w/cpp/language/rule_of_three)
 
 ## Week 14
-Serialization
-
+#### Serialization
 * Boost [serialization](http://www.boost.org/doc/libs/1_62_0/libs/serialization/doc/index.html)
 
-
+### More to explore
 * Review of stream I/O
   * [Ch. 10](http://stroustrup.com/Programming/10_iostreams.ppt) and 
     [Ch. 11](http://stroustrup.com/Programming/11_custom_io.ppt) slides from textbook.
@@ -211,8 +203,7 @@ Serialization
 
 ## Week 15
 
-
 ## Week 16
-Final Exam
+#### Final Exam
 
 
