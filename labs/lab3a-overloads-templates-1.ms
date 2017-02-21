@@ -13,9 +13,15 @@ Do \fBnot\fR use any built-in or standard library functions to compute the absol
 .IP 2.
 Include enough overloads to cover all the C++ fundamental types.
 
-Keep your declarations and defintions separate.
+Keep your overload declarations and defintions separate.
 .IP 3.
 Repeat step 1, but this time use a template.
+
+You should implement the template in an include file.
+.IP 4.
+Write a simple test program to verify your code functions correctly.
+Prefer using \*[c]assert\*[c] or some other test function
+over prompting for input and writing \*[c]cout\*[r] statements.
 
 .RE
 
@@ -27,13 +33,15 @@ Refactoring to a template: 60 minutes \fImaximum\fR
 .RS
 .IP 1.
 Copy the \fCsimple-parameter.cpp\fR file from the week 2 examples directory,
-and copy the two overload files from the week 3 examples directory:
+and copy these files from the week 3 examples directory:
 .CW
- overload.h
- overload.cpp
+ square.h
+ square.cpp
 .R
 .IP 2.
 Refactor these two programs to use templates.
+.IP 3.
+Write simple test programs to verify your code functions correctly.
 
 .RE
 

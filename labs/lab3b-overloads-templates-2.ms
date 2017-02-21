@@ -19,13 +19,15 @@ Use the following assumptions / guidelines:
 An area function with 1 parameter should compute the area of a circle.
 The parameter can represent either radius or diameter: document your choice.
 .IP b.
-An area function with two parameters should compute the area of a square.
+An area function with two parameters should compute the area of a regular polygon.
 .RE
 .IP \n+[step].
 Create an area function template with one type parameter and a non-type int template parameter.
 The type parameter should indicate the length of each side of the polygon.
 The non-type parameter should indicate the number of sides of the polygon.
 This function should compute the area of a regular polygon with an arbitrary number of sides.
+
+Are there alternative designs that would work as effectively?
 
 General formula for perimeter of a regular polygon:
 
@@ -46,9 +48,14 @@ The apothem is the shortest line from the polygon center to a side.
 It will always be a perpendicular bisector of a side.
 .EQ
 a = s over {2 tan 
-left { {180 over n} right }
+left { {pi over n} right }
 }
 .EN
+.br
+All of the trig functions in C++ (and most other languages) use angular units in radians, 
+not degrees, so the argument to the 
+tangent function is $180 over n pi over 180 = pi over n$ rather than $180 over n$.
+.br
 \fBArea\fR
 .EQ
 Area = {a times p} over 2

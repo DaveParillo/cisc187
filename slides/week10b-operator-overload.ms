@@ -14,6 +14,7 @@ delim $$
 .IT Basic Rules of operator overloading
 .IT Member or Non-member?
 .IT Common operators to overload
+.IT User-defined casts
 .IT Overloading operator()
 .i1 Motivation
 .i1 Predicates
@@ -66,6 +67,11 @@ instead of
 .IT Don't overload everything
 .i1 Whenever the meaning of an operator is not obviously clear and undisputed, it should not be overloaded 
 .i2 Use a function instead and use a clear function name
+.i2s
+There is not universal agreement on the wisdom of using \*[c]cout\*[r] and overloading
+the bitshift operator \*[c]<<\*[r].
+.12e
+.i3 Partly because the iostream library is huge compared to stdio
 .IT Don't change expected behavior
 .i1 it is perfectly legal to overload \*[c]operator+\*[r] to subtract from the right operand
 .i1 Just don't
@@ -206,15 +212,47 @@ must \fIalways\fR be member functions.
 .i1 When you type \fCa + b\fR, you expect the result to be a new value
 .SS Conversion operators
 .IT C++ allows you to create operators to convert between your type and other ADT's
+.i1s
+Suppose we want to concatenate a Rational to a string?
+.CW
+  Rational a {2,3};
+  std::string s = {"A = "};
+  s += a;                   \m[green]// will not compile\m[]
+.R
+.i1e
+.i2s
+\fCerror: no viable overloaded '+='\fR
+.RS
+\s-8
+.CW
+  candidate function not viable: no known conversion from 'Rational' to
+  'const std::__1::basic_string<char>' for 1st argument
+  _LIBCPP_INLINE_VISIBILITY basic_string& operator+=(const basic_strin...
+.R
+.RE
+.i2e
+.i1s
+Overload \*[c]operator <type>() const\*[r] as a member function
+.CW
+  Rational::operator std::string () const {
+    std::stringstream ss;
+    \m[green]// n_ & d_ are private members of Rational\m[]
+    ss << n_ << '/' << d_;
+    return ss.str();
+  }
+.R
+.i1e
+.bp
+.IT Conversion are implicit by default
 .i1 Can perform \fIimplicit conversion\fR
 .i1 or \fIexplicit conversion\fR
 .IT Implicit conversion operators can be troublesome
 .i1 They can get used by the compiler when you don't expect it
 .i2 It \fBis\fR an \fIimplicit conversion\fR, after all!
 .IT Explicit conversion
-.i1 As the name implies, only get called when code uses an explicit conversion
-.RS
-\s-8
+.i1s
+As the name implies, only get called when code uses an explicit conversion
+\s-4
 .CW
   class Foo {
     public:
@@ -223,7 +261,7 @@ must \fIalways\fR be member functions.
       int _x;
   };
 .R
-.RE
+.i1e
 .IT A complete example is at
 .i1 http://en.cppreference.com/w/cpp/language/explicit
 .SS One last overload...
@@ -243,6 +281,7 @@ The function call operator
 .i2 Takes a range of iterators and a \fIpredicate\fR function
 .i1s
 A simple \fCcount_if\fR example
+\s-4
 .CW
   bool less_than_5(const string& str) {
     return str.size() < 5;
