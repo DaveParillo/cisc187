@@ -1,5 +1,5 @@
-#ifndef WEEK02_OVERLOAD_H
-#define WEEK02_OVERLOAD_H
+#ifndef WEEK03_OVERLOAD_H
+#define WEEK03_OVERLOAD_H
 
 // C++ allows function names to be 'overloaded'
 // that is, used more than once

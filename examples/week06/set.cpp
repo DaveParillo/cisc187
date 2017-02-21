@@ -8,5 +8,21 @@ int main()
   for (auto i: x) {
     std::cout << i << ' ';
   }
+  std::cout << "\n\ninsert 6:\n";
+  x.insert(6);
+  for (auto i: x) {
+    std::cout << i << ' ';
+  }
+  // erase 2
+  auto it = x.find(2);
+  if(it != x.end()) {
+    std::cout << "\n\nerase " << *it << ":\n";
+    x.erase(it);
+  } else {
+    std::cout << "not found\n";
+  }
+  for (auto i: x) {
+    std::cout << i << ' ';
+  }
 }
 

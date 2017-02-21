@@ -16,7 +16,7 @@ float area3();
 
 
 
-int main() {
+int main () {
   int height = 3;
   float width = 5.0f;
 
