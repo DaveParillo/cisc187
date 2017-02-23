@@ -34,14 +34,8 @@ value that is larger than the new value.
 Now do the same experiment using a \*[c]list<int>\*[r] to hold the \*[c]int\*[r]s. 
 For which \fIN\fR is the \*[c]list\*[r] faster than the \*[c]vector\*[r]?  
 
-You could use \*[c]rand\*[r], but the STL includes a random library:
-.CW
-  int randint(int max)
-  {
-    static std::default_random_engine eng;
-    return std::uniform_int_distribution<int> {0, max} (eng);
-  }
-.R
+You could use \*[c]rand\*[r], but the STL includes a random libraryr.
+Refer to the example source file \fCexamples/week01/random.cpp\fR.
 
 
 

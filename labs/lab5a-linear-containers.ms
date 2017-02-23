@@ -13,7 +13,7 @@ Create a program that contains the following methods:
 
 .CW
 
-  /**
+  \m[green\m[]/**
    * Determine if a stack contains a provided value.
    * <p>
    * Use the operator= function of T is used to determine 
@@ -23,17 +23,17 @@ Create a program that contains the following methods:
    * @param val in the stack to search for and remove.
    * @param s to search for a value
    * @return true if value exists in the stack.
-   */
+   */\m[]
   template <class T>
   bool contains (const T& value, const stack<T>& s);
 
 
-  /**
+  \m[green]/**
    * Reverse the order of elements in a stack.
    * @param s the stack to reverse
    *
    * @return A new stack with it's elements in reverse order.
-   */
+   */\m[]
   template <class T>
   std::stack<T> reverse(const std::stack<T>& s);
 
@@ -52,11 +52,11 @@ To receive the credit, your answers need to be complete.
 
 Given the code from textbook \*[sect] 20.1:
 .CW
-  // Jack puts doubles into an array and 
-  // returns the number of elements in *count
+  \m[green]// Jack puts doubles into an array and\m[]
+  \m[green]// returns the number of elements in *count\m[]
   double* get_from_jack(int* count);
 
-  // Jill fills vector
+  \m[green]// Jill fills vector\m[]
   std::vector<double>* get_from_jill(); 
 
   void func()
@@ -65,8 +65,8 @@ Given the code from textbook \*[sect] 20.1:
     double* jack_data = get_from_jack(&jack_count);
     std::vector<double>* jill_data = get_from_jill();
 
-    double* jack_high;    // element with highest value
-    double* jill_high;    // element with highest value
+    double* jack_high;    \m[green]// element with highest value\m[]
+    double* jill_high;    \m[green]// element with highest value\m[]
 
     double h = -1;
     for(int i = 0; i < jack_count; ++i) {

@@ -1,11 +1,11 @@
-#include <cctype>
 #include <iostream>
 #include <string>
 using std::cout;
 
 // could these be std:: strings? yes.
+// or just a char? yes.
 // but we are in pointers week, so we're going a bit 'old school'
-//
+
 const char* prompt();
 int jump(const char*);
 
@@ -36,6 +36,7 @@ const char* prompt () {
   std::string opt;
   std::cin >> opt;
   return opt.c_str();  // convert our std::string to const char *
+                       // since C++11 data() == c_str()
 }
 
 int jump (const char* rs) {
@@ -43,15 +44,16 @@ int jump (const char* rs) {
   if(tolower(code) == 'q') return 0;
 
   int length = 0;
-  while( functions[length] != NULL ) ++length;
+  while( functions[length] != nullptr ) ++length;
 
-  int i = int (code - '0');   // convert ASCII char to int
-  --i;                        // convert choice to array index
-  if( i < 0 || i >= length ) {
-    cout << "invalid choice, try again.\n";
+  int choice = int (code - '0');   // convert ASCII char to int
+  --choice;                        // convert choice to array index
+  if( choice < 0 || choice >= length ) {
+    cout << "'" << code << "' is an invalid choice, try again.\n";
   } else {
-    functions[i]();
+    functions[choice]();
   }
   return 1;
 
 }
+

@@ -80,7 +80,7 @@ What constructors are called?
 
 .IP \n+[step].
 Create a simple closure (lambda).
-Pass an instance of the \*[c]struct\*[r] to the lambda.
+Pass an instance of the \*[c]struct\*[r] to the lambda capture block.
 .IP \n+[step].
 Create a loop that executes 10 times and
 call the closure from the body of the loop.
