@@ -39,6 +39,20 @@ Assign the value stored in \fBp1\fR to the third element of \fBp2\fR.
 Use \*[c]print_array\*[r] to display all the values of \fBp1\fR, \fBp2\fR, \fBp3\fR, and \fBp4\fR.
 .IP \n+[step].
 Deallocate all the memory you allocated from the heap.
+
+When finished, check your program on buffy by running \fCvalgrind\fR, a memory checking program.
+
+First compile your program, for example \fCpointers.exe\fR, then run it through valgrind:
+.CW
+ valgrind pointers.exe
+.R
+
+If you properly cleaned up after your pointers, you should see the following line near the end of the output:
+.CW
+ All heap blocks were freed -- no leaks are possible
+.R
+
+Otherwise, you see information indicating memory leaks or other memory related errors.
 .RE
 
 
