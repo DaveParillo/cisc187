@@ -1,6 +1,6 @@
+# Prefer class hierarchies to tagged classes
 
-Item 20
-=======
+## Item 20
 
 The examples in this directory are a C++ port of an example in
 Effective Java
