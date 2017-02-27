@@ -56,6 +56,7 @@ Week:
   "[extract method](http://refactoring.com/catalog/extractMethod.html)" from Martin Fowler's Refactoring site.
 * [ExtractMethod](http://c2.com/cgi/wiki?ExtractMethod) discussion from the 
   [PortlandPatternRepository](http://c2.com/cgi/wiki?PortlandPatternRepository) - the very first wiki
+* [Herb Sutter's GOTW #94](https://herbsutter.com/2013/08/12/gotw-94-solution-aaa-style-almost-always-auto/)
 
 
 ## Week 3
