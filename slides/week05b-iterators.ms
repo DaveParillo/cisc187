@@ -96,7 +96,7 @@ _
 \s+4
 
 .SS Iterator categories
-.IT The 5 iterator categories define the types of operations you can perform on them
+.IT Define the types of operations you can perform on them
 .IT InputIterator
 .i1 Read
 .i1 Increment (without multiple passes)
@@ -109,24 +109,34 @@ _
 .IT RandomAccessIterator
 .i1 All bi-directional iterator operations, plus
 .i1 Random access
-
+.i2 C++17 adds a 'ContiguousIterator' specialization
 .IT OutputIterator
 .i1 Write
 .i1 Increment (without multiple passes)
-
-.IT ContiguousIterator (since C++17)
 .SS Iterator loops
 .IT Doing things the 'manual way'
+.i1s
+This is no fun and error prone
 .CW
- std::vector<int> myvector;
-  for (int i=1; i<=5; i++) myvector.push_back(i);
-
+  std::vector<int> myvector = {1, 2, 3, 4, 5};
   std::cout << "myvector contains:";
-  for (std::vector<int>::iterator it = myvector.begin() ; it != myvector.end(); ++it)
+
+  for (std::vector<int>::iterator 
+       it = myvector.begin(); 
+       it != myvector.end(); ++it)
     std::cout << ' ' << *it;
-  std::cout << '\\n';
 .R
-.IT Produces \fC myvector contains: 1 2 3 4 5 \fR
+.i1e
+.i1 Produces \fC myvector contains: 1 2 3 4 5 \fR
+.i1s
+The \*[c]auto\*[r] keyword can help here
+.CW
+  \m[green]// the compiler knows what type begin() returns\m[]
+  for (auto it  = myvector.begin(); 
+            it != myvector.end(); ++it)
+    std::cout << ' ' << it;
+.R
+.i1 Also produces \fC myvector contains: 1 2 3 4 5 \fR
 .SS Compare to range-for
 .IT The range-for, while 'obviously better' has limits
 .IT Non-linear steps
