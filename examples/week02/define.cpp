@@ -17,7 +17,7 @@ int f(const int x);
 
 int main()
 {
-  int a = -5; 
+  auto a = -5; 
   const int b = 0;
 
   for (int i = 1; i < 11; ++i) {

@@ -8,7 +8,7 @@ int main ()
 {
   short x = 5;
   short y = 10;
-  short z = x|y;
+  auto  z = x|y;
 
   cout << x << " in binary is:\t\t" << bitset<8>(x) << '\n';
   cout << y << " in binary is:\t" << bitset<8>(y) << '\n';

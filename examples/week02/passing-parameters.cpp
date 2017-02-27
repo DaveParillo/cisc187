@@ -24,8 +24,8 @@ void by_reference (int& x)
 
 int main ()
 {
-  int alpha = 11;
-  int beta = 11;
+  auto alpha = 11;
+  auto beta = 11;
 
   std::cout << "in main the address of alpha is " << &alpha << '\n';
   std::cout << "in main the address of beta is  " << &beta << '\n';

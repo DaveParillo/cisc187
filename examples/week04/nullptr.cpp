@@ -15,7 +15,7 @@ void func (const char * s) {
 int main () {
   func (0);
   //func (NULL);     // an error in C++, 
-                   // unless you create an overload that takes a long long
+                   // unless you create an overload that takes a long
   func (nullptr);  // preferred
   return 0;
 }

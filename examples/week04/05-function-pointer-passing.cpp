@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-typedef int (*op)(int x, int y);
+using op = int(*)(int x, int y);
 
 int add     (int x, int y);
 int multiply(int x, int y);
@@ -18,15 +18,13 @@ int main()
   int x = 10;
   int y = 2;
 
-  int (*pf)(int x, int y);
-
   while (true)
   {
     std::cout << "Operation: ";
     std::cin >> op;
     if (op[0] == 'q') break;
 
-    pf = get_command(op[0]);
+    auto pf = get_command(op[0]);
 
     std::cout << calculate(pf, x,  y) << std::endl;
 
