@@ -9,43 +9,55 @@ Stacks: 60 minutes \fImaximum\fR
 .time_box
 .QP
 	
-Create a program that contains the following methods:
-
+Create a program that implements the following functions:
 .CW
-
   \m[green\m[]/**
    * Determine if a stack contains a provided value.
    * <p>
-   * Use the operator= function of T is used to determine 
+   * Use simple equality (==) to determine 
    * whether stack elements are equal to 'value'.
    * </p>
    *
-   * @param val in the stack to search for and remove.
+   * @param val in the stack to search for.
    * @param s to search for a value
    * @return true if value exists in the stack.
    */\m[]
   template <class T>
   bool contains (const T& value, const stack<T>& s);
 
-
   \m[green]/**
    * Reverse the order of elements in a stack.
    * @param s the stack to reverse
    *
-   * @return A new stack with it's elements in reverse order.
+   * @return A new stack with its elements in reverse order.
    */\m[]
   template <class T>
   std::stack<T> reverse(const std::stack<T>& s);
-
 .R
-
+.h2 Restrictions
+.RS
+.IP 1.
 Do not use any STL algorithms.
+.IP 2.
 In your reverse function, 
+.IP 3.
 use 1 or more linear containers to perform the reverse operation.
+.RE
+.h3 Things to notice
+.RS
+.IP 1.
+Each of the function signatures provide \*[c]const\*[r] references
+to a stack, so your implementation must copy the provided parameter.
+.IP 2. 
+A \*[c]std::stack\*[r] is not \fIiterable\fR.
+You can't use a range for loop or define an iterator.
+.IP 3.
+Make a temporary local copy of the provided stack and operate on that
+You will end up destroying the temp copy in each function.
+.RE
 .bp
 .NH
 Working with Data: 30 minutes \fImaximum\fR
-.time_box
 .RS
 This section is extra credit.
 To receive the credit, your answers need to be complete.
@@ -59,8 +71,7 @@ Given the code from textbook \*[sect] 20.1:
   \m[green]// Jill fills vector\m[]
   std::vector<double>* get_from_jill(); 
 
-  void func()
-  {
+  void func() {
     int jack_count    = 0;
     double* jack_data = get_from_jack(&jack_count);
     std::vector<double>* jill_data = get_from_jill();
@@ -90,8 +101,8 @@ Given the code from textbook \*[sect] 20.1:
     delete[] jack_data;
     delete   jill_data;
   }
-
 .R
+.bp
 Although the code for \*[c]get_from_jill()\*[r] is not included (we don't need to see it), 
 it is clear that accessing Jill's data is a pain.
 The function \*[c]get_from_jill()\*[r] returns a pointer to a \*[c]vector\*[r].
@@ -100,5 +111,15 @@ To get the data, we have to dereference the pointer, however,
 so we need parentheses: \*[c](*jill_data)[i]\*[r].
 You will encounter this kind of ugliness often in legacy code.
 
-What changes could be made to the jill part of func that would improve it?
+What changes could be made to \fCfunc()\fR that would improve it?
+
+Feel free to change anything in func, but you \fBcan't\fR change the function signature of 
+\*[c]get_from_jack\*[r]  and \*[c]get_from_jill\*[r].
+.h2 Things to consider
+.RS
+.IP 1.
+Can we simplify access to \fCjill_data\fR?
+.IP 2.
+Can the duplication in this function be eliminated?
 .RE
+
