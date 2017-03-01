@@ -238,14 +238,27 @@ Can be adapted to create a \*[c]queue\*[r]
 .i2 Accessing data in the middle of a deque is still like a \*[c]list\*[r]
 .i1 Resize does not involve an expensive memory copy operation
 .IT In C++, one of it's more important roles is as an adapter
+.SS What containers do I use?
+.IT By default use \*[c]std::vector\*[r]
+.i1 Memory is contiguous by default
+.i1 Dynamically changes to fit
+.i1 If size is fixed and need to avoid the heap
+.i2 Consider \*[c]std::array\*[r]
+.IT List edge cases
+.i1 You are storing very large, expensive data structures
+.i1 Need to cut / splice sections of the list repeatedly
+.i1 You never want to preallocate memory in your container
+.IT For dictionary type lookups (use key to get value)
+.i1 Use a \fImap\fR
+.i2 We'll be covering this in a week or so
+.IT If you need to make your own custom linear container
+.i1 Consider adapting \*[c]std::deque\*[r]
+.IT Use \*[c]std::stack\*[r] and \*[c]std::queue\*[r] 
+.i1 When you really need containers that model those behaviors
 .SS Overview
 .IT Containers in the STL
 .IT Linear ADT's
-.i1 \*[c]array\*[r]
-.i1 \*[c]vector\*[r]
-.i1 \*[c]list\*[r]
-.i1 \*[c]stack\*[r]
-.i1 \*[c]queue\*[r]
-.i1 \*[c]deque\*[r]
+.i1 What they are
+.i1 When to use them
 .IT Wednesday
 .i1 Iterators

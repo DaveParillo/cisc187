@@ -32,30 +32,33 @@ Keep the vector sorted; that is a value is inserted after every previous
 value that is less than or equal to the new value and before every previous 
 value that is larger than the new value. 
 Now do the same experiment using a \*[c]list<int>\*[r] to hold the \*[c]int\*[r]s. 
-For which \fIN\fR is the \*[c]list\*[r] faster than the \*[c]vector\*[r]?  
 
 You could use \*[c]rand\*[r], but the STL includes a random libraryr.
 Refer to the example source file \fCexamples/week01/random.cpp\fR.
 
+You may also find these parts of the STL useful:
+.CW
+  std::chrono::system_clock::now();
+  std::chrono::duration_cast<std::chrono::microseconds>()
+.R
 
+See http://en.cppreference.com/w/cpp/chrono/time_point, 
+for example:
+.CW
+  using sys_time = std::chrono::system_clock;
+  auto start = sys_time::now();
 
+  \m[green]// run test\m[]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  auto end = sys_time::now();
+  std::cout << std::setw(10) << std::right 
+            << std::chrono::duration_cast
+                <std::chrono::microseconds>
+                 (end - start).count();
+.R
 
 .IP \n+[step].
+For which \fIN\fR is the \*[c]list\*[r] faster than the \*[c]vector\*[r]?  
 Explain your results in your own words.
 .RE
 
