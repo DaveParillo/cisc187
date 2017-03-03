@@ -60,6 +60,10 @@ for example:
 .IP \n+[step].
 For which \fIN\fR is the \*[c]list\*[r] faster than the \*[c]vector\*[r]?  
 Explain your results in your own words.
+
+.IP \n+[step].
+Compile your program with omtimization (g++ argument is "-O2")
+Explain the change in the results.
 .RE
 
 
