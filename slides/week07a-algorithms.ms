@@ -156,8 +156,9 @@ Suppose we want to find an int in a vector
 .i1s
 Or using find()
 .CW
-  void my_find(vector<int>& v, int x) {
-    auto p = find(v.begin(),v.end(),x);
+  vector<int>::iterator 
+  my_find(vector<int>& v, int x) {
+    return find(v.begin(),v.end(),x);
   }
 .R
 .i1e 
