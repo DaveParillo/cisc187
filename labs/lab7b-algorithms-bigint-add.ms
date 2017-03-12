@@ -27,14 +27,20 @@ BigInt add: 60 minutes \fImaximum\fR
 Write a function \*[c]add\*[r] that accepts two \*[c]vector<int>\*[r] parameters.
 
 The input vectors should each represent a vector of digits in the range 0 - 9.
-Use the \fCstd::transform\fR algorithm to add each digit of the two input vectors
+For example:
+.CW
+  vector<int> x   {0,0,0,0,0,0,0,8,9,0,1,2,3,4,5,6,7,8,9};
+  vector<int> y   {9,8,7,6,5,4,3,2,1,9};
+.R
+
+Your add function should use the \fCstd::transform\fR algorithm to add each digit of the two input vectors
 and store the results in a new vector.
 
 You may use \*[c]std::plus<int>()\*[r] to perform the addition
 and then check for carry as a second step, or write a custom lambda.
 When the addition is complete, ensure no element in the container > 9.
 
-Verify your results by printing the vector to standard out without using a loop.
+Verify your results by printing the input and output vectors to standard out without using a loop.
 
 
 
