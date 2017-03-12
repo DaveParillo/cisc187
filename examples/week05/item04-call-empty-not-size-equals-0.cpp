@@ -43,11 +43,11 @@ int main() {
   print("list1", list1);
   print("list2", list2);
 
-  list1.splice(							                    		// move all nodes in list2
-      list1.end(), list2,			          	    			// (from the first occurrence
-      find(list2.begin(), list2.end(), 5),    			// of 5 up to but not
-      find(list2.rbegin(), list2.rend(), 10).base()	// including the last
-      );	                    											// occurrence of 10) to the
+  list1.splice(                                     // move all nodes in list2
+      list1.end(), list2,                           // (from the first occurrence
+      find(list2.begin(), list2.end(), 5),          // of 5 up to but not
+      find(list2.rbegin(), list2.rend(), 10).base() // including the last
+      );                                            // occurrence of 10) to the
                                                     // end of list1. See Item 28
   std::cout << "After:\n";
   print("list1", list1);
