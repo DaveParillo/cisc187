@@ -1,7 +1,8 @@
-
+.ds title STL ALgorithms
+.pdfinfo /Title \*[title]
 .TL
 .gcolor blue
-STL Algorithms
+\*[title]
 .gcolor
 .LP
 .ce 1
@@ -17,282 +18,163 @@ delim $$
 .IT Standard algorithms
 .i1 copy, sort, ...
 .IT Input and output iterators
-.IT Headers and algorithms
-.i1 Algorithms not in the STL
+.IT Algorithms not in the STL
 .SS Review
-.IT A pair of iterators defines a sequence
-.i1 \fCbegin()\fR points to the first element, if any
-.i1 \fCend()\fR points to one beyond the last element
+.IT A \fBcontainer\fR is a generic collection
+.i1 Allows storing data using well-known data structures
+.i2 Linear ADT's
+.i3 \*[c]vector\*[r], \*[c]array\*[r], \*[c]list\*[r], \*[c]forward_list\*[r], \*[c]stack\*[r], etc.
+.i2 Associative ADT's
+.i3 \*[c]set\*[r], \*[c]map\*[r], \*[c]unordered_map\*[r], etc.
+.IT A pair of \fBiterators\fR defines a sequence
 .PSPIC images/iterator.eps
-.IT An \fIiterator\fR is a \fBtype\fR that supports iterator operations
-.i1 \*[c]++\*[r], point to the next element
-.i1 \*[c]*\*[r], get the value associated with the current iterator position
-.i1 \*[c]==\*[r], a == b $iff$ a points to the same element as b
+.IT An iterator is a \fBtype\fR that supports pointer-ish operations
+.i1 \*[c]++\*[r], \*[c]*\*[r], \*[c]==\*[r]
 .IT Some iterators support more operations (\*[c]--\*[r], \*[c]+\*[r],\*[c][ ]\*[r])
+.i1 Although these look like pointers, an iterator is \fInot\fR a pointer!
 .SS Motivation
-.IT Many activities occur repeatedly in software
+.IT So now we have these two great tools in our library
+.i1 We want to use them effectively
+.IT And many activities occur repeatedly in software
 .i1 find, copy, sum, count, sort
-.IT Goals
+.i2 \fIActions\fR that we perform on \fIsequences\fR of data
+.IT What can we do to
 .i1 Avoid repetitive code
 .i1 Define a consistent, portable interface
-.i2 Counting elements in a \*[c]list\*[r], is not very different from counting in a \*[c]vector\*[r]
-.IT The code that uses our common library should be
-.i1 Easy to read
-.i1 Easy to modify
-.i1 Use regular, compact syntax
+
+.IT Consider that counting elements in a \*[c]list\*[r], 
+.br 
+is not very different from counting them in a \*[c]vector\*[r]
+.SS Goals
+.IT Create a common library
+.IT That allows people to write code that is
+.i1 Easy to read & modify 
+.i2 That is, the code is \fBclear\fR
+.i1 Enables use of regular, compact syntax
 .i1 Fast
 .i2 Fast retrieval, addition, and deletion
 .i1 Type-safe
-.i1 Easy to traverse data
-.IT Happily, the STL provides many standard algorithms
-.SS Generic programming
-.IT Generalize algorithms
-.i1 Sometimes called 'lifting an algorithm'
-.IT The aim (for the end user) is
-.i1 Increased correctness
-.i2 Through better specification
-.i1 Greater range of uses
-.i2 Possibilities for re-use
-.i1 Better performance
-.i2 Through wider use of tuned libraries
-.i2 Unnecessarily slow code will eventually be thrown away
-.IT Go from the concrete to the more abstract
-.i1 The other way most often leads to bloat
-.SS A non-generic algorithm
-.IT Given two functions
-.i1s
-Each sums the values provided
-.CW	
-  double sum(double array[], int n)
-  {
-    double s = 0;
-    for (int i = 0; i < n; ++i ) s = s + array[i];
-    return s;
-  }
+.i1 Makes it easy to traverse data
 
-  struct Node { Node* next; int data; };
 
-  int sum(Node* first) \m[green]//sum ints in list\m[]
-  {
-    int s = 0;
-    while (first) {    \m[green]//first not false or zero\m[]
-      s += first->data;
-      first = first->next;
-    }
-    return s;
-  }
-.R
-.i1e
-.SS Lifting step #1
-.IT Abstract the data structure
-.i1s
-Start with some pseudo-code
-.CW
-  int sum(\m[red]data\m[])  \m[green]// somehow parameterize this\m[]
-  {
-    int s = 0;
-    while (\m[red]not at end\m[]) {  \m[green]// loop through all elements\m[]
-          s = s + \m[red]get value;\m[] \m[green]// compute sum\m[]
-          \m[red]get next data element;\m[]
-    }
-    return s;
-  }
-.R
-.i1e
-.IT Need several generic operations on \m[red]data\m[]
-.i1 Determine if not at end
-.i1 Get value
-.i1 Get next element
-.SS Generic template example
-.IT STL style approach to support both containers
-.i1 class \fCIter\fR must be an \fCInput_terator\fR
-.i1s
-class \fCT\fR must support \fC+\fR and \fC=\fR
-.CW
-  template<class Iter, class T>
-  T sum(Iter first, Iter last, T s)
-  {
-    while (first != last) {
-      s = s + *first;
-      ++first;
-    }
-    return s;
-  }
-.R
-.i1e
-.IT And to use it
-\s-8
-.CW
-  float a[]  = {1,1,2,3,5,8,13,21,34};
-  float* end = a+sizeof(a)/sizeof(*a);
-  double d   = 0;
-  d = sum (a, end, d);
-.R
-\s+8
-.IT This is essentially what \fCstd::accumulate\fR does
+.IT These are the goals of the STL
 .SS The STL
 .IT Part of the ISO C++ standard
+.IT Algorithms are organized into broad categories
+.i1 Non-modifying sequence operations
+.i2 \fCfor_each\fR, \fCcount(_if)\fR, \fCfind(_if)\fR, \fCsearch\fR
+.i1 Modifying sequence operations
+.i2 \fCcopy(_if)\fR, \fCmove\fR, \fCfill\fR, \fCtransform\fR, \fCgenerate\fR
+.i1 Partitioning operations
+.i2 Groups of elements divided based on a predicate
+.i1 Sorting operations
+.i2 \fCsort\fR, \fCstable_sort\fR, \fCis_sorted_util\fR, \fCnth_element\fR
+.i1 Min/max operations
+.i1 Numeric operations
+.i1 Uninitialized memory operations
+.i1 Some algorithms require sorted input
+.i2 Binary search operations
+.i3 \fCupper_bound\fR, \fClower_bound\fR
+.i2 Set operations
+.i3 \fCmerge\fR, \fCdifference\fR, \fCintersection\fR, \fCunion\fR
+.i2 Heap operations
+.i3 Operations on specially sorted trees
 .IT Mostly non-numeric in nature
-.i1 Only 4 standard algorithms specifically do computations
-.i2 Accumulate, inner_product, partial_sum, adjacent_difference
-.i1 Works string and numeric data
-.IT Basic Model
-.i1 Algorithms manipulate data
-.i2 But remain ignorant about containers
-.i1 Containers store data 
-.i2 But are ignorant about algorithms
-.i1 Algorithms and containers interact through iterators
-.i2 Each container has it's own iterator types
+.i1 Only 5 standard algorithms specifically do computations
+.i2 \fCiota\fR, \fCaccumulate\fR, \fCinner_product\fR, \fCpartial_sum\fR, \fCadjacent_difference\fR
+.i3 Of these, \fCiota\fR and \fCaccumulate\fR are by far most commonly used
+.i2 C++17 will add 6 more
+.IT STL algorithms work with strings and container types
+.i1 Anything \fBiterable\fR
 .IT Other standard libraries and algorithms exist
 .i1 Boost, Microsoft, SGI, ...
-.SS Algorithms: find()
-.IT Goal: find the first element in a container that equals a value
+.SS STL and loops
+.IT STL algorithms are essentially wrappers around loops
+.i1 Most tasks you've written so far could be rewritten using algorthms
+.IT Why prefer algorithms to hand-written loops?
+.i1 Efficiency
+.i2 Algorithms are often more efficient than the loops programmers produce
+.i1 Correctness
+.i2 Writing loops is more subject to errors than is calling algorithms
+.i1 Maintainability
+.i2 Algorithm calls often yield code that is clearer and more straightforward than the corresponding explicit loops
+
+.i1 But . . .
+.i1 STL algorithms take time to master
+.i1 And loops are obviously still important!
+.SS Basic Model
+.IT Recall our goals:
+.i1 Avoiding repetition & using regular, compact syntax
+.IT The STL achieves these goals using \fIseparation of concerns\fR
+.i1 \m[blue]\fBContainers\fR\m[] store data
+.i2 But are ignorant about algorithms
+.PS
+boxwid = .5
+boxht = .25
+
+CV: box invis "vector"; move
+CL: box invis "list"; move 2
+CM: box invis "map"; move
+CS: box invis "set" 
+
+I: box fill 0.2 height .7 wid 2 "iterators" with .w at CL.e + (0, -1.0)
+
+AS: box invis "sort" with .w at CV.w + (0, -2.2); move
+AF: box invis "find"; move 2
+AC: box invis "copy"; move 1
+AT: box invis "transform" 
+arrow <-> from CV.se to I.nw
+arrow <-> from CL.s to 1/2 between I.nw and I.n
+arrow <-> from CM.s to 1/2 between I.ne and I.n
+arrow <-> from CS.sw to I.ne
+arrow from AS.ne to I.sw
+arrow from AF.ne to 1/2 between I.sw and I.s
+arrow from AC.nw to 1/2 between I.s and I.se
+arrow from AT.nw to I.se
+.PE
+.i1 \m[blue]\fBAlgorithms\fR\m[] manipulate data
+.i2 But remain ignorant about containers
+
+.i1 Algorithms and containers interact through \m[blue]iterators\m[]
+.SS Basic Model in Action: find()
+.IT Goal
+.i1 Find the first element in a container that equals a value
 .i1s
-Find an int in a vector
+Suppose we want to find an int in a vector
 .CW
-  void func(vector<int>& v, int x
-  {
-    vector<int>::iterator p = 
-        find(v.begin(),v.end(),x);
-    if (p!=v.end()) { 
-       \m[green]// we found  x\m[]
+  \m[green]// hand-rolled loop  \m[]
+  vector<int>::iterator 
+  my_find(vector<int>& v, int x) {
+    for(auto p = v.begin(); p != v.end(),++p) {
+      if (x == *p) return p;
     }
-    \m[green]// ...\m[]
+    \m[green]// did not find  x\m[]
+    return v.end();
   }
 .R
 .i1e
 .i1s
-Or generically, we can abstract away container differences
+Or using find()
 .CW
-  template<class In, class T>
-  In find(In first, In last, const T& val)
-  {
-    while (first!=last && *first != val) ++first;
-    return first;
+  void my_find(vector<int>& v, int x) {
+    auto p = find(v.begin(),v.end(),x);
   }
 .R
 .i1e 
-.SS A note about returning iterators
-.IT Recall \fCend()\fR point to 1 past the end
-.i1 \fINot\fR the last element
-.i1 Needed to easily and consistently represent an empty sequence
-.i2 If \fCbegin() == end()\fR
-.IT The 'one past the end' location is not an element
-.i1 You can't dereference it
-.i1 You can compare it to another iterator
-.IT Returning the end of the sequence is the standard idiom for 'not found'
-.SS Back to sum
-.IT Can we make sum even more generic?
-.i1 Currently has a 'baked-in' assumption: the \*[c]operator+\*[r]
-.i1s
-Let's allow any binary operator
-.CW
-  template<class In, class T, class BinOp>
-  T accumulate(In first, In last, T init, BinOp op)
-  {
-    while (first!=last) {
-      init = \m[red]op\m[](init, *first);
-      ++first;
-    }
-    return init;
-  }
-.R
-.i1e
-.IT Where
-.i1 \fCinit\fR is the thing we want to change
-.i2 It has some initial value (could be non-zero)
-.i1 \fCop\fR is any function that changes \fCinit\fR
-.SS Algorithm: accumulate()
-.IT Multiplication is a common task
-.i1s
-\*[c]multiplies\*[r] is a STL function for object multiplying
-.CW
-  #include <numeric>
-  void f(list<double>& ld)
-  {
-    double product = 
-             accumulate(ld.begin(), 
-                        ld.end(), 
-                        \m[red]\fB1.0\fP, multiplies<double>()\m[]);
-  }
-.R
-.i1e
-.IT Note we initialized multiply with 1.0
-.SS How about accumulating objects?
-.IT Create a custom function
-.i1s
-For example
-.CW
-  struct Record {
-    int units;		\m[green]// number of units sold\m[]
-    double unit_price;
-  };
-
-  \m[green]// let the 'update the init value' function \m[]
-  \m[green]// extract data from a Record element:\m[]
-  double price(double v, const Record& r)
-  { 
-    return v + r.unit_price * r.units;
-  }
-
-  void f(const vector<Record>& vr) {
-    double total = accumulate(vr.begin(), vr.end(), 0.0, price);
-  }
-.R
-.i1e
-.SS Algorithm: Inner product
-.IT Multiplies pairs of elements and sum each
-.i1s
-Multiply two vectors (yielding a scalar)
-.CW
-  template<class In, class In2, class T>
-  T inner_product(In first, In last, 
-                  In2 first2, T init)
-  {
-    while(first!=last) {
-       init  = init + (*first) * (*first2);
-       ++first;
-       ++first2;
-    }
-    return init;
-  }                                        
-.R
-.i1e
-.bp
-.IT Like \fCaccumulate\fR, we can make inner product even more generic by supplying our own operations
-.IT Two custom operations
-.i1s
-One for the 'sum part' and one for the 'multiply part'
-.CW
-  template<class In, class In2, 
-           class T, 
-           class BinOp, class BinOp2 >
-  T inner_product(In first, In last, In2 first2, 
-                  T init, 
-                  BinOp op, BinOp2 op2)
-  {
-    while(first!=last) {
-      init  = op(init, op2(*first, *first2));
-      ++first;
-      ++first2;
-    }
-    return init;
-  }
-.R
-.i1e
+.i1 The entire function \fCmy_find()\fR is redundant this point
 .SS Useful standard algorithms
 .IT \fCr = find(b,e,v)\fR
 .i1 r points to the first occurrence of v in [b,e)
 .IT \fCr = find_if(b,e,p)\fR
-.i1 r points to the first element x in [b,e) for which p(x)
+.i1 r points to the first element x in [b,e) for which p(x) is true
 .IT \fCx = count(b,e,v)\fR
 .i1 x is the number of occurrences of v in [b,e)	
 .IT \fCx = count_if(b,e,p)\fR
-.i1 x is the number of elements in [b,e) for which p(x)
+.i1 x is the number of elements in [b,e) for which p(x) is true
 .IT \fCsort(b,e)\fR
 .i1 sort [b,e) using <
-.IT \fCsort(b,e,p)\fR
-.i1 sort [b,e) using p
+.IT \fCsort(b,e,c)\fR
+.i1 sort [b,e) using compare function c
 .bp
 .IT \fCcopy(b,e,b2)\fR
 .i1 copy [b,e) to [b2,b2+(e-b))
@@ -338,6 +220,7 @@ One for the 'sum part' and one for the 'multiply part'
 .IT Recall an iterator is an abstraction of a pointer
 .i1 And anything can be pointed to
 .i2 So why not a stream?
+.i2 Think of a stream as a sequence of bytes
 .IT An output iterator lets you point to an output stream
 .i1s
 Create an ostream_iterator using a template
@@ -382,6 +265,132 @@ Or fill a vector from standard input
 .i1 \fCstd::back_inserter\fR is a convenience function
 .i1 Performs a \fCpush_back\fR operation on the provided container
 .i2 Using the value pointed to by the current iterator position
+.SS A non-generic \fCsum()\fR
+.IT Given two functions
+.i1s
+Each sums the values provided
+.CW	 
+  \m[green]//sum ints in array\m[]
+  double sum(double array[], int n) {
+    double sum = 0;
+    for (int i = 0; i < n; ++i ) sum += array[i];
+    return sum;
+  }
+
+  struct Node { Node* next; int data; };
+  int sum(Node* first) { \m[green]//sum ints in list\m[]
+    int s = 0;
+    while (first) {    \m[green]//first not false or zero\m[]
+      s += first->data;
+      first = first->next;
+    }
+    return s;
+  }
+.R
+.i1e
+.IT How can we generalize and combine these two functions into one?
+.SS Generalized pseudocode
+.IT Abstract the data structure
+.i1s
+Start with some pseudo-code
+.CW
+  int sum(\m[red]data\m[])  \m[green]// somehow parameterize this\m[]
+  {
+    int s = 0;
+    while (\m[red]not at end\m[]) {  \m[green]// loop through all elements\m[]
+          s = s + \m[red]get value;\m[] \m[green]// compute sum\m[]
+          \m[red]get next data element;\m[]
+    }
+    return s;
+  }
+.R
+.i1e
+.IT Need several generic operations on \m[red]data\m[]
+.i1 Determine if not at end
+.i1 Get value
+.i1 Get next element
+.SS Generic template example
+.IT STL style approach to support both containers
+.i1 class \fCIter\fR must be an \fCInput_terator\fR
+.i1s
+class \fCT\fR must support \fC+\fR and \fC=\fR
+.CW
+  template<class Iter, class T>
+  T sum(Iter first, Iter last, T sum) {
+    while (first != last) {
+      sum = sum + *first;
+      ++first;
+    }
+    return sum;
+  }
+.R
+.i1e
+.IT And to use it
+\s-8
+.CW
+  float a[]  = {1,1,2,3,5,8,13,21,34};
+  float* end = a+sizeof(a)/sizeof(*a);
+  double d   = 0;
+  d = sum (a, end, d);
+.R
+\s+8
+.IT Now we have a function that works on any STL container
+.i1 Even a C-style array
+.SS Even more generic sum
+.IT Can we make sum even more generic?
+.i1 \m[red]sum\m[] has a 'baked-in' assumption
+.i2 \*[c]operator+\*[r]
+.i1s
+Let's allow any binary operator
+.CW
+  template<class In, class Out, class BinaryOperator>
+  T \m[red]accumulate\m[](In first, In last, 
+               Out value, BinaryOperator \m[red]op\m[])
+  {
+    while (first!=last) {
+      value = \m[red]op\m[](value, *first);
+      ++first;
+    }
+    return value;
+  }
+.R
+.i1e
+.IT Where
+.i1 \fCvalue\fR is the thing we want to change
+.i2 It has some initial value (could be non-zero)
+.i1 \fCop\fR is any function that changes \fCvalue\fR
+.SS Algorithm: accumulate()
+.IT You can't simply pass \*[c]+\*[r] or \*[c]*\*[r] to a function
+.i1 BinaryOperator \m[red]op\m[] must be a valid \fBtype\fR
+.i1 A function \fIcan\fR take a pointer or a type as a parameter
+.IT The STL has a large collection of operator types that can be passed to functions
+.i1 \fCplus\fR, \fCequal_to\fR, \fClogical_and\fR, \fCbit_or\fR, etc.
+.i1s
+\*[c]multiplies\*[r] is a STL function for object multiplying
+.CW
+  \m[green]// using std::accumulate\m[]
+  #include <numeric>
+  void f(list<double>& ld)
+  {
+    double product = 
+             accumulate(ld.begin(), 
+                        ld.end(), 
+                        \m[red]\fB1.0\fP, multiplies<double>()\m[]);
+  }
+.R
+.i1e
+.IT Note we initialized multiply with 1.0
+.SS A note about returning iterators
+.IT Recall \fCend()\fR point to 1 past the end
+.i1 \fINot\fR the last element
+.i1 Needed to easily and consistently represent an empty sequence
+.i2 If \fCbegin() == end()\fR
+.IT The 'one past the end' location is not an element
+.i1 You can't dereference it
+.i1 You can compare it to another iterator
+.IT Returning the end of the sequence is the standard idiom for 'not found'
+.i1 A handy generalization for when you want to use an element other than \fCend()\fR as the last iterator in a sequence
+
 .SS Summary
 .IT Algorithms and parameterization
 .i1 Strive to make code more generic, not less
@@ -390,10 +399,12 @@ Or fill a vector from standard input
 .i2 Usually an iterator pair
 .i1 Takes one or more operations
 .i2 Usually a function object - functions & lambdas work too
-.i1 Failure condition traditionally indicated by returning the sequence end
+.i1 Failure condition traditionally indicated by returning the second iterator in the pair
+.i2 Often \fCend()\fR in example code, but can be anything after the first iterator
 .IT Remember to consider the STL & friends
 .i1 Many common problems have robust solutions already written for you in a standard library
 .IT Input and output iterators
 .i1 Often used in conjunction with standard algorithms
-.IT Headers and algorithms
-.i1 Algorithms not in the STL
+.IT Algorithms not in the STL
+.IT \*[c]std::accumulate\*[r]
+

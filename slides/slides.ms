@@ -8,6 +8,10 @@
 
 .nh
 
+.pdfinfo /Author Dave Parillo
+.pdfinfo /Subject CISC-187
+.pdfinfo /Keywords  C++ programming intermediate
+
 .ds RF %
 .fp 1 R H
 .fp 2 I HI
@@ -37,6 +41,7 @@
 .de SS
 .ds LH \m[blue]\s+(16\f3\\$*\fP\s-(16\m[]
 .bp
+.pdfhref O 1 \\$*
 .LP
 .na
 ..

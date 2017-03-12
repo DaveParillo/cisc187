@@ -1,7 +1,8 @@
-
+.ds title Things you should already know
+.pdfinfo /Title \*[title]
 .TL
 .gcolor blue
-Things you should already know
+\*[title]
 .gcolor
 .LP
 .ce 1
@@ -22,7 +23,7 @@ Week 1
 std::cout << "Hello world!" << std::endl;
 .R
 .RE
-.IT Different formats for code comments (//, vs. /* ... */, etc)
+.IT Different formats for code comments (\m[green]//\m[], vs. \m[green]/* ... */\m[], etc)
 
 .SS "Objects types and values"
 .IT
@@ -148,10 +149,13 @@ Inside the campus
 .R
 .i3e
 .i3 All the tools you need to complete your projects are there if you don't have your own C++ toolchain
+.i2s
+Solutions are posted on buffy (http://209.129.16.61/~dparillo) as well
+.\" .pdfhref W -A , -D http://209.129.16.61/~dparillo buffy
+.i2e
 .IT I'm not assuming much familiarity with any operating system
 .i1 i.e. any command prompt or terminal environments
 .i1 hardware beyond broad generalities
-.i1 But if you want to be a programmer, you need to learn it eventually
 .SS Quiz technicalities
 .IT The \fINothing is output\fR option
 .i1 It \fImeans\fR

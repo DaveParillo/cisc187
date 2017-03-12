@@ -6,7 +6,7 @@ else
 #	Currently using 4x3 output.
 #	Change page to  -P-p13.33i,7.5i to produce 16x9 output
 	#PAGE = -pet -T $(format) -P-l -P-p9,7.5i -ms slides.ms 
-	PAGE = -pet -T $(format) -P-l -P-p11.5i,8.5i -ms slides.ms 
+	PAGE = -pet -T $(format) -P-l -P-p11.5i,8.5i -mspdf slides.ms 
 endif
 
 all: welcome slides

@@ -1,6 +1,9 @@
+.ds title Welcome to CISC-187
+.pdfinfo /Title \*[title]
+
 .TL
 .gcolor blue
-Welcome to CISC-187
+\*[title]
 
 Data Structures in C++
 .gcolor
