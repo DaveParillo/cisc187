@@ -17,13 +17,11 @@ Use \*[c]std::iota\*[r], \*[c]std::generate\*[r], or \*[c]std::for_each\*[r] to 
 The idea here is to accomplish the goal of filling the vector while minimizing use of hand-rolled loops.
 .IP \n+[step].
 Implement your own version of the \fCcount()\fR algorithm.
-.IP \n+[step].
-Test your count implementation using the vector you created.
+Test it using the vector created.
 .IP \n+[step].
 Implement your own version of the \fCcount_if()\fR algorithm.
-.IP \n+[step].
-Test your \fCcount_if\fR implementation using the vector you created.
-In your test, provide a comparison function other than \*[c]==\*[r]
+Test it using the vector you created.
+Consider a comparison function other than \*[c]==\*[r].
 .RE
 
 .QP
