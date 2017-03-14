@@ -11,9 +11,10 @@ Create a program that accomplishes the following:
 
 .nr step 0 1
 .IP \n+[step].
-Create a \*[c]std::vector\*[r] of size 1,000.
+Create a \*[c]std::vector<int>\*[r] of size 1,000.
 .IP \n+[step].
-Use a \*[c]std::accumulate\*[r] to fill the vector with 10 repeating groups of data in the range 1..100.
+Use \*[c]std::iota\*[r], \*[c]std::generate\*[r], or \*[c]std::for_each\*[r] to fill the vector with 10 repeating groups of data in the range 1..100.
+The idea here is to accomplish the goal of filling the vector while minimizing use of hand-rolled loops.
 .IP \n+[step].
 Implement your own version of the \fCcount()\fR algorithm.
 .IP \n+[step].
@@ -22,6 +23,7 @@ Test your count implementation using the vector you created.
 Implement your own version of the \fCcount_if()\fR algorithm.
 .IP \n+[step].
 Test your \fCcount_if\fR implementation using the vector you created.
+In your test, provide a comparison function other than \*[c]==\*[r]
 .RE
 
 .QP
