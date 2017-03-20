@@ -78,10 +78,11 @@ Week:
 
 ## Week 4
 #### Function pointers and lambda expressions
+* From cppreference.com
+  * C++ [lambda expressions](http://en.cppreference.com/w/cpp/language/lambda) and
+    [std::function](http://en.cppreference.com/w/cpp/utility/functional/function)
 * Descriptions of [lambda expressions](https://msdn.microsoft.com/en-us/library/dd293608.aspx)
   from Microsoft's MSDN
-* From cppreference.com
-  * [Lambda functions](http://en.cppreference.com/w/cpp/language/lambda)
 
 ## Week 5
 #### Linear containers and iterators
@@ -123,7 +124,6 @@ Week:
 
 ### More to explore
 * Other Algorithm libraries
-  * [SGI's STL](http://www.sgi.com/tech/stl/)
   * Boost [algorithms](http://www.boost.org/doc/libs/1_62_0/libs/libraries.htm#Algorithms)
 
 ## Week 8
