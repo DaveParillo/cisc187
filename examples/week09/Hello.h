@@ -22,6 +22,7 @@ class Hello {
   private:
     std::string name_;  // this *cant* be just 'name'
                         // it would conflict with our class functions
+                        // Note: the default value is to have an empty name!
 
 };
 

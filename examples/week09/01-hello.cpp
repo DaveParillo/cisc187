@@ -1,10 +1,10 @@
-#include <iostream>
+#include <cstdio>
 
 // Declare a class and define function inside the class
 // In C++, a class is merely a struct with private default access
 struct Talk {
     void hello() {
-      std::cout << "Hello, world!\n";
+      std::puts("Hello, world!");
     }
 
 };  // semi-colon required at end of declatation

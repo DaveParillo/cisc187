@@ -13,3 +13,4 @@ void myFunc2(int* param) {}   // same function as above
 // The upshot is that when you pass an array to a function,
 // it's type is *always* a pointer type
 
+

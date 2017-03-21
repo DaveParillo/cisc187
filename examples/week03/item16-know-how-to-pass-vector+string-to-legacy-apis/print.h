@@ -6,7 +6,7 @@
 template<typename Container>
 void print(const std::string& name, const Container& c) {
 
-  std::cout << "name: \t";
+  std::cout << name << ": \t";
   for (auto v: c) {
     std::cout << v << ' ';
   }

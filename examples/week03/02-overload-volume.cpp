@@ -16,7 +16,7 @@ double volume( const double a, const double b, const double c ) {
   return a * b * c;
 }
 
-int main( int argc, char ** argv ) {
+int main() {
   std::cout << "volume of a 2 x 2 x 2 cube: " << volume(2.0) << '\n';
   std::cout << "volume of a cylinder, radius 2, height 2: " << volume(2.0, 2.0) << '\n';
   std::cout << "volume of a 2 x 3 x 4 cuboid: " << volume(2.0, 3.0, 4.0) << '\n';

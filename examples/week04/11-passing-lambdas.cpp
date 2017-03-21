@@ -12,12 +12,12 @@ int main()
 {
   auto func1 = [](int y)
   {
-    cout << y << endl;
+    cout << y << ' ';
   };
 
   auto func2 = [](int z)
   {
-    cout << z * 2 << endl;
+    cout << z * 2 << ' ';
   };
 
   run_within_for_each(func1);
@@ -27,8 +27,10 @@ int main()
 void run_within_for_each(std::function<void (int)> func)
 {
   vector<int> numbers{ 1, 2, 3, 4, 5, 10, 15, 20, 25, 35, 45, 50 };
-
-  for_each(numbers.begin(), numbers.end(), func);
+  for (const auto& n: numbers) {
+    func(n);
+  }
+  cout << '\n';
 }
 
 

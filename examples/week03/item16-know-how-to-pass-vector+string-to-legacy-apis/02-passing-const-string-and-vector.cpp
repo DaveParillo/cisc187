@@ -25,10 +25,8 @@ double data[] = { -30.5, 102, 55.9, -19e20, 0.23, 222.2, -2.5 };
 const size_t numDoubles = sizeof data / sizeof(double);
 
 int idata[] = { -30, 102, 55, -19, 0, 222, -3000, 4000, 8, -2 };
-const size_t numValues = sizeof idata / sizeof(int);
 
-void doSomething(const int* pInts, size_t numInts)
-{
+void doSomething(const int* pInts, size_t numInts) {
   int sum = 0;
   for (size_t i = 0; i < numInts; i++)
     sum += pInts[i];
@@ -38,8 +36,7 @@ void doSomething(const int* pInts, size_t numInts)
 // C API: this function takes a pointer to an array of at most arraySize
 // doubles and writes data to it. It returns the number of doubles written,
 // which is never more than arraySize.
-size_t fillArray(double *pArray, size_t arraySize)
-{
+size_t fillArray(double *pArray, size_t arraySize) {
   size_t i, n_to_write = (arraySize > 10 ? (arraySize - 10) : 5);
   for (i = 0; i < n_to_write; i++)
     pArray[i] = i;
@@ -49,8 +46,7 @@ size_t fillArray(double *pArray, size_t arraySize)
 // C API: this function takes a pointer to an array of at most arraySize
 // chars and writes data to it. It returns the number of chars written,
 // which is never more than arraySize.
-size_t fillString(char *pArray, size_t arraySize)
-{
+size_t fillString(char *pArray, size_t arraySize) {
   char chars[] = "1234567890";
   size_t i;
   for (i = 0; i < arraySize; i++)
@@ -62,7 +58,6 @@ size_t fillString(char *pArray, size_t arraySize)
 int main()
 {
   using namespace std;
-  using namespace ESTLUtils;
 
   const size_t maxNumDoubles = 15;
   const size_t maxNumChars = 15;

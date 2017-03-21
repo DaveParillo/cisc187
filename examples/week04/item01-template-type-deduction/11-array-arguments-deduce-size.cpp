@@ -26,3 +26,4 @@ int mappedVals1[arraySize(keyVals)];          // so does
 
 std::array<int, arraySize(keyVals)> mappedVals2;  // mappedVals'
                                                   // size is 7
+

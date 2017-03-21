@@ -8,10 +8,10 @@ using std::endl;
 // 
 template <class N> N addSame(N x, N y);
 
-template <class A, class B> auto addAny(A x, B y);  //auto return type is a C++14 feature
+//template <class A, class B> auto addAny(A x, B y);  //auto return type is a C++14 feature
 
 template <class A, class B>  // must be defined before use
-auto addAny(A x, B y) {
+auto addAny(A x, B y) -> decltype(x+y) {
   return x + y;
 }
 
