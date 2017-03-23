@@ -15,7 +15,7 @@ int main () {
     "front-end", "web-based", "pervasive", "smart", "six-sigma",
     "critical-path", "dynamic", "extreme", "three-tier", "agile"
   };
-  const std::size_t one_size = 15;  // arrays don't know their size
+  const std::size_t one_size = 14;  // arrays don't know their size
 
   // generally prefer vector over arrays
   const std::vector<std::string> list_two = {
@@ -32,8 +32,8 @@ int main () {
   };
 
   auto r1 = rand {0, one_size} (eng);
-  auto r2 = rand {0, list_two.size()} (eng);   // vectors know their size
-  auto r3 = rand {0, list_three.size()} (eng);
+  auto r2 = rand {0, list_two.size()-1} (eng);   // vectors know their size
+  auto r3 = rand {0, list_three.size()-1} (eng);
 
   std::string phrase = {list_one[r1]};
   phrase += " " + list_two[r2] + " " + list_three[r3];
