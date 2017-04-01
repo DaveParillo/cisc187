@@ -5,10 +5,28 @@
 .so cover-page.ms
 .bp
 .NH
-A rational number class: 60 minutes \fImaximum\fR
+A rational number class: 90 minutes \fImaximum\fR
 .time_box
 .QP
+Read through the entire lab first and answer the following:
+.RS
+.nr step 0 1
+.IP \n+[step].
+How is the \*[c]Rational\*[r] class better than the primitive \*[c]double\*[r]? Worse?
+
+
+
+
+
+
+.IP \n+[step].
+Give an example where the \*[c]Rational\*[r] class gives a mathematically better result 
+over using the primitive \*[c]double\*[r].
+
+
+.IP \n+[step].
 Design and implement a number class \*[c]Rational\*[r].
+
 A rational number is a number that can be expressed as a fraction of two integers,
 for example 
 .EQ
@@ -52,21 +70,5 @@ a over b \[u00F7] c over d = ad over bc
 .EQ
 a over b = c over d roman {" if and only if, "} ad = bc
 .EN
-
-Answer the following:
-.RS
-.nr step 1 1
-.IP \n[step].
-How is the \*[c]Rational\*[r] class better than the primitive \*[c]double\*[r]? Worse?
-
-
-
-
-
-
-.IP \n+[step].
-Give an example where the \*[c]Rational\*[r] class gives a mathematically better result 
-over using the primitive \*[c]double\*[r].
 .RE
-
 

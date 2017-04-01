@@ -42,7 +42,7 @@ then encrypt the input string again using the \*[c]for_each\*[r] algorithm.
 Function vs Functor times: 60 minutes \fImaximum\fR
 .time_box
 .QP
-Make a new program using the Lab 11b \*[c]vector\*[r] vs \*[c]list\*[r] 
+Make a new program using the Lab 5b \*[c]vector\*[r] vs \*[c]list\*[r] 
 timing study as a starting point.
 
 Modify it so that instead of testing 

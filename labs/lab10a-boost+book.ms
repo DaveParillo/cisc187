@@ -28,7 +28,7 @@ Boost is installed on the buffy server.
 Download the files that are provided as part of this lab.
 .IP \n+[step].
 Copy them to buffy, if you didn't download them directly there and cd to the
-\fClab4b-files\fR directory.
+\fClab10b-files\fR directory.
 .IP \n+[step].
 Type \fCmake hello\fR.
 You should see the following:
@@ -72,13 +72,11 @@ Place the date class in the \*[c]mesa\*[r] namespace and save the interface in \
 .IP \n+[step].
 Implement a method to evaluate whether a provided year is a leap year.
 .IP \n+[step].
-Implement a method to convert an \*[c]int\*[r] primitive into a \*[c]mesa::Month\*[r].
+Implement a method \fCto_month(int)\fR to convert an \*[c]int\*[r] primitive into a \*[c]mesa::Month\*[r].
 .RE
-
 
 When complete, verify the \*[c]Date\*[r] class functions as expected by running the provided
 Boost unit tests.
-
 
 .bp
 .NH
@@ -114,21 +112,22 @@ Create an enumerated type for the \*[c]Book\*[r] class called \*[c]Genre\*[r].
 The types should be:
 .RS
 .IP \(bu
-fiction
+FICTION
 .IP \(bu
-nonfiction
+NONFICTION
 .IP \(bu
-periodical
+PERIODICAl
 .IP \(bu
-biography
+BIOGRAPHY
 .IP \(bu
-children
+CHILDREN
 .RE  
+
+Use the Directions source from the week 10 enum examples as a template, if you like.
 
 .IP \n+[step].
 Give each \*[c]Book\*[r] a \*[c]Genre\*[r] and make appropriate changes to the \*[c]Book\*[r]
 constructor and member functions.
-
 
 .RE
 

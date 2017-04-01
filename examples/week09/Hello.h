@@ -1,5 +1,5 @@
-#ifndef WEEK03_HELLO_H
-#define WEEK03_HELLO_H
+#ifndef WEEK09_HELLO_H
+#define WEEK09_HELLO_H
 
 #include <string>
 
@@ -28,7 +28,7 @@ class Hello {
 
 #else
 
-// hello2.cpp allows for no name to be printed if name_ is never set
+// hello-b.cpp allows for no name to be printed if name_ is never set
 // A Constructor can fix that
 //
 class Hello {
@@ -57,6 +57,7 @@ class Hello {
 };
 
 
-#endif
+#endif // HELLO_CONSTRUCTOR
 
-#endif
+#endif // WEEK09_HELLO_H
+

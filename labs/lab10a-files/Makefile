@@ -1,11 +1,13 @@
 SRCS= Book.cpp Date.cpp
 
 OBJS=$(SRCS:%.cpp=%.o)
-#CXXFLAGS+=-Wall -Weverything -pedantic -std=c++11 -Wno-c++98-compat
-CXXFLAGS+= -std=c++11 -Wno-c++98-compat
 CXXFLAGS+= -I/opt/local/include
 LDLIBS+= -lboost_unit_test_framework-mt
 LDFLAGS+= -L/opt/local/lib
+
+PROGS= hello date book
+
+all: ${PROGS}
 
 hello : test_hello.o
 	c++ ${CXXFLAGS} -c test_hello.cpp
@@ -24,4 +26,4 @@ book : test_book.o $(OBJS)
 	c++ ${CXXFLAGS} -c $<
 
 clean : 
-	rm -f hello date book *.o
+	rm -f ${PROGS} *.o

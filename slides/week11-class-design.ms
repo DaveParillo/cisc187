@@ -8,14 +8,65 @@ Class Design
 Week 11
 .SS Overview
 .IT Chapter 14 of the text
+.IT Visualizing class designs
 .IT The \fIIS-A\fR relationship
 .IT Object composition
 .i1 The \fIHAS-A\fR relationship
 .IT Multiple Inheritance
 .IT Design Considerations
+.SS Visualizing designs
+.IT It is sometimes helpful to visualize class interactions
+.i1 There are many graphical systems for representing OO designs
+.i1 One of them is called the "UML"
+.IT Unified Modeling Language
+.i1 An industry standard graphical notation for describing and analysing designs
+.i1 Design to compactly \fImodel\fR system behavior, state, and structure
+.IT Types of diagrams in the UML
+.i1 Static diagrams
+.i2 Show the static structure of the system, attributes, functions, and relationships
+.i1 Dynamic diagrams
+.i2 Show behavior of a system, its states or modes and the collaborations between objects
+.IT We are only going to discuss class diagrams
+.i1 Which are a static diagram
+.SS Class Diagrams
+.IT Describes the objects in a system and 
+.IT The kinds of static relationships that exist among them
+.i1 Inheritance, composition, dependency, etc.
+.mk
+.PSPIC -R images/uml-class-minimal.eps
+.rt
+.IT The simplest class diagram is a simple box 
+.br
+with the class name inside
+.br
+the top compartment
+.IT Each compartment describes a different part of the class
+.br
+.mk
+.PSPIC -R images/uml-class.eps 4.0i
+.rt
+.i1 Class Name
+.i1 Class Attributes
+.i1 Member Functions
+.SS Modeling relationships
+.IT Class diagrams also allow modeling relations between classes
+.i1 Inheritance
+.PSPIC images/uml-generalization.eps 3.5i
+.i1 Composition
+.PSPIC images/uml-composition.eps 3.5i
+.i1 Dependency
+.PSPIC images/uml-dependency.eps 3.5i
+.i1 And much more, but this is all we care about for now
+.bp
+.IT Now we have a simple shared vocabulary 
+.i1 for describing class relationships
+
+.IT Now we can put it to use
 .SS Ensure inheritance models \fIIS-A\fP
 .IT Effective C++ #35: Make sure public inheritance models "IS-A"
+
 .IT If you only get one thing out of this week, let it be this
+
 .i1s 
 Consider the following
 \s-4
@@ -30,13 +81,20 @@ Consider the following
 .R
 \s+4
 .br
-We have a problem
+Is this OK?
 .i1e
+.bp
+.IT No
+.i1 We have a problem
 .i2 Because we have asserted that penguins can fly
+
+.IT Even experts can get this wrong . . . 
+
 .IT Consider the \fCShape\fR inheritance tree from the text
 .i1 Also consider the Rectangle / Square inheritance example
 .i1 Public inheritance asserts that \fIeverything\fR applicable to base a class is also applicable to derived classes
 .IT It turns out this is a fairly restrictive assertion
+.bp
 .PS
 boxht = .5
 boxwid = 1.5
@@ -85,7 +143,11 @@ Given:
 .IT This is \fInot\fR an override
 .i1 This is called \fIshadowing\fR a function and is a common source of error.
 .i1 Most good compilers will warn you...
-
+.IT Class B is defining a \fImandatory implementation\fR
+.i1 We don't know what else may depend on it (or its invariants)
+.i1 We don't know how it may change in the future
+.IT Class D can't guarantee it will conform to the same contract
+.i1 For \fCfoo()\fR defined by class B
 .SS Model \fIHAS-A\fP using Composition
 .IT Effective C++ #40: 
 .i1 Scott Meyers uses the term \fIlayering\fR as a synonymn for composition
@@ -203,6 +265,25 @@ arrow to C.s from D.n
 .i1 Design
 .i2 How general is the new type?
 .i2 Does the new type fit into an inheritance graph?
+.SS A word about Abstraction
+.IT At this point in the course, we have introduced
+.i1 The basic concepts normally associated with OOP
+.i2 Inheritance, encapsulation, polymorphism, and abstraction
+.IT Most languages provide the first 3 for 'free'
+.i1 Language features exist to make them easily achieved
+.i1 If you choose to use them
+
+.IT \fBAbstraction\fR is not free
+.i1 It is a design goal
+.i2 No keyword or construct simply enables abstraction
+.i1 It is one area you'll likely spend the rest of your career perfecting
+.IT Abstraction is not the sole domain of OOP
+.i1 The STL is an abstraction library
+.i2 Mostly function templates, not classes
+
+.IT Don't panic
+.i1 I'm still working on it too
+
 .SS Summary
 .IT Common base class means common traits. 
 .i1 If \fCclass C\fR and \fCclass D\fR both declare \fCclass B\fR as a base 

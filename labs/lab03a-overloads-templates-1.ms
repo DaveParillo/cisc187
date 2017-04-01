@@ -20,7 +20,7 @@ Repeat step 1, but this time use a template.
 You should implement the template in an include file.
 .IP 4.
 Write a simple test program to verify your code functions correctly.
-Prefer using \*[c]assert\*[c] or some other test function
+Prefer using \*[c]assert\*[r] or some other test function
 over prompting for input and writing \*[c]cout\*[r] statements.
 
 .RE

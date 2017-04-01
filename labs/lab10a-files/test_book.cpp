@@ -25,7 +25,7 @@ BOOST_AUTO_TEST_CASE( book_constructor )
 BOOST_AUTO_TEST_CASE( book_equals )
 {
   Book b1 = {12345, "The C++ of Wrath", "John Stienstruct", {1939, mesa::Month::APR, 14}, Genre::FICTION};
-  Book b2 = {12345, "The Grapes of Wrath", "John Stiensbeck", {1939, mesa::Month::APR, 14}, Genre::FICTION};
+  Book b2 = {12345, "The Grapes of Wrath", "John Stienbeck", {1939, mesa::Month::APR, 14}, Genre::FICTION};
   Book b3 = {1234,  "The C++ of Wrath", "John Stienstruct", {1939, mesa::Month::APR, 14}, Genre::FICTION};
 
   BOOST_CHECK_EQUAL(b1, b1);
