@@ -174,15 +174,15 @@ must \fIalways\fR be member functions.
 .RS
 .CW
   class Foo {
-    Foo& operator++()         \m[green]// prefix ++\m[]
+    Foo& operator++()      \m[green]// prefix ++\m[]
     {
       \m[green]// do actual increment\m[]
       return *this;
     }
-    Foo operator++(int)       \m[green]// postfix ++\m[]
+    Foo operator++(int)    \m[green]// postfix ++\m[]
     {
-      Foo tmp(*this);         \m[green]// copy!\m[]
-      operator++();
+      Foo tmp(*this);      \m[green]// copy!\m[]
+      operator++(tmp);     \m[green]// ++tmp;\m[]
       return tmp;
     }
   };
