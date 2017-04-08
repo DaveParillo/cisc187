@@ -75,7 +75,7 @@ Or you should explicitly delete it
 .IT The same rules that apply to writing good functions aply here
 .i1 A good class is built using good functions
 .IT Avoid confusing parameter lists
-.i1 Sequentiial parameters of the same type
+.i1 Sequential parameters of the same type
 .i1 Even something as simple as Date can be a problem
 .i1s
 Given a constructor 
@@ -123,75 +123,6 @@ Now a new Date constructed using
 .i1e
 .IT Any other combination of parameters is a compile error
 
-
-.SS Using const in classes
-.IT Classes add more situations where the \*[c]const\*[r] keyword can be used
-.i1 In the definition of a new object
-.i1 In the signature of a member function
-.IT Creating new objects
-.i1s
-You can declare an object \*[c]const\*[r] just like any other type
-.CW
-  const Fibonacci foo = {5, 8, 13};
-.R
-.i1e
-.i1 Just as with \fCconst int i = 3;\fR
-.i2 It means no changes allowed to the object
-.i1 A \fInon-modifying member function\fR
-.IT Calling member functions
-.i1s
-You can declare an object \*[c]const\*[r] just like any other type
-.CW
-  bool verbose() const {return true;}
-.R
-.i1e
-.i1 Here \*[c]const\*[r] tells the compiler 
-.i2 This function \fBwill not change\fR the object state
-.i1 It is a promise
-.i2 If a const function attempts to change any class member, a compile error occurs
-.IT Only member functions can be marked const
-.SS A const object
-.i1s
-Does this compile?
-.CW
-  class Foo {
-      int value_ = 0;
-    public:
-      Foo() {}
-      void value (const int x) { 
-        value_ = x; 
-      }
-      int value() { 
-        return value_;
-      }
-  };
-  int main () {
-    const Foo a;
-    a.value(13);
-    std::cout << a.value() << '\\n';
-  }
-.R
-.SS Adding a const function
-.i1s
-Does this compile?
-.CW
-  class Foo {
-      int value_ = 0;
-    public:
-      void value (const int x) {
-        value_ = x;
-      }
-      int value() const {
-        return value_;
-      }
-  };
-  int main () {
-    Foo a;
-    a.value(13);
-    const Foo b = a;
-    std::cout << b.value() << '\\n';
-  }
-.R
 .SS Classes and static members
 .IT Just because you put something in a class doesn't guarantee it's 'local'
 .IT Putting a static in a member function doesn't change the nature of a static variable
@@ -300,11 +231,12 @@ Even when the number is a valid \fCDirection\fR.
 .SS Summary
 .IT Classes
 .i1 Class interfaces
-.IT \*[c]const\*[r] objects and \*[c]const\*[r] member functions 
 .IT \*[c]static\*[r] variables
 .IT Default behaviors
 .i1 Copying
 .i1 Constructors
+.i2 Know when the compiler will generate constructors
+.i2 And when it won't
 .IT Enumerations
 .i1 Prefer \*[c]class enum\*[r] to plain \*[c]enum\*[r]
 

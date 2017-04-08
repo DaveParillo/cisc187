@@ -211,13 +211,80 @@ When is it acceptable to use a \*[c]struct\*[r]?
 
 When is it not acceptable?
 
-
-
+.SS Using const in classes
+.IT Classes add more situations where the \*[c]const\*[r] keyword can be used
+.i1 In the definition of a new object
+.i1 In the signature of a member function
+.IT Creating new objects
+.i1s
+You can declare an object \*[c]const\*[r] just like any other type
+.CW
+  const Fibonacci foo = {5, 8, 13};
+.R
+.i1e
+.i1 Just as with \fCconst int i = 3;\fR
+.i2 It means no changes allowed to the object
+.i1 OK to call a \fInon-modifying member function\fR
+.IT Calling member functions
+.i1s
+You can declare an object \*[c]const\*[r] just like any other type
+.CW
+  bool verbose() const {return true;}
+.R
+.i1e
+.i1 Here \*[c]const\*[r] tells the compiler 
+.i2 This function \fBwill not change\fR the object state
+.i1 It is a promise
+.i2 If a const function attempts to change any class member, a compile error occurs
+.IT Only member functions can be marked const
+.SS A const object
+.i1s
+Does this compile?
+.CW
+  class Foo {
+      int value_ = 0;
+    public:
+      Foo() {}
+      void value (const int x) { 
+        value_ = x; 
+      }
+      int value() { 
+        return value_;
+      }
+  };
+  int main () {
+    const Foo a;
+    a.value(13);
+    std::cout << a.value() << '\\n';
+  }
+.R
+.SS Adding a const function
+.i1s
+Does this compile?
+.CW
+  class Foo {
+      int value_ = 0;
+    public:
+      void value (const int x) {
+        value_ = x;
+      }
+      int value() const {
+        return value_;
+      }
+  };
+  int main () {
+    Foo a;
+    a.value(13);
+    const Foo b = a;
+    std::cout << b.value() << '\\n';
+  }
+.R
 .SS Summary
 .IT In C++ a class is a struct
 .i1 With default private access
 .IT Member functions
 .IT Member access
+.i1 \*[c]const\*[r] functions and objects
 .IT Constructors
 .IT Data must be organized to be useful
 .IT Data + operations = ADT (abstract data type)
