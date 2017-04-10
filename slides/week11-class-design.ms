@@ -14,6 +14,7 @@ Week 11
 .i1 The \fIHAS-A\fR relationship
 .IT Multiple Inheritance
 .IT Design Considerations
+.IT Design Patterns
 .SS Visualizing designs
 .IT It is sometimes helpful to visualize class interactions
 .i1 There are many graphical systems for representing OO designs
@@ -271,10 +272,9 @@ arrow to C.s from D.n
 .i2 Inheritance, encapsulation, polymorphism, and abstraction
 .IT Most languages provide the first 3 for 'free'
 .i1 Language features exist to make them easily achieved
-.i1 If you choose to use them
-
-.IT \fBAbstraction\fR is not free
-.i1 It is a design goal
+.i2 If you count fundamental types as an abstraction
+.i3 Then you get abstraction for free too
+.IT Class design abstraction is a design goal
 .i2 No keyword or construct simply enables abstraction
 .i1 It is one area you'll likely spend the rest of your career perfecting
 .IT Abstraction is not the sole domain of OOP
@@ -283,7 +283,49 @@ arrow to C.s from D.n
 
 .IT Don't panic
 .i1 I'm still working on it too
+.SS Design Patterns
+.IT Some software problems occur again and again
+.i1 Think STL algorithms
+.IT But what if the problem is 'too big' for one algorithm?
+.i1 Or not every problem in software is solved by an algorithm.
+.IT Design Pattern
+.i1 General reusable solution to a commonly occurring problem
+.IT It is the \fIdesign\fR for a solution
+.i1 Not the actual implementation
+.i1 A design pattern is a higher level of abstraction and and ADT
+.bp
+.IT Types of design patterns
+.i1 Creational patterns
+.i2 Builder, Factory, Singleton, ...
+.i1 Structural patterns
+.i2 Adapter, Facade, Flyweight, ...
+.i1 Behavioral patterns
+.i2 Chain of Responsibility, Iterator, Visitor, ...
+.i1 Concurrency patterns
+.i2 Join, Lock, Thread pool, ...
+.IT In this course I plan to discuss
+.i1 Singleton
+.i1 Chain of Responsibility
+.SS Singleton
+.IT Sometimes it makes sense to have only 1 copy of an object in your program
+.i1 i.e. a global
+.IT The singleton pattern 
+.i1 One of the simplest design patterns
+.i2 Involves only one class which is responsible to instantiate itself
+.i2 Ensure it creates not more than one instance
+.i2 Provides a global point of access to that instance 
 
+.IT See example source
+.SS Chain of Responsibility
+.IT The Chain of Responsibility design pattern allows an object to execute a command 
+.i1 Without knowing what object will receive and handle it 
+.IT Each member in the chain is a 'link' in a linear container
+.i1 Think an OO version of a jump table
+.PSPIC images/uml-chain-of-responsibility.eps
+.QP
+\s-(10
+From http://www.oodesign.com/chain-of-responsibility-pattern.html
+.LP
 .SS Summary
 .IT Common base class means common traits. 
 .i1 If \fCclass C\fR and \fCclass D\fR both declare \fCclass B\fR as a base 
@@ -293,3 +335,4 @@ arrow to C.s from D.n
 .IT Use pure virtual functions to define \fIinterfaces\fR
 .IT Use simple virtual functions to define \fIinterfaces\fR \fBand\fR a \fIdefault implementation\fR
 .IT Bases classes with non-virtual functions are \fIdefining a mandatory implementation\fR
+.IT Design Patterns
