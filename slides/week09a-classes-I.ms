@@ -9,10 +9,11 @@ Data Structures and Classes
 .ce 1
 Week 9
 .SS Overview
-.IT Sections 9.1 - 9.4 of the text
+.IT Sections 9.1 - 9.4, 9.7 of the text
 .IT Review of procedures
 .IT Data Structures
 .IT Member access
+.IT Using \*[c]const\*[r] in classes
 .IT Interfaces and implementation
 .SS Procedural programming
 .IT The first half of this course emphasized \fIprocedural programming\fR
