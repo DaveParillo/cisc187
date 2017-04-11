@@ -4,5 +4,5 @@
 
 BOOST_AUTO_TEST_CASE( hello )
 {
-  BOOST_CHECK_EQUAL("hello", "hello");
+  BOOST_CHECK_EQUAL("hello", "howdy");
 }
