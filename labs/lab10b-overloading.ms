@@ -1,4 +1,4 @@
-.ds CH Lab #10a: Classes and overloading
+.ds CH Lab #10b: Classes and overloading
 .so headings.ms
 .TL
 \*[CH]

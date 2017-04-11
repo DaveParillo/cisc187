@@ -1,4 +1,4 @@
-.ds CH Lab #10b: Boost::Test and Book
+.ds CH Lab #10a: Boost::Test and Book
 .so headings.ms
 .TL
 \*[CH] software lab
@@ -28,7 +28,7 @@ Boost is installed on the buffy server.
 Download the files that are provided as part of this lab.
 .IP \n+[step].
 Copy them to buffy, if you didn't download them directly there and cd to the
-\fClab10b-files\fR directory.
+\fClab10a-files\fR directory.
 .IP \n+[step].
 Type \fCmake hello\fR.
 You should see the following:
