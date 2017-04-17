@@ -107,7 +107,8 @@ must \fIalways\fR be member functions.
 .CW
   Foo& Foo::operator=(const Foo& rhs)
   {
-    std::swap(rhs);
+    \m[green]// copy data from rhs to
+    // current instance\m[]
     return *this;
   }
 .R
@@ -119,7 +120,6 @@ must \fIalways\fR be member functions.
   std::ostream& operator<<(std::ostream& os, const T& rhs)
   {
     \m[green]// write rhs object to stream\m[]
-
     return os;
   }
 .R
@@ -182,7 +182,7 @@ must \fIalways\fR be member functions.
     Foo operator++(int)    \m[green]// postfix ++\m[]
     {
       Foo tmp(*this);      \m[green]// copy!\m[]
-      operator++(tmp);     \m[green]// ++tmp;\m[]
+      ++tmp;
       return tmp;
     }
   };
