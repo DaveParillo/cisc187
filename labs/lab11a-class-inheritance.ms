@@ -6,13 +6,13 @@
 Base and derived classes: 30 minutes \fImaximum\fR
 .time_box
 .RS
-.nr step 1 1
-.IP \n[step].
+.nr step 0 1
+.IP \n+[step].
 Given the following classes:
 .CW
   class Animal {
     public:
-    void make_noise() {}
+    virtual void make_noise() {}
     void eat() {}
     void sleep() {}
     void roam() {}
@@ -35,19 +35,20 @@ Given the following classes:
 
 And given: 
 .CW
+  void call (Animal& a) {
+    a.make_noise();
+    a.roam();
+    a.eat();
+    a.sleep();
+  }
+
   int main () {
     Wolf w;
-
-    w.make_noise();
-    w.roam();
-    w.eat();
-    w.sleep();
-
-    return 0;
+    call(w);
   }
 .R
 
-Identify which of the versions of the methods called by \fCWolf w\fR are invoked.
+Identify which of the versions of the methods \fCWolf, Canine, Animal\fR are invoked in \fCcall()\fR.
 .RE
 
 .bp
@@ -62,7 +63,7 @@ Given the following classes:
 .R
 .RS
 .IP a.
-Identify appropriate sub classes and super classes.
+Identify appropriate base and derived classes.
 
 
 
@@ -97,7 +98,7 @@ Given the following classes:
 .R
 .RS
 .IP a.
-Identify appropriate sub classes and super classes.
+Identify appropriate base and derived classes.
 
 
 
