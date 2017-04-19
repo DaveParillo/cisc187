@@ -38,6 +38,12 @@ Choose from the following code snippets:
   move               rowTheBoat         std::cout
 .R
 
+Prefer keeping interfaces and implementations separate.
+
+Hand in only the final source code, not this lab sheet, 
+if you choose to fill in the blanks before typing it out.
+
+.bp
 .CW
   #include <iostream>
 
@@ -51,29 +57,24 @@ Choose from the following code snippets:
         ________ = ________;
       }
 
-      int ________() {
+      int ________() { 
         return len;
       }
 
       virtual void move () const {
         std::cout << " drift ";
       }
-    ________
+      ________
       int len;
 
   };
-.R
-.bp
-.CW
 
   class SailBoat : ________ Boat {
     public:
       virtual ~________(){}
-      ________ move() ________ ________ {
+        ________ move() ________ ________ {
         ________ << " ________ ";
-
       }
-
   };
 
   class RowBoat : ________ ________ {
@@ -81,11 +82,8 @@ Choose from the following code snippets:
       virtual ~________(){}
       void row() ________ {
         std::cout << " ________ ";
-
       }
-
   };
-
 
   int main() {
       Boat b1;
@@ -97,9 +95,6 @@ Choose from the following code snippets:
       b3.________();
       ________.move();
       std::cout << std::endl;
-
-      return 0;
   }
 .R
-
 
