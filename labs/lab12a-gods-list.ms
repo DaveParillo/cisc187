@@ -29,7 +29,7 @@ For example:
 .R
 
 .IP \n+[step].
-Create a \fCprint_all()\fR function that lists gods with attributes one per line. 
+Create an operator<< for \fCGod\fR so that \fCprint_all()\fR lists gods with attributes all on one line. 
 
 .IP \n+[step].
 Add a member function \fCadd_ordered()\fR that places its new element 
@@ -41,6 +41,11 @@ Make a list of gods from three mythologies.
 .IP \n+[step].
 Move the elements (gods) from that list to the three alphabetically ordered lists, 
 one for each mythology.
+
+You may find this easier to implement if you add a \fCremove(Link* node, const string& name)\fR
+helper function.  The erase provided in the text is not suitable for
+removing gods a list so that they can be inserted in another.
+The \fCerase\fR function returns a pointer to the next list element, not the element removed.
 
 .RE
 
