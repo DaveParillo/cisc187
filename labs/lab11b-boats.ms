@@ -81,7 +81,7 @@ if you choose to fill in the blanks before typing it out.
     public:
       virtual ~________(){}
       void row() ________ {
-        std::cout << " ________ ";
+        std::cout << " row row ";
       }
   };
 
