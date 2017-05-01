@@ -7,9 +7,7 @@ Class Templates
 .ce 1
 Week 13
 .SS Overview
-.IT Project #1
 .IT Accessing private class members
-.IT Finishing the \*[c]vector\*[r] API
 .IT Templates
 .IT 
 .SS Accessing private class members

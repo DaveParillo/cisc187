@@ -12,13 +12,72 @@ Week 13
 .IT Rule of 3 / 5 / 0 
 .IT Recursion (briefly)
 .SS Constructors
-.IT \fBEvery\fR C++ class defines
+.IT \fBEvery\fR C++ class defines or deletes
 .i1 A default constructor
 .i1 A copy constructor
 .i1 A copy assignment constructor
+.i1 A move constructor
+.i1 A move assignment constructor
 .i1 A default destructor
 .IT If you do not define them
 .i1 The compiler will do it for you
+.i1 Unless it can't
+.i2 See 01-default.cpp in examples
+.SS Copy constructors
+.IT Create a new class from an existing instance
+.IT Called during
+.i1 Initialization: \fC T a = b; or T a(b);\fR
+.i2 where b is of type T
+.i1 Argument passing: \fCfunction argument passing: f(a)\fR
+.i2 where \fCa\fR is of type \fCT\fR 
+.i1 Function return: return a 
+.i2 Inside a function such as \fCT f()\fR, 
+.i2 where \fCa\fR is of type \fCT\fR, and \fCT\fR has no move constructor.
+.i1s
+Copy constructor syntax
+.CW
+  class_name ( const class_name & )
+.R
+.i1e
+.i1s
+Copy assignment operator
+.CW
+  class_name& class_name :: operator= ( class_name )
+.R
+.i1e
+.SS Move constructors
+.IT Create a new class from an existing instance
+.i1 And delete the old one
+.i1 \fIMove semantics\fR are a C++11 addition
+.IT We are moving memory from class a to class b
+.IT Called during
+.i1 Initialization: \fC T a = std::move(b); or T a(std::move(b));\fR
+.i2 where b is of type T
+.i1 Argument passing: \fCfunction argument passing: f(std::move(a));\fR
+.i2 where \fCa\fR is of type \fCT\fR 
+.i1 Function return: return a 
+.i2 Inside a function such as \fCT f()\fR, 
+.i2 where \fCa\fR is of type \fCT\fR, and \fCT\fR has a move constructor.
+.i1s
+Move constructor syntax
+.CW
+  class_name ( class_name && )
+.R
+.i1e
+.i1s
+Move assignment operator
+.CW
+  class_name& class_name :: operator= (class_name &&)
+.R
+.i1e
+.IT Note the parameters aer not \*[c]const\*[r]
+.i1 They can't be!
+.SS More reading
+.IT http://en.cppreference.com/w/cpp/language/copy_constructor
+.IT http://en.cppreference.com/w/cpp/language/copy_assignment
+.IT http://en.cppreference.com/w/cpp/language/move_constructor
+.IT http://en.cppreference.com/w/cpp/language/move_assignment
+.SS Copying and moving resources
 .IT If you define a class that manages resources
 .i1 Pointers, file handles, etc.
 .IT Then the implicitly defined functions are probably not what you want
@@ -68,7 +127,7 @@ it almost certainly requires all three.
 .SS Recursion
 .IT My expectation is this is a 'reminder'
 .i1 Consider reviewing your first semester text
-
+.i1 This is for Wednesday's lab
 .IT A text definition
 .i1 A statement defined in terms of itself
 .i1 For example,
