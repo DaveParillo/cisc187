@@ -39,6 +39,7 @@ void copy1(Person& a)
 {
   Person* xcopy = new Person(a);
   change_and_compare(a, *xcopy);
+  delete xcopy;
 }
 
 void copy2(Person& a)
