@@ -61,55 +61,10 @@ Example output:
   6: 7, 8
   7: 13, 21
 .R
-.bp
-You may find the following function declarations for point.h helpful:
-.CW
-  #pragma once
 
-  #include <string>
-  #include <vector>
+You may find the starter files associated with the lab useful,
+but you are under no obligation to use them.
 
-
-  using std::string;
-  using std::vector;
-
-  struct Point {
-    int x;
-    int y;
-  };
-
-  Point get_next_point (const string& prompt);
-  vector<Point> get_points  ();
-  void  write_points(const vector<Point> points, const string& fname);
-  void  show_points (const vector<Point> points);
-  vector<Point> read_points (const string& fname);
-
-  std::istream& operator>>(std::istream& is, Point& p);
-.R
-
-You are not obligated to use them, but breaking the problem into manageable
-chunks may help.
-
-This is a main.cpp that uses them:
-.CW
-  #include "point.h"
-  #include <iostream>
-  #include <string>
-  #include <vector>
-
-  int main() {
-    std::string fname = "mydata.txt";
-    auto original_points = get_points();
-
-    std::cout << "\nPoints entered:\n";
-    show_points (original_points);
-    write_points(original_points, fname);
-
-    auto processed_points = read_points(fname);
-    std::cout << "\nPoints read back in from file:\n";
-    show_points(processed_points);
-  }
-.R
-
-Which leaves completing point.cpp as your task.
+If you do choose to use them,
+then your only task is to implement \fCpoint.cpp\fR.
 
