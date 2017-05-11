@@ -11,271 +11,280 @@ Serialization
 .ce 1
 Week 14
 .SS Overview
-.IT Review chapters 10 and 11
-.i1 For basic File I/O and formatting I/O
-.i1 The textbook does not have much to say about object serialization
-.i2 Other than it's a byte stream, which is true
-.IT Fundamental I/O concepts
-.IT Files
-.i1 Opening
-.i1 Reading and writing streams 
-.IT I/O errors
-.IT Reading a single integer
+.IT Definitions
+.IT Saving state
+.i1 Object graph
 .IT Serialization
-
-
-.SS Input and Output
-.IT Input
-.PS
-boxwid = 2
-boxht = .75
-
-A: box "input" "device"
-arrow
-B: box "device" "driver"
-arrow
-C: box "input" "library"
-arrow
-D: box "your" "program"
-.PE
-
-.IT Output
-.PS
-boxwid = 2
-boxht = .75
-
-A: box "your" "program"
-arrow
-B: box "output" "library"
-arrow
-C: box "device" "driver"
-arrow
-D: box "output" "device"
-.PE
-
-
-
-.SS The stream model
-.PS
-boxwid = 2
-boxht = .7
-
-A: box "'hello'"
-B: box "-1234" with .n at A.s + (0, -1.0)
-C: box "Foo" wid .7  with .n at B.s + (0, -1.0)
-D: box fill 0.4 ht 1.2 "ostream" with .w at B.e + (1.0, 0)
-E: box "buffer" with .n at D.s + (0.5, -1.0)
-F: box "'output'" with .s at E.n + (2.5, 0.5)
-
-arrow from A.e to D.w
-arrow from B.e to D.w
-arrow from C.e to D.w
-
-arrow from D.s to E.n
-arrow from E.e to F.s
-
-.PE
-.IT An ostream
-.i1 turns values of various types into character sequences
-.i1 sends those characters somewhere
-.i2 Examples: console, file, main memory, another computer
-
-.PS
-boxwid = 2
-boxht = .7
-
-A: box "'hello'"
-B: box "-1234" with .n at A.s + (0, -1.0)
-C: box "Foo" wid .7  with .n at B.s + (0, -1.0)
-D: box fill 0.4 ht 1.2 "istream" with .w at B.e + (1.0, 0)
-E: box "buffer" with .n at D.s + (0.5, -1.0)
-F: box "'input'" with .s at E.n + (2.5, 0.5)
-
-arrow to A.e from D.w
-arrow to B.e from D.w
-arrow to C.e from D.w
-
-arrow to D.s from E.n
-arrow to E.e from F.s
-
-.PE
-.IT An istream
-.i1 turns character sequences into values of various types
-.i1 gets those characters from somewhere
-.i2 Examples: console, file, main memory, another computer
-.IT Reading and writing
-.i1 Of typed entities
-.i2 << (output) and >> (input) plus other operations
-.i2  Type safe
-.i2 Formatted
-.i1 Typically stored (entered, printed, etc.) as text
-.i2 But not necessarily (see binary streams in chapter 11)
-.i1 Extensible
-.i2 You can define your own I/O operations for your own types
-.i1 A stream can be attached to any I/O or storage device
-.SS Files
-.IT We turn our computers on and off
-.i1 The contents of our main memory is transient
-.IT We like to keep our data
-.i1 So we keep what we want to preserve on disks and similar permanent storage
-.IT A file is a sequence of bytes stored in permanent storage
-.i1 A file has a name
-.i1 The data on a file has a format
-.IT We can read/write a file if we know its name and format
-.SS File structure
-.IT Fundamentally, a file is a byte sequence
-.i1 Numbered from 0 
-
-.SS File structure
-.IT Fundamentally, a file is a \fBbyte sequence\fR
-.i1 Numbered from 0 increasing until to the end of file marker is reached
-.PS
-boxht = 0.5
-boxwid = 0.5
-A: box
-B: box
-C: box
-D: box wid 3 dashed
-E: box
-F: box
-G: box
-H: box
-"0:" with .s at A.n + (0,0.3)
-"1:" with .s at B.n + (0,0.3)
-"2:" with .s at C.n + (0,0.3)
-"EOF" with .s at H.n + (0,0.3)
-.PE
-.IT Note that even simple numbers are multi-byte things
-.i1 Bytes are interpreted by some program
-.i1 Using shared understanding of a \fIfile format\fR
-.i1 This is often established by convention for 'plain text'
-.i2 ASCII text
-.i1 Binary data files (non-text bytes) are usually custom file formats
-.SS Files
-.IT To read a file
-.i1 Must know its name
-.i1 Must be able to open the file for reading
-.i1 Read file contents
-.i1 Close file
-.IT To write a file
-.i1 Must provide a name (if writing to a disk file system)
-.i1 Must be able to open the file for writing
-.i2 Or create a new file
-.i1 Write file contents
-.i1 Close file
-.SS Reading a file
-.RS
-\s-8
+.i1 Techniques
+.i1 Third-party libraries
+.IT Security issues
+.SS Serialization: What is it?
+.IT Convert an object into a byte stream
+.i1 Byte sequence
+.IT Destinations
+.i1 Write to file
+.i1 Transmit across network
+.i1 Store in database
+.IT Recall from Monday
+.i1 All the way down, it's just bytes
+.IT Some language have a serialization library built in
+.i1 Java is a notable example
+.i1 C++ does not
+.SS Saving State
+.IT What is the 'state' of an object?
+.i1 Primitives
+.i1 What if an object 'HAS-A' \*[c]class\*[r] as a member
+.i2 And that class has one, and so on ...
+.IT How to ensure the objects reconstituted
+.i1 Are faithful replicas of the originals?
+.IT This is a 'simple' variation of our 'deep copy' problem
+.i1 Except the copies are much father away from the originals
+.i2 Might be on a different computer
+.i2 Or on the same computer at a much later time
+.i3 In a different instance of the application
+.i1s
+Given any class with non-trivial members
 .CW
-  #include <fstream>
-  #include <iostream>
-  #include <string>
-
-  int main()
-  {
-    std::cout << "Please enter input file name: ";
-    std::string iname;
-    std::cin >> iname;
-    std::ifstream ist {iname}; \m[green]// declare 'input stream from a file'\m[]
-                               \m[green]// ifstream has a name string\m[]
-                               \m[green]// opens the named file for reading\m[]
-    if (!ist) {
-      std::cerr << "can't open input file " << iname;
-    }
-    return 0;
-  }
-.R
-.RE
-.SS Writing a file
-.RS
-\s-8
-.CW
-  #include <fstream>
-  #include <iostream>
-  #include <string>
-
-  int main()
-  {
-    std::cout << "Please enter output file name: ";
-    std::string oname;
-    std::cin >> oname;
-    std::ofstream ofs {oname}; \m[green]// declare 'output stream to a file'\m[]
-                               \m[green]// ofstream has a name string\m[]
-                               \m[green]// opens the named file for writing\m[]
-    if (!ofs) {
-      std::cerr << "can't open output file " << iname;
-    }
-    return 0;
-  }
-.R
-.RE
-.SS Reading from a file
-.IT Suppose a file contains a sequence of pairs representing hours and temperature readings
-.RS
-.CW
-  0 60.7
-  1 60.6
-  2 60.3
-  3 59.22
-.R
-.RE
-.IT The hours are numbered 0..23
-.IT No further format is assumed
-.i1 Maybe we can do better than that (but not just now)
-.IT Termination
-.i1 Reaching the end of file terminates the read
-.i1 Anything unexpected in the file terminates the read
-.i2 E.g., q
-.bp
-.RS
-\s-8
-.CW
-  struct Reading {	\m[green]// a temperature reading\m[]
-    int hour;	\m[green]// hour after midnight [0:23]\m[]
-    double temperature;
+  class Car {
+    Engine mopar;
+    array<unique_ptr<Tire>, 4> wheels;
   };
+.R
+.i1e
+.SS Object Graph
+.IT The 'object graph' is not an actual picture
+.i1 The relationships between objects form a 'graph-like data structure'
+.i2 Each object instance is a node on the graph
+.i2 Each relationship is an edge on the graph
+.i3 Inheritance, Composition, Association, or Dependency
+.PSPIC images/object-graph.eps 9.0
+.bp
+.IT All objects referenced by a serialized object must be serialized
+.i1 i.e. Serialization saves the entire object graph
+.i1 How do we know this must be true?
+.SS Serialization 
+.IT Ultimately data currently in memory needs to be transformed
+.i1 Into a byte sequence.
 
-  vector<Reading> temps;	\m[green]// to store the readings\m[]
+.IT When data is written, we use the term \fBserialize\fR
+.i1 One or more objects are transformed to bytes
 
-  int hour;
-  double temperature;
-  while (ist >> hour >> temperature) {            \m[green]// read\m[]
-    if (hour < 0 || 23 <hour) {                   \m[green]// check\m[]
-      std::cerr << "hour out of range";
-    }
-    temps.push_back( Reading{hour,temperature} );	\m[green]// store\m[]
+.IT When data is read, we use the term \fBdeserialize\fR
+.i1 Bytes are transformed to one or more objects
+
+.SS Techniques
+.IT This is C++.  As always, you have options
+.IT Manual
+.i1 Write your own functions
+.i1 Can (de)serialize as either text or binary data
+.i2 There are pros and cons to each approach
+.IT Use a library
+.i1 Boost::Serialization
+.i1 Google Protocol Buffers
+.SS Manual Serialization
+.IT Obviously there as many options here as there are ways to write bytes in C++
+.i1s
+Using standard C one could literally use \*[c]memcpy\*[r]
+.CW
+  \m[green]// dest is a pointer\m[]
+  \m[green]// "Serialize"\m[]
+  memcpy(dest, &my_struct, sizeof(MyStruct)));
+ 
+  \m[green]// "Deserialize"\m[]
+  memcpy(&my_struct, dest, sizeof(MyStruct)));
+.R
+.i1e
+.IT The primary weakness here is that \*[c]memcpy\*[r] is always
+.i1 A \fBshallow\fR copy
+.IT You can pick your data apart and send it piece by piece
+.i1 Multiple \*[c]memcpy\*[r] calls
+.IT Or convert everything to a string
+.i1 Define a \*[c]char\*[r] separator
+.i2 Need a way to determine when strings end
+.SS Basic serialization
+.IT C++ provides more tools than \*[c]memcpy\*[r]
+.IT Simple case
+.i1 Objects not part of an inheritance hierarchy
+.i1 Add \fCserialize() / deserialize()\fR functions to each class
+.i1 Serialize should accept, modify, and eturn an \*[c]ostream\*[r]
+.i2 Same basic pattern as \*[c]operator<<\*[r]
+.i1 Consider adding a version number parameter
+.i2 Provides an ability to handle future changes to your class
+.i2 The version number needs to be a serialized class member
+.IT Remember to create a way from keeping members from 'running together'
+.i1 Serializing two \*[c]int\*[r]s, '3' and '5', vs. '35'
+.i2 Use a separator, \fC'3:5'\fR, \fC'35'\fR, etc.
+.i2 A length property is more general approach that works with strings too
+.i3s
+But is a bit more complicated
+.br
+\0read in pairs of data, where each pair is <int, char*>
+.br
+\0int is the number of characters to read in
+\0char* is the sequence of characters to read
+.CW
+  1:3:1:5:2:35:13:hello, world!
+.R
+.i3e
+.SS Serializing an inheritance hierarchy
+.IT What if our \fCCar\fR class was abstract?
+.i1 Or if it was derived from a \fCVehicle\fR class with \fCTruck\fR, etc. as potential siblings?
+
+.IT You need to write out the class type
+.i1 So you can create the correct class when deserialized
+.IT Basic recipe
+.i1s
+Add a pure virtual function in your base class to create an instance from an \*[c]istream\*[r]
+and a constructor to go along with it:
+.CW
+  Vehicle::create(std::istream& istr) = 0;
+
+  \m[green]// and in Car \m[]
+  create(istream& istr) { return new Car(istr); }
+  Car(istream& istr) { 
+    \m[green]// fill Car members from stream \m[]
   }
 .R
-.RE
-.SS Handling I/O errors
-.IT Sources of errors
-.i1 Human mistakes 
-.i1 Files that fail to meet specifications
-.i1 Specifications that fail to match reality
-.i1 Programmer errors
-.i1 Something else
+.i1e
+.i1 Create a \*[c]map<string, Vehicle*>\*[r]
+.i2s
+This allows you to associate a string read in during deserialization 
+.br
+\0with the correct \fCcreate()\fR
+.i2e
+.SS Serialization and pointers
+.IT This problem is very similar to the 'deep copy' pointer lab
+.i1 Key is to copy the object pointed to
+.i2 The pointer is meaningless after serialization
+.IT For simple cases, order doesn't matter
+.i1 Ensure serialize and deserialize work on the object graph in the same order
+.i1 Remember children might == \*[c]nullptr\*[r]
+.IT What is a 'simple case?'
+.i1 If your object graph contains cycles or joins
+.i2 \m[red]cycle\m[]: a path from an object leads back to itself
+.i2 \m[red]join\m[]: more than 1 path to the same object
+.i1 Then yours is not a simple case
 
-.IT \*[c]iostream\*[r] reduces all errors to one of four states
-.i1 \*[c]good()	\m[black]// the operation succeeded\*[r]
-.i1 \*[c]eof()	\m[black]// we hit the end of input ("end of file")\*[r]
-.i1 \*[c]fail()	\m[black]// something unexpected happened\*[r]
-.i1 \*[c]bad()	\m[black]// something unexpected and serious happened\*[r] \m[]
-.SS Integer read failures
-.IT Bad character
-.i1 1 2 3 4 5 x
-.i1 Character 'x' is not valid
-.i1 State is \*[c]fail()\*[r]
-.IT Format error
-.i1 1 2 3 4 5.6
-.i1 Double '5.6' is not an int
-.i1 State is \*[c]fail()\*[r]
-.IT Reached the end of file
-.i1 1 2 3 4 5 EOF
-.i1 1 2 3 4 5 (CTRL-Z character in Windows)
-.i1 1 2 3 4 5 (CTRL-D character in Linux/Mac)
-.i1 State is \*[c]eof()\*[r]
-.IT Something even worse than failure
-.i1 Disk format error
-.i1 State is \*[c]bad()\*[r]
-.IT See example code
+.IT Consider using a third-party serialization library
+.SS Third-party libraries
+.IT They exist, because we don't want to manually serialize our own data all the time
+.i1 Typically well-tested for complex (non-simple) cases
+.i1 Tedious to roll our own
+.i2 And error prone
+.IT There are \fBmany\fR to choose from
+.i1 I'm listing just a couple of samples that I have used
+.SS Boost
+.IT Mature, portable, flexible 
+.IT Prefer if already using boost elsewhere
+.IT Basic usage
+.i1s
+Add the following to a class
+.CW
+  #include <iostream>
+  #include <vector>
+  #include <fstream>
+  #include <boost/serialization/access.hpp>
+  \m[green]// required if serializing unique_ptr members\m[]
+  #include <boost/serialization/unique_ptr.hpp>
+
+  \m[green]// required if serializing vector/array members\m[]
+  #include <boost/serialization/vector.hpp>
+
+  \m[green]// or binary_oarchive and iarchive \m[]
+  #include <boost/archive/text_oarchive.hpp>
+  #include <boost/archive/text_iarchive.hpp>
+.bp
+  class Car {
+    public:
+      Car() = default;
+      \m[green]// more public functions\m[]
+    private:
+      \m[green]// Allow boost to access non-public members\m[]
+      friend class boost::serialization::access;
+      \m[green]// from boost::archive \m[]
+      template<class Archive>
+      void serialize(Archive & ar, 
+                     const unsigned int version) {
+        \m[green]// list members to serialize\m[]
+        \m[green]// assumes mopar & wheels are serializable\m[]
+        ar & mopar;    
+        ar & wheels;
+      }
+      Engine mopar;
+      array<unique_ptr<Tire>, 4> wheels;
+  };
+.R
+.i1e
+.bp
+.IT And use it like this
+.i1s
+If serializing to / from text
+.CW
+   Car myCars;
+ 
+  \m[green]// Serialize to a file\m[]
+  std::ofstream ofs("car.ser");
+  boost::archive::text_oarchive oa(ofs);
+  oa << myCars;
+   
+  \m[green]// Deserialize from file\m[]
+  {
+    std::ifstream ifs("car.ser");
+    boost::archive::text_iarchive ia(ifs);
+    ia >> myCars;
+  }
+.R
+.SS Google Protocol buffers
+.IT Simple API allows simple definitions distinct from class
+.i1 Compact and efficient
+.IT Uses an \fCIDL\fR (interface design language)
+.i1s
+To specify serialization interface in a language independent way
+.CW
+  message Car {
+    required uint32 year = 1;
+    required string vin = 2;
+    required Engine mopar = 3;
+
+    message Tire {
+      required string brand = 1;
+      required double cost = 2;
+    }
+    repeated Tire tires = 4;
+  }
+.R
+.i1e
+.i1 Requires a custom compiler
+.SS Security issues
+.IT You potentially expose all private data
+.i1 Your private data is no longer private
+.i1 Private data is now potentially part of your public API
+.IT Data altered in transit
+.i1 Which could violate your class invariants
+
+.SS Other concerns
+.IT Most other concerns are simply new ways to write bugs
+.i1 New types of bugs introduced
+.i2 Type errors 
+.i2 New buffer overflows
+
+.IT Maintenance issues
+.i1 Need to support serializing old versions of a class
+.i2 class serialization version ID's
+.i1 Increased test burden
+.SS Summary
+.IT Object graph
+.IT Serialization
+.i1 Techniques
+.i1 Third-party libraries
+.i2 Lastly, I would really like to get around to using Cereal one day
+.i3 It's on my todo list
+.i3 http://uscilab.github.io/cereal/
+.IT Security issues
+.i1 Violating class invariants
+.i1 Buffer overflow / type problems
+
+.IT Next steps
+.i1 Project #3
+.i1 Final Exam
 
