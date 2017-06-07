@@ -28,7 +28,7 @@ void dig(double& val)
   std::cout << "Digging...\n";
   val *= 2;
   deeper(val);
-  std::cout << "Still digging...\n";
+  std::cout << "Done digging...\n";
 }
 
 void deeper(double& val)

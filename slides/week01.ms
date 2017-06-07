@@ -216,7 +216,7 @@ Your \fCargc\fR would be set = 4 and \fCargv\fR would contain
 .CW
 \s-8
  argv[0]:  "/home/dave/foo"
- argv[1]:  "-v"
+ argv[1]:  "-n"
  argv[2]:  "10"
  argv[3]:  "www.sdmesa.edu"
 \s+8
