@@ -71,7 +71,7 @@ manipulations, How?
 .SS Hello, Pointers!
 .IT A \fIpointer\fR points to a location in memory
 .i1 It's an address, so 'feels' like a reference
-.i1 But it is much more powerful (and dangerous)
+.i1 But it is much more powerful
 .IT A pointer is defined by the operator \*[c]*\*[r] \fBand\fR a type
 .CW
 

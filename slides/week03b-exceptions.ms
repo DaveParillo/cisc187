@@ -70,7 +70,7 @@ The special catch
 .i3 Possibly by translating it to another type and rethrowing an exception of that type
 .i3 Such as catching a bad_alloc and rethrowing a no_space_for_file_buffers
 .IT \fBDo not\fR use throw to catch a coding error in usage of a function. 
-.i1 Use assert or other mechanism to either send the process into a debugger 
+.i1 Use assert or other mechanism to either stop the program or log the error 
 .IT \fBDo not\fR use throw if you discover unexpected violation of an invariant of your component
 .i1 Use assert or other mechanism to terminate the program 
 .i1 Throwing an exception will not cure memory corruption and may lead to further corruption of important user data.

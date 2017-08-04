@@ -13,5 +13,5 @@ int main()
 
 // define the function
 void printFavorite(int x){
-  std::cout << "my favorite numbner is " << x << '\n';
+  std::cout << "my favorite number is " << x << '\n';
 }

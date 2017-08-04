@@ -1,8 +1,8 @@
 .ds LH Data Structures in C++
 .ds CH CISC-187
-.ds RH CRN 20504
+.ds RH CRN 88408
 .ds CF %
-.ds deadline 10 Feb 2017
+.ds deadline 01 Sep 2017
 .TL
 Data Structures in C++
 .AU

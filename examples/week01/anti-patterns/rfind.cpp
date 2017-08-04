@@ -1,5 +1,7 @@
 // from http://pastebin.com/4Gux5jqL
-// how not to reverse find slashes in a string
+//
+// This anti-pattern demonstrates
+// how NOT to reverse find slashes in a string
 
 using string = std::string;
 
