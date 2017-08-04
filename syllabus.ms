@@ -5,6 +5,8 @@
 .ds deadline 01 Sep 2017
 .TL
 Data Structures in C++
+.br
+\m[red]\*[RH]\m[]
 .AU
 Dave Parillo
 .AI
@@ -32,7 +34,7 @@ CISC 192 with a grade of "C" or better, or equivalent.
 .SH
 Required Text
 .LP
-The following textbook is \fBrequired\fR for this course. 
+The following textbook is \fBrequired\fR for this course:
 .RS
 .nr step 1 1
 .IP \n[step].
@@ -53,7 +55,7 @@ Note that MS Visual Studio 2015 has a few minor C++11 issues that may cause occa
 
 Completed projects must compile on the Mesa cislinux server, mesa-cislinux.sdmesa.sdccd.cc.ca.us (buffy).
 To access this server off campus, you will need an ssh client.
-For windows, \fIputty\fR is recommended: (http://www.chiark.greenend.org.uk/~sgtatham/putty/).
+For windows, one of \fIgit\fR: (https://git-scm.com/downloads) or \fIputty\fR: (http://www.chiark.greenend.org.uk/~sgtatham/putty/) is recommended.
 .SH
 Student Learning Outcomes
 .RS
@@ -67,6 +69,12 @@ Understand from a C++ perspective, the control of program flow with a looping st
 .IP \n+[step].
 Use C++ to provide a looping structure as a solution to a software problem.
 .RE
+
+A complete course outline with assigned reading and assignemts 
+is available at:
+.CW
+   http://209.129.16.61/~dparillo/
+.R
 .bp
 .SH
 Student Learning Objectives
@@ -105,26 +113,30 @@ including attendance, as follows:
 
 Labs, quizzes and exams are completed \fIin class\fR.
 
-Attendance is based on work completed in class and in Blackboard activities. 
+Attendance is based on work completed in class. 
 Permanent removal from the course for lack of attendance is at my discretion, 
 following standard Community College District course attendance guidelines:  
-failure to show up for class or failure to complete assignments, tests or quizzes. 
+failure to show up for class or failure to complete 
+assignments, tests, or quizzes. 
 
 It is the student's responsibility to add, drop, or withdraw from classes 
-before the deadlines stated in the class schedule. Petitions to add, drop, 
-or withdraw after the deadline will not be approved without proof of circumstances 
-beyond the student's control, which made him/her unable to meet the deadline. 
-Lack of money to pay fees is not considered an extenuating circumstance. 
+before the deadlines stated in the class schedule. 
+Petitions to add, drop, or withdraw after the deadline 
+will not be approved without proof of circumstances 
+beyond the student's control, 
+which made him/her unable to meet the deadline. 
+Lack of money to pay fees is \fBnot\fR considered an extenuating circumstance. 
 Students anticipating difficulty in paying fees before the add deadline should 
 check with the Financial Aid Office about sources of funds or other 
 alternatives for which they may be eligible.
-
-If a student decides to withdraw or drop from this course, they must do so on 
-or before the date specified by the Academic Calendar as to the last day to withdraw or drop. 
-Failure to drop by the "last day to drop" date, 
-\*[deadline] will result in a grade being assigned, 
-regardless of attendance. 
+If a student decides to withdraw or drop from this course, 
+they must do so on or before the date specified by 
+the Academic Calendar as to the last day to withdraw or drop. 
 Students are responsible for processing the WITHDRAWAL or DROP action.
+
+\fBFailure to drop by the "last day to drop" date, 
+\m[red]\*[deadline]\m[], will result in a grade being assigned, 
+regardless of attendance.\fR 
 .SH
 Policy Regarding Late or Incomplete Work
 .LP
