@@ -20,13 +20,13 @@ As programmers, this is useful, because at its core, programming involves manipu
 transforming source code into executable machine code, 
 converting database query results into readable reports, etc.
 .NH
-Exploring the Linux server:  30 minutes \fImaximum\fR
+Exploring the Linux server: 20 pts, 30 minutes \fImaximum\fR
 .LP
 Ensure you have your user name and default password for buffy.
 .RS
 .nr step 0 1
 .IP \n+[step].
-Open \fCputty\fR on a lab workstation and ssh to buffy.
+Open \*[c]git bash\*[r] or \*[c]putty\*[r] on a lab workstation and ssh to buffy.
 .IP \n+[step].
 Provide your own login information (user name and password)
 .IP \n+[step].
@@ -35,109 +35,37 @@ You are now in your own \fIhome directory\fR
 Take a few moments to explore the following commands:
 .RS
 .IP a.
- \fCls\fR - list files and directories
+ \*[c]ls\*[r] - list files and directories
 .IP b.
- \fCmkdir\fR - make a directory
+ \*[c]mkdir\*[r] - make a directory
 .IP c.
- \fCcd\fR - change directory
+ \*[c]cd\*[r] - change directory
 .IP d.
- \fCman\fR - open manual pages
+ \*[c]man\*[r] - open manual pages
 .IP a.
- \fCcp\fR - copy files or directories
+ \*[c]cp\*[r] - copy files or directories
 .IP f.
- \fCmv\fR - move files or directories
+ \*[c]mv\*[r] - move files or directories
 .IP g.
- \fCrm\fR - remove files or directories
+ \*[c]rm\*[r] - remove files or directories
 .IP h.
- \fCpasswd\fR - change your login password
+ \*[c]passwd\*[r] - change your login password
 .RE
 .IP \n+[step].
-Use the \fCpasswd\fR program to change your login password from the default.
+Use the \*[c]passwd\*[r] program to change your login password from the default.
 
 Pick something you can remember!!
 
 If you forget it I can't help you and it may take a few days to reset it.
-.IP \n+[step].
-Use the \fCcp\fR command to copy the script \fCturnitin.sh\fR from
-.br
-\fC/var2/home/turnitin.sh\fR to the \fCbin\fR directory in your own home directory.
-
-Then type \fCchmod 750 ~/bin/turnitin.sh\fR to change the mode of the script you copied
-and make it executable by you.
-
 .RE
 .bp
 .NH
-Moving files onto the Linux server:  30 minutes \fImaximum\fR
+Vim tutorial: 50 pts, 30 minutes \fImaximum\fR
 .LP
-If you don't have it already, get the source code for lab.
-.RS
-.nr step 0 1
-.IP \n+[step].
-Go to Blackboard and use the download link provided to get the course material.
-.IP \n+[step].
-From a workstation, open the program \fBWinSCP\fR
-containing the lab source bundle from git hub: probably \fIDownloads\fR.
-.IP \n+[step].
-In \fBWinSCP\fR, login to buffy using the same credentials as you used with ssh.
-.IP \n+[step].
-Copy the file master.zip from your local workstation to your home directory on buffy. 
-.IP \n+[step].
-Close WinSCP and login to buffy. Type:
-.CW
-    unzip master.zip
-    cd cisc187-master/labs
-    ls
-.R
-.br
-Observe the contents of the directory, then type
-.CW
-    make format=ascii
-.R
-.br
-Type \fCls\fR again.  
-You should have a file '.ascii' for every lab listed in the previous step.
-Feel free to type \fCmake help\fR to see what other options are available for this Makefile.
-.IP \n+[step].
-Type
-.CW
-    less lab1a-linux-intro.ms.ascii
-.R
-
-If you do not see the text of this lab, ask for help.
-.IP \n+[step].
-Type
-.CW
-    make clean
-.R
-
-Verify the files created by make in the previous step are removed.
-
-
-.IP \n+[step].
-Write a simple 'hello world' program and save it to 'hello.cpp'.  
-If you have never edited a file on *nix before, use nano.  
-Start it using the file name you want to create:
-.CW 
- nano hello.cpp
-.R
-.br
-Or you can use notepad++ on your windows workstation and use WinSCP to copy it to buffy.
-.IP \n+[step].
-Compile it on buffy using the commnd
-.CW
-    make hello
-.R
-
-Does your program compile and run? Fix it until it does.
-.RE
-.NH
-Vim tutorial: 30 minutes \fImaximum\fR
-.LP
-Either \fIvi\fR or \fIvim\fR is installed on essentially every *nix computer by default.
+Either \*[c]vi\*[r] or \*[c]vim\*[r] is installed on essentially every *nix computer by default.
 If you plan to program in C++, 
 you should have at least a minimal familiarity with \fIvi\fR.
-\fCvi\fR is a very old, but very capable text editor with many features
+\*[c]vi\*[r] is a very old, but very capable text editor with many features
 specifically designed for writing software.
 It has thousands of features.
 No one knows them all, that is not the point.
@@ -146,26 +74,75 @@ Most commands 'reward' you, if you know how to touch type.
 .RS
 .nr step 0 1
 .IP \n+[step].
-Login to buffy using putty
+Login to buffy.
 .IP \n+[step].
-In the terminal, type \fCvimtutor\fR
+In the terminal, type \*[c]vimtutor\*[r].
 .IP \n+[step].
 Complete the entire tutorial, or until you get to 30 minutes of activity.
 
 If you don't complete the tutorial in lab, 
 then I highly recommend you complete it outside of class.
 .RE
+.NH
+Hello world: 30 points, 15 minutes \fImaximum\fR
+.LP
+Using \*[c]vim\*[r] create a simple hello world and get it to run.
+.RS
+.nr step 0 1
+.IP \n+[step].
+If not already, open a shell and login to buffy.
+.IP \n+[step].
+Use \*[c]mkdir\*[r] to make a new directory to hold your work (lab1a is recommended).
+.IP \n+[step].
+Create a new file \*[c]hello.cpp\*[r] and create a simple working C++ program.
+.IP \n+[step].
+Compile the program using the command 
+.br
+\fC   make hello\fR
+.IP \n+[step].
+Turn in your completed lab using the \*[c]turnitin\*[r] script:
+.RS
+These steps are written assuming the directory name you created is '\*[c]lab1a\*[r]'.
+.IP a.
+Go up to the previous directory:
+.br
+\fC   cd ..\fR
+.IP b.
+Run turnitin: 
+.br
+\fC   turnitin lab1a\fR
+.br
+.br
+When prompted, answer \*[c]Y\*[r] or \*[c]Yes\*[r] to the question.
+.br
+You should see something like this:
+.CW
+    turnitin lab1a
+    About to turn in the files in lab1a
+    Is this correct? [Y/n]:  y
+
+      adding: lab1a/ (stored 0%)
+      adding: lab1a/hello.cpp (deflated 29%)
+    Your assignment was handed in as:    
+       /var2/home/turnitin.d/dparillo_1501959813.zip
+    A copy is also in this directory as: 
+       dparillo_1501959813.zip
+    now go and have some fun.
+.R
+.RE
+.RE
+
 .bp
 .NH
 Extra credit
 .LP
-Parsing the command line:  30 minutes \fImaximum\fR
+Parsing the command line:  about an hour
 
 All *nix programs, even those with graphical user interfaces (GUIs), accept and process command-line options. 
 For some programs, this is the primary means of interacting with either other programs, or users. 
 Having robust handling of complex command-line arguments makes your application better and more useful. 
 You can 'roll your own' command line argument processing, or use a library.
-Library functions such as \fCgetopt\fR or \fCboost::program_options\fR,
+Library functions such as \*[c]getopt\*[r] or \*[c]boost::program_options\*[r],
 are designed specifically to ease the burden of command-line processing. 
 .RS
 .nr step 0 1
@@ -185,5 +162,5 @@ You may use any command line argumernt processing technique that seems natural.
 
 Ensure this program compiles with no errors or warnings.
 
-Upload to blackboard or use the \fCturnitin\fR script when complete.
+Use the \*[c]turnitin\*[r] script when complete.
 
