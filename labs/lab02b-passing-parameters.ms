@@ -1,4 +1,4 @@
-.dsb02b CH Lab #2b: Function parameters and returns
+.ds CH Lab #2b: Function parameters and returns
 .so headings.ms
 .TL
 \*[CH]
