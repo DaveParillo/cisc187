@@ -5,7 +5,7 @@
 
 .bp
 .NH
-Boats: 30 minutes \fImaximum\fR
+Boats: 100 points, 60 minutes \fImaximum\fR
 .time_box
 .QP
 Use the following code snippets and place them in the provided classes where there are underscores in the code.

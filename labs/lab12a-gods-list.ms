@@ -3,7 +3,7 @@
 .TL
 \*[CH]
 .NH
-Gods linked list : 60 minutes \fImaximum\fR
+Gods linked list : 100 points, 90 minutes \fImaximum\fR
 .time_box
 .QP
 This exercise is intended to practice working with pointers to data structures on the heap.

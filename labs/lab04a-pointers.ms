@@ -3,7 +3,7 @@
 .TL
 \*[CH]
 .NH
-Pointers and arrays: 60 minutes \fImaximum\fR
+Pointers and arrays: 100 points, 60 minutes \fImaximum\fR
 .time_box
 .RS
 This exercise is intended to build your understanding of pointers and their relation to arrays. 
@@ -13,7 +13,7 @@ This exercise is intended to build your understanding of pointers and their rela
 Write a function \*[c]print_array(ostream& os, int* a , int n)\*[r] that writes 
 the addresses and values of \*[c]a\*[r] (assumed to have n elements) to \*[c]os\*[r].
 .IP \n+[step].
-Allocate an \*[c]int\*[r], initialize it to 7, and assign its address to a variable \fBp1\fR.
+Allocate an \*[c]int\*[r], initialize it to 7, and assign its address to a stack variable \fBp1\fR.
 .IP \n+[step].
 Print out the value of \fBp1\fR and of the \*[c]int\*[r] it points to.
 .IP \n+[step].

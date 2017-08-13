@@ -3,7 +3,7 @@
 .TL
 \*[CH]
 .NH
-Shallow and Deep Copies: 60 minutes \fImaximum\fR
+Shallow and Deep Copies: 100 points, 90 minutes \fImaximum\fR
 .time_box
 .QP
 This exercise is intended to increase familiarity with 

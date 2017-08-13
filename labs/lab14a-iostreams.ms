@@ -6,7 +6,7 @@
 
 .bp
 .NH
-Reading Points from a file: 60 minutes \fImaximum\fR
+Reading Points from a file: 100 points, 60 minutes \fImaximum\fR
 .time_box
 .QP
 In this lab, the goal is to reinforce the basic concepts from this chapter.

@@ -5,7 +5,7 @@
 .so cover-page.ms
 .bp
 .NH
-Vector vs List: 60 minutes \fImaximum\fR
+Vector vs List: 100 points, 90 minutes \fImaximum\fR
 .time_box
 .RS
 .nr step 1 1

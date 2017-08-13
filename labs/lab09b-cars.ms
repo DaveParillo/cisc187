@@ -3,7 +3,7 @@
 .TL
 \*[CH]
 .NH
-Car simulation: 90 minutes \fImaximum\fR
+Car simulation: 100 points, 90 minutes \fImaximum\fR
 .time_box
 .QP
 Implement some functions in a \fBvery\fR simple car simulation.

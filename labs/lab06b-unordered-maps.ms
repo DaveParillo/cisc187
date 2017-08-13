@@ -7,7 +7,7 @@ Working with
 .code 
 unordered_map
 .B
-: 60 minutes \fImaximum\fR
+: 100 points, 90 minutes \fImaximum\fR
 .time_box
 .RS
 .nr step 1 1

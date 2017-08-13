@@ -1,10 +1,10 @@
-.ds CH Lab #2b: Function parameters and returns
+.dsb02b CH Lab #2b: Function parameters and returns
 .so headings.ms
 .TL
 \*[CH]
 .so cover-page.ms
 .NH
-Passing and returning values: 60 minutes \fImaximum\fR
+Passing and returning values: 100 points, 90 minutes \fImaximum\fR
 .time_box
 .QP
 Write a program that takes a \*[c]vector<string>\*[r] and returns a \*[c]\fCvector<int>\*[r]
@@ -18,10 +18,26 @@ The program should contain at least 1 function, but can contain as many as you t
 is appropriate.  
 Hint: this is a \fIteam\fR lab.
 
+Given the following word list:
+.CW
+    "reach", "clear", "fall", "set", "yard",
+    "liquid", "wise", "badge", "four", "coherent"
+.R
+The prgram should produce:
+.CW
+    Shortest:    3, set
+    Longest:     9, coherent
+    First:       7, badge
+    Last:        4, yard
+.R
+
+
+Use the \*[c]turnitin\*[r] script when complete.
+
 How many separate functions did you decide to write for these tasks?  Why?
 .bp
 .NH
-Using multiple source files: 30 minutes \fImaximum\fR
+Extra Credit: Using multiple source files: about 30 minutes
 .time_box
 .QP
 Create 3 files: \*[c]my.h\*[r], \*[c]my.cpp\*[r], and \*[c]use.cpp\*[r].
@@ -43,8 +59,18 @@ The source code file \*[c]use.cpp\*[r] should include \*[c]my.h\*[r] and define 
 \*[c]print_foo()\*[r], and print the value of \fC99\fR using \*[c]print()\*[r].
 Note that \*[c]use.cpp\*[r] does not include \*[c]iostream\*[r], as it doesn't directly
 use any of those facilities.
-Get these files to compile and run.
+
+Your mission: Get these files to compile, run, and print the correct results.
+
 You can't get full credit if \fBany\fR source file includes \*[c]my.cpp\*[r] or \*[c]use.cpp\*[r].
-.br
+
+Running \*[c]./use\*[r] should produce:
+.CW
+    Foo: 7
+    Value: 99
+.R
+
+Use the \*[c]turnitin\*[r] script when complete.
+.bp
 .so reflection2.ms
 

@@ -2,20 +2,12 @@
 .so headings.ms
 .TL
 \*[CH] software lab
-.SH
-TODO
-.LP
-This lab needs to provide stubs for all the classes in advance, 
-so that it compiles, but tests fail.
-
-
-
 .so cover-page.ms
 
 
 .bp
 .NH
-Using \*[c]Boost::Test\m[]\fB: 20 minutes \fImaximum\fR
+Using \*[c]Boost::Test\m[]\fB: 20 points, 10 minutes \fImaximum\fR
 .time_box
 .QP
 Verify you can login to buffy and run a Boost unit test.
@@ -55,7 +47,7 @@ The remainder of this lab will be spent getting the other tests provided to pass
 The 
 .code Date
 .B
-class: 60 minutes \fImaximum\fR
+class: 40 points, 45 minutes \fImaximum\fR
 .time_box
 .QP
 This exercise recreates the \*[c]Date\*[r] class from the textbook with some modifications.
@@ -83,7 +75,7 @@ Boost unit tests.
 The 
 .code Book
 .B
-class: 60 minutes \fImaximum\fR
+class: 40 points, 45 minutes \fImaximum\fR
 .time_box
 .QP
 This exercise creates a \*[c]Book\*[r] class that might exist as part of a software

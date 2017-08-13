@@ -6,7 +6,7 @@
 
 .bp
 .NH
-Critters Tournament: 60 minutes \fImaximum\fR
+Critters Tournament: 100 points, 60 minutes \fImaximum\fR
 .time_box
 .QP
 The goal of this lab is to use the skills developed during the
@@ -34,7 +34,7 @@ At the end of 1 hours use 'turnitin' to submit your tournament entry.
 Download the critters source from GitHub.
 On buffy:
 .CW
-  curl https://github.com/DaveParillo/critters/archive/master.zip .
+  curl -O https://github.com/DaveParillo/critters/archive/master.zip
 .R
 .IP \n+[step].
 Unpack the archive and read the documentation.

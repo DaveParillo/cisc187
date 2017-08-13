@@ -2,7 +2,7 @@
 .TL
 \*[CH]
 .NH
-Tiny, simple classes: 60 minutes \fImaximum\fR
+Tiny, simple classes: 50 points, 45 minutes \fImaximum\fR
 .time_box
 .QP
 Design and implement a few simple classes.  
@@ -52,7 +52,7 @@ Use the assert macro to test the class.
 .RE
 .bp
 .NH
-Dog class: 60 minutes \fImaximum\fR
+Dog class: 50 points, 45 minutes \fImaximum\fR
 .time_box
 .QP
 Create a Dog class from the following \*[c]struct\*[r]:

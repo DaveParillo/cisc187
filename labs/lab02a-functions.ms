@@ -5,7 +5,7 @@
 .so cover-page.ms
 .bp
 .NH
-Pass by reference and pass by value: 30 minutes \fImaximum\fR
+Pass by reference and pass by value: 50 points, 30 minutes \fImaximum\fR
 .time_box
 .QP
 Given 3 functions: 
@@ -29,7 +29,7 @@ And given that each function has the same body:
 .R
 .RE
 
-Without compiling, determine the output of these functions and complete the following table.
+Without compiling, determine the output of these functions and complete the table on the next page.
 Not all of the examples in the table below will compile.
 Which of these calls compile?  
 Provide an explanation for each function call that does not compile.
@@ -44,8 +44,9 @@ Definitions and ! Compiles? !Explanation
 Funtion call ! (Y/N) !
 _
 
-\*[c]int x = 7;\*[r] ! !
-\*[c]int y = 9;\*[r] ! !
+\*[c]int x = 7;\*[r] ! Y ! variables x and x are declard here
+\*[c]int y = 9;\*[r] ! Y ! and used in the next 3 function calls
+
 \*[c]swap_v(x,y);\*[r] ! !
 
 \*[c]swap_r(x,y);\*[r] ! !
@@ -60,8 +61,8 @@ _
 
 _
 
-\*[c]const int cx = 7;\*[r] ! !
-\*[c]const int cy = 9;\*[r] ! !
+\*[c]const int cx = 7;\*[r] ! Y ! --
+\*[c]const int cy = 9;\*[r] ! Y ! --
 \*[c]swap_v(cx,cy);\*[r] ! !
 
 \*[c]swap_r(cx,cy);\*[r] ! !
@@ -73,19 +74,18 @@ _
 \*[c]swap_r(7.5,9.9);\*[r] ! !
 _
 
-\*[c]double dx = 7.5;\*[r] ! !
-\*[c]double dy = 9.9;\*[r] ! !
+\*[c]double dx = 7.5;\*[r] ! Y ! --
+\*[c]double dy = 9.9;\*[r] ! Y ! --
 \*[c]swap_v(dx,dy);\*[r] ! !
 
 \*[c]swap_r(dx,dy);\*[r] ! !
 
-_
 .TE
 .LP
 
 .bp
 .NH
-Using namespaces: 60 minutes \fImaximum\fR
+Using namespaces: 50 points, 60 minutes \fImaximum\fR
 .time_box
 .QP
 Write a program using a containing 3 namespaces: \*[c]X\*[r], \*[c]Y\*[r], and \*[c]Z\*[r].
@@ -114,6 +114,14 @@ that outputs the appropriate \*[c]var\*[r] using \*[c]cout\*[r].
 
 Keep your declarations and defintions separate.
 
+When complete, a working program should print:
+.CW
+    X: 7
+    Y: 9
+    Z: 11
+    Y: 9
+    X: 7
+.R
 .RE
 .bp
 .so reflection.ms

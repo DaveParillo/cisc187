@@ -4,7 +4,7 @@
 \*[CH]
 .so cover-page.ms
 .NH
-Standard algorithms: 60 minutes \fImaximum\fR
+Standard algorithms: 100 points, 90 minutes \fImaximum\fR
 .time_box
 .RS
 Create a program that accomplishes the following:
@@ -21,7 +21,7 @@ Test it using the vector created.
 .IP \n+[step].
 Implement your own version of the \fCcount_if()\fR algorithm.
 Test it using the vector you created.
-Consider a comparison function other than \*[c]==\*[r].
+Consider a comparison function other than \*[c]operator==\*[r].
 .RE
 
 .QP

@@ -7,7 +7,7 @@ This lab reviews the core programming concepts you learned in your first semeste
 .so cover-page.ms
 .bp
 .NH
-Making change:  30 minutes \fImaximum\fR
+Making change: 60 points, 30 minutes \fImaximum\fR
 .time_box
 .RS
 Given:
@@ -51,7 +51,12 @@ Record the output.
 
 
 .IP \n+[step].
-Did the actual output match your expectations?  Explain.
+Did the actual output match your expectations?
+.br
+What is the key programming 'lesson learned' here?
+
+
+
 
 
 
@@ -60,7 +65,7 @@ What changes should be made to make the results match expectations?
 .RE
 .bp
 .NH
-Code quiz:  5 minutes each \fImaximum\fR 
+Code quiz: 40 points, 30 minutes \fImaximum\fR 
 .time_box
 .RS
 The quizzes conducted each Wednesday are primarily in this format.
@@ -71,9 +76,8 @@ whether the program compiles or not.
 
 If it doesn't compile or produces unintended output, what changes could be made to fix it?
 
-
-.nr step 1 1
-.IP \n[step].
+.nr step 0 1
+.IP \n+[step].
 .RS
 .CW
   #include <iostream>
@@ -175,7 +179,7 @@ g.  bool z = false;
 
 .bp
 .NH
-Extra Credit: Programming pool: 30 minutes \fImaximum\fR 
+Extra Credit: Programming pool: about 30 minutes
 .LP
 .time_box
 .RS

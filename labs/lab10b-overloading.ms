@@ -5,7 +5,7 @@
 .so cover-page.ms
 .bp
 .NH
-A rational number class: 90 minutes \fImaximum\fR
+A rational number class: 100 points, 90 minutes \fImaximum\fR
 .time_box
 .QP
 Read through the entire lab first and answer the following:

@@ -5,7 +5,7 @@
 .so cover-page.ms
 .bp
 .NH
-Stacks: 60 minutes \fImaximum\fR
+Stacks: 100 points, 60 minutes \fImaximum\fR
 .time_box
 .QP
 	
@@ -57,7 +57,7 @@ You will end up destroying the temp copy in each function.
 .RE
 .bp
 .NH
-Working with Data: 30 minutes \fImaximum\fR
+Working with Data: about 30 minutes
 .RS
 This section is extra credit.
 To receive the credit, your answers need to be complete.

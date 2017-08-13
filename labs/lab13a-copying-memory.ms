@@ -7,7 +7,7 @@ This lab contains two sections: one to exercise array and one to exercise vector
 in roughly the same manner. Do both and compare the effort involved in each.
 
 .NH
-Copying memory in arrays: 60 minutes \fImaximum\fR
+Copying memory in arrays: 50 points, 45 minutes \fImaximum\fR
 .time_box
 .RS
 .nr step 1 1
@@ -50,7 +50,7 @@ Call \*[c]f()\*[r] with \*[c]aa\*[r] as its argument.
 
 .bp
 .NH
-Copying memory in vectors: 60 minutes \fImaximum\fR
+Copying memory in vectors: 50 points, 45 minutes \fImaximum\fR
 .time_box
 .RS
 .nr step 1 1

@@ -5,7 +5,7 @@
 .so cover-page.ms
 .bp
 .NH
-Shape area: 60 minutes \fImaximum\fR
+Shape area: 100 points, 90 minutes \fImaximum\fR
 .time_box
 .RS
 This lab is a more complicated use of overloads and templates than what was covered on Monday.
@@ -71,3 +71,6 @@ Ensure your area functions will work with all the C++ fundamental types.
 
 Keep your declarations and defintions separate.
 .RE
+
+Use the \*[c]turnitin\*[r] script when complete.
+

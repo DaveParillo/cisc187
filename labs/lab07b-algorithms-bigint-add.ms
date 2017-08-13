@@ -6,7 +6,7 @@
 
 .bp
 .NH
-Expunge Letter: 30 minutes \fImaximum\fR
+Expunge Letter: 40 points, 30 minutes \fImaximum\fR
 .time_box
 .QP
 
@@ -21,7 +21,7 @@ Do not use loops.
 (Hint: Use the remove_copy_if algorithm and a custom function).
 
 .NH
-BigInt add: 60 minutes \fImaximum\fR
+BigInt add: 60 points, 60 minutes \fImaximum\fR
 .time_box
 .QP
 Write a function \*[c]add\*[r] that accepts two \*[c]vector<int>\*[r] parameters.
@@ -38,11 +38,9 @@ and store the results in a new vector.
 
 You may use \*[c]std::plus<int>()\*[r] to perform the addition
 and then check for carry as a second step, or write a custom lambda.
-When the addition is complete, ensure no element in the container > 9.
+When the addition is complete, ensure no element in the answer container > 9.
 
 Verify your results by printing the input and output vectors to standard out without using a loop.
-
-
 
 .bp
 .so reflection2.ms

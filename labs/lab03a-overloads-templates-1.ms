@@ -3,7 +3,7 @@
 .TL
 \*[CH]
 .NH
-Writing function overloads: 60 minutes \fImaximum\fR
+Writing function overloads: 50 points, 60 minutes \fImaximum\fR
 .time_box
 .RS
 .IP 1.
@@ -22,17 +22,17 @@ You should implement the template in an include file.
 Write a simple test program to verify your code functions correctly.
 Prefer using \*[c]assert\*[r] or some other test function
 over prompting for input and writing \*[c]cout\*[r] statements.
-
 .RE
 
 
 
+
 .NH
-Refactoring to a template: 60 minutes \fImaximum\fR
+Refactoring to a template: 50 points, 60 minutes \fImaximum\fR
 .time_box
 .RS
 .IP 1.
-Copy the \fCsimple-parameter.cpp\fR file from the week 2 examples directory,
+Copy the \*[c]simple-parameter.cpp\*[r] file from the week 2 examples directory,
 and copy these files from the week 3 examples directory:
 .CW
  square.h
@@ -44,4 +44,6 @@ Refactor these two programs to use templates.
 Write simple test programs to verify your code functions correctly.
 
 .RE
+
+Use the \*[c]turnitin\*[r] script when both sections are complete.
 
