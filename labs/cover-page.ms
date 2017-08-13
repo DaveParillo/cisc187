@@ -21,6 +21,9 @@ Reminders:
 .IP \n[step].
 Note the time whenever your team starts a new section or question.
 .IP \n+[step].
-Write legibly & neatly so that everyone can read & understand your responses.
+Write legibly & neatly (or type and hand in a file),
+so that everyone can read & understand your responses.
 .RE
+
+Note that even on team labs, extra credit work should be an individual activity.
 
