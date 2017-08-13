@@ -8,12 +8,12 @@ class Person {
 
   public:
     Person() :message_{"Generic person"}, child_{nullptr} {}
-    ~Person();                            // Destructor
+    ~Person() = default;                            // Destructor
     
     // other constructors
-    Person(const Person& p);              // Copy constructor
+    Person(const Person& p) = default;              // Copy constructor
      
-    Person& operator=(const Person& p);   // Copy assignment
+    Person& operator=(const Person& p) = default;   // Copy assignment
 
     // setters and getters
     Person*       child()                const { return child_; }
