@@ -158,8 +158,8 @@ Students found to be in violation of Administrative Procedure 3100.3 Honest Acad
 will receive a grade of zero on the assignment, quiz, or exam in question and may be referred 
 for disciplinary action in accordance with Administrative Procedure 3100.2, 
 Student Disciplinary Procedures.  
-There is an academic integrity quiz that is the first assignment in Blackboard.  
-I will not grade any labs or projects until you complete this.
+There is an academic integrity 'quiz' that is the first quiz in Blackboard.  
+I will not grade anything after week 2 until you complete this.
 .SH
 Student Code of Conduct
 .LP
