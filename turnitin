@@ -1,0 +1,48 @@
+#!/bin/sh
+
+if [[ $1 == /* ]]; then 
+  echo "Error: Do not turn in assignments using absolute path names."
+  echo "  You used: $1"
+  echo "  Did you mean: 'turnitin `basename $1`'?"
+  echo "Try again"
+  exit -1
+fi
+
+if [[ ${1:0:2} == ".." ]]; then 
+  echo "Error: Do not turn in assignments using parent paths."
+  echo "  You used: $1"
+  echo "  Did you mean: 'turnitin `basename $1`'?"
+  echo "Try again"
+  exit -1
+fi
+
+
+dest=/var2/home/turnitin.d
+name=`/usr/bin/whoami`
+stamp=`date +%s`
+
+fname=${name}_${stamp}.zip
+
+
+echo "About to turn in the files in $1"
+echo -n "Is this correct? [Y/n]:  "
+read response
+echo
+ans=`echo $response | tr '[:upper:]' '[:lower:]'`
+
+if [[ "x$ans" == "xy" || "x$ans" == "xyes" ]]; then
+  zip -r $fname $1 
+  cp $fname $dest
+  chmod 644 $dest/$fname
+  if [ $? -eq 0 ]; then
+    echo "Your assignment was handed in as:    $dest/$fname"
+    echo "A copy is also in this directory as: $fname"
+    echo "now go and have some fun."
+  else
+    echo "Possible problem turning in your assignment.  Ask for help."
+  fi 
+else
+  echo "Your answer ($ans) appears to be 'NO'."
+  echo "The assignment was not handed in."
+fi
+
