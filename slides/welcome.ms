@@ -33,18 +33,21 @@ Data Structures in C++
 .i1 A good text editor
 .i2 Notepad++, Vim, Emacs, Atom, or similar
 .i3 I \fIprefer\fR that you avoid using an IDE
-.i1 You must have access to
-.i2 C++11 ISO compliant compiler
-.i3s
+.IT Required tools
+.i1 C++11 ISO compliant compiler
+.i2s
 .gcolor blue
-\fBclang\fP is \fIhighly recommended\fP:
+\fBclang\fP is highly recommended:
 .gcolor
 very good error output
-.br
-- gnu C++ is OK, and is installed on buffy
-.i3e
-.i2 Blackboard
-.i3 Course registration required
+.i2e
+.i3 gnu C++ is OK, and is installed on buffy
+.i1 An \fIssh client\fR
+.i2 Need this to access the server buffy
+.i2 \fIgit\fR is recommended, \fIputty\fR is fine also
+.i1 Blackboard
+.i2 Course registration required
+.bp
 .IT Textbook
 .i1 Programming Principles and Practice using C++
 .IT Resources
