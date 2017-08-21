@@ -8,7 +8,7 @@
 Data Structures in C++
 .gcolor
 .LP
-.SS "Who Am I?"
+.SS Who Am I?
 .IT Dave Parillo
 .i1 dparillo@sdccd.edu
 .IT BS Mathematics
@@ -28,7 +28,7 @@ Data Structures in C++
 .IT Academic integrity
 .IT Evaluation
 .IT Office hours
-.SS "Course Requirements"
+.SS Course Requirements
 .IT The Basics
 .i1 A good text editor
 .i2 Notepad++, Vim, Emacs, Atom, or similar
@@ -49,22 +49,26 @@ very good error output
 .i1 Programming Principles and Practice using C++
 .IT Resources
 .i1 cppreference.com
-.i1 I also post a lot useful links in blackboard learning modules
-.i2 They are gathered together in a References page on GitHub
+.i1 References on github
+.i2 https://github.com/DaveParillo/cisc187/blob/master/References.md
+.i1 Intermediate C++ text
+.i2 \fIVery\fR preliminary! I may have time to add to it over the term
+.i3 Pull requests welcome
 .SS General Goals
-.IT Know to read and understand code
+.IT Read \fIand understand\fR code
 .IT Know and use the libraries
 .IT Write code that clearly expresses intent 
-.i1 examples, const-correctness, range-for, prefer functions to loops
+.i1 const-correctness, range-for, prefer functions to loops
 .IT Create type safe classes
 .IT Code to interfaces, not implementations
-.SS "Course Outline"
+.SS Course Outline
 .IT Functions
 .i1 Overloading, pointers to functions
 .i1 Pass-by-value and pass-by-reference
 .i1 Lambda functions
 .IT Iterators
 .IT STL containers and algorithms
+.IT Midterm
 .IT Classes and structures
 .i1 Introduction to classes & class design
 .i1 Class interfaces
@@ -72,13 +76,16 @@ very good error output
 .i1 Enumerated types
 .i1 Function objects
 .IT Memory management
-.SS "Schedule"
+.IT Serialization
+.IT Final
+.SS Schedule
 .IT This is a \fIprogramming intensive\fR course!
 .i1 Every lab involves writing code
 .i1 Projects are about 3 hours per week outside of class
 .i1 Reading the textbook should involve an hour or two of coding
-.IT Blackboard Learning Modules
-.i1 One each week
+.IT Course website
+.i1 Activities listed for each week
+.i2 Slides, assigned reading, labs, projects
 .i2 Contains all you need to know
 .IT Code Readings
 .i1 Each Monday - I expect everyone to come to class prepared
@@ -102,23 +109,23 @@ You don't attend 4 classes in a row
 .IT
 You collect 4 zero's in a row
 .RE
-.SS "Late Work"
+.SS Late Work
 .IT No credit for late projects, readings, or labs
 .IT If you miss an exam
 .i1 See me so that we can schedule a makeup time
-.IT Projects "late" is based on when it is uploaded to blackboard
+.IT Projects "late" is based on when it is uploaded to blackboard or 'turnitin'
 .i1 As determined by server clock
 .IT On a happier note
 .i1 Projects handed in \fIearly\fR earn +1% for each day before the deadline 
 .i2 Maximum of 10% added to the project grade.
 .i2 The maximum score for a project is still 100%
-.SS "Academic Integrity"
+.SS Academic Integrity
 .IT Don't cheat
 .IT If I think you have cheated, then you get a 0
 .IT If you provide your work to a classmate
 .IT You both get a 0
 
-.IT There is an academic integrity 'quiz' in Blackboard
+.IT There is an academic integrity 'quiz'
 .i1 I will not grade anything until you have completed it
 .SS Evaluation
 .LP 
@@ -128,7 +135,7 @@ You collect 4 zero's in a row
 
 .so ../grading-criteria.tbl
 
-.SS "Office Hours"
+.SS Office Hours
 .IT Limited
 .i1 The hour before each class (6-7, M & W)
 .i1 By appointment

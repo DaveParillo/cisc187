@@ -8,7 +8,7 @@
 .ce 1
 Week 1
 
-.SS "The Basics"
+.SS The Basics
 .IT Source files and Header files
 .i1 What are the differences between them?
 .i1 Why do they exist?
@@ -25,7 +25,7 @@ std::cout << "Hello world!" << std::endl;
 .RE
 .IT Different formats for code comments (\m[green]//\m[], vs. \m[green]/* ... */\m[], etc)
 
-.SS "Objects types and values"
+.SS Objects, types, and values
 .IT
 cin and the meaning of statements like:
 
@@ -44,6 +44,10 @@ cin and the meaning of statements like:
 .i2 Can you provide a few examples?
 .IT Legal identifier names
 .i1 For classes, functions, and variables
+.IT Structs to hold 'plain old data' (a 'pod')
+.IT Arrays
+.i1 Arrays of fundmental types, of \*[c]struct\*[r]s
+.i2 Bounds-checking with arrays (or the lack of it!)
 .bp
 .IT You know what an object is
 .i1 Probably have used many 
@@ -56,17 +60,16 @@ cin and the meaning of statements like:
 .i1 C++-style input and output file streams
 .i2 Possibly also using \*[c]stringstream\*[r]s
 
-.SS "Statements and Branching"
+.SS Statements and Branching
 .IT You've used different primitives to get things done
 .IT You're familiar with \*[c]if\*[r], \*[c]switch\*[r], \*[c]for\*[r], and \*[c]while\*[r] blocks
-.IT You've used \*[c]<vector>\*[r]'s of primitives
+.IT Hopefully used \*[c]<vector>\*[r]'s of primitives
 .IT Possibly the \*[c]<string>\*[r] class as well, but I'm not assuming this
 .IT Used combinations of statements and branching to perform tasks like
 .i1 Computing an amortization table
 .i1 Computing population growth
 .i1 Parsing text
-
-.SS "Fixing errors in code"
+.SS Fixing errors in code
 .IT Compile-time errors vs. link-time errors vs. run-time errors
 .IT Exceptions
 .i1 You've experienced them, used try-catch, but not created your own
@@ -76,6 +79,7 @@ cin and the meaning of statements like:
 .SS Important!
 .IT If \fBany\fR of the material on the preceding slides sounds unfamiliar
 .i1 Review the material in chapters 1-7 of the text
+.i1 Review the online \fIIntermediate C++\fR text
 .i1 Review the material from your first semester text
 
 
@@ -85,7 +89,7 @@ or
 .i1 Ask me to explain it, otherwise I have to assume you already know it!
 
 
-.SS "What I don't expect you to know"
+.SS What I don't expect you to know
 .IT Pointers
 .IT C++
 .i1 Most of you have learned mostly C (probably) 
@@ -113,7 +117,7 @@ arrow
 E: ellipse "Modern" "C++" width 1.5 height .75
 .PE
 \s-4
-where 'Modern' C++ is C++11, C++14, and the soon to be C++17
+where 'Modern' C++ is C++11, 14, and soon C++17 and 20
 \s+4
 .i1e
 .i1s
