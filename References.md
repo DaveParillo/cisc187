@@ -38,6 +38,9 @@ Week:
 
 ### More to explore
 * Jeff Atwood's blog: [Code smells](https://blog.codinghorror.com/code-smells/)
+* Useful and interesting tools:
+  [Compiler explorer](https://godbolt.org)
+  [Code visualization](http://www.pythontutor.com/cpp.html#code=//%20Example%20C%2B%2B%20code%20for%20OPT%0Aint%20main%28%29%20%7B%0A%20%20int%20*x%20%3D%20new%20int%3B%0A%20%20int%20*x_array%20%3D%20new%20int%5B10%5D%3B%0A%0A%20%20x_array%5B1%5D%20%3D%201%3B%0A%20%20x_array%5B3%5D%20%3D%203%3B%0A%20%20x_array%5B5%5D%20%3D%205%3B%0A%0A%20%20delete%20x%3B%0A%20%20delete%5B%5D%20x_array%3B%0A%20%20return%200%3B%0A%7D&curInstr=6&mode=display&origin=opt-frontend.js&py=cpp&rawInputLstJSON=%5B%5D) for C, C++, Python, Java, Ruby and others
 
 ## Week 2
 #### Function basics
