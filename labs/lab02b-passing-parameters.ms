@@ -3,6 +3,7 @@
 .TL
 \*[CH]
 .so cover-page.ms
+.bp
 .NH
 Passing and returning values: 100 points, 90 minutes \fImaximum\fR
 .time_box
@@ -23,6 +24,7 @@ Given the following word list:
     "reach", "clear", "fall", "set", "yard",
     "liquid", "wise", "badge", "four", "coherent"
 .R
+
 The prgram should produce:
 .CW
     Shortest:    3, set
@@ -31,10 +33,13 @@ The prgram should produce:
     Last:        4, yard
 .R
 
-
-Use the \*[c]turnitin\*[r] script when complete.
+Answer the following equestion:
 
 How many separate functions did you decide to write for these tasks?  Why?
+
+You may answer this in your submitted source code.
+
+Use the \*[c]turnitin\*[r] script when complete.
 .bp
 .NH
 Extra Credit: Using multiple source files: about 30 minutes
