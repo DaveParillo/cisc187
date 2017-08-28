@@ -121,7 +121,7 @@ If it doesn't compile or produces unintended output, what changes could be made 
    for (int i = 0; i < 9; ++i) {
      int x = 5;
      std::string pet = "Dog - ";
-     if (i < 3) ++f;
+     if (i < 3) ++x;
      else x += 2;
    }
    std::cout << pet << x << std::endl;
@@ -232,7 +232,7 @@ Choose from the following code snippets:
     int height;
     int base;
     void set_area() {
-      ____ = (____ * ____) / ____;
+      ____ = double (____ * ____) / ____;
     }
   };
 
