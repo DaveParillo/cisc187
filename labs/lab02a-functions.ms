@@ -5,7 +5,7 @@
 .so cover-page.ms
 .bp
 .NH
-Pass by reference and pass by value: 50 points, 30 minutes \fImaximum\fR
+Pass by reference and pass by value: 40 points, 30 minutes \fImaximum\fR
 .time_box
 .QP
 Given 3 functions: 
@@ -85,9 +85,8 @@ _
 
 .bp
 .NH
-Using namespaces: 50 points, 60 minutes \fImaximum\fR
+Using namespaces: 30 points, 30 minutes \fImaximum\fR
 .time_box
-.QP
 Write a program using a containing 3 namespaces: \*[c]X\*[r], \*[c]Y\*[r], and \*[c]Z\*[r].
 Use the following code for function \*[c]main()\*[r]:
 .RS
@@ -112,7 +111,7 @@ Use the following code for function \*[c]main()\*[r]:
 Each namespace needs to define an \*[c]int\*[r]  variable \*[c]var\*[r] and a function \*[c]print()\*[r]
 that outputs the appropriate \*[c]var\*[r] using \*[c]cout\*[r].
 
-Keep your declarations and defintions separate.
+You may put all the code in a single file, if you prefer.
 
 When complete, a working program should print:
 .CW
@@ -123,6 +122,29 @@ When complete, a working program should print:
     X: 7
 .R
 .RE
+.bp
+.NH
+Debugging: 30 points, 30 minutes \fImaximum\fR
+.time_box
+The purpose of this exercise is to provide an appreciation for following namespace best practices.
+
+.RS
+.nr step 0 1
+.IP \n+[step].
+Copy the program \fCexamples/week02/anti-patterns/swap-problem.cpp.
+.IP \n+[step].
+Examine the program and record the expected output.
+
+.IP \n+[step].
+Compile and run the program.
+.IP \n+[step].
+What is wrong with this program?  What changes need to be made to fix it?
+.IP \n+[step].
+Make the changes you think are needed.
+.RE
+
+Use turnitin to hand in your work when complete.
+
 .bp
 .so reflection.ms
 
