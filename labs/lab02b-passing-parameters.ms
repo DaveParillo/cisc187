@@ -33,7 +33,7 @@ The prgram should produce:
     Last:        4, yard
 .R
 
-Answer the following equestion:
+Answer the following question:
 
 How many separate functions did you decide to write for these tasks?  Why?
 
