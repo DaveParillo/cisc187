@@ -35,7 +35,7 @@ Week 2
 .i1 When creating constants
 .IT \*[c]class\*[r] over \*[c]struct\*[r]
 .i1 More on this after the mid-term
-.IT \*[c]vector\*[r] or another STL container over \*[c]array\*[r]
+.IT \*[c]vector\*[r] as a container over \*[c]array\*[r]
 .IT So-called 'smart pointers' over raw pointers
 .IT Of these distinctions, the only ones we are ready to discuss today are
 .i1 functions
@@ -58,7 +58,7 @@ For example
 .i1 And its task can be executed as often as needed
 .i1 See \fCexamples/week02/add.cpp\fR and \fCcall-stack.cpp\fR 
 .SS "Passing parameters"
-.IT In C, parameter passing defaults to pass by value
+.IT In C, parameter passing defaults to \fIpass by value\fR
 .i1 See \fCexamples/week02\fR
 .IT Unless you specify otherwise 
 .i1 Function parameters are initialized with \fIcopies\fR of the actual arguments, 
@@ -70,14 +70,14 @@ Prefer passing references over pass by value:
 .i1s 
 For example, we prefer 
 .br
-\s-4\fC  const mesa::Student get_student (const std::string& name);\fR 
+\s-4\fC  mesa::Student get_student (const std::string& name);\fR 
 .br
 over
 .br
-\fC  const mesa::Student  get_student (const std::string  name);\fR \s+4
+\fC  mesa::Student get_student (const std::string  name);\fR \s+4
 .i1e
 .IT Finally
-.i1 Don't return a reference when you must return an object
+.i1 Don't return a reference when you must return a value
 .i1 In other words
 .i2 Don't go so crazy on pass-by-reference that you strive to \fInever\fR return a value
 .i1 We will talk more about this when we get into classes
@@ -178,10 +178,9 @@ See \fCexamples/week02/define.cpp\fR
 .IT There is enough going on with \*[c]const\*[r] that we will be re-visiting it many times throughout the semester.
 .IT Guidelines for now
 .i1 When creating local variables
-.i2 Ask: "Does this variable ever change?"
-.i3 If not, consider \*[c]const\*[r] or \*[c]constexpr\*[r] 
-.i1 Recall \*[c]constexpr\*[r] is more restrictive
-.i2 Constant expression is evaluated at \fIcompile time\fR
+.i2 Ask: "Should this variable ever change?"
+.i3 If the value can be evaluated at compile time, consider \*[c]constexpr\*[r] 
+.i3 Otherwise, consider \*[c]const\*[r]
 .i1 When passing parameters to functions
 .i2 Consider passing by \*[c]const\*[r] reference
 .i3 Applies only to object types

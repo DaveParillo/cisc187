@@ -7,9 +7,13 @@ Functions
 .ce 1
 Week 2
 .SS Overview
-.IT Chapter review
-.IT Potentially useful information (backup slides)
-.i1 Using \*[c]auto\*[r]
+.IT Declarations and definitions
+.i1 \*[c]extern\*[r]
+.i1 \*[c]const\*[r]
+.IT Functions
+.IT Scope
+.IT Using \*[c]extern\*[r]
+.IT Using \*[c]auto\*[r]
 .SS Chapter review
 .IT Big idea
 .i1 What matters is how ideas can be expressed in code
@@ -30,12 +34,17 @@ Week 2
 .i1 A \fIdefinition\fR of a variable allocates \fBmemory\fR for that variable
 .i2 You cannot define a variable twice
 .i2 In other words: You cannot allocate memory for the same name twice
-.i1 The \*[c]extern\*[r] keyword states that a declaration is not a definition
-.i2 Use sparingly.  You'll see why in lab
 .i1 The declaration/definition distinction 
 .i2 Allows separating a program into many parts that can be compiled separately
+.IT The \*[c]extern\*[r] keyword
+.i1 States that a declaration is not a definition
+.i1 Use sparingly.
+.IT The \*[c]const\*[r] keyword
 .i1 Constants have the same declaration syntax as variables 
-.i2 but they have \*[c]const\*[r] as part of their type and require an initializer
+.i2 They have \*[c]const\*[r] as part of their type and 
+.i2 Require an initializer
+.bp
+.IT Functions
 .i1 A function declaration with a body (a function body) is a function definition.
 .i1 The key to managing declarations of facilities defined "elsewhere" in C++ is the header file.
 .i1 The \fBstd_lib_facilities.h\fR header file from the text 
@@ -43,13 +52,14 @@ Week 2
 .i3 \*[c]cout\*[r], \*[c]vector\*[r], and \*[c]sqrt()\*[r], 
 .i3 and a couple of simple utility functions 
 .i3 I don't use it, but you should be aware it exists.
-.bp
+.i3 Some example code fromt he book needs it to compile.
+.i2 Most of the book examples in my github respository removed the dependency on \fCstd_lib_facilities.h\fR
 .IT Scope
 .i1 A scope is a region of program text. 
 .i2 A variable or function declared in some scope
 .i3 is valid (in scope) from the point of declaration to the end of that scope
 .i1 Whenever you can, avoid complicated nesting of scopes. Keep it simple.
-.SS Keyword: extern
+.SS Keyword: \fCextern\fP
 .IT A major source of confusion!
 .IT Primarily handy for global variables
 .i1 You'll inherit code with globals, I'm sure
@@ -101,25 +111,16 @@ Source file 2:
       std::cout << global_x << std::endl;
   }
 .R
-.SS Summary
-.IT Big ideas
-.i1 How \fBideas\fR are \fIexpressed\fR in \fBcode\fR
-.i1 Declarations and definitions
-.i1 Scope
-.i2 \*[c]extern\*[r]
-.IT Functions
-.i1 Keep them short
-.i1 Avoid \fIpremature optimization\fR
-.i1 Avoid \fIpremature pessimization\fR
-.SS Backups
-.DS
-Useful information to follow
-
-Read and ask questions if you have any.
-.DE
-
-.SS "The \fCauto\fP keyword"
+.SS The \fCauto\fP keyword
 .IT This may be 'old news', but here it is
+.IT \*[c]auto\*[r] determines a type based on an initializer
+.i1 This is a redefinition of what \*[c]auto\*[r] meant before C++11
+.IT
+General syntax: 
+.CW
+  auto x = initial_value;
+.R
+
 .IT
 Prefer auto over explicit types:
 .i1s 
@@ -140,12 +141,15 @@ over
 .br
 \fC  widget w = get_widget();\fR
 .i1e
-.IT
-In general: 
-.CW
-
-  auto x = initial_value;
-.R
+.i1s
+Prefer 
+.br
+\fC  for (const auto c: my_string)\fR
+.br
+over
+.br
+\fC  for (int i = 0; i < my_string.size(); ++i)\fR
+.i1e
 .bp
 .IT
 If you must commit to a type:
@@ -170,12 +174,16 @@ over
 .IT
 In general:
 .CW
-
    auto x = Type { init_value };
+.R
+
+.IT Although uncommon (and generally not needed) this syntax works with all C++ types.
+.CW
+   auto gamma = double { 0.57721566490 };
 .R
 .bp
 .IT
-Why do I care?
+Why is this useful?
 .IT Guarantees:
 .i1 \fBNo\fR implicit conversions
 .i1 \fBNo\fR narrowing conversions
@@ -184,7 +192,7 @@ Why do I care?
 .i1 It \fIis\fR much more consistent!!
 .IT Easier to read, fewer bugs
 .IT Avoid "C++ most vexing parse"
-.IT Summary
+.IT Effective Modern C++
 .i1 #5: Prefer auto to explicit type declarations
 .i1s
 #6: Use the explicit types initializer idiom when auto deduces undesired types
@@ -193,8 +201,14 @@ Why do I care?
 .R
 .i1e
 .SS Summary
+.IT Big ideas
+.i1 How \fBideas\fR are \fIexpressed\fR in \fBcode\fR
+.i1 Declarations and definitions
+.i1 Scope
+.i2 \*[c]extern\*[r]
 .IT Using \*[c]auto\*[r]
 .i1 Prefer auto over explicit types
 .i1 \*[c]auto\*[r] can make code easier to read
 .i1 Use an explicit initializer when \*[c]auto\*[r] deduces an undesired type
+.i1 We'll find more uses for auto later
 
