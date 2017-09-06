@@ -1,3 +1,5 @@
+#include "concepts.h"
+
 #include <iostream>
 #include <string>
 #include <typeinfo>
@@ -15,7 +17,7 @@ using std::cout;
 // -> defines a 'trailing return type'
 // auto is a placeholder and gets the return type from decltype
 
-template <class lhsT, class rhsT> 
+template <Number lhsT, Number rhsT> 
 auto sum (lhsT a, rhsT b) -> decltype(a+b) {  
   return a+b;
 }
