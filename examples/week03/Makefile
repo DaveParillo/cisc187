@@ -8,6 +8,7 @@ PROGS = 01-overload \
 				05-template-equal \
 				06-template-multiply \
 				07-decltype-sum \
+				08-type-traits \
 				add-function \
 				square
 
