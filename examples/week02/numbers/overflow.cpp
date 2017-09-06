@@ -8,7 +8,9 @@ int main() {
   std::cout << "x + y = " << (x + y) << '\n';
 
   // unsigned 8 bit int
-  uint8_t a = 256;
+  uint8_t a = 255;
   uint8_t b = 1;
-  std::cout << "a + b = " << (a + b) << '\n';
+  uint8_t c = a + b;
+  std::cout << "a + b = '" << c << "'\n";
 }
+
