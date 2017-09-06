@@ -186,9 +186,44 @@ You can explicitly provide the type
   }
 .R
 \s-4
+.SS Concepts
+.IT One things to be aware of with templates
+.i1 When you declare a template with \*[c]class\*[r] or \*[c]typename\*[r]
+.i1 Literally ANY \*[c]class\*[r] or \*[c]typename\*[r] could be passed in
+.IT This is a weak area in templates and requires lots of messy defensive programming
+.i1 What if your template assumes a type has a \fCpush_back()\fR function?
+.IT In C++17 and C++20 two new ideas will enforce these types of template constraints
+.i1 Concepts
+.i2 Describes a \fBnamed set of requirements\fR for a type.
+.i2 See: http://en.cppreference.com/w/cpp/concept
+.i1 Requires
+.i2 A \fIrequires clause\fR is an additional constraint on template arguments or a function
+.i1 Currently, this is all part of an experimental techncial spec.
 
+.IT Don't panic!
+.i1 This slide is not testable
+.i2 But can make template arguments more readable
+.SS Concepts example
+.IT A 'cheater' way to use concepts
+.i1 just define a name for \*[c]typename\*[r]
+\s-4
+.CW
+  #include <iostream>
+  #define Number typename
+
+  \m[green]// Same template as before
+  // 'typename' replaced with 'Number' \m[]
+  template <Number T, int N> T multiply (T val) {
+    return val * N;
+  }
+.R
+\s-4
+
+.IT We haven't really changed anything functional
+.i1 Just made the source code indicate our \fIintent\fR
 .SS Summary
-.IT Templates and overloads are the basis for writing generic functions
+.IT Templates and overloads 
+.i1 The foundations for writing generic functions
 .IT Valid overloads require different parameter lists
 .IT New keyword: \*[c]template\*[r]
 .IT Template type can be used like any other type
@@ -197,4 +232,5 @@ You can explicitly provide the type
 .i1 Argument to another function
 .IT Non-template arguments behave like function parameters
 .IT Templates must be implemented in the include file
+.IT Concepts
 
