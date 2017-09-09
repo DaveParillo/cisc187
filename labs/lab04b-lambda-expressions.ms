@@ -2,11 +2,8 @@
 .so headings.ms
 .TL
 \*[CH]
-.so cover-page.ms
-
-.bp
 .NH
-Lambda names: 60 minutes \fImaximum\fR
+Lambda names: 100 points, 90 minutes \fImaximum\fR
 .time_box
 .QP
 The goal of this lab is to explore lambda expressions in more detail.
@@ -14,83 +11,54 @@ The goal of this lab is to explore lambda expressions in more detail.
 .RS
 .nr step 0 1
 .IP \n+[step].
-Write a program that defines two lambdas and assigns them to local variables.
-For example, one might be:
-.RS
+Declare a \*[c]vector\*[r] of size 10.
+.br
+Declare 2 int pointers: one to point to the start of the vector, the other topoint at the end.
+.br
+\fBDo NOT\fR use the iterator functions \*[c]begin()\*[r] and \*[c]end()\*[r] to accomplish this (iterators are next week).
+.IP \n+[step].
+Use a lambda expression to assign a sequence of values to each element of the vector.
+.br
+\fBHint:\fR Use \*[c]std::for_each\*[r], the pointers from step one, and the lambda.
+.IP \n+[step].
+Create a \fCprint_each\fR function with the following signature:
 .CW
- auto foo = [] { cout << "Hello, lambda!"; };
+  void print_each(const int* first, 
+                  const int* last, 
+                  const std::function<void(int)> func);
 .R
-.RE
+.br
+The function should print the values between the pointer addresses 
+\fCfirst\fR and \fClast\fR using the provided function.
 .IP \n+[step].
-Add a \*[c]cout\*[r] at the end of \fCmain\fR to print the names of the lambdas:
-.RS
+Create a lambda with no captures and a single int parameter that prints 
+the parameter provided and a single space character.
+.br
+Assign this lambda to a local variable, for example \fBprint\fR.
+.IP \n+[step].
+Call \fCprint_each\fR with your pointers and the print lambda created in the previous step.
+.IP \n+[step].
+Call \fCprint_each\fR with your pointers and a new lambda that prints values less than 5.
+.IP \n+[step].
+Sort the vector in reverse order using a lambda.
+.br
+\fBHint:\fR Use \*[c]std::sort\*[r], your pointers, and a lambda.
+.IP \n+[step].
+Use \fCprint_each\fR to print the entire sorted vector.
+.IP \n+[step].
+Use \fCprint_each\fR to print only the odd elements of the vector.
+.IP \n+[step].
+Use \fCprint_each\fR to print only the elements 
+from index position 3 through the second element before the end.
+.RE
+
+.QP
+When completed, your program should output something similar to:
 .CW
- cout << typeid(foo).name() << endl;
+    nums: 0 1 2 3 4 5 6 7 8 9 
+    nums: 0 1 2 3 4 
+    nums: 9 8 7 6 5 4 3 2 1 0 
+    nums: 9 7 5 3 1 
+    nums: 6 5 4 3 2
 .R
-.RE
-Note that \fCtypeid\fR requires \fC#include <typeinfo>\fR.
-.IP \n+[step].
-Run the program and observe the output.
-.IP \n+[step].
-Compile and run the program again if you are not already on buffy.
-This time, pipe the output through \fCc++filt\fR to print the names of the lambdas:
-.RS
-.CW
- ./prog_name | c++filt -t
-.R
-.RE
-.IP \n+[step].
-Run the program and observe the output.
-.IP \n+[step].
-What are the implications of your observations?
-
-.RE
-
-
-.NH
-Captures: 30 minutes \fImaximum\fR
-.time_box
-.RS
-.nr step 0 1
-.IP \n+[step].
-Write a program that defines a simple \*[c]struct\*[r] that indicates which
-constructors, etc. are called:
-.RS
-.CW
-  struct Data {
-    Data()
-      { std::cout << "default constructor" << std::endl; }
-    Data(const Data&)
-      { std::cout << "copy constructor" << std::endl; }
-    Data(Data&&)
-      { std::cout << "move constructor" << std::endl; }
-    ~Data()
-      { std::cout << "destructor" << std::endl; }
-  };
-.R
-.RE
-.IP \n+[step].
-Write a program that creates an instance of data and passes it in the capture of a lambda.
-.IP \n+[step].
-Compile and run the program.  
-How many objects are created and destroyed?
-What constructors are called?
-
-
-
-.IP \n+[step].
-Create a simple closure (lambda).
-Pass an instance of the \*[c]struct\*[r] to the lambda capture block.
-.IP \n+[step].
-Create a loop that executes 10 times and
-call the closure from the body of the loop.
-How many copies of Data are created and destroyed?
-
-
-.IP \n+[step].
-Put the definition of the lambda in the loop body.
-How many objects are created and destroyed?
-
-.RE
-
 
