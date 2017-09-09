@@ -3,10 +3,12 @@
 .TL
 \*[CH]
 .NH
-Lambda names: 100 points, 90 minutes \fImaximum\fR
+Lambda expressions: 100 points, 90 minutes \fImaximum\fR
 .time_box
 .QP
-The goal of this lab is to explore lambda expressions in more detail.
+The goal of this lab is to explore lambda expressions in more detail and
+to use them to perform real tasks on a \*[c]vector\*[r] 
+without using any \*[c]for\*[r] loops.
 
 .RS
 .nr step 0 1
