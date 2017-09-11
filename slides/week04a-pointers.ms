@@ -55,7 +55,7 @@ The \fIaddress of\fR operator \*[c]&\*[r] allows us to pass by reference
 .i1 Therefore, can \fInever\fR be \*[c]null\*[r]
 .IT A reference can't be reassigned to a different object
 .i1 A \*[c]const\*[r] reference means you can't modify the value of the reference
-.IT References are simpler,more limited and safer than pointers
+.IT References are simpler, more limited, and safer than pointers
 
 .IT Things you can't do with references
 .i1 Assign an address to them
@@ -74,22 +74,57 @@ manipulations, How?
 .i1 But it is much more powerful
 .IT A pointer is defined by the operator \*[c]*\*[r] \fBand\fR a type
 .CW
+  int main() {
+    int n = 5; \m[green]// a stack int\m[]
+    int* p;    \m[green]// a pointer to an int\m[]
+    p = &n;    \m[green]// p now points to n\m[]
+  }
+.R
+.SS Using pointers
+.IT The \fBaddressof operator\fR \*[c]&\*[r]
+.i1s 
+Get the address of a pointer variable
+.CW
+  int n = 2;
+  int* p = &n;  \m[green]// points to n\m[]
+  int* q = p;   \m[green]// points to n also\m[]
+.R
+.i1e
+.i1 The value returned by \fC&n\fR will be an address 
+.i2 Can be stored in another pointer variable of the same type
+.IT The \fBdereference operator\fR \*[c]*\*[r]
+.i1 Retrieves the value pointed to by a pointer
+.i1s
+Once dereferenced, it's treated exactly like any other variable of that type
+.CW
+  int n = 2;
+  int* p = &n;
+  *p = *p + *p; \m[green]// n = ?\m[]
+.R
+.i1e
 
+.SS Free-store pointers
+.IT Up to now, all our pointers have been \fIstack pointers\fR
+.IT Can point to heap memory also
+.IT The \*[c]new\*[r] operator
+.i1s
+Allocates \fInew memory\fR on the free-store
+.CW
   \m[green]// get (allocate) a new uninitialized int\m[]
   int* p1 = new int;         \m[green]// dangerous\m[]
 
   \m[green]// get a new int initialized to 5\m[]
   int* p2 = new int{5};
-  int* p2 = new int(5);  \m[green]// ditto\m[]
-  int* p2 = new int[5];  \m[green]// an array of 5 \m[]
+  int* p3 = new int(5);  \m[green]// ditto\m[]
+  int* p4 = new int[5];  \m[green]// an array of 5 \m[]
                          \m[green]// uninitialized ints\m[]
 .R
-.IT And you can assign the value a pointer points to
+.i1e
+.IT Use the \*[c]delete\*[r] keyword to free memory allocated using \*[c]operator new\*[r]
 .CW
 
-  int x = *p1;  \m[green]// wonder what this points to...\m[]
-  int y = *p2;
-
+  delete   p1;  \m[green]// free memory allocated for p1\m[]
+  delete[] p4;  \m[green]// free array memory\m[]
 .R
 .SS Pointers and References
 .IT We can pass pointers to a function that expects a reference
@@ -111,6 +146,45 @@ manipulations, How?
 .R
 \s+8
 .IT If we pass in only \fCp\fR, what happens?
+.SS Non-const references vs. pointers
+.IT Some programmers consider passing by non-const reference bad form
+.i1s
+Because the call syntax is the same as pass by value
+.CW
+  void func (int& x);
+
+  int main() {
+    int x = 5;
+    func(x);       \m[green]// will x change?\m[]
+  }
+.R
+.i1e
+.bp
+.IT Some programmers consider passing by non-const reference bad form
+.i1s
+Because the call syntax is the same as pass by value
+.CW
+  void func (int& x);
+
+  int main() {
+    int x = 5;
+    func(x);       \m[green]// will x change?\m[]
+  }
+.R
+.i1e
+.i1s
+For this reason, a function that takes a \fInon-owning pointer\fR is preferred
+.CW
+  void func (int* x);
+
+  int main() {
+    int x = 5;
+    func(&x);       \m[green]// Caller expects x to change\m[]
+  }
+.R
+.i1e
+
+
 .SS Pointers
 .IT A pointer can point to \fIanything\fR
 .i1 Or nothing
@@ -208,4 +282,6 @@ and not an \fIarray\fR of \*[c]int\*[r]s
 .IT Use \*[c]delete\*[r] to recycle space on the heap
 .i1 Use \*[c]delete\*[r] for single primitives & objects
 .i1 Use \*[c]delete[]\*[r] for arrays
+.IT Alternatives to \*[c]new\*[r] and \*[c]delete\*[r]
+.i1 When we talk about 'memory management' after the mid-term
 
