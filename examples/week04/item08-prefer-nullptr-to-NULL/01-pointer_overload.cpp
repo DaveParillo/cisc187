@@ -8,9 +8,9 @@
 #include <iostream>
 
 // Three overloads of f
-void f(int) { std::cout << "f(int)" << std::endl; }
-void f(bool) { std::cout << "f(bool)" << std::endl; }
-void f(void*) { std::cout << "f(void*)" << std::endl; }
+void f(int)   { std::cout << "f(int)\n"; }
+void f(bool)  { std::cout << "f(bool)\n"; }
+void f(void*) { std::cout << "f(void*)\n"; }
 
 int main()
 {

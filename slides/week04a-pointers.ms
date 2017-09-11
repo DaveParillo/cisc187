@@ -270,6 +270,58 @@ Even in clang with \fC -Weverything\fR
 .i1 And assigned that value to \fCy\fR
 .IT Heck, it doesn't even know your pointer is just to one \*[c]int\*[r] 
 and not an \fIarray\fR of \*[c]int\*[r]s
+.SS Null pointers
+.IT We mentioned that unlike a reference
+.i1 A pointer might point to 'nothing'
+.IT What exactly is 'nothing'
+.IT Prior to C++11, there was no unabiguous defintion
+.i1s
+Typically the value 0 was used (often \fC0LL\fR)
+.CW
+  #define NULL 0LL
+.R
+.i1e
+.IT This definition carries over from standard C
+
+.IT Problem: null pointers are the same type as regular integral types
+.i1 OK, not a valid address
+.i1 But, creates problems regular old C never had to handle
+.i2 Function overloads
+.IT Problem: ther is no standrd definition for the macro \fCNULL\fR
+.bp
+.IT Solution
+.i1s
+C++11 introduces \*[c]nullptr\*[r] which is a distinct type
+.CW
+  #include <iostream>
+  \m[green]// Three overloads of f\m[]
+  void f(int)   { std::cout << "f(int)\\n"; }
+  void f(bool)  { std::cout << "f(bool)\\n"; }
+  void f(void*) { std::cout << "f(void*)\\n"; }
+
+  int main() {
+    f(0);       \m[green]// calls f(int) overload, not f(void*)
+
+    //f(NULL);  // might not compile, typically calls
+                // f(int) overload.  
+                // Never calls f(void*)\m[]
+    f(nullptr);  \m[green]// calls f(void*) overload\m[]
+  }
+.R
+.i1e
+.bp
+.IT Keep in mind that \*[c]nullptr\*[r] is a distinct type
+.i1 Not a pointer type, pointer to member, integral type, etc.
+
+.IT There are other reasons to favor \*[c]nullptr\*[r]
+.i1 Clarity
+.i1 Correctness
+.i1 Templates
+.i2 \*[c]nullptr\*[r] implicity converts to a pointer type
+
+.IT See example source: 
+.br
+\fCweek04/item08-prefer-nullptr-to-NULL\fR
 .SS Summary
 .IT References refer to an object
 .i1 Stored at some location (address)
@@ -284,4 +336,5 @@ and not an \fIarray\fR of \*[c]int\*[r]s
 .i1 Use \*[c]delete[]\*[r] for arrays
 .IT Alternatives to \*[c]new\*[r] and \*[c]delete\*[r]
 .i1 When we talk about 'memory management' after the mid-term
+.IT Null pointers
 
