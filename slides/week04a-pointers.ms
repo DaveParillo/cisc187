@@ -273,8 +273,8 @@ and not an \fIarray\fR of \*[c]int\*[r]s
 .SS Null pointers
 .IT We mentioned that unlike a reference
 .i1 A pointer might point to 'nothing'
-.IT What exactly is 'nothing'
-.IT Prior to C++11, there was no unabiguous defintion
+.IT What exactly is 'nothing'?
+.IT Prior to C++11, there was no unambiguous definition
 .i1s
 Typically the value 0 was used (often \fC0LL\fR)
 .CW
@@ -287,7 +287,7 @@ Typically the value 0 was used (often \fC0LL\fR)
 .i1 OK, not a valid address
 .i1 But, creates problems regular old C never had to handle
 .i2 Function overloads
-.IT Problem: ther is no standrd definition for the macro \fCNULL\fR
+.IT Problem: ther is no standard definition for the macro \fCNULL\fR
 .bp
 .IT Solution
 .i1s
