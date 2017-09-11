@@ -287,7 +287,7 @@ Typically the value 0 was used (often \fC0LL\fR)
 .i1 OK, not a valid address
 .i1 But, creates problems regular old C never had to handle
 .i2 Function overloads
-.IT Problem: ther is no standard definition for the macro \fCNULL\fR
+.IT Problem: there is no standard definition for the macro \fCNULL\fR
 .bp
 .IT Solution
 .i1s
