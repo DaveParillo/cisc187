@@ -15,7 +15,7 @@ without using any \*[c]for\*[r] loops.
 .IP \n+[step].
 Declare a \*[c]vector\*[r] of size 10.
 .br
-Declare 2 int pointers: one to point to the start of the vector, the other topoint at the end.
+Declare 2 int pointers: one to point to the start of the vector, the other to point at the end.
 .br
 \fBDo NOT\fR use the iterator functions \*[c]begin()\*[r] and \*[c]end()\*[r] to accomplish this (iterators are next week).
 .IP \n+[step].
