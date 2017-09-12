@@ -8,7 +8,7 @@ int multiply(int x, int y);
 int subtract(int x, int y);
 int divide  (int x, int y);
 
-op  get_command(const char& command);
+op  get_command(const char command);
 int calculate(const op operation, int x, int y);
 
 int main()
@@ -20,7 +20,7 @@ int main()
 
   while (true)
   {
-    std::cout << "Operation: ";
+    std::cout << "Operation (a,m,s,d, or q): ";
     std::cin >> op;
     if (op[0] == 'q') break;
 
@@ -33,7 +33,7 @@ int main()
   return 0;
 }
 
-op get_command(const char& command) {
+op get_command(const char command) {
   op pf = nullptr;         // pointer to a function to execute on all operands
   switch (command) {
     case 'a':

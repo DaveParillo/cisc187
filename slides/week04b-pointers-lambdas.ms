@@ -126,17 +126,93 @@ To another pointer type that has a size
 .i2 Explicitly converts a value to a new type
 .i1 \*[c]dynamic_cast\*[r]
 .i2 Safely converts pointers and references up & down the inheritance hierarchy
+.i2 We won't care about this until week 11
 .i1 \*[c]const_cast\*[r]
 .i2 Explicitly converts between types with different \*[c]const\*[r] qualifications
+.i3 Used if a type doesn't provide const and non-const versions of a function (most do)
 .i1 \*[c]reinterpret_cast\*[r]
 .i2 Converts between types by reinterpreting the underlying bit pattern
 .i3 Literally, treat a sequence of bits \fIas if it were a new type\fR
+.i2 Most often seen in file I/O or other serialized read / write operations
+.i3 Covered at the end of the semester
+
+.IT General rule of thumb
+.i1 If you have a lot of casts in your code
+.i1 Then you probably have a design problem
+.i2 Have you chosen the most apporpriate type for the job?
+.i2 Not every task is solved using \*[c]int\*[r]
+.SS Pointers to functions
+.IT In C++ you can point to anything with an address
+.i1 Global variables
+.i1 Stack and free store variables
+.i1 Functions
+.i2 Recall that when called, an activation record for a function is pushed onto the execution stack
+.IT This means every function has an address
+.i1s
+What does this do?
+.CW
+  int foo() {
+    return 5;
+  }
+  int main() {
+    std::cout << foo;
+  }
+.R
+.i1e
+.i1 Hint: It doesn't call the function foo
+
+.IT When a function is called using \*[c]operator()\*[r]
+.i1 Execution jumps to the \fIaddress\fR of the function being called
+.bp
+.IT We can make use of this to store the address of the function
+.i1s
+Pointer to a function that returns an \*[c]int\*[r] and takes no parameters
+.CW
+  int (*ptr)();
+.R
+.i1e
+.i2 The parentheses around \fC(p*ptr)\fR are required: operator precedence
+
+.i1s
+Pointer to a function that returns an \*[c]double\*[r] and takes two parameters
+.CW
+  double (*func)(int x, int y);
+.R
+.i1e
+.IT Once you have a valid definition
+.i1s
+You can assign to it
+.CW
+  double add     (int x, int y) { return x+y;}
+  double multiply(int x, int y) { return x*y;}
+  double pi      ()             { return 3.14159265;}
+  int main () {
+    double (*func)(int x, int y) = add;
+    cout << (*func)(2,3); \m[green]// prints 4\m[]
+    func = multiply;
+    cout << (*func)(2,3); \m[green]// prints 6\m[]
+    func = pi;            \m[green]// error\m[]
+    func = add();         \m[green]// error\m[]
+  }
+.R
+.i1e
+.bp
+.IT This doesn't look like the initialization syntax we are used to
+.i1s
+C++11 \*[c]using\*[r] alias allows defining a name that refers to a previously defined type
+.CW
+  using func = double(*)(int x, int y);
+.R
+.i1e
+.i1 Whether you consider this an improvement is largely a matter of taste
+
+.IT See week04 function pointer examples and jump table
 .SS Lambdas
 .IT Motivation
 .i1 Many functions in the STL take a function as an argument.
 .i1 Suppose we want to count the number of short strings in a vector
 .i2 There is a count_if function in the STL
-.i3 Takes a range of iterators and a \fIpredicate\fR function
+.i3 Takes a range of pointers and a \fIpredicate\fR function
 .i2s
 A simple \fCcount_if\fR example
 .CW
@@ -144,7 +220,9 @@ A simple \fCcount_if\fR example
     return str.size() < 5;
   }
   size_t num_short_strings(const vector<string>& v) {
-    return count_if(v.begin(), v.end(), less_than_5);
+    const string* begin = v.data(); \m[green]// must be const\m[]
+    const auto end = begin + v.size();
+    return count_if(begin, end, less_than_5);
   }
 .R
 .i2e
