@@ -369,6 +369,7 @@ Return the sum of all values divisible by divisor
 .i1 Function objects
 .i1 Function pointers
 .IT \*[c]std::function\*[r] added in C++11
+.i1 \*[c]#include <functional>\*[r]
 .i1 Provides a more explicit method for passing functions
 .i1s
 The return type and parameters are template parameters
@@ -380,29 +381,27 @@ The return type and parameters are template parameters
 This function can be called with any function or lambda
 .i1e
 .i2 That returns \*[c]void\*[r] and takes a single \*[c]int\*[r] parameter
+.bp
+.IT Suppose we implement \fCrun_for_each\fR
 .i1s
 Sample function definition
 .CW
  void 
- run_in_for_each(std::function<void (int)> func)
- {
+ run_in_for_each(std::function<void (int)> func) {
   vector<int> numbers{1, 2, 3, 4, 5};
   for_each(numbers.begin(), numbers.end(), func);
  }
 .R
 .i1e
-.bp
 .IT Once defined
 .i1s
 We can send different lambdas to the function
 .CW
-  auto func1 = [](int y)
-  {
+  auto func1 = [](int y) {
     cout << y << endl;
   };
 
-  auto func2 = [](int z)
-  {
+  auto func2 = [](int z) {
     cout << z * 2 << endl;
   };
 
@@ -410,9 +409,6 @@ We can send different lambdas to the function
   run_in_for_each(func2);
 .R
 .i1e
-
-
-
 .SS Summary
 .IT Destroy memory carefully
 .i1 Too much gets you in as much trouble as too little
