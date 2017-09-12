@@ -292,13 +292,13 @@ Count the elements > 5
 .CW
   int main()
   {
-    vector<int> numbers { 1, 2, 3, 4, 5,
-                          10, 15, 20, 25,
+    vector<int> numbers { 1, 2, 3, 4, 5, 10, 15, 20, 25,
                           35, 45, 50 };
+    const int* begin = numbers.data();
+    const auto end = begin + numbers.size();
 
-    auto gt_5 = count_if(numbers.begin(),
-                         numbers.end(), 
-\m[red]                         [](int x) { return (x > 5); }); \m[]
+    auto gt_5 = count_if(begin, end, 
+                  \m[red][](int x) { return (x > 5); }); \m[]
 
     cout << "The # of elements > 5 is: "
          << \m[red]gt_5\m[] << ".\\n";
@@ -310,11 +310,11 @@ Count the elements > 5
 .i1s
 Using the \*[c]for_each\*[r] algorithm
 .CW
- void divisible_by(const vector<int>& numbers, 
+ void divisible_by(const int* begin, const int* end, 
                    const int divisor)
  {
    \m[green]// print all the numbers divisible by divisor\m[]
-   for_each(numbers.begin(), numbers.end(), 
+   for_each(begin, end, 
        \m[red][divisor]\m[] (int y) {
          if (y % divisor == 0) {
            cout << y << endl;
@@ -332,12 +332,12 @@ Using the \*[c]for_each\*[r] algorithm
 .i1s
 Return the sum of all values divisible by divisor
 .CW
- int sum_divisible_by(const vector<int>& numbers, 
+ int sum_divisible_by(const int* begin, const int* end, 
                       const int divisor)
  {
    int sum = 0;
     
-   for_each(numbers.begin(), numbers.end(), 
+   for_each(begin, end, 
        \m[red][divisor, &sum]\m[] (int y) {
          if (y % divisor == 0) {
            sum += y;
@@ -367,20 +367,21 @@ Return the sum of all values divisible by divisor
 .IT Allows standardized way to pass around
 .i1 Lambda expressions
 .i1 Function objects
-.i1 Function pointers (from C)
-.IT The wrapper allows us to pass a lambda as an argument to a function
+.i1 Function pointers
+.IT \*[c]std::function\*[r] added in C++11
+.i1 Provides a more explicit method for passing functions
 .i1s
-Provides a flexible way to reuse a lambda
+The return type and parameters are template parameters
 .CW
  void 
  run_in_for_each(std::function<void (int)> func);
 .R
 
-This function can be called with a lambda expression
+This function can be called with any function or lambda
 .i1e
 .i2 That returns \*[c]void\*[r] and takes a single \*[c]int\*[r] parameter
 .i1s
-Function definition
+Sample function definition
 .CW
  void 
  run_in_for_each(std::function<void (int)> func)
@@ -415,16 +416,16 @@ We can send different lambdas to the function
 .SS Summary
 .IT Destroy memory carefully
 .i1 Too much gets you in as much trouble as too little
-.i1 Memory 'leaks' are the #1 source of bugs in C/C++ programs
+.i1 Memory leaks are the #1 source of bugs in C/C++ programs
 .IT Pointers to \*[c]void*\*[r]
 .i1 Use when you must, don't otherwise
 .i2 You're giving up what little checking the compiler can do
 .IT Casts
 .i1 \*[c]static_cast\*[r] when you must
-.i1 \*[c]dynamic_cast\*[r] when changing between types in a hierarchy
+.i1 Too many casts is a code smell 
 .IT Lambda expressions
-.i1 Even less code than functors
 .i1 Expressive, just-in-time functions, right when you need them
-.i1 Passing lambdas using \fCstd::function\fR
+.i1 Standardize passing functions and lambdas 
+.i2 Using \fCstd::function\fR
 
 
