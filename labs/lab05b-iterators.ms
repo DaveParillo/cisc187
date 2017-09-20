@@ -3,6 +3,16 @@
 .TL
 \*[CH]
 .so cover-page.ms
+
+
+The goal of today's lab is compare inserting and erasing elements in 
+\*[c]std::vector\*[r] and \*[c]std::list\*[r]
+and to practice working with iterators.
+
+
+Don't forget to answer the questions in the lab!
+
+You may include your answers to these questions in a text file uploaded with your lab source code.
 .bp
 .NH
 Vector vs List: 100 points, 90 minutes \fImaximum\fR
@@ -14,55 +24,57 @@ Explain in your own words why \*[c]vector\*[r] does not have a function \*[c]pus
 as part of it's API.  
 Include what would be required if it existed and compare it to \*[c]push_back()\*[r].
 
-
-
-
-
-
-
-
-
-
 .IP \n+[step].
-Run a small timing experiment to compare the cost of running vector and list. 
-You can find an explanation of how to time a program in \*[sect]26.6.1. 
-Generate \fIN\fR random \*[c]int\*[r] values in the range [0:\fIN\fR]. 
-As each int insert it into a \*[c]vector<int>\*[r] (which grows by one element each time). 
-Keep the vector sorted; that is a value is inserted after every previous 
-value that is less than or equal to the new value and before every previous 
-value that is larger than the new value. 
-Now do the same experiment using a \*[c]list<int>\*[r] to hold the \*[c]int\*[r]s. 
+Implement the unfinished functions in a timing experiment to compare the cost of running vector and list. 
 
-You could use \*[c]rand\*[r], but the STL includes a random libraryr.
-Refer to the example source file \fCexamples/week01/random.cpp\fR.
+All of the unfinished functions are marked with \*[c]// Your code here:\*[r]
+and contain some details to explain what is expected for each unfinished function.
 
-You may also find these parts of the STL useful:
-.CW
-  std::chrono::system_clock::now();
-  std::chrono::duration_cast<std::chrono::microseconds>()
-.R
+Only the file \fClab5b.h\fR requires changes.
+The file \fClab5b.cpp\fR is provided to help evaluate your results.
 
-See http://en.cppreference.com/w/cpp/chrono/time_point, 
-for example:
-.CW
-  using sys_time = std::chrono::system_clock;
-  auto start = sys_time::now();
+There are 6 function bodies to complete:
+.RS
+.IP a.
+\*[c]sorted_insert\*[r]
 
-  \m[green]// run test\m[]
+This function is a helper for the two test_insert overloads.
+It ensures each insert maintains a sort order.
+Do \fBNOT\fR simply \*[c]push_back\*[r] a value and call \*[c]std::sort\*[r].
+.IP b.
+\*[c]test_insert(C& container, const int max)\*[r] 
 
-  auto end = sys_time::now();
-  std::cout << std::setw(10) << std::right 
-            << std::chrono::duration_cast
-                <std::chrono::microseconds>
-                 (end - start).count();
-.R
+Insert \fCmax\fR random numbers into the container.
+The random number functions have been provided.
+.IP c.
+\*[c]test_insert(C& container, const vector<int>& rand_values)\*[r] 
 
+Insert each rand_value one at a time into the container.
+.IP d.
+\*[c]test_insert_begin\*[r] 
+
+Test inserting value only at the beginning of a container.
+.IP e.
+\*[c]test_insert_end\*[r] 
+
+Test inserting value only at the end of a container.
+.IP f.
+\*[c]test_remove\*[r] 
+
+Test removing values randomly withing a container.  
+One of these two function has been written for you.
+
+.RE
 .IP \n+[step].
-For which \fIN\fR is the \*[c]list\*[r] faster than the \*[c]vector\*[r]?  
+For which conditions is the \*[c]list\*[r] faster than the \*[c]vector\*[r]?  
+.br
 Explain your results in your own words.
 
 .IP \n+[step].
-Compile your program with omtimization (g++ argument is "-O2")
+Compile your program with optimization. 
+.br
+In \fCg++\fR, the command-line argument is \fC-O3\fR.
+.br
 Explain the change in the results.
 .RE
 
