@@ -1,4 +1,5 @@
 
+#include <cassert>
 #include <iostream>
 
 /**
@@ -7,7 +8,9 @@
  */
 void by_value(int x) 
 {
+  assert (x == 11);
   x = 99;
+  assert (x == 99);
 }
 
 /**
@@ -18,8 +21,10 @@ void by_value(int x)
  */
 void by_reference (int& x)
 {
+  assert (x == 11);
   std::cout << "in by_ref the address of x is   " << &x << '\n';
   x = -1;
+  assert (x == -1);
 }
 
 int main ()
@@ -30,8 +35,10 @@ int main ()
   std::cout << "in main the address of alpha is " << &alpha << '\n';
   std::cout << "in main the address of beta is  " << &beta << '\n';
 
-  by_value(alpha);
-  by_reference(beta);
+  by_value (alpha);
+  by_reference (beta);
+  assert (alpha == 11);
+  assert (beta  == -1);
 
   std::cout << "alpha is now " << alpha << '\n';
   std::cout << "beta is now " << beta << '\n';

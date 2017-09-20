@@ -1,13 +1,13 @@
 CXX = c++
-CXXFLAGS=-Wall -Wextra -pedantic -std=c++11 -O3
+CXXFLAGS=-Wall -Wextra -pedantic -std=c++11
+CFLAGS=-Wall -Wextra -pedantic -std=c11
 
 PROGS = add \
-				binary-print \
 				call-stack \
 				define \
+				echo \
 				passing-parameters \
 				simple-parameter \
-				sizeof \
 				static-variables \
 				strings \
 				vectors \
