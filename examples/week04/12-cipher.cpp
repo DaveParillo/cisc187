@@ -4,7 +4,7 @@
 // Try this:
 //
 // Rewrite this program to use lambdas to perform the rotation instead of traditional function calls
- 
+
 using transform = char (*)(const char c);
 
 static void usage(const char* name) {
@@ -32,13 +32,15 @@ char rot13(const char c) {
 
     // in order to rotate upper or lower case
     // need to know where the alphabet 'starts'
-    char const start = std::islower(c) ? 'a' : 'A';
+    const char start = std::islower(c) ? 'a' : 'A';
     return (c - start + 13) % 26 + start;
 }
 
+// first printable character = 33 = '!'
 char rot47(const char c) {
-    if (c <= 32) return c;
-    return (c - 33 + 47) % 94 + 33;
+    static constexpr char start = '!';
+    if (c < start) return c;
+    return (c - start + 47) % 94 + start;
 }
 
 void render_text(std::string message, transform handler) {
@@ -70,3 +72,4 @@ int main(int argc, char** argv) {
         render_text(message, handler);
     }
 }
+

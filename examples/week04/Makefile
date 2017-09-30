@@ -10,8 +10,8 @@ PROGS = 01-pointers-and-references \
 		06-jump-table \
 		10-lambda-hello \
 		11-passing-lambdas \
-		cipher-char \
-		cipher-string
+		12-cipher \
+		13-cipher-char
 
 all: $(PROGS)
 
