@@ -13,7 +13,7 @@ but you are free to help eachother as you go.
 .so roles.tbl
 
 Everyone needs to consider how the team could work together more effectively.
-
+.br
 .LP
 Reminders:
 .RS
@@ -26,4 +26,3 @@ so that everyone can read & understand your responses.
 .RE
 
 Note that even on team labs, extra credit work should be an individual activity.
-

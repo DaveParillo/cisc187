@@ -8,7 +8,6 @@ Standard algorithms: 100 points, 90 minutes \fImaximum\fR
 .time_box
 .RS
 Create a program that accomplishes the following:
-
 .nr step 0 1
 .IP \n+[step].
 Create a \*[c]std::vector<int>\*[r] of size 1,000.
@@ -26,6 +25,4 @@ Consider a comparison function other than \*[c]operator==\*[r].
 
 .QP
 If you need a reference for the algorithm API's, use \fCwww.cppreference.com\fR.
-.bp
-.so reflection.ms
 
