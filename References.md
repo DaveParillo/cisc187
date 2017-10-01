@@ -126,6 +126,10 @@ Week:
     [back_inserter](http://en.cppreference.com/w/cpp/iterator/back_inserter)
 
 ### More to explore
+* C++ Seasoning - a great presentation by Sean Parent at Going Native 2013
+  [video](https://channel9.msdn.com/Events/GoingNative/2013/Cpp-Seasoning) and
+  [slides](http://sean-parent.stlab.cc/presentations/2013-09-11-cpp-seasoning/cpp-seasoning.pdf)
+  
 * Other Algorithm libraries
   * Boost [algorithms](http://www.boost.org/doc/libs/1_62_0/libs/libraries.htm#Algorithms)
 
@@ -168,6 +172,16 @@ Week:
   [Polymorphism](http://www.cplusplus.com/doc/tutorial/polymorphism/) from cplusplus.com
 
 ### More to explore
+* Several lectures from Sean Parent:
+  * Why (and how) to implement polymorphism without inheritance in C++,
+    otherwise known as Inheritance Is The Base Class of Evil 
+    [video](https://channel9.msdn.com/Events/GoingNative/2013/Inheritance-Is-The-Base-Class-of-Evil), 
+    a longer version is 
+    [available](http://sean-parent.stlab.cc/papers-and-presentations#title-value-semantics-and-concept-based-polymorphism)
+  * Better Code: Data Structures
+    [slides](http://sean-parent.stlab.cc/presentations/2015-09-23-data-structures/data-structures.pdf)
+    [video](https://www.youtube.com/watch?v=sWgDk-o-6ZE)
+    
 * A good article from Herb Sutter on [virtual functions](http://www.gotw.ca/publications/mill18.htm)
 
 ## Week 12
@@ -211,4 +225,69 @@ Week:
 ## Week 16
 #### Final Exam
 
+## Congratulations!
+You made to the end of the semester, now what?
+
+First, take a well-earned rest.  
+When you are ready to think about programming again, consider the following for further reading. 
+Some of these books have been around for a long time, 
+but they are all classics and still have considerable value.
+
+
+### Suggested reading
+
+* First, a good, short blog post about [how to teach yourself programming](http://norvig.com/21-days.html). 
+  Good advice.
+* [Clean Code, A Handbook of Agile Software Craftsmanship](https://en.wikipedia.org/wiki/Special:BookSources/9780132350884)
+* [Code Complete](http://cc2e.com) A true compendium. 
+  Which may be a 'pro' or a 'con' for you.
+
+  Originally written in 1993 and redone in 2004, 
+  it is a collection of software best practices with essentially no competition. 
+  Years later, there remains little to disagree with
+
+* [The Pragmatic Programmer](https://pragprog.com/book/tpp/the-pragmatic-programmer).
+  I really like the style of this book.
+
+  It’s thin & you can read it in any order. 
+  You can skip around or read it straight through.
+
+  It’s primary focus is on honing the behaviors that turn OK programmers into great ones. 
+  If you read this, you see may similarities between sections in Code Complete. 
+  This is just less comprehensive - it’s ‘agile’!
+
+* Chapter 16 of the [Mythical Man-Month](https://en.wikipedia.org/wiki/The_Mythical_Man-Month): 
+  *No silver bullets*. 
+  
+  This book gets a lot of endorsements, but honestly, 
+  I think most of it is not too relevant to modern computing problems, with a few exceptions. 
+  The "No silver bullets” chapter complements the ‘religion’ section at the end of Code Complete.
+
+* The Design of Everyday things, Don Norman and The Inmates are running the Asylum, Alan Cooper.
+
+  These two books are focused on how people interact with things in general (book 1), 
+  and software in particular (Book 2) - Cooper’s main point is that knowing how to design 
+  a user interface is a distinct skill & you can’t just expect any old programmer 
+  to be a great designer - which is a point made by Fred Brooks in No Silver bullets, 
+  just in less space.
+* Effective Java - yes Java.
+* Effective C++ (but it's a bit dated - parts of Effective C++, More Effective C++ and Effective Modern C++)
+
+  * You’ll find a lot of the material in Code Complete also mentioned these books as well. 
+    I prefer Effective Java over Effective C++, even though Josh Bloch was inspired to write 
+    Effective Java *by* Effective C++. 
+    His version is less specific - that has allowed it to stay relevant even though Java has changed a lot. 
+    I also like that Josh is not shy about calling out specifics where the design of the 
+    Java libraries was just wrong. 
+    He uses the design of Object.clone(), Object.notify() & wait(), java.util.Date, 
+    java.util.Stack and others as ways to point out how not to make the same mistakes 
+    the creators of Java did. 
+    And he should know - he is one of them.
+  * One of the interesting things about the Effective C++ series is that you can see how the 
+    design of the language has evolved over the last 15 or 20 years. 
+    Example: 
+
+    Effective C++ says to prefer new & delete over malloc & free
+   
+    More Effective C++ says to prefer smart pointers over new & delete</li>
 
