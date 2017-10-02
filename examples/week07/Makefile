@@ -12,7 +12,7 @@ PROGS = 01-count-if \
 		09-copy-if \
 		10-generate \
 		11-inner_product \
-		12-insertion-sort \
+		12-sort \
 		13-string-trim
 
 

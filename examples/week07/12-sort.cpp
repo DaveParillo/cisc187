@@ -37,9 +37,20 @@ void print(const It begin, const It end, const char* msg) {
 }
 
 template <RandomAccessIterable It> 
-void insertionSort(It begin, It end) {
+void insertion_sort(It begin, It end) {
     for (auto i = begin; i != end; ++i) {
         std::rotate(std::upper_bound(begin, i, *i), i, std::next(i));
+        //print (begin, end, "\t");
+    }
+}
+
+// comapre this to the selection_sort function in
+// examples/week04/07-sorting.cpp
+//
+template <RandomAccessIterable It> 
+void selection_sort(It begin, It end) {
+    for (auto i = begin; i != end; ++i) {
+        std::iter_swap(i, std::min_element(i, end)); // we could pass a comparator to min_element
         //print (begin, end, "\t");
     }
 }
@@ -48,16 +59,22 @@ int main() {
     // initialize and randomize
     std::vector<int> v(20);
     std::iota(v.begin(), v.end(), -10);
-    std::shuffle(v.begin(), v.end(), std::mt19937{std::random_device{}()});
+    auto generator = std::mt19937{std::random_device{}()};
+    std::shuffle(v.begin(), v.end(), generator);
 
-    // show sort in action
-    print (v.begin(), v.end(), "before:\t");
-    insertionSort(v.begin(), v.end());
-    print (v.begin(), v.end(), "after: \t");
+    // show sorts in action
+    print (v.begin(), v.end(), "before:         \t");
+    insertion_sort(v.begin(), v.end());
+    print (v.begin(), v.end(), "insertion sort: \t");
+
+    std::shuffle(v.begin(), v.end(), generator);
+    print (v.begin(), v.end(), "before:         \t");
+    selection_sort(v.begin(), v.end());
+    print (v.begin(), v.end(), "selection sort: \t");
 }
 
 
-// How it works:
+// How Insertion sort works:
 //
 // rotate (first, middle, last)
 //   - takes a range [first, last) and rotates it so that 
@@ -76,6 +93,23 @@ int main() {
 // Feel free to uncomment 
 //     print (begin, end, "\t");
 // in the body of the for loop to see the insertions in action.
+//
+
+// How Selection sort works:
+//
+// iter_swap (a, b)
+//   - swaps the values of the elements pointed to
+//     by the iterators a and b.
+//
+// min_element(first, last)
+//   - finds the smallest element in the range
+//
+// How do those two elements combine into Selection sort?
+//
+// std::min_element(i, end) returns the position of the smallest value
+// between the current position and the end of the range.
+// The values pointed to by the current iterator and the minimum found
+// are swapped, and the process repeats on the next iterator.
 //
 
 
