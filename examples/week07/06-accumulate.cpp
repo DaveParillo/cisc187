@@ -7,7 +7,7 @@
 
 int main()
 {
-  std::array<double,4> a = { 1.1, 2.2, 3.3, 4.4 };
+  std::array<double,4> a = { {1.1, 2.2, 3.3, 4.4} };
   std::cout << "array product:\t";
   std::cout << std::accumulate(a.begin(),a.end(), 1.0, std::multiplies<double>());
   std::cout << std::endl;

@@ -11,7 +11,8 @@ PROGS = 01-count-if \
 		08-sum-divisible-by \
 		09-copy-if \
 		10-generate \
-		11-inner_product
+		11-inner_product \
+		12-insertion-sort
 
 
 all: $(PROGS)
