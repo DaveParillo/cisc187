@@ -9,8 +9,8 @@
 //
 // Do not allow the steering angle to go
 // beyond +/- max_angle
-int Car::steer(Direction dir) {
-  const static int max_angle = 10;
+double Car::steer(Direction dir) {
+  const static double max_angle = 10;
   return 0;
 }
 
@@ -22,7 +22,7 @@ int Car::steer(Direction dir) {
 // beyond +/- max_rate
 double Car::accelerate(double rate) {
   const static double max_rate = 3.5;
-  return 0;;
+  return 0;
 }
 
 // Implement an ostream overload that produces output
@@ -47,7 +47,7 @@ std::ostream& operator<<(std::ostream &os, const Point& rhs) {
 void Car::update() {
   static const double pi   = std::acos(-1);
   static const double dtor = pi/180.0;
-  auto angle = dtor * heading_;
+  const auto angle = dtor * heading_;
   location_.x = location_.x + std::cos(angle) * speed_;
   location_.y = location_.y - std::sin(angle) * speed_;
 }

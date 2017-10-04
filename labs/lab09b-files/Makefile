@@ -1,5 +1,5 @@
 
-#CXXFLAGS+=-Wall -Wextra -pedantic -std=c++11 
+CXXFLAGS+=-g
 
 car :  clean
 	c++ ${CXXFLAGS} -o $@ *.cpp

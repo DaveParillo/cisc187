@@ -1,6 +1,6 @@
 #pragma once
 
-#include <cassert>
+#include <algorithm>
 #include <functional>
 #include <iosfwd>
 #include <string>
@@ -24,8 +24,10 @@ class Car {
   private:
     std::string name_;      // Make/model of this car
     double speed_;
-    int    heading_;
+    double heading_;
     Point  location_;       // relative position of car
+    double angle_ = 0;      // current steering angle
+    double rate_ = 0;       // current change in speed
 
   public:
     /**
@@ -37,8 +39,10 @@ class Car {
      * Steer the car by changing direction.
      * Choices are LEFT, RIGHT, and CENTER.
      * CENTER means no change in direction.
+     *
+     * @return a new heading
      */
-    int steer (Direction dir);
+    double steer (Direction dir);
     /**
      * Change the car speed by (de)accelerating.
      * Positive values will increase car speed.
@@ -62,18 +66,14 @@ namespace mesa {
 
   //  clamp function is not in the standard until c++17
   template<class T, class Compare>
-  constexpr const T& clamp( const T& v, const T& lo, const T& hi, Compare comp )
-  {
-    return assert( !comp(hi, lo) ),
-           comp(v, lo) ? lo : comp(hi, v) ? hi : v;
+  const T& clamp (const T& v, const T& lo, const T& hi, Compare comp) {
+    return std::min (std::max (v, lo), hi, comp);
   }
 
 
   template<class T>
-  constexpr const T& clamp( const T& v, const T& lo, const T& hi )
-  {
-      return clamp( v, lo, hi, std::less<T>() );
+  const T& clamp (const T& v, const T& lo, const T& hi) {
+      return clamp(v, lo, hi, std::less<T>());
   }
-
 }
 
