@@ -18,7 +18,7 @@ int main()
   std::for_each(numbers.begin(), numbers.end(), print_func);
 
   puts("\nrepeat with function object:");
-  // failure to call the priont_class function without ()'s 
+  // failure to call the print_class function without ()'s 
   // is a common source of error
   //                                                       vv
     std::for_each(numbers.begin(), numbers.end(), print_class());
