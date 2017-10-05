@@ -1,5 +1,6 @@
-#include <iostream>
 #include <algorithm>
+#include <iostream>
+#include <iterator>
 #include <vector>
  
 // repeat example 03, but using copy and an ostream iterator
