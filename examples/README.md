@@ -19,7 +19,7 @@ You can use the boost already nstalled on buffy, but off campus, you will need t
 Everything you need to use doctest is included in this directory.
 
 More information on 
-[Boost.Test is here] (http://www.boost.org/doc/libs/1_65_1/libs/test/doc/html/index.html).
+[Boost.Test is here](http://www.boost.org/doc/libs/1_65_1/libs/test/doc/html/index.html).
 
 
 More information on [doctest is here](http://bit.ly/doctest-docs).
