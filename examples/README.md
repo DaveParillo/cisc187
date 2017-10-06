@@ -14,7 +14,7 @@ Some examples include test cases.
 A few are Boost.Test tests.
 Some are doctest tests.
 
-You can use the boost already nstalled on buffy, but off campus, you will need to install your own copy.
+You can use the boost already installed on buffy, but off campus, you will need to install your own copy.
 
 Everything you need to use doctest is included in this directory.
 
