@@ -1,10 +1,11 @@
 CXX = c++
-CXXFLAGS=-Wall -Wextra -pedantic -std=c++11 -O3
+CXXFLAGS=-Wall -Wextra -pedantic -std=c++11 -O3 -I..
 
 PROGS = 01-hello \
 				02-struct \
 				03-hello-a \
 				03-hello-b \
+				03-test-hello \
 				04-const-correct \
 				06-static-variables
 
