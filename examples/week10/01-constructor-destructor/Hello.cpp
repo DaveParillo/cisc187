@@ -3,8 +3,7 @@
 #include <string>
 
 
-Hello::Hello () { 
-  name_ = "Alice"; 
+Hello::Hello () : name_ {"Alice"} { 
   std::cout << "make a default hello\n";
 }
 

@@ -1,7 +1,18 @@
-CXXFLAGS=-Wall -Wextra -pedantic -std=c++11 -Wno-c++98-compat
+CXX = c++
+CXXFLAGS+= -I../..
 
-hello : clean
-	c++ ${CXXFLAGS} -o $@ Hello.cpp main.cpp
+all: hello test
 
-clean : 
-	rm -f hello *.o
+hello: clean
+	${CXX} ${CXXFLAGS} -o $@ Hello.cpp main.cpp
+
+.PHONY: clean test
+clean: 
+	rm -f test hello *.o
+
+
+test: clean
+	${CXX} ${CXXFLAGS} -o $@ Hello.cpp test-hello.cpp
+	./test
+
+
