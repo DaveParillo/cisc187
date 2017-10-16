@@ -78,16 +78,18 @@ Add a constructor so that the dog size can be set when a Dog is initialized.
 Implement \fCbark()\fR so that:
 .RS
 .IP \(bu
-LARGE dogs say "Woof" on standard out
+LARGE dogs say "Woof"
 .IP \(bu
-MEDIUM dogs say "Ruff" on standard out
+MEDIUM dogs say "Ruff"
 .IP \(bu
-SMALL dogs say "Yip" on standard out
+SMALL dogs say "Yip"
 .RE
 .IP \n+[step].
 Create a vector of 3 dogs.
 Give them names and different sizes.
 .IP \n+[step].
 Have each Dog bark.
+.IP \n+[step].
+Write your Dog class so that it passes the unit tests provided. 
 .RE
 
