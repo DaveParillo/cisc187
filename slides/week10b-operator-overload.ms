@@ -10,6 +10,7 @@ Week 10
 delim $$
 .EN
 .SS Overview
+.IT The \*[c]*this\*[r] pointer
 .IT General Syntax of operator overloading
 .IT Basic Rules of operator overloading
 .IT Member or Non-member?
@@ -20,7 +21,25 @@ delim $$
 .i1 Predicates
 .i1 Functions and overloads
 .i1 Function objects
-.SS Why bother?
+.SS The \fIthis\fP pointer
+.IT Every class function has access to a pointer to the current object
+.i1 Stored in \*[c]*this\*[r]
+.IT Not just any old object
+.i1 *this is immutable
+.IT Typical uses
+.i1s
+Check and return the current object
+.CW
+  Foo equals(Foo value) {
+    if (value == *this) return *this;
+    \m[green]// do other things to determine equality\m[]
+  }
+
+.R
+.i1e
+.i1 Operator overloads
+.i1 Builder pattern
+.SS Why bother with operator overloads?
 .IT When we say \fIoperator overload\fR in C++
 .i1 We \fIdon't\fR mean \fCMyClass.subtract()\fR
 .IT We want to be able to write code like

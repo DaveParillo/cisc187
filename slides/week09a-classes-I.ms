@@ -280,6 +280,59 @@ Does this compile?
     std::cout << b.value() << '\\n';
   }
 .R
+.SS Testing programs
+.IT There are many ways to test
+.i1 I provided a minimal test function with Project #1
+.IT The Boost library provides a \fCBoost::Test\fR namespace
+.i1 Composed of a collection of macros
+.i1 Enables relatively easy \fIunit testing\fR
+.IT Unit testing is a \fIpattern\fR
+.RS
+\s-4
+1.  Call a function using known inputs
+.br
+2.  Compare the actual results received to the expected results
+.RE
+.IT Unit tests
+.i1 Test a single \fBunit\fR of software (a function)
+.i1 Test only public functions
+.i1 Test 'significant' functions
+.i2 Getters and setters are not normally unit tested
+.SS Why bother?
+.IT Unit testing makes you \fBbrave\fR
+.IT Once you have a battery of good tests
+.i1 You can rewrite the internals of a function
+.i2 As long as you don't change the function interface
+.i1 Rerun your unit tests and prove that your code works exactly the same as before the modification
+.IT Efficiency improvements
+.i2 Refactoring to use different containers
+.i2 Or STL algorithms
+.IT Unit tests are a form of documentation
+.i2 Or an 'executable specification'
+.i1 Improves clarity
+.IT It's faster in the long run
+.i1 As you project grows, regression testing takes longer
+.i1 Automated tests reduce time spent regression testing
+.i1 And allow automated execution by other software
+.i2 Continuous integration
+.i2 Integrated development environments
+.SS Caveats
+.IT There is no 'free lunch'
+.i1 For this to work, your tests have to be \m[blue]\fBgood\fR\m[]
+.i1s
+Dijkstra quote:
+.RS
+.QP
+\s-8
+Program testing can be used to show the presence of bugs, 
+.br
+but never to show their absence!
+.RE
+.LP
+.i1e
+.i1 If your function interfaces are unstable
+.i2 You'll find yourself rewriting a lot of unit tests
+.i2 If your functions are small to start, this is not likely a problem
 .SS Summary
 .IT In C++ a class is a struct
 .i1 With default private access
@@ -296,4 +349,4 @@ Does this compile?
 .IT General principles
 .i1 Keep data private
 .i1 Keep class interfaces simple & minimal
-
+.IT Unit testing
