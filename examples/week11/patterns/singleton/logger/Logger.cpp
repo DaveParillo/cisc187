@@ -6,41 +6,39 @@
 
 namespace mesa {
 
-  Logger* Logger::_instance = nullptr;
-
   void Logger::level (const std::string& log_level)
   {
     switch (toupper(log_level[0])) {
       case 'T':
-        _log_level = LogLevel::TRACE;
+        log_level_ = LogLevel::TRACE;
         break;
       case 'D':
-        _log_level = LogLevel::DEBUG;
+        log_level_ = LogLevel::DEBUG;
         break;
       case 'I':
-        _log_level = LogLevel::INFO;
+        log_level_ = LogLevel::INFO;
         break;
       case 'W':
-        _log_level = LogLevel::WARN;
+        log_level_ = LogLevel::WARN;
         break;
       case 'E':
-        _log_level = LogLevel::ERROR;
+        log_level_ = LogLevel::ERROR;
         break;
       case 'F':
-        _log_level = LogLevel::FATAL;
+        log_level_ = LogLevel::FATAL;
         break;
       case 'A':
-        _log_level = LogLevel::ALWAYS;
+        log_level_ = LogLevel::ALWAYS;
         break;
       default:
-        _log_level = LogLevel::INFO;
+        log_level_ = LogLevel::INFO;
         break;
     }
   }
 
   void Logger::at (const LogLevel& log_level, const std::string& message) const
   {
-    if (_log_level <= log_level) {
+    if (log_level_ <= log_level) {
       std::cerr << level_to_string(log_level) << ":\t" << message << std::endl;
     }
   }
@@ -58,14 +56,6 @@ namespace mesa {
     };
     return log_name[log_level];
   }
-
-  Logger* Logger::instance() {
-    if (_instance == nullptr) {
-      _instance = new Logger;
-    }
-    return _instance;
-  }
-
 
 }
 

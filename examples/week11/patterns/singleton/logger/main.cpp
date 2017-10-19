@@ -30,17 +30,21 @@ int main(int argc, char** argv) {
   auto cmd = 0;
   std::string fname;
 
-  Logger* log = Logger::instance();
-  log->level("INFO");
+  Logger& log = Logger::instance();
+  log.level("INFO");
 
+  int count = 0;
 
   while ((cmd = getopt (argc, argv, "hf:l:")) != -1) {
+    log.at(LogLevel::TRACE, "loop count: " + std::to_string(++count));
+    log.at(LogLevel::DEBUG, "in loop");
+    log.at(LogLevel::INFO, "checking args");
     switch (cmd) {
       case 'f':
         fname = optarg;
         break;
       case 'l':
-        log->level(optarg);
+        log.level(optarg);
         break;
       case 'h':
       default:
@@ -49,15 +53,16 @@ int main(int argc, char** argv) {
     }
   }
 
+  log.at(LogLevel::TRACE, "about to check required argument . . .");
+
   if (fname.empty()) {
-    log->at(LogLevel::FATAL, "No input file specified!  Exiting.");
+    log.at(LogLevel::FATAL, "No input file specified!  Exiting.");
     show_usage(argv[0]);
     return -1;
   }
 
-  log->at(LogLevel::INFO, "program complete.");
+  log.at(LogLevel::INFO, "program complete.");
 
-  delete log;
   return 0;
 }
 
