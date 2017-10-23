@@ -46,13 +46,17 @@ namespace mesa
 
     
   /**
-   * A simple console logger.
-   * 
+   * A simple console logger implemented as a Singleton.
    */
   class Logger {
     public:
-      static Logger* instance();
+      static Logger& instance() {
+          static Logger singleton;
+          return singleton;
+      }
 
+      Logger(const Logger&)         = delete; // prevent copying
+      void operator=(const Logger&) = delete; // prevent copying
 
       /**
        * Change the logging threshold.
@@ -63,12 +67,12 @@ namespace mesa
        * Change the logging threshold.
        * @param log_level the desired minimum logging level.
        */
-      void level (const LogLevel log_level) { _log_level = log_level;}
+      void level (const LogLevel log_level) { log_level_ = log_level;}
       /**
        * Get the logging threshold.
        * @return the system logging threshold.
        */
-      LogLevel level () const {return _log_level;}
+      LogLevel level () const {return log_level_;}
       /**
        * Log a message at a specified importance.
        * @param log_level the importance of this message.
@@ -78,11 +82,8 @@ namespace mesa
 
       
     private:
-      Logger() = default;
-      static Logger* _instance;
-      LogLevel     _log_level;    /**< The logging threshold. */
-
-
+      Logger() = default;         // only Logger can make a logger
+      LogLevel     log_level_;    /**< The logging threshold. */
   };
 
 
@@ -96,7 +97,6 @@ namespace mesa
    * @return the std::string representation of the LogLevel
    */
   const std::string& level_to_string(LogLevel log_level);
-
 
 }
 

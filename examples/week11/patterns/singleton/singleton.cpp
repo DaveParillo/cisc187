@@ -1,5 +1,12 @@
 #include <iostream>
 
+// This is the 'classic' singleton pattern.
+// Frequently implemented before C++03
+// Issues:
+//  - Not thread safe
+//  - Imprecise pointer ownership
+//
+
 // Declaration
 class Singleton {
   public: 
@@ -10,17 +17,17 @@ class Singleton {
   private:
     int value_;
     Singleton() : value_{0} {}
-    static Singleton* _instance;
+    static Singleton* instance_;
 };
 
 // Implementation 
-Singleton* Singleton::_instance = nullptr;
+Singleton* Singleton::instance_ = nullptr;
 
 Singleton* Singleton::instance() {
-  if (_instance == nullptr) {
-    _instance = new Singleton;
+  if (instance_ == nullptr) {
+    instance_ = new Singleton;
   }
-  return _instance;
+  return instance_;
 }
 
 int main() {
