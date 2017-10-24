@@ -1,5 +1,12 @@
 #include <iostream>
 
+// This is the 'classic' singleton pattern.
+// Frequently implemented before C++03
+// Issues:
+//  - Not thread safe
+//  - Imprecise pointer ownership
+//
+
 // Declaration
 class Singleton {
   public: 

@@ -52,19 +52,19 @@ class: 40 points, 45 minutes \fImaximum\fR
 .QP
 This exercise recreates the \*[c]Date\*[r] class from the textbook with some modifications.
 
-Create the \*[c]Date\*[r] using the code in \*[sect]9.4 as a guide.  
+Create the \*[c]Date\*[r] using the code provided as a guide.  
 .br
-You may type this code in as presented in the textbook, with the following modifications:
+Make the following modifications:
 .RS
-.nr step 1 1
-.IP \n[step].
-Use all CAPS for the enum members of Month
+.nr step 0 1
 .IP \n+[step].
-Place the date class in the \*[c]mesa\*[r] namespace and save the interface in \*[c]Date.h\*[r].
+Modify the constructors as needed.
 .IP \n+[step].
-Implement a method to evaluate whether a provided year is a leap year.
+Implement a function to evaluate whether a provided year is a leap year.
 .IP \n+[step].
-Implement a method \fCto_month(int)\fR to convert an \*[c]int\*[r] primitive into a \*[c]mesa::Month\*[r].
+Implement a function \fCto_month(int)\fR to convert an \*[c]int\*[r] primitive into a \*[c]mesa::Month\*[r].
+.IP \n+[step].
+Complete the functions to check date equality.
 .RE
 
 When complete, verify the \*[c]Date\*[r] class functions as expected by running the provided
@@ -83,15 +83,15 @@ program for a library.
 .RS
 .nr step 1 1
 .IP \n[step].
-Create the \*[c]Book\*[r] class.  
+Complete the \*[c]Book\*[r] class.  
 
-Include members for ISBN, title, author, and copyright date.
-Use the Date class from the previous section for the copyright date.
-Store a value to indicate if the book is checked out or not.
-Create functions to return each of the stored values.
+It already includes members for ISBN, title, author, and copyright date.
+\*[c]Book\*[r] uses the Date class from the previous section for the copyright date and
+stores a value to indicate if the book is checked out or not.
+Create functions to return each of the private member variables.
 Create functions for checking books in and out.
 Ensure member values are valid.
-For the ISBN, a string of 10 digits will suffice.
+For the ISBN, a string of length 10 is enough error checking.
 
 .IP \n+[step].
 Add operators to the \*[c]Book\*[r] class.  
