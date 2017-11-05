@@ -7,7 +7,7 @@
 #include <iostream>
 
 int main () {
-  int test[] = { 1, 2, 3, 5, 8 };  // can we use an initilaizer list?
+  int test[] = { 1, 2, 3, 5, 8 };  // can we use an initializer list?
   for (auto i: test) {             // can we use a range-for loop?
     std::cout << "i is " << i << '\n';
   }
