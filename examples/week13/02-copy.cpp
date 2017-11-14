@@ -7,7 +7,7 @@ struct A
 {
     int n;
     A(int n = 1) : n(n) { }
-    A(const A& a) : n(a.n) { } // user-defined copy ctor
+    A(const A& other) : n(other.n) { } // user-defined copy ctor
 };
  
 struct B : A

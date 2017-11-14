@@ -10,9 +10,9 @@
 struct A
 {
     std::string s;
-    A() : s("test") { }
-    A(const A& o) : s(o.s) { std::cout << "move failed!\n"; }
-    A(A&& o) noexcept : s(std::move(o.s)) { }
+    A() : s{"test"} { }
+    A(const A& other) : s(other.s) { std::cout << "move failed!\n"; }
+    A(A&& other) noexcept : s(std::move(other.s)) { }
 };
  
 A f(A a)

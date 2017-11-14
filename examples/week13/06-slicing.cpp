@@ -8,7 +8,7 @@ struct A {
   int a = 13;
   std::string words = "struct A words";
   A() {}
-  A(const A& a) {
+  A(const A& other) {
     puts("'A' copy constructor");
   }
   virtual void run() const { puts("I am an 'A'"); }
@@ -19,7 +19,7 @@ struct B: public A {
   int b = 5;
   double x = 21.0;
   B():A() {}
-  B(const B& a):A(a) {
+  B(const B& other):A(other) {
     puts("'B' copy constructor");
   }
   virtual void run() const { puts("I am a 'B'"); }

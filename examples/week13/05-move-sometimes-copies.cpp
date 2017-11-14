@@ -16,14 +16,14 @@ struct A {
 };
 
 struct B {
-	A a;
+	A alice;
 	B() { std::cout << "4"; }
-	B(const B& b) : a(b.a) { std::cout << "5"; }
-	B(B&& b) : a(b.a) { std::cout << "6"; }
+	B(const B& other) : a(other.alice) { std::cout << "5"; }
+	B(B&& other) : a(other.alice) { std::cout << "6"; }
 };
 
 int main() {
-	B b1;
-	B b2 = std::move(b1);
+	B bob;
+	B barb = std::move(bob);
 }
 
