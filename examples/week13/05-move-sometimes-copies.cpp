@@ -18,8 +18,8 @@ struct A {
 struct B {
 	A alice;
 	B() { std::cout << "4"; }
-	B(const B& other) : a(other.alice) { std::cout << "5"; }
-	B(B&& other) : a(other.alice) { std::cout << "6"; }
+	B(const B& other) : alice(other.alice) { std::cout << "5"; }
+	B(B&& other) : alice(other.alice) { std::cout << "6"; }
 };
 
 int main() {
