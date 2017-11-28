@@ -7,7 +7,7 @@ using transform = char (*)(const char c);
 
 
 static void usage(const char* name) {
-    std::cerr << "Encypt or decrypt a single line of text read from standard input\n"
+    std::cerr << "Encrypt or decrypt a single line of text read from standard input\n"
         << "Usage: " << name << " [-h]\n";
 }
 
