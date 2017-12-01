@@ -11,14 +11,13 @@ In this lab, the goal is to perform some very simple serialization using boost::
 .RS
 .nr step 0 1
 .IP \n+[step].
-Download the lab12b-solution as a starting point.
-This was the Pointer zoo lab.
-.IP \n+[step].
-You may leave the \fCmain()\fR alone, or gut it, it's up to you.
-We are not going to serialize vectors of pointers.
+Download the lab14b-files as a starting point.
+These are the classes from the Pointer zoo lab.
 .IP \n+[step].
 Pick 1 or 2 classes from the zoo that you like, 
 modify it, if you prefer.
+
+You may find adding a setter for pet name is a convenience.
 .IP \n+[step].
 Add command line argument handling so that you can invoke your program in two different 'modes'
 .RS
