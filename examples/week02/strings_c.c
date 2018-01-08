@@ -1,9 +1,9 @@
 #include<stdio.h>
 #include<string.h>  // for strcpy function
 
-// In C, a string is litterally an array of char
+// In C, a string is literally an array of char
 //
-// This is not the same as the string class form the STL.
+// This is not the same as the string class from the STL.
 // See strings.cpp for that
 
 int main()
