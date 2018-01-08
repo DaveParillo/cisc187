@@ -7,7 +7,7 @@
 // In most containers, calling size() is constant time.
 // That is it takes the same amount of time regardless of 
 // the number items in the container.
-// Notso for lists.
+// Not so for lists.
 //
 // Consider the following program:
 
