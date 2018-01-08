@@ -5,15 +5,17 @@
 using std::cout;
 using std::stack;
 
-template <class T>
-void pop_all(T& s) {
-  cout << "\nsize of stack: " << s.size() << '\n';
+#define StackContainer typename
+
+template <StackContainer C>
+void pop_all(C& s) {
+  cout << "\nsize of stack before: " << s.size() << '\n';
   while(!s.empty()) {
     cout << s.top() << " ";
     s.pop();
   }
-  cout << "\npop all from stack\n";
-  cout << "size of stack: " << s.size() << '\n';
+  cout << "\npopped all from stack\n";
+  cout << "size of stack after: " << s.size() << '\n';
 }
 
 int main () {
@@ -37,3 +39,4 @@ int main () {
 
   return 0;
 }
+
