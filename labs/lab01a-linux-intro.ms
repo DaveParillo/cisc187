@@ -57,6 +57,25 @@ Use the \*[c]passwd\*[r] program to change your login password from the default.
 Pick something you can remember!!
 
 If you forget it I can't help you and it may take a few days to reset it.
+.IP \n+[step].
+Setup your development environment for this course.
+.RS
+.IP a.
+Change the default shell from \fCzsh\fR to \fCbash\fR:
+.br
+ \*[c]chsh --shell /bin/bash\*[r]
+.IP b.
+Copy bash shell resource and convenience functions:
+.br
+ \*[c]cp ~dparillo/public_html/_bash_profile ~/.bash_profile\*[r]
+.br
+ \*[c]cp ~dparillo/public_html/_bashrc ~/.bashrc\*[r]
+.IP c.
+Open a new \*[c]git bash\*[r] or \*[c]putty\*[r] window and ssh to buffy.
+
+Observe the differences.
+
+If you cannot log in, raise your hand immediately!
 .RE
 .bp
 .NH
@@ -82,6 +101,9 @@ Complete the entire tutorial, or until you get to 30 minutes of activity.
 
 If you don't complete the tutorial in lab, 
 then I highly recommend you complete it outside of class.
+.IP \n+[step].
+Setup a recommended set of \*[c]vim\*[r] defaults:
+ \*[c]cp ~dparillo/public_html/cisc187/examples/_vimrc ~/.vimrc\*[r]
 .RE
 .NH
 Hello world: 30 points, 15 minutes \fImaximum\fR
@@ -95,6 +117,7 @@ If not already, open a shell and login to buffy.
 Use \*[c]mkdir\*[r] to make a new directory to hold your work (lab1a is recommended).
 .IP \n+[step].
 Create a new file \*[c]hello.cpp\*[r] and create a simple working C++ program.
+Ensure it displays \fCHello, world!"\fR followed by a new line.
 .IP \n+[step].
 Compile the program using the command 
 .br
