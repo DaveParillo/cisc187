@@ -19,41 +19,41 @@ list<int>::iterator move_to(list<int>& t, int value) {
 }
 
 int main () {
-  list<int> ilist = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-  cout << "size: "  << ilist.size() << '\n';
-  cout << "front: " << ilist.front() << '\n';
-  cout << "back: "  << ilist.back() << "\n\n";
+  list<int> my_list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+  cout << "size: "  << my_list.size() << '\n';
+  cout << "front: " << my_list.front() << '\n';
+  cout << "back: "  << my_list.back() << "\n\n";
 
   cout << "push_back 13: " << '\n';
-  ilist.push_back(13);
-  cout << "size: "  << ilist.size() << '\n';
-  cout << "back() " << ilist.back() << '\n';
+  my_list.push_back(13);
+  cout << "size: "  << my_list.size() << '\n';
+  cout << "back() " << my_list.back() << '\n';
 
-  print_list(ilist);
+  print_list(my_list);
 
   // need an iterator to insert and erase
-  auto it1 = move_to(ilist, 5);
-  if (it1 != ilist.end()) {
+  auto it1 = move_to(my_list, 5);
+  if (it1 != my_list.end()) {
     cout << "insert 21 before 5:" << '\n';
-    ilist.insert(it1, 21);
+    my_list.insert(it1, 21);
   }
-  print_list(ilist);
+  print_list(my_list);
 
-  it1 = move_to(ilist, 7);
-  if (it1 != ilist.end()) {
+  it1 = move_to(my_list, 7);
+  if (it1 != my_list.end()) {
     cout << "erase 7:" << '\n';
-    ilist.erase(it1);
+    my_list.erase(it1);
   }
 
-  print_list(ilist);
+  print_list(my_list);
 
   cout << "erase items between 21 and 8:" << '\n';
-  it1 = move_to(ilist, 21);
-  auto it2 = move_to(ilist, 8);
-  if (it1 != ilist.end() && it2 != ilist.end()) {
+  it1 = move_to(my_list, 21);
+  auto it2 = move_to(my_list, 8);
+  if (it1 != my_list.end() && it2 != my_list.end()) {
     cout << "found items: " << *it1 << " & " << *it2 << '\n';
-    ilist.erase(it1, it2);
-    print_list(ilist);
+    my_list.erase(it1, it2);
+    print_list(my_list);
   }
 
   return 0;

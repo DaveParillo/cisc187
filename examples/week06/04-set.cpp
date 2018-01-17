@@ -5,12 +5,12 @@ int main()
 {
   std::set<int> x {2,7,1,8,2,8,1,8,2,8,4,5,9};
 
-  for (auto i: x) {
+  for (const auto& i: x) {
     std::cout << i << ' ';
   }
   std::cout << "\n\ninsert 6:\n";
   x.insert(6);
-  for (auto i: x) {
+  for (const auto& i: x) {
     std::cout << i << ' ';
   }
   // erase 2
@@ -21,7 +21,7 @@ int main()
   } else {
     std::cout << "not found\n";
   }
-  for (auto i: x) {
+  for (const auto& i: x) {
     std::cout << i << ' ';
   }
 }
