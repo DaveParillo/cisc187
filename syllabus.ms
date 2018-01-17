@@ -1,8 +1,8 @@
 .ds LH Data Structures in C++
 .ds CH CISC-187
-.ds RH CRN 88408
+.ds RH CRN 20504
 .ds CF %
-.ds deadline 01 Sep 2017
+.ds deadline 09 Feb 2018
 .TL
 Data Structures in C++
 .br
@@ -32,17 +32,23 @@ Prerequisites
 CISC 192 with a grade of "C" or better, or equivalent.
 .RE
 .SH
-Required Text
+Textbooks
 .LP
 The following textbook is \fBrequired\fR for this course:
-.RS
-.nr step 1 1
-.IP \n[step].
+.QP
+\fBParillo, David\fP. 
+\fIIntermediate Modern C++\fP. 
+Online: https://daveparillo.github.io/intermediate-cpp/, Jan 2018.
+.LP
+The following textbook is \fBoptional\fR for this course:
+.QP
 \fBStroustrup, Bjarne\fP. 
 \fIProgramming: Principles and Practice Using C++\fP. 
 Addison-Wesley Professional, 2\*[{]nd\*[}] edition,
 June 2014. ISBN: 978-0321992789.
-.RE
+
+It contains extensive descriptions of all of the material covered in this course,
+which you may find useful.
 .SH
 Required Supplies
 .LP
@@ -56,8 +62,9 @@ Note that MS Visual Studio 2015 has a few minor C++11 issues that may cause occa
 Completed projects must compile on the Mesa cislinux server, mesa-cislinux.sdmesa.sdccd.cc.ca.us (buffy).
 To access this server off campus, you will need an ssh client.
 For windows, one of \fIgit\fR: (https://git-scm.com/downloads) or \fIputty\fR: (http://www.chiark.greenend.org.uk/~sgtatham/putty/) is recommended.
+.bp
 .SH
-Student Learning Outcomes
+Course Learning Outcomes
 .RS
 .nr step 0 1
 .IP \n+[step].
@@ -75,7 +82,6 @@ is available at:
 .CW
    http://209.129.16.61/~dparillo/
 .R
-.bp
 .SH
 Student Learning Objectives
 .LP
@@ -106,6 +112,29 @@ Identify and apply the various approaches pursued in C-family languages to
 manage memory, including their respective impacts on program performance and efficiency. 
 .RE
 .SH
+Evaluation
+.LP
+A student's grade will be based on multiple measures of performance and will 
+reflect the objectives set forth for this course. 
+A final grade of C or better indicates the student has the ability to 
+successfully apply theory and techniques taught in this course, 
+in subsequent courses, and in practice.
+.so grading-criteria.tbl
+.I
+.ce 1
+Note: Dates and weights of course items are subject to change
+.R
+.SH
+Grading
+.LP
+.TS
+center tab(!);
+c c c c c c.
+\fBA\fP !  \fBB\fP ! \fBC\fP !  \fBD\fP !  \fBF\fP !
+>= 90 ! >= 80, < 90 ! >= 70, < 80 ! >= 60, < 70 !  < 60
+.TE
+.bp
+.SH
 Attendance Requirements
 .LP
 The final grade in this class will be affected by active participation, 
@@ -120,7 +149,7 @@ failure to show up for class or failure to complete
 assignments, tests, or quizzes. 
 
 It is the student's responsibility to add, drop, or withdraw from classes 
-before the deadlines stated in the class schedule. 
+before the "last day to drop" date, \m[red]\*[deadline]\m[].
 Petitions to add, drop, or withdraw after the deadline 
 will not be approved without proof of circumstances 
 beyond the student's control, 
@@ -145,9 +174,9 @@ Zero credit for late work!
 .R
 There is no process for "making up" labs and quizzes.  
 If you cannot complete an exam or project on the scheduled date, 
-see me to arrange a makeup date.  
+see me to arrange a makeup date as soon as possible.  
 If you have a serious medical condition and will miss more than 2 classes,
-please see me so that we can make arrangments.
+please see me so that we can make arrangements.
 No extra-credit activities will be given as a replacement for late work. 
 No exceptions.
 .SH
@@ -177,6 +206,7 @@ BP 3100, Student Rights, Responsibilities, Campus Safety and Administrative Due 
 posted on the District website at: 
 .br
 http://www.sdccd.edu/public/district/policies/index.shtml
+.bp
 .SH
 Accommodation of Disability
 .LP
@@ -190,36 +220,17 @@ made for each student. By law, it is up to the DSPS Office what constitutes
 "appropriate accommodation" - it is not up to the student or the faculty.
 
 Students that need evacuation assistance during campus emergencies should also 
-meet with the instructor as soon as possible to assure the health and safety 
+meet with me as soon as possible to assure the health and safety 
 of all students.
 .SH
-Evaluation
+Medical Leave
 .LP
-A student's grade will be based on multiple measures of performance and will 
-reflect the objectives set forth for this course. 
-A final grade of C or better indicates the student has the ability to 
-successfully apply theory and techniques taught in this course, 
-in subsequent courses, and in practice.
-.so grading-criteria.tbl
-.I
-.ce 1
-Note: Dates and weights of course items are subject to change
-.R
-.SH
-Grading
-.LP
-.RS
-.IP \fBA\fP
->= 90
-.IP \fBB\fP
->= 80, < 90
-.IP \fBC\fP
->= 70, < 80
-.IP \fBD\fP
->= 60, < 70
-.IP \fBF\fP
-< 60
-.RE
-
+Absences due to pregnancy or related conditions, including recovery from childbirth, 
+may be excused for as long as the student's doctor deems the absences to be medically necessary. 
+Students must notify me in a timely manner and shall be afforded the opportunity
+to establish make up work or other alternative arrangements. 
+If a student elects to withdraw from the course on or after census, 
+a "W" shall be assigned and the district will work with the student to ensure
+that the W is not considered in progress probation and dismissal calculations. 
 
 
