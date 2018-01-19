@@ -1,12 +1,13 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <time.h>
 
-int main () 
+int main (int argc, char** argv) 
 {
-  const static size_t bufsize = 128;
+  const static uint16_t bufsize = 128;
   time_t t = time(0);	// the current time
 
-  printf("On this system, size of time_t is %ld bits.\n", sizeof(time_t) * 8);
+  printf("On this system, size of time_t is %lu bits.\n", sizeof(time_t) * 8);
 
   struct tm gmt = *gmtime(&t);	// structured time in GMT
   struct tm localt = *localtime(&t);	// structured time local
@@ -19,13 +20,13 @@ int main ()
 
   char buf[bufsize];	// buffer for strftime
 
-  size_t len = strftime( buf, bufsize, "%Y-%m-%d %H:%M:%S", &gmt );
+  uint64_t len = strftime( buf, bufsize, "%Y-%m-%d %H:%M:%S", &gmt );
   printf("from strftime (gmt):\n");
-  printf("universal time is now %s (%ld characters)\n", buf, len);
+  printf("universal time is now %s (%llu characters)\n", buf, len);
 
   len = strftime( buf, bufsize, "%Y-%m-%d %H:%M:%S %Z", &localt );
   printf("from strftime (localt):\n");
-  printf("local time is now %s (%ld characters)\n", buf, len);
+  printf("local time is now %s (%llu characters)\n", buf, len);
 
   return 0;
 }
