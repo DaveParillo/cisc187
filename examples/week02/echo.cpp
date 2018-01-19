@@ -15,7 +15,7 @@ static void usage(const char* name);
 /**
  * Explain how to use this program
  */
-static void help (const char* name);
+static void help(const char* name);
 
 /**
  * Parse command line and return the repeat count.
@@ -25,7 +25,7 @@ unsigned process_args(int argc, char** argv);
 /**
  * Echo input received 'repeat' number of times.
  */
-int echo (unsigned repeat);
+int echo(unsigned repeat);
 
 
 int main(int argc, char** argv) {
@@ -38,7 +38,7 @@ static void usage(const char* name) {
   std::cerr << "Usage: " << name << " [-h] [-r #repeats]\n";
 }
 
-static void help (const char* name) {
+static void help(const char* name) {
   usage(name);
   std::cerr << "Options:\n"
     << "  -h   Show this text\n"
@@ -60,19 +60,19 @@ unsigned process_args(int argc, char** argv) {
         std::cerr << "Error using '-r' argument: no repeat spacified\n";
         usage(argv[0]);
       }
-
     }
   }
   return repeat;
 }
 
-int echo (unsigned repeat) {
+int echo(unsigned repeat) {
   std::string line;
   while (getline(std::cin, line)) {
     for (auto i = 0ul; i < repeat; ++i) {
-      std::cout << line << '\n'; // getline strips newline
+      std::cout << line << '\n';  // getline strips newline
     }
-   line.clear();
+    line.clear();
   }
   return 0;
 }
+

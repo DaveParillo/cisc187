@@ -12,7 +12,7 @@ int main() {
     while (true) {
       if ((i % 1000) == 0) std::cout << i << " MB\n";
       ++i;
-      double* pd = new double[131072];    // allocate 1 MB
+      double* pd = new double[131072];    // let's leak 1 MB, woot!
     }
   }
   // this is the exception I expect to be thrown
@@ -26,5 +26,5 @@ int main() {
   catch (...) {
     std::cerr << "some other exception\n";
   }
-
 }
+

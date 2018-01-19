@@ -1,5 +1,5 @@
 
-// it's a better idea to physically separate 
+// it's a better idea to physically separate
 // definitions and declarations
 
 #ifndef WEEK02_CALL_STACK_H

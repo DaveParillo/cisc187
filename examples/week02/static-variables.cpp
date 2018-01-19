@@ -1,6 +1,6 @@
 #include <iostream>
 
-int func () {
+int func() {
   static int x = 0;
   static int y = 1;
   x = y;
@@ -8,7 +8,7 @@ int func () {
   return x;
 }
 
-int main () {
+int main() {
   std::cout << "Number sequence:\n:\t";
   for (int i = 0; i < 8; ++i) {
     std::cout << func() << ' ';
