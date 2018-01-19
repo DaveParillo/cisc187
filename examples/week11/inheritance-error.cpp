@@ -24,5 +24,6 @@ struct B : A {     // public A is redundant here (it's a struct)
 int main () {
   A *b = new B;
   b->foo();
+  delete b;
 }
 
