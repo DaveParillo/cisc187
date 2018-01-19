@@ -3,11 +3,17 @@
 
 class Hello {
   public: 
-    Hello ()              { name_ = "Alice"; }
-    Hello (std::string n) { name_ = n; }
+    Hello ()              
+      : name_{ "Alice"} {}
+    explicit Hello (const std::string& n) 
+      : name_ {n} {}
 
-    std::string name() const        { return name_; }
-    void        name(std::string n) { name_ = n; }
+    std::string name() const {
+      return name_;
+    }
+    void name(const std::string& n) {
+      name_ = n;
+    }
 
   private:
     std::string name_;

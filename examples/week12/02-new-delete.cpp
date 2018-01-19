@@ -2,7 +2,7 @@
 
 class A {
   public:
-    A( int i = 0 );
+    explicit A( int i = 0 );
     ~A();
     int a() { return a_; }
     int b() { return b_; }

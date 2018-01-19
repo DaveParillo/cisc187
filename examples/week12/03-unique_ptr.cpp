@@ -2,9 +2,9 @@
 #include <memory>
 
 struct Foo {
-  Foo()            {puts("Foo::Foo");};
-  ~Foo()           {puts("Foo::~Foo");};
-  void bar() const {puts("Foo::bar");};
+  Foo()            {puts("Foo::Foo");}
+  ~Foo()           {puts("Foo::~Foo");}
+  void bar() const {puts("Foo::bar");}
 };
 
 void f (const Foo& x) {
