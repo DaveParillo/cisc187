@@ -21,7 +21,7 @@ namespace mesa {
       }
       return res;
     }
-}
+}  // namespace mesa
 
 // copy the odd elements of a list of ints into a vector of doubles
 void copy_odd(vector<double>& vd, list<int>& li)

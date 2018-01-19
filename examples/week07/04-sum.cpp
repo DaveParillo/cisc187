@@ -19,7 +19,9 @@ struct Node {
   Node* next; 
   int data; 
   Node(): next{nullptr}, data{0} {}
-  Node(int x) : next{nullptr}, data{x} {}
+
+  // see https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=88046894
+  explicit Node(int x) : next{nullptr}, data{x} {}
 };
 
 // a non-generic sum algorithm
