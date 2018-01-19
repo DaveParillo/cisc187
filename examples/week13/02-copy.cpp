@@ -9,20 +9,20 @@ struct A
     A(int n = 1) : n(n) { }
     A(const A& other) : n(other.n) { } // user-defined copy ctor
 };
- 
+
 struct B : A
 {
     // implicit default ctor B::B()
     // implicit copy ctor B::B(const B&)
 };
- 
+
 struct C : B
 {
      C() : B() { }
- private:
+  private:
      C(const C&); // non-copyable, C++98 style
 };
- 
+
 int main()
 {
     A a1(7);
@@ -32,7 +32,7 @@ int main()
     A a3 = b; // conversion to A& and copy ctor
     volatile A va(10);
     // A a4 = va; // compile error
- 
+
     C c;
     // C c2 = c; // compile error
 }
