@@ -1,6 +1,6 @@
-#include "concepts.h"
-
 #include <iostream>
+
+#include "concepts.h"
 
 using std::cout;
 using std::endl;

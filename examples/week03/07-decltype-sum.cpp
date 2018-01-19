@@ -1,8 +1,7 @@
-#include "concepts.h"
-
 #include <iostream>
 #include <string>
 #include <typeinfo>
+#include "concepts.h"
 
 using std::cout;
 

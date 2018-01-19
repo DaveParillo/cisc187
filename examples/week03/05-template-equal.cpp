@@ -1,5 +1,3 @@
-#include "concepts.h"
-
 //
 // From the overload and template tutorial at
 // http://www.cplusplus.com/doc/tutorial/functions2/
@@ -7,6 +5,7 @@
 // Modified to include concepts
 
 #include <iostream>
+#include "concepts.h"
 
 // comparable is just defined as:
 // #define Comparable typename
