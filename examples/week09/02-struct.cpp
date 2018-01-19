@@ -1,9 +1,9 @@
 #include <iostream>
 
 struct Fibonacci {
-  short f5;
-  short f6;
-  short f7;
+  uint16_t f5;
+  uint16_t f6;
+  uint16_t f7;
 };
 
 int main() {

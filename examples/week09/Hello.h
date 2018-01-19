@@ -14,7 +14,7 @@ class Hello {
       return name_;
     }
     // set the name to something else
-    void name(std::string new_name)
+    void name(const std::string& new_name)
     {
       name_ = new_name;
     }
@@ -38,8 +38,8 @@ class Hello {
       name_ = "Alice";    // set the name in the body of the constructor
     }
 
-    Hello (std::string initial_name)  // set name when object is declared
-      : name_{initial_name} { }       // set name in initializer list (C++11)
+    Hello (const std::string& initial_name)  // set name when object is declared
+      : name_{initial_name} { }              // set name in initializer list (C++11)
 
     // get the name 
     std::string name() 
@@ -47,7 +47,7 @@ class Hello {
       return name_;
     }
     // set the name to something else
-    void name(std::string new_name)
+    void name(const std::string& new_name)
     {
       name_ = new_name;
     }
