@@ -7,6 +7,7 @@
 //
 class Cook {
   public:
+    Cook() = default;
     void servePizza() {
       pizzaBuilder->pizza()->serve();
     }

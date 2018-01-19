@@ -67,7 +67,7 @@ class NutritionFacts {
 
     };
 
-    NutritionFacts(const Builder& builder)
+    explicit NutritionFacts(const Builder& builder)
       : serving_size_{builder.serving_size_}, 
       servings_{builder.servings_},
       calories_{builder.calories_}, 

@@ -43,8 +43,8 @@ class ErrorHandler : public Handler {
 class FibonacciHandler : public Handler {
     unsigned fib(unsigned n) const {
         if(n == 0) return n;
-        unsigned a = 0, b = 1, c, i;
-        for (i = 2; i <= n; ++i) {
+        unsigned a = 0, b = 1;
+        for (unsigned c = 0, i = 2; i <= n; ++i) {
             c = a + b;
             a = b;
             b = c;
