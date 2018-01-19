@@ -1,11 +1,10 @@
 #include <iostream>
-using namespace std;
 
 int main()
 {
   int count = 2;
   auto lambda = [count] { 
-    cout << "Hello, lambda " << count << "!" << endl; 
+    std::cout << "Hello, lambda " << count << "!\n"; 
   };
   lambda();
 }

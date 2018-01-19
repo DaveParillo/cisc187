@@ -24,7 +24,7 @@ static void help (const char* name) {
 }
 
 char rot13(const char c) {
-    if (not std::isalpha(c)) return c;
+    if (!std::isalpha(c)) return c;
 
     // in order to rotate upper or lower case
     // need to know where the alphabet 'starts'

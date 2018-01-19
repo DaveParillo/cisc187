@@ -35,4 +35,6 @@ int main() {
   sp3 = &sp2;
   cout << sp3 << '\n';
   cout << **sp3 << '\n';
+
+  delete[] sp2;
 }
