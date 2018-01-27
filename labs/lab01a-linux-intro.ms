@@ -119,42 +119,21 @@ Use \*[c]mkdir\*[r] to make a new directory to hold your work (lab1a is recommen
 Create a new file \*[c]hello.cpp\*[r] and create a simple working C++ program.
 Ensure it displays \fCHello, world!"\fR followed by a new line.
 .IP \n+[step].
-Compile the program using the command 
+Compile the program using the command: 
 .br
 \fC   make hello\fR
 .IP \n+[step].
-Turn in your completed lab using the \*[c]turnitin\*[r] script:
-.RS
-These steps are written assuming the directory name you created is '\*[c]lab1a\*[r]'.
-.IP a.
-Go up to the previous directory:
+To check your progress on completing the lab, use the \*[c]check187\*[r] script:
 .br
-\fC   cd ..\fR
-.IP b.
-Run turnitin: 
+\fC   check187 lab1a\fR
 .br
-\fC   turnitin lab1a\fR
-.br
-.br
-When prompted, answer \*[c]Y\*[r] or \*[c]Yes\*[r] to the question.
-.br
-You should see something like this:
-.CW
-    turnitin lab1a
-    About to turn in the files in lab1a
-    Is this correct? [Y/n]:  y
+The script will evaluate your progress and test your work.
 
-      adding: lab1a/ (stored 0%)
-      adding: lab1a/hello.cpp (deflated 29%)
-    Your assignment was handed in as:    
-       /var2/home/turnitin.d/dparillo_1501959813.zip
-    A copy is also in this directory as: 
-       dparillo_1501959813.zip
-    now go and have some fun.
-.R
-.RE
-.RE
-
+You should continue working on it until all tests pass (\m[green]OK\m[])
+.IP \n+[step].
+Turn in your completed lab using the \*[c]submit187\*[r] script:
+.br
+\fC   submit187 lab1a\fR
 .bp
 .NH
 Extra credit
@@ -165,7 +144,7 @@ All *nix programs, even those with graphical user interfaces (GUIs), accept and 
 For some programs, this is the primary means of interacting with either other programs, or users. 
 Having robust handling of complex command-line arguments makes your application better and more useful. 
 You can 'roll your own' command line argument processing, or use a library.
-Library functions such as \*[c]getopt\*[r] or \*[c]boost::program_options\*[r],
+Library functions such as Unix \*[c]getopt\*[r] or \*[c]boost::program_options\*[r],
 are designed specifically to ease the burden of command-line processing. 
 .RS
 .nr step 0 1
@@ -180,10 +159,11 @@ Add an argument 'n' to change the name displayed in the hello world message.
 Add an argument 'h' to display help on using your program
 .RE
 
-You may use any command line argumernt processing technique that seems natural.
+You may use any command line argument processing technique that seems natural.
 .LP
 
 Ensure this program compiles with no errors or warnings.
 
-Use the \*[c]turnitin\*[r] script when complete.
+Check your progress using the command: \*[c]submit187 lab1a-extra\*[r].
+Turn in your completed work using the command: \*[c]submit187 lab1a-extra\*[r].
 

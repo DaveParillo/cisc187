@@ -1,11 +1,9 @@
-CXX = c++
-ifndef CXXFLAGS
-	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
-endif
-LDLIBS+=-lboost_serialization-mt
 
-zoo :  clean
-	${CXX} ${CXXFLAGS} ${LDLIBS} -o $@ *.cpp
+CXXFLAGS+=-Wall -Wextra -pedantic -std=c++11 -Wno-c++98-compat -Wno-padded -Wno-weak-vtables
+#CXXFLAGS+= -std=c++11 
+
+copies :  clean
+	c++ ${CXXFLAGS} -o $@ *.cpp
 
 clean : 
-	rm -f zoo *.o
+	rm -f copies *.o

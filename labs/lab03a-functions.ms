@@ -1,4 +1,4 @@
-.ds CH Lab #2a: Functions
+.ds CH Lab #3a: Functions
 .so headings.ms
 .TL
 \*[CH]
@@ -85,45 +85,6 @@ _
 
 .bp
 .NH
-Using namespaces: 30 points, 30 minutes \fImaximum\fR
-.time_box
-Write a program using a containing 3 namespaces: \*[c]X\*[r], \*[c]Y\*[r], and \*[c]Z\*[r].
-Use the following code for function \*[c]main()\*[r]:
-.RS
-.CW
-   int main() {
-     X::var = 7;
-     X::print();           // print the var in namespace X
-     using namespace Y;
-     var = 9;
-     print();              // print the var in namespace Y
-     {
-       using Z::var;
-       using Z::print;
-       var = 11;
-       print();            // print the var in namespace Z
-     }
-     print();              // print the var in namespace Y
-     X::print();           // print the var in namespace X
-   }
-.R
-
-Each namespace needs to define an \*[c]int\*[r]  variable \*[c]var\*[r] and a function \*[c]print()\*[r]
-that outputs the appropriate \*[c]var\*[r] using \*[c]cout\*[r].
-
-You may put all the code in a single file, if you prefer.
-
-When complete, a working program should print:
-.CW
-    X: 7
-    Y: 9
-    Z: 11
-    Y: 9
-    X: 7
-.R
-.RE
-.bp
-.NH
 Debugging: 30 points, 30 minutes \fImaximum\fR
 .time_box
 The purpose of this exercise is to provide an appreciation for following namespace best practices.
@@ -131,9 +92,14 @@ The purpose of this exercise is to provide an appreciation for following namespa
 .RS
 .nr step 0 1
 .IP \n+[step].
-Copy the program \fCexamples/week02/anti-patterns/swap-problem.cpp.
+Copy the program 
+\fC~dparillo/public_html/cisc187/examples/week02/anti-patterns/swap-problem.cpp\fR
+to \fCswap.cpp\fR.
+
 .IP \n+[step].
 Examine the program and record the expected output.
+
+You may record your expectations in a comment block at the top of the file.
 
 .IP \n+[step].
 Compile and run the program.
@@ -141,11 +107,15 @@ Compile and run the program.
 What is wrong with this program?  What changes need to be made to fix it?
 .IP \n+[step].
 Make the changes you think are needed.
+.IP \n+[step].
+Check your progress using the \*[c]check187\*[r] script:
+.CW
+    check187 lab3a
+.R
+.IP \n+[step].
+Turn in your completed lab using the \*[c]submit187\*[r] script:
+.CW
+    submit187 lab3a
+.R
 .RE
-
-Use turnitin to hand in your work when complete.
-
-.bp
-.so reflection.ms
-
 

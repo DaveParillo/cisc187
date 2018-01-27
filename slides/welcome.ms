@@ -69,9 +69,9 @@ very good error output
 .i1 Overloading, pointers to functions
 .i1 Pass-by-value and pass-by-reference
 .i1 Lambda functions
+.IT Midterm
 .IT Iterators
 .IT STL containers and algorithms
-.IT Midterm
 .IT Classes and structures
 .i1 Introduction to classes & class design
 .i1 Class interfaces

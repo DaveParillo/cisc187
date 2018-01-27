@@ -10,10 +10,9 @@ Week 2
 .IT Declarations and definitions
 .i1 \*[c]extern\*[r]
 .i1 \*[c]const\*[r]
+.i1 \*[c]auto\*[r]
 .IT Functions
 .IT Scope
-.IT Using \*[c]extern\*[r]
-.IT Using \*[c]auto\*[r]
 .SS Chapter review
 .IT Big idea
 .i1 What matters is how ideas can be expressed in code
