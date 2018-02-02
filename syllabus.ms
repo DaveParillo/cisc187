@@ -52,17 +52,12 @@ which you may find useful.
 .SH
 Required Supplies
 .LP
-Within the class & lab, no additional supplies are required.  
-Students wishing to complete work outside of class will need access to a computer, 
-a good text editor: \fIAtom\fP, \fIVim\fP, \fIEmacs\fP, or equivalent, and a modern C++ tool-chain.
-\fIClang\fP version 3.7 or greater or \fIg++\fP version 4.8.1 or greater are recommended,
-but any ISO-compliant C++ compiler / IDE that supports C++11 is sufficient.
-Note that MS Visual Studio 2015 has a few minor C++11 issues that may cause occasional difficulties.
-
-Completed projects must compile on the Mesa cislinux server, mesa-cislinux.sdmesa.sdccd.cc.ca.us (buffy).
-To access this server off campus, you will need an ssh client.
-For windows, one of \fIgit\fR: (https://git-scm.com/downloads) or \fIputty\fR: (http://www.chiark.greenend.org.uk/~sgtatham/putty/) is recommended.
-.bp
+Access to the Mesa cislinux server, mesa-cislinux.sdmesa.sdccd.cc.ca.us (buffy) is required.
+Access is only available through a Secure shell program (ssh).
+All campus computers, both in class and in the LRC have ssh clients.
+To access this server off campus, you need your own ssh client.
+If you have a Linux or MacOS X computer, ssh is already installed.
+For Windows, \fIgit\fR is recommended.
 .SH
 Course Learning Outcomes
 .RS
@@ -77,11 +72,7 @@ Understand from a C++ perspective, the control of program flow with a looping st
 Use C++ to provide a looping structure as a solution to a software problem.
 .RE
 
-A complete course outline with assigned reading and assignemts 
-is available at:
-.CW
-   http://209.129.16.61/~dparillo/
-.R
+A complete course outline is available at: \fChttp://209.129.16.61/~dparillo/\fR.
 .SH
 Student Learning Objectives
 .LP
@@ -133,7 +124,47 @@ c c c c c c.
 \fBA\fP !  \fBB\fP ! \fBC\fP !  \fBD\fP !  \fBF\fP !
 >= 90 ! >= 80, < 90 ! >= 70, < 80 ! >= 60, < 70 !  < 60
 .TE
+.SH
+Policy Regarding Late or Incomplete Work
+.LP
+.B
+Zero credit for late work!
+.R
+There is no process for "making up" labs and quizzes.  
+If you cannot complete an exam or project on the scheduled date, 
+see me to arrange a makeup date as soon as possible.  
+If you have a serious medical condition and will miss more than 2 classes,
+please see me so that we can make arrangements.
+No extra-credit activities will be given as a replacement for late work. 
+No exceptions.
+.SH
+Academic Integrity
+.LP
+Students are expected to be honest and ethical at all times in the pursuit of academic goals. 
+Students found to be in violation of Administrative Procedure 3100.3 Honest Academic Conduct, 
+will receive a grade of zero on the assignment, quiz, or exam in question and may be referred 
+for disciplinary action in accordance with Administrative Procedure 3100.2, 
+Student Disciplinary Procedures.  
+There is an academic integrity 'quiz' that is the first quiz in Blackboard.  
+I will not grade anything after week 2 until you complete this.
 .bp
+.SH
+Student Code of Conduct
+.LP
+Students are expected to adhere to the Student Code of Conduct at all times. 
+Students who violate the Student Code of Conduct may be removed from class 
+by the faculty for the class meeting in which the behavior occurred, 
+and the next class meeting.
+No make up opportunity exists for work missed due to removal from class.
+
+Incidents involving removal of a student from class will be reported to 
+the college disciplinary officer for follow up.
+
+The Student Code of Conduct can be found in Board of Trustees Policy, 
+BP 3100, Student Rights, Responsibilities, Campus Safety and Administrative Due Process 
+posted on the District website at: 
+.br
+http://www.sdccd.edu/public/district/policies/index.shtml
 .SH
 Attendance Requirements
 .LP
@@ -167,47 +198,6 @@ Students are responsible for processing the WITHDRAWAL or DROP action.
 \m[red]\*[deadline]\m[], will result in a grade being assigned, 
 regardless of attendance.\fR 
 .SH
-Policy Regarding Late or Incomplete Work
-.LP
-.B
-Zero credit for late work!
-.R
-There is no process for "making up" labs and quizzes.  
-If you cannot complete an exam or project on the scheduled date, 
-see me to arrange a makeup date as soon as possible.  
-If you have a serious medical condition and will miss more than 2 classes,
-please see me so that we can make arrangements.
-No extra-credit activities will be given as a replacement for late work. 
-No exceptions.
-.SH
-Academic Integrity
-.LP
-Students are expected to be honest and ethical at all times in the pursuit of academic goals. 
-Students found to be in violation of Administrative Procedure 3100.3 Honest Academic Conduct, 
-will receive a grade of zero on the assignment, quiz, or exam in question and may be referred 
-for disciplinary action in accordance with Administrative Procedure 3100.2, 
-Student Disciplinary Procedures.  
-There is an academic integrity 'quiz' that is the first quiz in Blackboard.  
-I will not grade anything after week 2 until you complete this.
-.SH
-Student Code of Conduct
-.LP
-Students are expected to adhere to the Student Code of Conduct at all times. 
-Students who violate the Student Code of Conduct may be removed from class 
-by the faculty for the class meeting in which the behavior occurred, 
-and the next class meeting.
-No make up opportunity exists for work missed due to removal from class.
-
-Incidents involving removal of a student from class will be reported to 
-the college disciplinary officer for follow up.
-
-The Student Code of Conduct can be found in Board of Trustees Policy, 
-BP 3100, Student Rights, Responsibilities, Campus Safety and Administrative Due Process 
-posted on the District website at: 
-.br
-http://www.sdccd.edu/public/district/policies/index.shtml
-.bp
-.SH
 Accommodation of Disability
 .LP
 Students with disabilities who may need academic accommodations are encouraged to discuss 
@@ -232,5 +222,3 @@ to establish make up work or other alternative arrangements.
 If a student elects to withdraw from the course on or after census, 
 a "W" shall be assigned and the district will work with the student to ensure
 that the W is not considered in progress probation and dismissal calculations. 
-
-
