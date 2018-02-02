@@ -1,4 +1,4 @@
-.ds CH Lab #3b: Overloads and Templates #2
+.ds CH Lab #4b: Regular polygons
 .so headings.ms
 .TL
 \*[CH]
