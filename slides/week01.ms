@@ -160,34 +160,6 @@ Solutions are posted on buffy (http://209.129.16.61/~dparillo) as well
 .IT I'm not assuming much familiarity with any operating system
 .i1 i.e. any command prompt or terminal environments
 .i1 hardware beyond broad generalities
-.SS Quiz technicalities
-.IT The \fINothing is output\fR option
-.i1 It \fImeans\fR
-.i2 \fINothing is output when the program is run\fR
-.i2 A program that does not compile never gets this far
-.IT Choose all \fIthat apply\fR
-.i1 I deduct points for incorrect guesses
-.i2 If you pick every answer you are bound to get a zero for that question
-.IT Choose \fBall\fR vs choose \fBone\fR
-.ds circle \s+4\[u25CB]\0\s-4
-.ds ballotbox \s-6\[br]\0\0\[br]\l'|0\[rn]'\l'|0\[ul]'\0\s+6
-
-.RS
-Choose \fBone\fR
-.br
-.RS
-\*[circle] a. This is the only viable option
-.RE
-.br
-Choose \fBall\fR
-.br
-.RS
-\*[ballotbox] a. Might be an answer
-.br
-.br
-\*[ballotbox] b. So might this
-.RE
-.RE
 .SS Parsing command line arguments
 .IT This information is for the extra credit part of the lab
 .IT A fundamental part of all *nix programs
@@ -247,52 +219,59 @@ The method signature is:
 .SS "getopt() Example"
 \s-(10
 .CW
-  #include <iostream>
 .B1
  #include <unistd.h>        \m[green]// getopt declaration resides in this header\m[]
 .B2
+
+  #include <iostream>
+  #include <string>
   using std::string;
    
   int main(int argc, char* argv[]) {
     int c;
     int debug = 0;
-    int max_critters = 25;
+    int num_critters = 25;
     string view = "default";
     string prog = argv[0];
 .bp
-    while ((c = getopt (argc, argv, "?hdv:n:")) != -1) {
+    while ((c = getopt (argc, argv, \m[red]"hdv:n:"\m[])) != -1) {
       switch (c) {
         case 'd':
           debug++;
           break;
         case 'n':
-          max_critters = std::atoi(optarg);
+          num_critters = std::atoi(\m[red]optarg\m[]);
           break;
         case 'v':
-          view = optarg;
+          view = \m[red]optarg\m[];
           break;
-        case 'h':            \m[green]// fall-through is intentional here\m[]
+        case 'h':            \m[green]// fall-through is intentional\m[]
         default:
-          show_usage(prog);
+          show_help(prog);
           break;
       }
 .R
 \s+(10
-.SS "Usage statement"
+.IT
+Things to notice
+.i1 the third argument passed to \fCgetopt\fR describes what is expecrted on the command line.
+.i2 A single letter for each command line switch
+.i2 If a value is expected, for example \fC-m 100\fR, then a single full colon should appear after the switch.
+.SS "Help"
 .LP
-A usage statement is customary if argument processing fails
+A help function is customary if argument processing fails
 \s-(10
 .CW
   /**
-   * Display a usage statement for this program.
-   * @param name the name of this program as determined by args[0]
+   * Display help for this program.
+   * @param name the name of this program as determined by argv[0]
    */
   static void show_usage(const string& name) {
     std::cerr << "Usage: " << name << " [-hd] [-v view] [-n #]"
       << "Options:\\n"
       << "  -h   Show this text\\n"
       << "  -d   Enable debug output.\\n"
-      << "  -v   Set the UI used.  The default is text based.\\n"
+      << "  -v   Set the view used.  The default is a text view.\\n"
       << "  -n   Set the number of Critters for each Species.  Default = 25.\\n"
       << std::endl;
     exit(0);
