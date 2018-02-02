@@ -113,6 +113,76 @@ exactly one task.
 Project rubric requirements for correctness, clarity, design, and coding are met or exceeded.
 .RE
 
+.h1 Implementing the computer player
+
+Don't make this more complex than needed!
+.LP
+You need a minimum of 3 functions:
+.RS
+.nr step 0 1
+.IP \n+[step].
+A function capable of evaluating the current state of the game.  How many stones in each pile, etc. This function needs to determine what pile the computer should play and how many stones to take.
+.IP \n+[step].
+A function to return the 'which pile' determination from step 1.
+.IP \n+[step].
+A function to return the 'how many' determination from step 1.
+.RE
+How you code this is up to you, however, there is a simple winning strategy for this game
+that can be easily implemented on a computer.
+
+The trick is to work with the numbers of stones as \fBbinary\fR instead of decimal.
+
+The key to the strategy is to try to make a move that results in the 
+\*[c]exclusive or\*[r] of the stones in all piles is equal to zero.
+For example, given a game with 3 piles with 2, 3, and 4 stones in the piles.
+In binary, the game looks like:
+
+.CW
+    0 1 0 
+    0 1 1
+  ^ 1 0 0
+    -----
+    1 0 1
+.R
+
+This result is called the \fInim sum\fR, because this strategy was first completely described in 1901
+by a mathematician, Charles Bouton, who named the game 'nim'.
+The origins of this game are much more ancient, but the exact history has been lost.
+
+Since the nim sum is greater than 0, a winning move is possible.
+That is, a move that changes the nim sum of all heaps to 0 is possible.
+If 3 stones are removed from the pile containing 4:
+
+.CW
+    0 1 0 
+    0 1 1
+  ^ 0 0 1
+    -----
+    0 0 0
+.R
+
+That leaves \fC1 ^ 2 ^ 3\fR, which = 0.
+
+This is a "winning position", because there is no move the next player can make
+which will leave the piles in a state where the nim sum of all piles is zero.
+
+If when it is your turn, the nim sum is already zero, 
+then there is no move you can make to guarantee a win.
+The only winning strategy is to drag the game out and hope your opponent makes a mistake.
+
+This is a rational strategy for a computer, because the longer a game lasts,
+the more likely a human opponent will make a mistake the computer can take advantage of.
+
+For more information, see:
+.RS
+.nr step 0 1
+.IP \n+[step].
+https://plus.maths.org/content/play-win-nim
+.IP \n+[step].
+https://en.wikipedia.org/wiki/Nim
+.RE
+
+
 .h1 Example output
 .h2 Show help
 .CW
@@ -126,7 +196,7 @@ Project rubric requirements for correctness, clarity, design, and coding are met
       -s   Manually set the starting number of stones in each pile.
 .R
 .h2 Default behavior
-.br
+.LP
 Play a random two player game.
 .CW
     ./take-away
@@ -176,20 +246,38 @@ Play a random two player game.
     Alice wins!!
     Play another game? [Y/n] n
 .R
-
+.bp
 .h2 Play against the computer
 .CW
-    ./take-away -c 7
+    ./take-away -c 
     Human player name: Darla
 
-    Player 1: Darla
-    Player 2: HAL 9000
-    Heap 0 [ 3]: ***
-    Heap 1 [ 7]: *******
-    Heap 2 [ 1]: *
+    Heap 0 [15]: ***************
+    Heap 1 [13]: *************
+    Heap 2 [ 7]: *******
+    Heap 3 [12]: ************
+    Heap 4 [11]: ***********
+    Heap 5 [ 9]: *********
+    Darla's turn
+    Which heap? 1
+    How many stones? 13
 
+    Heap 0 [15]: ***************
+    Heap 1 [ 7]: *******
+    Heap 2 [12]: ************
+    Heap 3 [11]: ***********
+    Heap 4 [ 9]: *********
+    HAL 9000's turn
+    HAL 9000 removed 6 stones from heap 0.
+
+    Heap 0 [ 9]: *********
+    Heap 1 [ 7]: *******
+    Heap 2 [12]: ************
+    Heap 3 [11]: ***********
+    Heap 4 [ 9]: *********
     Darla's turn
     Which heap? 
 
-.R
+    (rest of the game ommitted)
+    .R
 
