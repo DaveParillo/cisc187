@@ -59,6 +59,8 @@ Pick something you can remember!!
 If you forget it I can't help you and it may take a few days to reset it.
 .IP \n+[step].
 Setup your development environment for this course.
+
+Only perform these steps if instructed to do so.
 .RS
 .IP a.
 Change the default shell from \fCzsh\fR to \fCbash\fR:
