@@ -39,6 +39,7 @@ Transform to:
 .CW
     Lastname, F.
 .R
+
 where 'F' is the first letter of the first name.
 
 .IP \n+[step].
@@ -46,6 +47,7 @@ Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab2a
 .R
+
 The script will evaluate your progress and test your work.
 
 You should continue working on it until all tests pass (\m[green]OK\m[]).
