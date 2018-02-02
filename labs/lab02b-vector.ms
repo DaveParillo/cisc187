@@ -11,7 +11,7 @@ The purpose of this exercise is to practice working with \*[c]std::vector\*[r].
 We will be writing a program that takes values from the command line,
 and performs a series of operations.
 
-Use this cade as a starting point:
+Use this case as a starting point:
 .CW
     #include <unistd.h>
 
