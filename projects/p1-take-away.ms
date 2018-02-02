@@ -18,7 +18,7 @@ The player who removes the last stone(s) wins.
 .h1 Basic Gameplay
 .LP
 Ask each player for their name.
-The game should initialize the game with a random number of piles and a random number of coins in each pile.
+The game should initialize the game with a random number of piles and a random number of stones in each pile.
 The first player starts.
 When the game is over the program should display the name of the winning player and prompt to play another.
 
@@ -26,14 +26,14 @@ The game must only allow legal moves:
 .RS
 .nr step 0 1
 .IP \n+[step].
-When it is a players turn they must remove at least 1 coin
+When it is a players turn they must remove at least 1 stone
 .IP \n+[step].
-A player cannot remove more coins than are in a single pile
+A player cannot remove more stones than are in a single pile
 .IP \n+[step].
-A player may remove coins only from 1 pile per turn
+A player may remove stones only from 1 pile per turn
 
 After each player turn the game should redraw the current state of all remaining piles.
-Do not display piles with 0 coins.
+Do not display piles with 0 stones.
 .RE
 .h1 Turn in checklist
 .LP
@@ -210,7 +210,7 @@ Play a random two player game.
 
     Alice's turn
     Which heap? 1
-    How many coins? 5
+    How many stones? 5
     Player 1: Alice
     Player 2: Bob
     Heap 1 [14]: **************
@@ -218,9 +218,9 @@ Play a random two player game.
 
     Bob's turn
     Which heap? 2
-    How many coins? 9
-       There aren't that many coins in this heap.
-    How many coins? 7
+    How many stones? 9
+       There aren't that many stones in this heap.
+    How many stones? 7
     Player 1: Alice
     Player 2: Bob
     Heap 1 [14]: **************
@@ -228,7 +228,7 @@ Play a random two player game.
 
     Alice's turn
     Which heap? 1
-    How many coins? 13
+    How many stones? 13
     Player 1: Alice
     Player 2: Bob
     Heap 1 [ 1]: *
@@ -236,13 +236,13 @@ Play a random two player game.
 
     Bob's turn
     Which heap? 1
-    How many coins? 1
+    How many stones? 1
     Player 1: Alice
     Player 2: Bob
     Heap 1 [ 1]: *
 
     Alice's turn
-    How many coins? 1
+    How many stones? 1
     Alice wins!!
     Play another game? [Y/n] n
 .R
