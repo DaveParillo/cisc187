@@ -1,20 +1,23 @@
 CXX = c++
-CXXFLAGS=-Wall -Wextra -pedantic -std=c++11 -O3
+ifndef CXXFLAGS
+	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
+endif
 
-PROGS = 01-overload \
-				02-overload-volume \
-				03-overload-sum \
-				04-template-sum \
-				05-template-equal \
-				06-template-multiply \
-				07-decltype-sum \
-				08-type-traits \
-				add-function \
-				square
+CXXFLAGS+=-I..
+
+PROGS = add \
+		call-stack \
+		define \
+		echo \
+		passing-parameters \
+		passing-parameters-test \
+		simple-parameter \
+		static-variables \
+		static-variables-test \
+		void-func
 
 all: $(PROGS)
 
 clean:
 		rm -f $(PROGS)
-
 

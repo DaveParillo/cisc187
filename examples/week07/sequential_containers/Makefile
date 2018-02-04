@@ -3,10 +3,11 @@ ifndef CXXFLAGS
 	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
 endif
 
-PROGS = 02-overload+ \
-		03-postfix-prefix \
-		08-bitfields \
-		09-function-object
+PROGS = 01-list \
+		02-stack \
+		03-queue \
+		05-vector-iterator \
+		item04-call-empty-not-size-equals-0
 
 all: $(PROGS)
 

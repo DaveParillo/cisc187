@@ -1,6 +1,6 @@
 //
 // A simple program to echo standard input to standard out
-// Funnky options:
+// Options:
 //  - Program can repeat the number of times to echo input
 //  - Program can run interactively and echo input received 1 line at a time
 //

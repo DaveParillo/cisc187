@@ -3,10 +3,14 @@ ifndef CXXFLAGS
 	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
 endif
 
-PROGS = 02-overload+ \
-		03-postfix-prefix \
-		08-bitfields \
-		09-function-object
+CXXFLAGS=-I..
+
+PROGS = 01-hello \
+		02-struct \
+		03-hello-a \
+		03-hello-b \
+		03-test-hello \
+		04-initialization
 
 all: $(PROGS)
 

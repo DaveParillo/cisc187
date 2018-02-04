@@ -11,10 +11,8 @@
 #
 
 INCLUDES = 
-LIBS     = -lstdc++
-CXXFLAGS = $(INCLUDES) -Wall -time -O3 -DNDEBUG
-LIBFLAGS =  
-AR       = ar
+LIBS     = -lstdc++ 
+CXXFLAGS = $(INCLUDES) -Wall -O3 -DNDEBUG -Wno-unused-variable -std=c++11
 
 .SUFFIXES: .cpp .o
 
@@ -38,8 +36,8 @@ all: 	$(TARGETS)
 	@echo
 
 # A rule to build .exe file out of a .o file
-%.exe: %.o
-	$(CXX) -o $@ $(LIBFLAGS) $< $(LIBS)
+%.exe: %.o 
+	$(CXX) -o $@ $< $(LIBS)
 	@echo ================================================================================
 	@echo Done building $@
 	@echo ================================================================================

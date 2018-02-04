@@ -1,21 +1,23 @@
 CXX = c++
-CXXFLAGS=-Wall -Wextra -pedantic -std=c++11 -O3
+ifndef CXXFLAGS
+	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
+endif
 
-PROGS = 01-pointers-and-references \
-		01a-point-to-pointer \
-		02-array-copy \
-		03-string-pointers \
-		04-function-pointers \
-		05-function-pointer-passing \
-		06-jump-table \
-		10-lambda-hello \
-		11-passing-lambdas \
-		12-cipher \
-		13-cipher-char
+
+PROGS = 01-overload \
+		02-overload-volume \
+		03-overload-sum \
+		04-template-sum \
+		05-template-equal \
+		06-template-multiply \
+		07-decltype-sum \
+		08-type-traits \
+		add-function \
+		square
 
 all: $(PROGS)
 
 clean:
-		rm -f $(PROGS)
+	rm -f $(PROGS)
 
 

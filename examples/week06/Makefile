@@ -1,18 +1,19 @@
 CXX = c++
-CXXFLAGS=-Wall -Wextra -pedantic -std=c++11 -O3
+ifndef CXXFLAGS
+	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
+endif
 
-PROGS = 01-simple-map \
-				02-pair \
-				03-map-move \
-				04-set \
-				05-map-set \
-				06-multi-map \
-				07-multi-set \
-				08-unordered-map
+PROGS = 04-function-pointer-calculator \
+		05-function-pointer-passing \
+		06-jump-table \
+		10-lambda-hello \
+		11-passing-lambdas \
+		12-cipher \
+		13-cipher-char
 
 all: $(PROGS)
 
 clean:
-		rm -f $(PROGS)
+	rm -f $(PROGS)
 
 

@@ -1,25 +1,20 @@
 CXX = c++
-CXXFLAGS=-Wall -Wextra -pedantic -std=c++11 -g -I..
-CFLAGS=-Wall -Wextra -pedantic -std=c11 -g
+ifndef CXXFLAGS
+	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
+endif
+ifndef CFLAGS
+	CFLAGS = -Wall -Wextra -pedantic -std=c11
+endif
 
-PROGS = add \
-		call-stack \
-		define \
-		echo \
-		passing-parameters \
-		passing-parameters-test \
-		simple-parameter \
-		static-variables \
-		static-variables-test \
-		strings \
-		vectors \
-		vector-api \
+CXXFLAGS+=-I..
+
+PROGS = strings \
 		strings_c \
-		void-func
+		vectors \
+		vector-api
 
 all: $(PROGS)
 
 clean:
-		rm -f $(PROGS)
-		rm -rf *.dSYM
+	rm -f $(PROGS)
 

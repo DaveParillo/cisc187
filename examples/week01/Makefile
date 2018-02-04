@@ -1,7 +1,10 @@
 CXX = c++
-CXXFLAGS=-Wall -Wextra -pedantic -std=c++11 -O3
+ifndef CXXFLAGS
+	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
+endif
 
 PROGS = asciitable \
+		change \
 		hello \
 		hello_c \
 		phrase-o-matic \
