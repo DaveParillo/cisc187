@@ -11,48 +11,9 @@ The purpose of this exercise is to practice working with \*[c]std::vector\*[r].
 We will be writing a program that takes values from the command line,
 and performs a series of operations.
 
-Use this case as a starting point:
-.CW
-    #include <unistd.h>
-
-    int main(int argc, char** argv) {
-      vector<int> data;
-
-      enum class program_mode {
-        add, mean, odd, reverse
-      };
-    
-      int c;
-      auto mode = program_mode::add;
-      while ((c = getopt (argc, argv, "amor")) != -1) {
-        switch (c) {
-          case 'a':
-            mode = program_mode::add;
-            break;
-          case 'm':
-            mode = program_mode::mean;
-            break;
-          case 'o':
-            mode = program_mode::odd;
-            break;
-          case 'r':
-            mode = program_mode::reverse;
-            break;
-          default:
-            // do nothing
-            break;
-        }
-      }
-
-      // read all remaining arguments into an int vector
-
-      return 0;
-    }
-.R
-
 Expect the program to be invoked as follows:
 .CW
-    ./vectors -a 1 2 3 4
+    ./lab2b -a 1 2 3 4
 .R
 The first argument is an instruction telling the program what operation to perform
 on the remaining arguments, which will all be integers.
@@ -61,14 +22,28 @@ on the remaining arguments, which will all be integers.
 .RS
 .nr step 0 1
 .IP \n+[step].
-Create a \*[c]std::vector\*[r] object and assign each element of \fCargv\fR to it.
+Create a file lab2b.cpp.
+
+The main function should process the following 4 command line switches:
+.RS
+.IP \fB-a\fP
+Indicate all remaining values should be added
+.IP \fB-m\fP
+Take the mean of all remaining values
+.IP \fB-o\fP
+Print only the odd values remaining
+.IP \fB-r\fP
+Print all values remaining in reverse order
+.RE
+.IP \n+[step].
+Create a \*[c]std::vector\*[r] object and assign the remaining elements of \fCargv\fR to it.
 
 .IP \n+[step].
 Compute the \fBsum\fR of all of the numbers in the \*[c]vector\*[r].
 
 Given:
 .CW
-    ./vectors -a 1 2 3 4
+    ./lab2b -a 1 2 3 4
 .R
 The program should output:
 .CW
@@ -80,11 +55,11 @@ Compute the \fBmean\fR of all of the numbers in the \*[c]vector\*[r].
 
 Given:
 .CW
-    ./vectors -m 1 2 3 4
+    ./lab2b -m 1 2 3 4
 .R
 The program should output:
 .CW
-    10
+    2.5
 .R
 
 .IP \n+[step].
@@ -92,7 +67,7 @@ Print only the \fBodd\fR numbers in the \*[c]vector\*[r].
 
 Given:
 .CW
-    ./vectors -o 1 2 3 4
+    ./lab2b -o 1 2 3 4
 .R
 The program should output:
 .CW
@@ -104,7 +79,7 @@ Print the  \*[c]vector\*[r] with its elements in \fBreverse order\fR.
 
 Given:
 .CW
-    ./vectors -r 1 2 3 4
+    ./lab2b -r 1 2 3 4
 .R
 The program should output:
 .CW

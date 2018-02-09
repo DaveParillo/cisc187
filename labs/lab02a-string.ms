@@ -17,13 +17,19 @@ The goal is to use string functions instead.
 .RS
 .nr step 0 1
 .IP \n+[step].
+Create a file named lab2a.cpp.
+.IP \n+[step].
+Create a simple main function.
+
+You do not need to use getopt or any special command line argument handling to complete this lab.
+.IP \n+[step].
 Create a \*[c]std::string\*[r] object and assign \fCargv\fR to it.
 
 .IP \n+[step].
 Print the original text followed by a newline.
 .IP \n+[step].
 If the string last character is a period (.),
-then make the first character upper case and reverse the entire string.
+then make the first character upper case.
 
 .IP \n+[step].
 If the string is exactly 10 characters and all are digits,
@@ -42,6 +48,8 @@ Transform to:
 
 where 'F' is the first letter of the first name.
 
+.IP \n+[step].
+Print the modified text followed by a newline.
 .IP \n+[step].
 Check your progress using the \*[c]check187\*[r] script:
 .CW
