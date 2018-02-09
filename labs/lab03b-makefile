@@ -1,0 +1,11 @@
+ifndef CXXFLAGS
+  CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
+endif
+
+all: lab3b.h
+	c++ -c ${CXXFLAGS} lab3b.cpp
+
+clean:
+	rm -f *.o test_lab3b.exe
+
+
