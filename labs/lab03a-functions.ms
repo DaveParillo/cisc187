@@ -93,8 +93,8 @@ The purpose of this exercise is to provide an appreciation for following namespa
 .nr step 0 1
 .IP \n+[step].
 Copy the program 
-\fC~dparillo/public_html/cisc187/examples/week02/anti-patterns/swap-problem.cpp\fR
-to \fCswap.cpp\fR.
+\fC~dparillo/public_html/cisc187/examples/week03/anti-patterns/swap-problem.cpp\fR
+to \fClab3a.cpp\fR.
 
 .IP \n+[step].
 Examine the program and record the expected output.
