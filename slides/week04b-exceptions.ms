@@ -5,7 +5,7 @@ Exceptions
 .gcolor
 .LP
 .ce 1
-Week 3
+Week 4
 .SS Overview
 .IT Exceptions
 .i1 When to use them

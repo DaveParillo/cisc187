@@ -9,9 +9,9 @@ Function overloads
 .gcolor
 .LP
 .ce 1
-Week 3
+Week 4
 .SS Overview
-.IT You have \fBalready\fR read sections 19.3, 19.4, 19.5 and 5.6 of the text
+.IT You have \fBalready\fR read the text
 .IT Generic programming
 .IT Function overloads
 .IT Function templates
@@ -70,9 +70,10 @@ For example
 .i1s
 For example
 .CW
-  int operate (float a, int b, long c, double d) { ...
+  int make_date (int day, int month, int year) { ...
 .R
 .i1e
+.i1 Many parameters of the same type are easily mixed up
 .i1 More parameters = more complexity
 .i2 Limit the number of parameters you need in a given method, 
 .i2 Or use a struct to combine parameters
@@ -128,7 +129,7 @@ Then our previous sum functions collapse down to
   }
 .R
 .i1e
-.IT The identifier 'T' is traditional
+.IT The identifier 'T' is traditional placeholder for a generic type
 .i1 But any valid variable name could be used
 .i2 In beginner tutorials \fCAnyType\fR is not uncommon
 .IT Templates are completely specified in header files normally
@@ -144,6 +145,8 @@ You can explicitly provide the type
     \m[green]// or let the compiler deduce the type\m[]
     std::cout << sum (10,20) << '\\n';
     std::cout << sum (1.0,1.5) << '\\n';
+    std::cout << sum (10,1.5) << '\\n';  \m[green]// error!\m[]
+
   }
 .R
 .i1e
