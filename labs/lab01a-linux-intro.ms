@@ -166,6 +166,6 @@ You may use any command line argument processing technique that seems natural.
 
 Ensure this program compiles with no errors or warnings.
 
-Check your progress using the command: \*[c]submit187 lab1a-extra\*[r].
+Check your progress using the command: \*[c]check187 lab1a-extra\*[r].
 Turn in your completed work using the command: \*[c]submit187 lab1a-extra\*[r].
 
