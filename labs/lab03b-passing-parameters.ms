@@ -28,7 +28,7 @@ Create a \*[c]struct\*[r] named \fCtrigon\fR to hold the lengths of the sides of
   };
 .R
 
-Write a function \fCmake_triple\fR that takes two \*[c]const uint16_t\*[r] and
+Write a function \fCmake_triple\fR that takes two \*[c]uint16_t\*[r] constants and
 returns a \fCtrigon\fR that is a Pythagorean triple using Euclid's formula.
 
 Given two parameters \fCm\fR and \fCn\fR, when \fCm\fR > \fCn\fR, the following:
@@ -52,7 +52,7 @@ The function should not modify the trigon if the scale factor is < 0.01.
 
 .IP \n+[step].
 Write a function \fCarea\fR that takes a constant \fCtrigon\fR reference and
-computes the area of the trigon.
+returns the area of the trigon.
 
 To compute the area, first compute the semi-perimeter:
 .EQ

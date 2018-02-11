@@ -5,10 +5,9 @@ Functions
 .gcolor
 .LP
 .ce 1
-Week 2
+Week 3
 .SS Overview
 .IT Declarations and definitions
-.i1 \*[c]extern\*[r]
 .i1 \*[c]const\*[r]
 .i1 \*[c]auto\*[r]
 .IT Functions
@@ -47,11 +46,12 @@ Week 2
 .i1 A function declaration with a body (a function body) is a function definition.
 .i1 The key to managing declarations of facilities defined "elsewhere" in C++ is the header file.
 .i1 The \fBstd_lib_facilities.h\fR header file from the text 
-.i2 Common declarations used in the book 
+.i2 Common declarations used in the Programming Princliples book 
 .i3 \*[c]cout\*[r], \*[c]vector\*[r], and \*[c]sqrt()\*[r], 
 .i3 and a couple of simple utility functions 
 .i3 I don't use it, but you should be aware it exists.
 .i3 Some example code fromt he book needs it to compile.
+.i3 The version on his website now only works with MS Visual Studio and old *nix compilers.
 .i2 Most of the book examples in my github respository removed the dependency on \fCstd_lib_facilities.h\fR
 .IT Scope
 .i1 A scope is a region of program text. 
@@ -86,7 +86,7 @@ in a header file
 .bp
 .IT Now we need to define \fCglobal_x\fR
 .i1s
-We can define it in only 1 place, or the compiler complains
+We can define it in \fBonly 1 place\fR, or the compiler complains
 .br
 Source file 1:
 .CW
@@ -143,7 +143,7 @@ over
 .i1s
 Prefer 
 .br
-\fC  for (const auto c: my_string)\fR
+\fC  for (const auto& c: my_string)\fR
 .br
 over
 .br
