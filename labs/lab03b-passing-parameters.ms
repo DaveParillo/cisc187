@@ -34,7 +34,11 @@ returns a \fCtrigon\fR that is a Pythagorean triple using Euclid's formula.
 Given two parameters \fCm\fR and \fCn\fR, when \fCm\fR > \fCn\fR, the following:
 .EQ
   a = m sup 2 - n sup 2
+.EN
+.EQ
   b = 2mn
+.EN
+.EQ
   c = m sup 2 + n sup 2
 .EN
 
@@ -49,7 +53,7 @@ Values > 1.0 should make the trigon sides longer.
 Values < 1.0 should make the trigon sides shorter.
 
 The function should not modify the trigon if the scale factor is < 0.01.
-
+.bp
 .IP \n+[step].
 Write a function \fCarea\fR that takes a constant \fCtrigon\fR reference and
 returns the area of the trigon.
