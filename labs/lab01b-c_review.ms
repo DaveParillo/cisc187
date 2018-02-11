@@ -193,12 +193,14 @@ The goal is to make a working program that generates the following output:
 .RS
 .CW
   # ./triangle
-  Triangle 0: area = 3
-  Triangle 1: area = 8
-  Triangle 2: area = 15
-  Triangle 3: area = 24
-  Y is: 4, t5 area 15
-  t[2] area is now 343
+  Triangle 0: area = 7.5
+  Triangle 1: area = 20
+  Triangle 2: area = 37.5
+  Triangle 3: area = 60
+  Triangle 4: area = 87.5
+  Y is: 5, t5 area 37.5
+  t[2] area is now 27.5
+
 .R
 
 .RE
@@ -206,17 +208,17 @@ Choose from the following code snippets:
 .CW
  x                   int x = 0;          t[x]          
  y                   int y = 0;          t(x)   
- x < 4               int x = 1;          t.x     
- x <= 4              int y = x;   
- x < 5               ++x;         
+ x < 5               int x = 1;          t.x     
+ x <= 5              int y = x;   
+ x < 6               ++x;         
  x += 2;             x -= 1;       
- area                int          
+ area                int                 double         
  base                height          
  2.0                 2    
  return 0;
- Triangle t[4];
- Triangle[] t[4];
- Triangle t = new [] Triangle[4];
+ triangle t[5];
+ triangle[] t[5];
+ triangle t = new [] triangle[5];
  t.set_area();
  t.x.set_area();
  t[x].set_area();
@@ -227,12 +229,12 @@ Choose from the following code snippets:
 .CW
   #include <iostream>
 
-  struct Triangle {
+  struct triangle {
     double area;
     int height;
     int base;
     void set_area() {
-      ____ = double (____ * ____) / ____;
+      ____ = ______ (____ * ____) / ____;
     }
   };
 
@@ -242,7 +244,7 @@ Choose from the following code snippets:
     ____
 
     while (____) {
-      ____.height = (x+1) * 2;
+      ____.height = (x+1) * 5;
       ____.base = x + 3;
       ____
       std::cout << "Triangle " << x << ": area = " 
@@ -250,15 +252,24 @@ Choose from the following code snippets:
       ____
     }
     ____
-    x = 27;
-    Triangle t5 = t[2];
-    t[2].area = 343;
+    x = 11;
+    triangle t5 = t[2];
     std::cout << "Y is: " << y << ", t5 area " 
               << t5.area << std::endl;
+    t[2].____ = y;
+    t[2].____ = x;
+    t[2].set_area();
     std::cout << "t[2] area is now " << t[2].area << std::endl;
 
     ____
   }
 .R
 .RE
+
+Create a file \fCtriangle.cpp\fR on the Mesa server and
+use the snippets from the pool to make a working program.
+
+Check your progress using the command: \*[c]check187 lab1b-extra\*[r].
+
+Turn in your completed work using the command: \*[c]submit187 lab1b-extra\*[r].
 
