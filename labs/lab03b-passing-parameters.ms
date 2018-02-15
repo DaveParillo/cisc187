@@ -65,7 +65,7 @@ To compute the area, first compute the semi-perimeter:
 
 Compute the area using the semi-perimeter:
 .EQ
-  a = sqrt{s {s-a} * {s-b} * {s-c}} over 2
+  a = sqrt{s (s-a) * (s-b) * (s-c)} over 2
 .EN
 
 If any side of the \fCtrigon\fR is 0, then return 0 for the area.
