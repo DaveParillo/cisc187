@@ -31,7 +31,7 @@ Create a \*[c]struct\*[r] named \fCtrigon\fR to hold the lengths of the sides of
 Write a function \fCmake_triple\fR that takes two \*[c]uint16_t\*[r] constants and
 returns a \fCtrigon\fR that is a Pythagorean triple using Euclid's formula.
 
-Given two parameters \fCm\fR and \fCn\fR, when \fCm\fR > \fCn\fR, the following:
+Given two parameters \fCm\fR and \fCn\fR, when \fCm\fR > \fCn\fR > \fC0\fR, the following:
 .EQ
   a = m sup 2 - n sup 2
 .EN
@@ -44,7 +44,8 @@ Given two parameters \fCm\fR and \fCn\fR, when \fCm\fR > \fCn\fR, the following:
 
 create a Pythagorean right triangle.
 
-If parameter \fCm\fR is less than \fCn\fR the resultant trigon should equal \fC{0,0,0}\fR.
+If parameter \fCm\fR is less than \fCn\fR, 
+or \fCn < 1\fR the resultant trigon should equal \fC{0,0,0}\fR.
 
 .IP \n+[step].
 Write a function \fCscale\fR that takes a \fCtrigon\fR reference and a \*[c]float\*[r] factor and
@@ -53,6 +54,8 @@ Values > 1.0 should make the trigon sides longer.
 Values < 1.0 should make the trigon sides shorter.
 
 The function should not modify the trigon if the scale factor is < 0.01.
+
+This function should not return a value.
 .bp
 .IP \n+[step].
 Write a function \fCarea\fR that takes a constant \fCtrigon\fR reference and
@@ -65,7 +68,7 @@ To compute the area, first compute the semi-perimeter:
 
 Compute the area using the semi-perimeter:
 .EQ
-  a = sqrt{s (s-a) * (s-b) * (s-c)} over 2
+  a = sqrt{s (s-a) * (s-b) * (s-c)}
 .EN
 
 If any side of the \fCtrigon\fR is 0, then return 0 for the area.
@@ -75,7 +78,7 @@ Write a function \fCsmallest\fR that takes a constant \*[c]vector<trigon>\*[r] r
 returns the \fCtrigon\fR with the smallest area.
 
 .IP \n+[step].
-Write a function that takes a \*[c]vector<string>\*[r] and returns 
+Write a function \fCfirst\fR that takes a constant \*[c]vector<string>\*[r] reference and returns 
 the first \*[c]string\*[r] in the \*[c]vector\*[r],
 where 'first' is determined by their alphabetically sorted position.
 Accomplish this \fIwithout\fR sorting the vector.
