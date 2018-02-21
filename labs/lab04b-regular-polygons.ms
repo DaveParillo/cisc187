@@ -97,7 +97,8 @@ The type parameter should indicate the length of each side of the polygon.
 The non-type parameter should indicate the number of sides of the polygon.
 This function should compute the area of a regular polygon with an arbitrary number of sides.
 
-Are there alternative designs that would work as effectively?
+Deduce the return type from the length parameter.
+Hint: Use auto and a trailing return type.
 
 .br
 \fBArea\fR
