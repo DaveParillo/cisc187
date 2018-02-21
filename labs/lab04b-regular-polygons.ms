@@ -2,8 +2,6 @@
 .so headings.ms
 .TL
 \*[CH]
-.so cover-page.ms
-.bp
 .NH
 Shape area: 100 points, 90 minutes \fImaximum\fR
 .time_box
@@ -54,7 +52,7 @@ Remember to check for the invariants of perimeter.
 
 General formula for perimeter of a regular polygon:
 .EQ
-p = s times n
+p = sn
 .EN
 where:
 .RS
@@ -87,12 +85,13 @@ left { {pi over n} right }
 }
 .EN
 .br
-All of the trig functions in C++ (and most other languages) use angular units in radians, 
+All the trig functions in C++ (and most other languages) use angular units in radians, 
 not degrees, so the argument to the 
 tangent function is $180 over n pi over 180 = pi over n$ rather than $180 over n$.
 
 .IP \n+[step].
-Create an area function template with one type parameter and a non-type int template parameter.
+Create an area function template with one type parameter and 
+a non-type \*[c]uint16_t\*[r] template parameter.
 The type parameter should indicate the length of each side of the polygon.
 The non-type parameter should indicate the number of sides of the polygon.
 This function should compute the area of a regular polygon with an arbitrary number of sides.
@@ -100,10 +99,11 @@ This function should compute the area of a regular polygon with an arbitrary num
 Deduce the return type from the length parameter.
 Hint: Use auto and a trailing return type.
 
-.br
-\fBArea\fR
+And remember to check for the invariants of the function.
+
+Once you have the apothem and perimeter, the area is:
 .EQ
-Area = {a times p} over 2
+Area = {ap} over 2
 .EN
 where:
 .RS
@@ -113,6 +113,8 @@ where:
 .RE
 .IP \n+[step].
 Ensure your functions will work with all the C++ fundamental types.
+
+If you have created your templates correctly, then they should.
 .RE
 
 Check your progress using the \*[c]check187\*[r] script:
