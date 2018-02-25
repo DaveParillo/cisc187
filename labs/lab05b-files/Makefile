@@ -5,14 +5,14 @@ endif
 CXXFLAGS+= -g
 
 
-.PHONY clean test
+.PHONY: clean test
 
-pointers: clean
+grades: clean
 	c++ ${CXXFLAGS} -o grades main.cpp math.cpp student.cpp
 
 clean: 
 	rm -f grades 
 
 test: 
-	./grades < grades.txt
+	./grades < class.txt
 

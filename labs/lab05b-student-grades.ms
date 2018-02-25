@@ -2,6 +2,8 @@
 .so headings.ms
 .TL
 \*[CH]
+.so cover-page.ms
+.bp
 .NH
 Student grades: 100 points, 90 minutes \fImaximum\fR
 .time_box
@@ -32,8 +34,8 @@ Most of your code should be in \fCstudent.cpp\fR.
 Do not prompt for input.
 The code provided is intended to read input from \fIstandard input\fR, for example:
 .CW
-  ./pointers < grades.txt
-  cat grades.txt | ./pointers
+  ./grades < class.txt
+  cat class.txt | ./grades
 .R
 
 Both have the same effect.
@@ -41,7 +43,7 @@ Each sends the \fIstandard input\fR into your program.
 .IP \n+[step].
 When complete, the program should prduce the following results:
 .CW
-    # ./pointers < grades.txt 
+    # ./grades < class.txt 
     Name:   Alice   Id:    12345    Avg:    87.31
     Name:   Bob     Id:    67890    Avg:    85.89
     Name:   Clara   Id:    98765    Avg:    85.58
