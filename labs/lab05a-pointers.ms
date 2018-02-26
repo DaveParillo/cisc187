@@ -32,9 +32,8 @@ Write a function \*[c]std::size_t mesa::count(const char*, const char)\*[r] that
 the number of occurrences of the \*[c]char\*[r] in the array.
 
 .IP \n+[step].
-Write a function \*[c]char* mesa::find(const char* str, const char* x)\*[r] that returns
+Write a function \*[c]const char* mesa::find(const char* str, const char* x)\*[r] that returns
 the first occurrence of \*[c]x\*[r] in \*[c]str\*[r].
-The C string return value should be allocated on the free store.
 
 .IP \n+[step].
 Create a file \fCmain.cpp\fR.
