@@ -1,4 +1,4 @@
-.ds CH Lab #4a: Pointers
+.ds CH Lab #5a: Pointers
 .so headings.ms
 .TL
 \*[CH]
@@ -8,43 +8,46 @@ Pointers and arrays: 100 points, 90 minutes \fImaximum\fR
 .RS
 This exercise is intended to build your understanding of pointers and their relation to arrays. 
 
+Do not use any standard library functions in any of the functions you write for this lab.
+
 .nr step 0 1
 .IP \n+[step].
-Write a function \*[c]print_array(ostream& os, int* a , int n)\*[r] that writes 
-the addresses and values of \*[c]a\*[r] (assumed to have n elements) to \*[c]os\*[r].
-.IP \n+[step].
-Allocate an \*[c]int\*[r], initialize it to 7, and assign its address to a stack variable \fBp1\fR.
-.IP \n+[step].
-Print out the value of \fBp1\fR and of the \*[c]int\*[r] it points to.
-.IP \n+[step].
-Allocate an array of seven \*[c]int\*[r]s; initialize it to 1, 2, 4, 8, etc.; on the heap
-and assign its address to a variable \fBp2\fR.
-.IP \n+[step].
-Print out the value of \fBp2\fR and of the \*[c]int\*[r] it points to.
-.IP \n+[step].
-Declare an int* called \fBp3\fR and initialize it with \fBp2\fR.
-.IP \n+[step].
-Assign \fBp1\fR to \fBp2\fR.
-.IP \n+[step].
-Assign \fBp3\fR to \fBp2\fR.
-.IP \n+[step].
-Use \*[c]print_array\*[r] to display all the values of \fBp1\fR, \fBp2\fR, and \fBp3\fR.
-.IP \n+[step].
-Declare an int* called \fBp4\fR of size 7.
-.IP \n+[step].
-Copy the values from the array pointed to by p3 into the array pointed to by \fBp4\fR.
-.IP \n+[step].
-Assign the value stored in \fBp1\fR to the third element of \fBp2\fR.
-.IP \n+[step].
-Use \*[c]print_array\*[r] to display all the values of \fBp1\fR, \fBp2\fR, \fBp3\fR, and \fBp4\fR.
-.IP \n+[step].
-Deallocate all the memory you allocated from the heap.
+Create 2 files \fClab5a.h\fR and \fClab5a.cpp\fR.
 
-When finished, check your program on buffy by running \fCvalgrind\fR, a memory checking program.
+Use \fClab5a.h\fR to store the declarations for all lab functions and 
+\fClab5a.cpp\fR to store the function defintions.
 
-First compile your program, for example \fCpointers.exe\fR, then run it through valgrind:
+.IP \n+[step].
+Write a function \*[c]void mesa::to_lower(char*)\*[r] that replaces all upper case
+characters in the C string provided with lower case equivalents.
+
+You do not need to worry about locale or characters outside the ASCII character set.
+
+.IP \n+[step].
+Write a function \*[c]char* mesa::copy(const char*)\*[r] that returns a C string
+copied into memory allocated on the free store.
+
+.IP \n+[step].
+Write a function \*[c]std::size_t mesa::count(const char*, const char)\*[r] that returns
+the number of occurrences of the \*[c]char\*[r] in the array.
+
+.IP \n+[step].
+Write a function \*[c]char* mesa::find(const char* str, const char* x)\*[r] that returns
+the first occurrence of \*[c]x\*[r] in \*[c]str\*[r].
+The C string return value should be allocated on the free store.
+
+.IP \n+[step].
+Create a file \fCmain.cpp\fR.
+
+Call each of the functions you wrote.
+Keep it simple.
+
+.IP \n+[step].
+When finished, check your main on buffy by running \fCvalgrind\fR, a memory checking program.
+
+First create a main of your own and compile your program, then run it through valgrind:
 .CW
- valgrind pointers.exe
+ valgrind ./main
 .R
 
 If you properly cleaned up after your pointers, you should see the following line near the end of the output:
