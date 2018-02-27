@@ -5,7 +5,7 @@ Pointers
 .gcolor
 .LP
 .ce 1
-Week 4
+Week 5
 .SS Overview
 .IT Sections 17.2 - 17.4 & 21.4.3 of the text
 .i1 Ch 17 should be a review of what you already learned about pointers last semester
