@@ -297,15 +297,15 @@ C++11 introduces \*[c]nullptr\*[r] which is a distinct type
   \m[green]// Three overloads of f\m[]
   void f(int)   { std::cout << "f(int)\\n"; }
   void f(bool)  { std::cout << "f(bool)\\n"; }
-  void f(void*) { std::cout << "f(void*)\\n"; }
+  void f(int*)  { std::cout << "f(int*)\\n"; }
 
   int main() {
-    f(0);       \m[green]// calls f(int) overload, not f(void*)
+    f(0);       \m[green]// calls f(int) overload, not f(int*)
 
     //f(NULL);  // might not compile, typically calls
                 // f(int) overload.  
-                // Never calls f(void*)\m[]
-    f(nullptr);  \m[green]// calls f(void*) overload\m[]
+                // Never calls f(int*)\m[]
+    f(nullptr);  \m[green]// calls f(int*) overload\m[]
   }
 .R
 .i1e
@@ -321,7 +321,7 @@ C++11 introduces \*[c]nullptr\*[r] which is a distinct type
 
 .IT See example source: 
 .br
-\fCweek04/item08-prefer-nullptr-to-NULL\fR
+\fCweek05/item08-prefer-nullptr-to-NULL\fR
 .SS Summary
 .IT References refer to an object
 .i1 Stored at some location (address)
