@@ -15,7 +15,7 @@ Create 2 files \fClab3b.h\fR and \fClab3b.cpp\fR.
 Use \fClab3b.h\fR to store the declarations for all lab functions and 
 \fClab3b.cpp\fR to store the function defintions.
 
-For the remainder of this lab, the struct and all functions should be placd in the 
+For the remainder of this lab, the struct and all functions should be placed in the 
 \*[c]namespace mesa\*[r].
 
 .IP \n+[step].
