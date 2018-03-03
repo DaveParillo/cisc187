@@ -17,7 +17,7 @@ void add_student(std::vector<student*>* students, std::istringstream& iss);
 std::vector<student*> load_classroom(); 
 
 // write an entire classroom to an output stream
-std::ostream& operator<< (std::ostream& os, const std::vector<student*> rhs); 
+std::ostream& operator<< (std::ostream& os, const std::vector<student*>& rhs); 
 
 // write an one student to an output stream
 std::ostream& operator<< (std::ostream& os, const student* rhs);
