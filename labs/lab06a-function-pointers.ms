@@ -36,7 +36,7 @@ Write a template \*[c]bool mesa::greater(T a, U b)\*[r] that returns \*[c]true\*
 if \*[c]a\*[r] is greater than \*[c]b\*[r].
 
 .IP \n+[step].
-Create a program in \fCmain.cpp\fR that uses all the functions form the preceeding steps in this lab.
+Create a program in \fCmain.cpp\fR that uses all the functions from the previous steps in this lab.
 
 To use \*[c]mesa::greater\*[r], call \*[c]std::sort\*[r].
 
