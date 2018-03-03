@@ -24,17 +24,22 @@
 // which then reduces the function signature to
 //   void selection_sort(int *array, int size, comparator func)
 //
+// or
+//   std::function<bool, (int, int)> comparator;  
+//
 //
 void selection_sort(int *array, int size, bool (*comparator)(int, int))
 {
-  // Step through each element of the array
+  // depending on what the comaprator actually does, 
+  // smallest is a misleading variable name
+  // it might actually be 'largest' or something else
+  // but 'smallest' is a lot shorter than 'current_min_or_max_comparator_result'
   for (int start = 0; start < size; ++start) {
     // smallest is the index of the smallest element we've encountered so far.
     int smallest = start;
 
-    // Look for smallest element remaining in the array (starting at start+1)
+    // Look for smallest element remaining in the array
     for (int current = start+1; current < size; ++current) {
-      // If the current element is smaller than our previously found smallest
       if (comparator(array[smallest], array[current])) {
         // This is the new smallest number for this iteration
         smallest = current;
