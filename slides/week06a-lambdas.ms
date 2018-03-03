@@ -17,20 +17,43 @@ Week 6
 .i1 Many functions in the STL take a function as an argument.
 .i1 Suppose we want to count the number of short strings in a vector
 .i2 There is a count_if function in the STL
-.i3 Takes a range of pointers and a \fIpredicate\fR function
+.i2 Takes a range of pointers and a \fIpredicate\fR function
 .i2s
-A simple \fCcount_if\fR example
+A possible \*[c]count_if\*[r] function
+.CW
+  template<class ForwardIterator, class Predicate>
+  std::size_t count_if(ForwardIterator begin,
+                       ForwardIterator end, Predicate p)
+  {
+    std::size_t result = 0;
+    while (begin!=end) {
+      if (p(*begin)) ++result;
+      ++begin;
+    }
+    return result;
+  }
+.R
+.i2e
+.bp
+.IT If we define a predicate
+.i1s
+Is the length of a string less than 5?
 .CW
   bool less_than_5(const string& str) {
     return str.size() < 5;
   }
+.R
+.i1e
+.i1s
+We can use \fCcount_if\fR 
+.CW
   size_t num_short_strings(const vector<string>& v) {
     const string* begin = v.data(); \m[green]// must be const\m[]
     const auto end = begin + v.size();
     return count_if(begin, end, less_than_5);
   }
 .R
-.i2e
+.i1e
 .IT We can write as many functions like this as we need
 .i1 \fCless_than_10\fR, etc.
 .IT Gets tedious quickly
@@ -39,8 +62,9 @@ A simple \fCcount_if\fR example
 .bp
 .IT Goal
 .i1 Avoid writing a new function for every value to compare
-.i1s
-Simple: let's add a parameter \fCsize\fR:
+.i1 One possible solution
+.i2s
+Add a parameter \fCsize\fR:
 .CW
   bool less_than(const string& str, size_t size) {
     return str.size() < size;
@@ -48,7 +72,7 @@ Simple: let's add a parameter \fCsize\fR:
 .R
 
 Sadly, we can't use this function in \fCcount_if\fR
-.i1e
+.i2e
 .IT The new function is arguably more generic
 .i1 But we can't use our 'improved' \fCless_than\fR in \fCcount_if\fR
 .i2 Predicate must be a \fIunary\fR function
@@ -78,19 +102,18 @@ Sadly, we can't use this function in \fCcount_if\fR
 For example
 .CW
   #include <iostream>
-  using namespace std;
    
   int main()
   {
       auto lambda = [] { 
-        cout << "Hello, lambda!" << endl; 
+        std::cout << "Hello, lambda!\\n"; 
       };
       lambda();
   }
 .R
 .i1e
 .SS Count_if again
-.IT Now we can eliminate a functor completely
+.IT Now we can eliminate the second parameter
 .i1s
 Count the elements > 5
 \s-4
@@ -137,7 +160,8 @@ Using the \*[c]for_each\*[r] algorithm
 .i1s
 Return the sum of all values divisible by divisor
 .CW
- int sum_divisible_by(const int* begin, const int* end, 
+ int sum_divisible_by(const int* begin, 
+                      const int* end, 
                       const int divisor)
  {
    int sum = 0;
