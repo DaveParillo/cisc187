@@ -6,7 +6,7 @@
 \*[LH]
 .LP
 The goal of this project is to create a two player game called \*[c]take away\*[r].
-The games consists on one or more piles.
+The games consists of one or more piles.
 Typically, each pile contains stones or sticks.
 In your program, you may refer to them how you like.
 I will use stones.
