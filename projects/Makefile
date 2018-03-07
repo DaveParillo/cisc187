@@ -1,4 +1,4 @@
-format=pdf
+format=ps
 ifeq ($(format),ascii)
 	page = -pet -T $(format) -P-c 
 else
@@ -19,7 +19,7 @@ help:
 
 projects:
 	for i in `/bin/ls *.ms`; do \
-	groff $(page) -ms ../macros.ms -d the_date=`date "+%Y-%m-%d"` $$i > $$i.$(format); \
+	groff $(page) -ms ../macros.ms -d the_date=`date "+%Y-%m-%d"` $$i | ps2pdf - $$i.pdf; \
 	done
 
 
