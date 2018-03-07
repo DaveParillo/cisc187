@@ -226,16 +226,16 @@ Sample function definition
 .i1s
 We can send different lambdas to the function
 .CW
-  auto func1 = [](int y) {
+  auto print = [](int y) {
     cout << y << endl;
   };
 
-  auto func2 = [](int z) {
-    cout << z * 2 << endl;
-  };
+  run_in_for_each(print);
 
-  run_in_for_each(func1);
-  run_in_for_each(func2);
+  \m[green]//most lambdas are used in line\m[]
+  run_in_for_each([](int z) {
+    cout << z * 2 << endl;
+  });
 .R
 .i1e
 .SS Summary
