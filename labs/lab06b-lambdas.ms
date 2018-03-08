@@ -23,13 +23,27 @@ cp ~dparillo/public_html/cisc187/examples/week06/12-cipher.cpp lab6b.cpp
 Delete the line containing\*[c]using transform\*[r].
 We won't be using this alias.
 .IP \n+[step].
-Modify the signature of \*[c]render_text\*[r] to use \*[c]std::function\*[r].
-When complete, the function should still accept functions of the same type:
-take one \*[c]const char\*[r] parameter and return a  \*[c]char\*[r].
+Modify the signature of \*[c]render_text\*[r] replacing transform with an equivalent \*[c]std::function\*[r].
 .IP \n+[step].
-Move the \*[c]rot13\*[r] and \*[c]rot47\*[r] functions to lambda expressions defined in main.
+Rewite the \*[c]rot13\*[r] and \*[c]rot47\*[r] functions as lambda expressions.
+
+Keep in mind these function will not automatically deduce the correct return type,
+so your lambdas must explicitly define the return type.
 .IP \n+[step].
 Run your program an ensure it enciphers / deciphers text exactly as before modification.
+
+Run as:
+.CW
+  echo "Hello, World!" | ./lab6b
+.R
+.br
+or
+.CW
+  echo "Hello, World!" | ./lab6b -f
+.R
+.br
+for example.
+
 .RE
 
 Check your progress using the \*[c]check187\*[r] script:
