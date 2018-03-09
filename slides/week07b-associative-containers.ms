@@ -135,33 +135,39 @@ Index: <reference, resource>
 .SS Custom Compare for map
 .IT First
 .i1s
-Create a class with 1 override
+Create a comparator
 .CW
-  struct compare_size {
-    bool operator()(const std::string& lhs, 
-                    const std::string& rhs) const {
-      return lhs.size() < rhs.size();
-    }
-  };
+  const auto greater_than = 
+    [] (string lhs, string rhs) {return lhs > rhs;};
 .R
 .i1e
+
 .IT Then
 .i1s
-Pass this class in as the third template argument of a map
+Pass this lambda in as the third template argument of a map
 .CW
-  std::map<std::string, 
-           std::string, compare_size> size_map;
+  \m[green]// define a reverse ordered map\m[]
+  std::map<string, int, decltype(greater_than)> 
+          foo (greater_than);
 .R
 .i1e
-.IT Note that in this example we are saying it's the \fIlength\fR of a string that defines it's uniqueness
-.i1 Only 1 string of size = \fIn\fR can be stored in size_map
+
+.IT Any thoughts why \*[c]decltype\*[r] is needed?
+.IT Note
+.i1s
+The STL provides \*[c]std::greater\*[r]
+.CW
+  \m[green]// define a reverse ordered map\m[]
+  std::map<string, int, std::greater<string> > foo;
+.R
+.i1e
 .SS Sets
-.IT Think '\*[c]map\*[r]', but with no values
+.IT Think '\*[c]map\*[r]', but with only the keys
 .IT A \*[c]set\*[r] is an ordered collection of things
 .i1 Unlike a  map, it's not a pair, a single element is in the set.
-.IT The \*[c]set\*[r] API has the same functions \*[c]map\*[r]
+.IT The \*[c]set\*[r] API has the same functions as \*[c]map\*[r]
 .i1 Elements instead of pairs
-.IT Set ordering
+.IT Set ordering is also same as \*[c]map\*[r]
 .i1 By default uses \*[c]operator<\*[r]
 .i1 You can provide a custom Compare object
 .SS Multiset (and multimap)
