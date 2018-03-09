@@ -1,15 +1,15 @@
 
 .TL
 .gcolor blue
-Linear Containers
+Sequential Containers
 .gcolor
 .LP
 .ce 1
-Week 5
+Week 7
 .SS Overview
-.IT Chapter 20 of the text
+.IT Chapter 20 of the Programming Principles
 .IT Containers in the STL
-.IT Linear ADT's
+.IT Sequential containers
 .i1 \*[c]array\*[r]
 .i1 \*[c]vector\*[r]
 .i1 \*[c]list\*[r]
@@ -58,16 +58,16 @@ Week 5
 .i1 The container order is defined by rules: the sort order
 .i1 Sorting is based on object properties
 .i1 Containers can \fInever\fR be sorted \fBand\fR unordered
-.SS Linear ADT's
+.SS Sequential ADT's
 .IT We've been working with one all semester
-.i1 \*[c]vector\*[r] is a \fIlinear ADT\fR
-.IT A \fIList\fR has methods related to the \fIindex\fR
+.i1 \*[c]vector\*[r] is a \fIsequential ADT\fR
+.IT Functions related to the container \fIindex\fR
 .CW
   at(size_t pos), operator[], front(), back()
 .R
 .IT Vectors, lists and arrays are ordered ADT's
 .i1 Ordered by \fIindex\fR
-.SS Linear ADT's
+.SS Sequential ADT's
 .IT \*[c]std::array\*[r] 
 .i1 A container that encapsulates a fixed size array
 .i1 Doesn't collapse into a \fCT*\fR automatically
@@ -168,11 +168,11 @@ box "d"
 .i1 Postfix arithmetic: 4 3 +
 .IT Backtracking along a path
 .SS Stack Properties
-.IT As a linear ADT, 
+.IT As a sequential ADT, 
 .IT stack operations are limited to one end of the backing store
 .i1 By convention, called the 'top'
 .IT A \*[c]stack\*[r] is a \fIcontainer adapter\fR
-.i1 It \fIadapts\fR another linear container
+.i1 It \fIadapts\fR another sequential container
 .i1 To provide the properties of a \*[c]stack\*[r]
 .i1 The container must be able to provide
 .i2 \fCback(), push_back(),\fR and \fC pop_back()\fR
@@ -215,7 +215,7 @@ Song Zhipeng, Next Please. Retrieved from http://www.creativebloq.com/3d/how-que
 .IT Network packet routing
 .SS Queue Properties
 .IT A \*[c]queue\*[r] is a \fIcontainer adapter\fR
-.i1 It \fIadapts\fR another linear container
+.i1 It \fIadapts\fR another sequential container
 .i1 To provide the properties of a \*[c]queue\*[r]
 .i1 The container must be able to provide
 .i2 \fCback(), front(), push_back(),\fR and \fC pop_front()\fR
@@ -242,7 +242,7 @@ Can be adapted to create a \*[c]queue\*[r]
 .IT By default use \*[c]std::vector\*[r]
 .i1 Memory is contiguous by default
 .i1 Dynamically changes to fit
-.i1 If size is fixed and need to avoid the heap
+.i1 If size is fixed and need to avoid the free store
 .i2 Consider \*[c]std::array\*[r]
 .IT List edge cases
 .i1 You are storing very large, expensive data structures
@@ -250,15 +250,16 @@ Can be adapted to create a \*[c]queue\*[r]
 .i1 You never want to preallocate memory in your container
 .IT For dictionary type lookups (use key to get value)
 .i1 Use a \fImap\fR
-.i2 We'll be covering this in a week or so
-.IT If you need to make your own custom linear container
-.i1 Consider adapting \*[c]std::deque\*[r]
+.i2 We'll be covering this next class
 .IT Use \*[c]std::stack\*[r] and \*[c]std::queue\*[r] 
 .i1 When you really need containers that model those behaviors
-.SS Overview
+.IT If you need to make your own custom sequential container
+.i1 Consider adapting \*[c]std::deque\*[r]
+.SS Summary
 .IT Containers in the STL
-.IT Linear ADT's
+.IT Sequential ADT's
 .i1 What they are
 .i1 When to use them
 .IT Wednesday
-.i1 Iterators
+.i1 Maps and sets
+
