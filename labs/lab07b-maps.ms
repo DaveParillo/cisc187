@@ -21,7 +21,7 @@ unless otherwise noted, place all code in the \*[c]mesa\*[r] namespace.
 .IP \n+[step].
 Create the files \fClab7b.h\fR, \fClab7b.cpp\fR, and \fCmain.cpp\fR.
 .IP \n+[step].
-Create a function \*[c]lower_case\*[r] that converts a string to all lower case characters.
+Create a function \*[c]to_lower\*[r] that converts a string to all lower case characters.
 
 Bonus:  do this without using any raw loops.
 .IP \n+[step].
@@ -49,13 +49,21 @@ Recall map keys are unique. Duplicate keys are silently replaced with new values
 .IP d.
 Return the new map.
 .RE
+.RE
+
+The remaining steps are optional extra practice.
+
+.RS
 .IP \n+[step].
-Call the function \*[c]frequencytable\*[r] with the word list and a function that simply returns whatever string is provided.
-.br
-(Yes, this function does nothing).
+\fBOptional step\fR
+
+Create a function \*[c]print_common\*[r] that takes two parameters: a word list and a minimum frequency.
+It should print all elements in the map where 
+the word frequency is greater than or equal to the frequency provided.
+.bp
 .IP \n+[step].
-Call the function \*[c]frequencytable\*[r] with the word list and a function that converts a string to lower case.
-.IP \n+[step].
+\fBOptional step\fR
+
 In \*[c]main.cpp\*[r] create a program that uses your functions from the previous steps.
 .RS
 .IP a.
@@ -68,9 +76,19 @@ Define a
 .R
 .IP b.
 Make a word list map from the vector and print it.
+
+Call the function \*[c]frequencytable\*[r] with the word list and a function that simply returns whatever string is provided.
+.br
+(Yes, this function does nothing).
 .IP c.
 Make a lowercase version of the word list map and print it.
+
+Call the function \*[c]frequencytable\*[r] with the word list and a function that converts a string to lower case.
 .IP d.
+Print all the 'common' lowercase words.
+Call \*[c]print_common\*[r] with the lower case map and a minimum frequency of 2. 
+
+
 When complete, your output should resemble the following:
 .CW
     word frequencies:
@@ -86,6 +104,12 @@ When complete, your output should resemble the following:
     bat     1    bob    2    darla  2
     foo     2    make   1    map    1
     maps    1    seat   1    set    1
+
+    common words:
+    alice   3
+    bob     2
+    darla   2
+    foo     2
 .R
 .RE
 .RE
