@@ -20,7 +20,7 @@ SCENARIO( "Reverse a stack" * doctest::timeout(0.5)) {
     std::iota(v.rbegin(), v.rend(), 0);
     for (const auto& i: v) expected.push(i);
     WHEN( "the values are reversed" ) {
-      stack<int> reversed = mesa::reverse (x);
+      std::stack<int> reversed = mesa::reverse (x);
       THEN("the reversed stack should equal the expected") {
         while (!reversed.empty()) {
           REQUIRE (reversed.top() == expected.top());
@@ -32,7 +32,7 @@ SCENARIO( "Reverse a stack" * doctest::timeout(0.5)) {
   }
 
   GIVEN( "a stack of 7 names, Alice through Greg" ) {
-    stack<std::string> names;
+    std::stack<std::string> names;
     names.push("Alice");
     names.push("Bob");
     names.push("Clarice");
@@ -41,7 +41,7 @@ SCENARIO( "Reverse a stack" * doctest::timeout(0.5)) {
     names.push("Fran");
     names.push("Greg");
 
-    stack<std::string> expected;
+    std::stack<std::string> expected;
     expected.push("Greg");
     expected.push("Fran");
     expected.push("Earl");
@@ -50,7 +50,7 @@ SCENARIO( "Reverse a stack" * doctest::timeout(0.5)) {
     expected.push("Bob");
     expected.push("Alice");
     WHEN( "the names are reversed" ) {
-      stack<std::string> reversed = mesa::reverse (names);
+      std::stack<std::string> reversed = mesa::reverse (names);
       THEN("the reversed stack should equal the expected") {
         while (!reversed.empty()) {
           REQUIRE (reversed.top() == expected.top());

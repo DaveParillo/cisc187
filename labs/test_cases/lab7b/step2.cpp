@@ -4,6 +4,8 @@
 #include <doctest.h>
 #include <string>
 
+using std::string;
+
 SCENARIO( "Transform a string to lower case") {
 
   GIVEN( "a valid string" ) {
@@ -12,7 +14,7 @@ SCENARIO( "Transform a string to lower case") {
       string expected = "hello";
       string actual = mesa::to_lower(orig);
       THEN( "the string should become hello" ) {
-        REQUIRE(actual == expected);
+        REQUIRE(actual.compare(expected) == 0);
       }
     }
     WHEN( "'Goodbye, World!' is provided" ) {
@@ -20,7 +22,7 @@ SCENARIO( "Transform a string to lower case") {
       string expected = "goodbye, world!";
       string actual = mesa::to_lower(orig);
       THEN( "the string should become 'goodbye, world!'" ) {
-        REQUIRE(actual == expected);
+        REQUIRE(actual.compare(expected) == 0);
       }
     }
     WHEN( "'ncdSNCVFIEncGckdJdXsM' is provided" ) {
@@ -28,7 +30,7 @@ SCENARIO( "Transform a string to lower case") {
       string expected = "ncdsncvfiencgckdjdxsm";
       string actual = mesa::to_lower(orig);
       THEN( "the string should become 'ncdsncvfiencgckdjdxsm'" ) {
-        REQUIRE(actual == expected);
+        REQUIRE(actual.compare(expected) == 0);
       }
     }
   }
@@ -42,7 +44,7 @@ SCENARIO( "Compute the invariants of to_lower") {
       string expected;
       string actual = mesa::to_lower(orig);
       THEN( "nothing should be returned" ) {
-        REQUIRE(actual == expected);
+        REQUIRE(actual.compare(expected) == 0);
       }
     }
   }

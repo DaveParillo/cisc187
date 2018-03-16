@@ -29,8 +29,8 @@ SCENARIO( "Compare two stacks for equality" * doctest::timeout(0.5)) {
   }
 
   GIVEN( "a stack of 7 names, Alice through Greg" ) {
-    stack<std::string> x;
-    stack<std::string> y;
+    std::stack<std::string> x;
+    std::stack<std::string> y;
     x.push("Alice");     y.push("Alice");
     x.push("Bob");       y.push("Bob");
     x.push("Clarice");   y.push("Clarice");

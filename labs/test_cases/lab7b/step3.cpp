@@ -6,10 +6,14 @@
 #include <string>
 #include <sstream>
 
+using std::size_t;
+using std::map;
+using std::string;
+
 SCENARIO( "Overload operator<< for a map<string, size_t>") {
 
   GIVEN( "a valid map" ) {
-    std::map<string, size_t> words;
+    map<string, size_t> words;
     words["awesome"] = 7;
     words["make"] = 4;
     words["Bob"] = 3;
@@ -32,7 +36,7 @@ SCENARIO( "Overload operator<< for a map<string, size_t>") {
 SCENARIO( "Compute the invariants of operator<<") {
 
   GIVEN( "an empty map" ) {
-    std::map<string, size_t> words;
+    map<string, size_t> words;
     WHEN( "nothing is provided" ) {
       std::stringstream actual;
       size_t expected = 0;

@@ -35,7 +35,7 @@ SCENARIO( "Determine whether a stack contains a value" * doctest::timeout(0.5)) 
     }
   }
   GIVEN( "a stack of 7 names, Alice through Greg" ) {
-    stack<std::string> names;
+    std::stack<std::string> names;
     names.push("Alice");
     names.push("Bob");
     names.push("Clarice");
