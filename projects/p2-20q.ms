@@ -99,8 +99,6 @@ Gameplay proceeds as in the \m[blue]Outline of play\m[].
 .IP \n+[step].
 While the program executes, it should be clear what input is expected from the player.
 .IP \n+[step].
-The game tree resides on the \*[c]free store\*[r] when loaded in memory.
-
 You should assume I will provide a game file too large to fit in stack memory.
 
 If your game can't load my game file because of a 'stack overflow' error,
