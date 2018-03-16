@@ -27,7 +27,6 @@ Bonus:  do this without using any raw loops.
 .IP \n+[step].
 Create an overload for function \*[c]operator<<\*[r] that streams a word list
 to a provided output stream.
-A \fIword list\fR in this lab is a \*[c]map<string, std::size_t>\*[r].
 
 Do not put the \*[c]operator<<\*[r] function in the  \*[c]mesa\*[r] namespace.
 
@@ -35,15 +34,18 @@ Do not put the \*[c]operator<<\*[r] function in the  \*[c]mesa\*[r] namespace.
 Create a function \*[c]frequency_table\*[r] with the following characteristics:
 .RS
 .IP a.
-It should take as parameters a word list and
+It should take as parameters a word list: a \*[c]vector<string>\*[r] of words and
 a function that performs some operation on each word in the list.
 
 The function should take a single constant string parameter and return a string
 .IP b.
-Pass each word in the word list and use the function to make a new word.
+Create a new empty frequency table: a \*[c]map<string, std::size_t>\*[r].
 .IP c.
-Add the transformed word to a new word list
-and update the count of the word in the map each time it is entered.
+Loop on each word in the \*[c]vector\*[r] and use the function to make a
+frequency table entry.
+.IP c.
+Each time a value is added or modified in the frequency table,
+update the word count in the map.
 
 Recall map keys are unique. Duplicate keys are silently replaced with new values.
 .IP d.
@@ -57,7 +59,8 @@ The remaining steps are optional extra practice.
 .IP \n+[step].
 \fBOptional step\fR
 
-Create a function \*[c]print_common\*[r] that takes two parameters: a word list and a minimum frequency.
+Create a function \*[c]print_common\*[r] that takes two parameters: 
+a \*[c]map<string, std::size_t>\*[r] and a minimum frequency.
 It should print all elements in the map where 
 the word frequency is greater than or equal to the frequency provided.
 .bp
