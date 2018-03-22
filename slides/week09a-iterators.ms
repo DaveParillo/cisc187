@@ -5,13 +5,11 @@ Iterators
 .gcolor
 .LP
 .ce 1
-Week 5
+Week 9
 .SS Overview
-.IT Iterators
-.i1 Iterator Design Pattern
-.i1 Iterator categories
-.IT Range-for loops and their limits
-.IT \*[c]auto\*[r] keyword
+.IT Motivation
+.IT Iterator Design Pattern
+.IT Iterator categories
 .SS Question
 .IT How can we view each element of an ADT
 .IT And remain ignorant of the implementation details?
@@ -137,22 +135,8 @@ The \*[c]auto\*[r] keyword can help here
     std::cout << ' ' << it;
 .R
 .i1 Also produces \fC myvector contains: 1 2 3 4 5 \fR
-.SS Compare to range-for
-.IT The range-for, while 'obviously better' has limits
-.IT Non-linear steps
-.IT No equivalent to
-.CW
-  for (int i=n; i>0; i/=2) {...
-.R
-.IT Filtering
-.i1 If you need to traverse a collection 
-.i1 and remove items you need an explicit iterator so that you can call it's remove method
-.IT Transforming
-.i1 Likewise, if you need to add or modify the collection, you need an iterator or array index
-.IT Parallel iteration
-.i1 Walking through multiple collections
-.i1 Possibly at different rates (i++, j+=2)
-.SS Linear containers and iterators
+
+.SS Containers and iterators
 .IT Some container functions work only with iterators
 .IT Common container functions
 .i1 \fCinsert()\fR
