@@ -13,14 +13,46 @@ Week 9
 .SS Question
 .IT How can we view each element of an ADT
 .IT And remain ignorant of the implementation details?
-.SS Example
-.IT Given
+.IT Example
+.i1s
+Given
 .CW
   array<string, 3> names;
   names[0] = "Alice";
   names[1] = "Bob";
   names[2] = "Carol";
 .R
+.i1e
+.bp
+.IT How can we view each element of an ADT
+.IT And remain ignorant of the implementation details?
+.IT Example
+.i1s
+Given
+.CW
+  array<string, 3> names;
+  names[0] = "Alice";
+  names[1] = "Bob";
+  names[2] = "Carol";
+.R
+.i1e
+
+.IT How to operate on each member of names?
+
+.bp
+.IT How can we view each element of an ADT
+.IT And remain ignorant of the implementation details?
+.IT Example
+.i1s
+Given
+.CW
+  array<string, 3> names;
+  names[0] = "Alice";
+  names[1] = "Bob";
+  names[2] = "Carol";
+.R
+.i1e
+
 .IT How to operate on each member of names?
 .i1s
 Sure we could use a traditional loop
@@ -34,39 +66,99 @@ Sure we could use a traditional loop
     cout << names[i++];
   }
 .R
-.SS Avoiding explicit indexing
-.IT The \fIrange-for\fR loop
-.i1 aka the \fIfor each\fR loop
+.SS Problems
+.IT We need to know the container has a \*[c]size\*[r] function
+.IT The container must implement \*[c]operator []\*[r]
+
+.IT What about associative containers and lists?
+.bp
+.IT We need to know the container has a \*[c]size\*[r] function
+.IT The container must implement \*[c]operator []\*[r]
+
+.IT What about associative containers and lists?
+.i1s
+This code make no sense
 .CW
-  for (string s: names) {
-    cout << s;
+  set<string> names {"Alice", "Bob", "Clara"};
+  for (int i=0; i < names.size(); ++i) {
+    cout << \m[red]names[i]\m[];
   }
-.R 
-.IT This syntax isn't just better
-.IT It is
-.BI 
-obviously better
 .R
-.IT We have abstracted away the idea of moving from one element to the next
-.IT We say the array is 
-.BI Iterable
-.SS Iterator Pattern
-.IT Problem
-.i1 View each element of container
-.i1 Remain ignorant of all container implementation details
-.IT Solution
-.i1 Define an interface describing how to visit each element / node (the iterator)
-.i1 Implement iterator interface in container
-.i1 Clients (calling code) asks container to provide iterator object
-.i2 Use iterator to retrieve correct element
+.i1e
+.IT We can't access members of a \*[c]set\*[r] using an \fIindex\fR
+.SS Solution
+.IT Iterator Pattern
+.i1 An abstract idea about how to solve this problem
+.i1 Language independent
+
+.IT What must all iterators provide?
+.i1 Initialize iterator to some container element (often the beginning)
+.i1 Move to the next element in the container
+.i1 Stop when the 'end' is reached
+
+.bp
+.IT Iterator Pattern
+.i1 An abstract idea about how to solve this problem
+.i1 Language independent
+
+.IT What must all iterators provide?
+.i1 Initialize iterator to some container element (often the beginning)
+.i1 Move to the next element in the container
+.i1 Stop when the 'end' is reached
+
+.IT Key idea
+.i1 Iterators allow us to \fBview\fR any container sequentially
+
 .SS Iterators in C++
-.IT Basic structure
-.IT Define two iterators to define the beginning and end of a sequence
+.IT Each container type defines it's own iterator
+.i1s
+Get the first element using \*[c]begin()\*[r]
+.CW
+  set<string> names {"Alice", "Bob", "Clara"};
+  auto it = names.begin();
+.R
+.i1e
+
+.IT What is the type of \*[c]it\*[r]?
+
+.bp
+.IT Each container type defines it's own iterator
+.i1s
+Get the first element using \*[c]begin()\*[r]
+.CW
+  set<string> names {"Alice", "Bob", "Clara"};
+  auto it = names.begin();
+.R
+.i1e
+
+.IT What is the type of \*[c]it\*[r]?
+
+.ce 1
+\*[c]std::set<string>::iterator\*[r]
+
+.IT Important to remember
+.i1 Each type has its own distinct iterator
+.i2 Which is also a type
+.i2 \*[c]std::set<string>::iterator\*[r] is defined in the \*[c]std::set<string>\*[r] class
+.i1 All different types
+.i2 \*[c]std::set<string>::iterator\*[r]
+.i2 \*[c]std::set<int>::iterator\*[r]
+.i2 \*[c]std::set<uint64_t>::iterator\*[r]
+.i2 \*[c]std::set<size_t>::iterator\*[r]
+
+
+.IT Basic model
+.IT Containers define \*[c]begin()\*[r] and \*[c]end()\*[r]
+.i1 As appropriate for the container
+
 .PSPIC -L images/iterator.eps
 .IT The element defined by \*[c]begin\*[r] is part of the sequence
 .IT The element defined by \*[c]end\*[r] is not! 
 .i1 It is \fIone past the last\fR 
 .i1 This is a common source of error
+
+.IT By design, iterators \fIfeel like\fR pointers
+.i1 But iterators are \fBnot\fR pointers
 .SS Basic iterator operations
 \s-4
 .TS
@@ -80,7 +172,7 @@ _
 
 \fCp != q\fR:negation of above
 
-\fC*p\fR:refers to the element pointed to by \fBp\fR
+\fC*p\fR:refers to the element pointed to by \fBp\fR (dereferences \fBp\fR)
 
 \fC*p = val\fR:writes \fCval\fR to the element
  :pointed to by \fBp\fR
@@ -92,25 +184,6 @@ _
  :point to the next element in the container, or to \*[c]end\*[r]
 .TE
 \s+4
-
-.SS Iterator categories
-.IT Define the types of operations you can perform on them
-.IT InputIterator
-.i1 Read
-.i1 Increment (without multiple passes)
-.IT ForwardIterator
-.i1 All input iterator operations, plus
-.i1 Increment with multiple passes
-.IT BidirectionalIterator
-.i1 All forward iterator operations, plus
-.i1 Decrement
-.IT RandomAccessIterator
-.i1 All bi-directional iterator operations, plus
-.i1 Random access
-.i2 C++17 adds a 'ContiguousIterator' specialization
-.IT OutputIterator
-.i1 Write
-.i1 Increment (without multiple passes)
 .SS Iterator loops
 .IT Doing things the 'manual way'
 .i1s
@@ -132,47 +205,15 @@ The \*[c]auto\*[r] keyword can help here
   \m[green]// the compiler knows what type begin() returns\m[]
   for (auto it  = myvector.begin(); 
             it != myvector.end(); ++it)
-    std::cout << ' ' << it;
+    std::cout << ' ' << *it;
 .R
 .i1 Also produces \fC myvector contains: 1 2 3 4 5 \fR
-
-.SS Containers and iterators
-.IT Some container functions work only with iterators
-.IT Common container functions
-.i1 \fCinsert()\fR
-.i2 \fCiterator insert( const_iterator pos, const T& value );\fR
-.i1 \fCerase()\fR
-.i2 erase one element: \fCiterator erase( iterator pos );\fR
-.i2 erase a range: \fCiterator erase( iterator first, iterator last );\fR
-.i1 \fCemplace()\fR
-.IT \*[c]std::list\*[r] functions
-.i1 \fCsplice()\fR
-.IT \*[c]std::forward_list\*[r] functions
-.i1 \fCerase_after()\fR
-.i1 \fCinsert_after()\fR
-.i1 \fCsplice_after()\fR
-.SS Modifying containers with iterators
-.IT Important note about using \fCinsert()\fR and \fCerase()\fR
-.IT When iterating through a container
-.i1 Both \fCinsert()\fR and \fCerase()\fR can invalidate the current iterator!
-.i1 True for vector and deque
-.i1 Not a problem for lists
-.IT This is why \fCinsert()\fR and \fCerase()\fR return an iterator
-.i1 The new value now points to the next valid iterator
-.i2 No need to manually increment if you receive the returned iterator
 .SS Summary
 .IT Iterator Design Pattern
+.i1 Every \fIiterable type\fR defines its own iterator
 .i1 Recall \*[c]end()\*[r] points just past the last element in the container
-.IT Iterator categories
-.i1 InputIterator
-.i1 ForwardIterator
-.i1 BidirectionalIterator
-.i1 RandomAccessIterator
-.i1 OutputIterator
-.IT Range-for loops
-.i1 Preferred, when it makes sense to use it
+.IT Iterator loops
+.i1 Range-for loops
+.i2 Preferred, when it makes sense to use it
 .i1 Prefer iterators over indexed access
-.IT \*[c]auto\*[r] keyword
-.i1 No implicit type conversion
-.IT Careful modifying containers with iterators
 
