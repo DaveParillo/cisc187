@@ -2,8 +2,8 @@
 .so headings.ms
 .TL
 \*[CH]
+.LP
 The goal of today's lab is to practice working with basic iterator operations.
-
 .h2 Restrictions
 .RS
 .IP \(bu
