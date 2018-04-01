@@ -1,81 +1,120 @@
-.ds CH Lab #5b: Iterators
+.ds CH Lab #9a: Iterators
 .so headings.ms
 .TL
 \*[CH]
-.so cover-page.ms
+The goal of today's lab is to practice working with basic iterator operations.
 
+.h2 Restrictions
+.RS
+.IP \(bu
+Do not use any STL algorithms in this lab!
+.RE
+.h2 Things to notice
+.RS
+.nr step 0 1
+.IP \n+[step].
+You will need to use the iterator position returned from 
+STL container \*[c]insert\*[r] and \*[c]erase\*[r] functions.
 
-The goal of today's lab is compare inserting and erasing elements in 
-\*[c]std::vector\*[r] and \*[c]std::list\*[r]
-and to practice working with iterators.
+Calling \*[c]insert\*[r] and \*[c]erase\*[r] invalidates the current iterator and
+often all forward iterators.
+.IP \n+[step].
+The STL container \*[c]insert\*[r] functions all insert new elements \fBbefore\fR
+the current iterator position.
 
+This means the 'current iterator' position is before the position used before insert was called.
 
-Don't forget to answer the questions in the lab!
+Think about what you will need to do to avoid an infinite loop.
+.RE
 
-You may include your answers to these questions in a text file uploaded with your lab source code.
-.bp
 .NH
-Vector vs List: 100 points, 90 minutes \fImaximum\fR
+Iterators: 100 points, 90 minutes \fImaximum\fR
 .time_box
+.QP
 .RS
-.nr step 1 1
-.IP \n[step].
-Explain in your own words why \*[c]vector\*[r] does not have a function \*[c]push_front()\*[r]
-as part of it's API.  
-Include what would be required if it existed and compare it to \*[c]push_back()\*[r].
+.nr step 0 1
+.IP \n+[step].
+Create the files \fClab9a.h\fR and \fCmain.cpp\fR.
+
+File \fCmain.cpp\fR is just for extra credit, if you choose.
+
+In the steps that follow, place all code in the \*[c]mesa\*[r] namespace.
+.IP \n+[step].
+Write a function template that fills a range with increasing values.
+.CW
+  \m[green]
+  // Fill the range [first, last) with sequentially 
+  // increasing values, 
+  // starting with value and repetitively evaluating ++value.  \m[]
+  template<class ForwardIterator, class T>
+  void fill_sequence(ForwardIterator first, 
+                     ForwardIterator last, T value);
+.R
 
 .IP \n+[step].
-Implement the unfinished functions in a timing experiment to compare the cost of running vector and list. 
+Write a function template that fills a container using a starting value.
+.br
+Use this signature:
+.CW
+  template<class Container, class T>
+  void fill(Container* c, const T value);
+.R
 
-All of the unfinished functions are marked with \*[c]// Your code here:\*[r]
-and contain some details to explain what is expected for each unfinished function.
+Note that the first parameter is a (non-owning) pointer to the container.
 
-Only the file \fClab5b.h\fR requires changes.
-The file \fClab5b.cpp\fR is provided to help evaluate your results.
+This function should call \*[c]fill_sequence\*[r] to fill the entire container with values.
 
-There are 6 function bodies to complete:
-.RS
-.IP a.
-\*[c]sorted_insert\*[r]
+.IP \n+[step].
+Write a function template that inserts a value into a container, each time a condition is met.
+.br
+Use this signature:
+.CW
+  template<class Container, class T, class Predicate>
+  void insert_each_if(Container* c, 
+                      const T value, 
+                      Predicate p);
+.R
 
-This function is a helper for the two test_insert overloads.
-It ensures each insert maintains a sort order.
-Do \fBNOT\fR simply \*[c]push_back\*[r] a value and call \*[c]std::sort\*[r].
-.IP b.
-\*[c]test_insert(C& container, const int max)\*[r] 
+This function should loop on each element in the container,
+pass the current iterator value to the predicate,
+and insert the value only if the predicate returns \*[c]true\*[r].
 
-Insert \fCmax\fR random numbers into the container.
-The random number functions have been provided.
-.IP c.
-\*[c]test_insert(C& container, const vector<int>& rand_values)\*[r] 
+The predicate function should evaluate the current iterator value and return a \*[c]bool\*[r].
 
-Insert each rand_value one at a time into the container.
-.IP d.
-\*[c]test_insert_begin\*[r] 
+.IP \n+[step].
+Write a function template that erases all values from a container, each time a condition is met.
+.br
+Use this signature:
+.CW
+  template<class Container, class Predicate>
+  void erase_if(Container* c, Predicate p);
+.R
 
-Test inserting value only at the beginning of a container.
-.IP e.
-\*[c]test_insert_end\*[r] 
+This function should loop on each element in the container,
+pass the current iterator value to the predicate,
+and erase the element only if the predicate returns \*[c]true\*[r].
 
-Test inserting value only at the end of a container.
-.IP f.
-\*[c]test_remove\*[r] 
-
-Test removing values randomly withing a container.  
-One of these two function has been written for you.
+The predicate function should evaluate the current iterator value and return a \*[c]bool\*[r].
 
 .RE
-.IP \n+[step].
-For which conditions is the \*[c]list\*[r] faster than the \*[c]vector\*[r]?  
-.br
-Explain your results in your own words.
 
+
+Check your progress using the \*[c]check187\*[r] script:
+.CW
+    check187 lab9a
+.R
+
+Turn in your completed lab using the \*[c]submit187\*[r] script:
+.CW
+    submit187 lab9a
+.R
+
+.NH
+Extra credit
+.QP
+.RS
+.nr step 0 1
 .IP \n+[step].
-Compile your program with optimization. 
-.br
-In \fCg++\fR, the command-line argument is \fC-O3\fR.
-.br
-Explain the change in the results.
+Implement a main that uses the function templates implemented in this lab.
 .RE
-
 
