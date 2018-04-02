@@ -68,13 +68,12 @@ Use this signature:
 The predicate function should evaluate the current input iterator value and return a \*[c]bool\*[r].
 
 .IP \n+[step].
-Write a function that copies vector elements to an output stream
+Write a function that copies vector elements to \*[c]std::cout\*[r]
 if the container elements meet a condition.
 .br
 Use this signature:
 .CW
   inline void print_if(std::vector<int> source, 
-                       std::ostream& dest, 
                        Predicate p);
 .R
 
