@@ -74,7 +74,7 @@ if the container elements meet a condition.
 Use this signature:
 .CW
   inline void print_if(std::vector<int> source, 
-                       Predicate p);
+                       std::function<bool(int)> p);
 .R
 
 This function should call \*[c]mesa::copy_if\*[r] and use 
