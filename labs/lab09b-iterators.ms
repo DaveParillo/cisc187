@@ -80,7 +80,7 @@ Use this signature:
 This function should call \*[c]mesa::copy_if\*[r] and use 
 \*[c]std::ostream_iterator<int>\*[r] as the destination.
 
-Make in \*[c]inline\*[r] and implement it in \fClab9b.h\fR.
+Make the function \*[c]inline\*[r] and implement it in \fClab9b.h\fR.
 .RE
 
 Check your progress using the \*[c]check187\*[r] script:
