@@ -38,9 +38,9 @@ SCENARIO( "Erase values from a vector if a predicate is satisfied") {
 }
 
 SCENARIO( "Erase values from a set if a predicate is satisfied") {
-  GIVEN( "an set of 10 " ) {
+  GIVEN( "a set of 10 items" ) {
     std::set<int> actual = {1,2,3,5,8,13,21,34};
-    WHEN( "the predicate is cehcking for odd values" ) {
+    WHEN( "the predicate is checking for odd values" ) {
       THEN( "each odd element should be removed: the set should contain 2,8,34" ) {
         mesa::erase_if(&actual, [](int i){ return i%2 != 0;});
         std::set<int> expected = {2,8,34};
@@ -51,7 +51,7 @@ SCENARIO( "Erase values from a set if a predicate is satisfied") {
   }
 }
 
-SCENARIO( "Compute the invariants of insert_each_if") {
+SCENARIO( "Compute the invariants of erase_if") {
 
   GIVEN( "any container" ) {
     std::vector<int> actual = {0,2,4,6,8,1,3,5,7,9};
