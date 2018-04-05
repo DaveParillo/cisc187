@@ -41,7 +41,7 @@ It's more convenient to use the \*[c]back_inserter\*[r] convenience function
 .CW
     std::vector<int> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-    \m[green//func takes an iterator and a value\m[]
+    \m[green]//func takes an iterator and a value\m[]
     func(std::back_inserter(v), -1);
 
 .R
