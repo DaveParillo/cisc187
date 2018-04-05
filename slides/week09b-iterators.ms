@@ -49,7 +49,7 @@ It's more convenient to use the \*[c]back_inserter\*[r] convenience function
 .SS Stream iterators
 .IT Read or write objects from a stream using \*[c]operator<<\*[r] or \*[c]operator>>\*[r]
 .i1s
-It's more convenient to use the \*[c]back_inserter\*[r] convenience function
+This code will print the contents of the vector
 .CW
     std::vector<int> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
