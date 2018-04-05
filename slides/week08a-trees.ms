@@ -68,8 +68,8 @@ Visit all nodes \m[red]before\m[] visiting children
       return;
     }
     visit(node);
-    preorder(node.left);
-    preorder(node.right);
+    preorder(node->left);
+    preorder(node->right);
   }
 .R
 .i1e
@@ -96,8 +96,8 @@ Visit all nodes \m[red]after\m[] visiting children
     if (node == nullptr) {
       return;
     }
-    postorder(node.left);
-    postorder(node.right);
+    postorder(node->left);
+    postorder(node->right);
     visit(node);
   }
 .R
@@ -125,9 +125,9 @@ D!B!G!E!H!I!F!C!A
     if (node == nullptr) {
       return;
     }
-    inorder(node.left);
+    inorder(node->left);
     visit(node);
-    inorder(node.right);
+    inorder(node->right);
   }
 .R
 .i1e
@@ -157,8 +157,8 @@ A temp structure is needed
     while (!q.empty()) {
       visit(q.front());
       q.pop();
-      levelorder(node.left, q);
-      levelorder(node.right, q);
+      levelorder(node->left, q);
+      levelorder(node->right, q);
     }
   }
 .R
