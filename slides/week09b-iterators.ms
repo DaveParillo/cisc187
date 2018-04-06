@@ -1,7 +1,7 @@
 
 .TL
 .gcolor blue
-Containers and Iterators
+Iterator adapters and friends
 .gcolor
 .LP
 .ce 1
@@ -11,7 +11,6 @@ Week 9
 .IT Stream iterators
 .IT Iterator operations
 .IT Non-member functions
-
 .SS Iterator adaptors
 .IT Alter the behavior of an iterator
 .IT reverse iterator
@@ -22,22 +21,27 @@ Week 9
 .i1s
 appends to a container for which it was constructed
 .CW
-    #include <iterator>
-    #include <vector>
+  #include <iterator>
+  #include <vector>
+  using std::vector;
      
-    int main() {
-        std::vector<int> nums;
-        std::back_insert_iterator< std::vector<int> > it(nums);
+  int main() {
+    \m[red]vector<int>\m[] \m[green]nums\m[];
+    \m[blue]std::back_insert_iterator\m[]<\m[red]vector<int>\m[]> it(\m[green]nums\m[]);
      
-        for (int i=0; i<10; ++i) {
-            it = i; // calls nums.push_back(i)
-        }
+    for (int i=0; i<10; ++i) {
+      it = i; // calls nums.push_back(i)
     }
+  }
 .R
 .i1e
-.i1 \*[c]operator*\*[r] and \*[c]operator++\*[r] do nothing!
+.bp
+.IT back-insert iterator
+.i1 Note that \*[c]operator*\*[r] and \*[c]operator++\*[r] do nothing!
+
+.IT While using back-insert iterator directly works
 .i1s
-It's more convenient to use the \*[c]back_inserter\*[r] convenience function
+It's more convenient to use the \*[c]back_inserter\*[r] function
 .CW
     std::vector<int> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
@@ -47,41 +51,84 @@ It's more convenient to use the \*[c]back_inserter\*[r] convenience function
 .R
 .i1e
 .SS Stream iterators
-.IT Read or write objects from a stream using \*[c]operator<<\*[r] or \*[c]operator>>\*[r]
+.IT Recall an iterator is an abstraction of a pointer
+.i1 And anything can be pointed to
+.i2 So why not a stream?
+.i2 Think of a stream as a sequence of bytes
+.IT An output iterator lets you point to an output stream
 .i1s
-This code will print the contents of the vector
+Create an ostream_iterator using a template
 .CW
-    std::vector<int> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  ostream_iterator<int>(cout, ", ");
+.R
 
-    std::ostream_iterator<int> it (std::cout," ");
-    std::copy(v.begin(), v.end(), it);
+The optional second argument defines a delimiter
+.i1e
+.i2 The delimiter is written after each output operation
+.IT Using iterators 'the hard way'
+.i1s
+Manually write, increment, write...
+.CW
+  ostream_iterator<string> it(cout);
+
+  *it = "Hello, ";  \m[green]// aka cout << "Hello, "\m[]
+  ++it;             \m[green]// increment output pointer\m[]
+  *it = "world!\\n"; \m[green]// aka cout << "world!\\n"\m[]
 .R
 .i1e
-.IT The default constructed stream iterator is the \*[c]end of stream\*[r] iterator
+.bp
+.IT The 'hard way' works
+.i1 But it's not the most typical use of these iterators
+.IT Input and output interators are frequently used with algorithms
+.i1s
+Write a vector to standard output
+.CW
+  vector<int> v {3, 1, 4, 1, 5, 9}
+  ostream_iterator<int> it( cout, ", " );
+  copy( v.begin(), v.end(), it );
+.R
+.i1e
+.bp
+.IT The default constructed stream iterator 
+.i1 Is the \*[c]end of stream\*[r] iterator
 .i1 It serves the same function as \*[c]end\*[r]
 .i2 which is 'one past the end' of the iterator sequence 
 .i1s
 Used to define a range just like any other iterator using \*[c]begin()\*[r] and \*[c]end()\*[r]
 .CW
   int main() {
+    \m[green]// open 2 file streams\m[]
     ifstream data("data.txt");
     ofstream sorted("sorted.txt");
     if (!data || !sorted) {
       cout << \m[green]"Problem opening files\\n"\m[];
       return -1;
     }
-    istream_iterator<string> is(data);
+.bp
+    \m[green]// define our 'begin' and 'end' iterators\m[]
+    \m[green]// on the input stream\m[]
+    istream_iterator<string> is_itr(data);
     istream_iterator<string> eof;
 
     vector<string> words;
-    copy(is, eof, back_inserter(words));
+    copy(is_itr, eof, back_inserter(words));
     sort(words.begin(), words.end());
 
-    ostream_iterator<string> os(sorted, " ");
-    copy(words.begin(), words.end(), os );
+    ostream_iterator<string> os_itr(sorted, "\\n");
+    copy(words.begin(), words.end(), os_itr );
   }
 .R
 .i1e
+
+.i1s
+Or fill a vector from standard input
+.CW
+  copy( istream_iterator<int>( cin ),
+        istream_iterator<int>(),   \m[green]// <-- note "()"\m[]
+        back_inserter( v ) );
+.R
+.i1e
+
 .SS Iterator operations
 .IT Allow operations other than \*[c]operator--\*[r] or \*[c]operator++\*[r], for example
 .IT \*[c]std::advance\*[r]
