@@ -230,6 +230,16 @@ The \*[c]auto\*[r] keyword can help here
 .i1 True for vector and deque
 .i1 Not a problem for lists
 .IT This is why \fCinsert()\fR and \fCerase()\fR return an iterator
+.SS A note about returning iterators
+.IT Recall \fCend()\fR point to 1 past the end
+.i1 \fINot\fR the last element
+.i1 Needed to easily and consistently represent an empty sequence
+.i2 If \fCbegin() == end()\fR
+.IT The 'one past the end' location is not an element
+.i1 You can't dereference it
+.i1 You can compare it to another iterator
+.IT Returning the end of the sequence is the standard idiom for 'not found'
+.i1 A handy generalization for when you want to use an element other than \fCend()\fR as the last iterator in a sequence
 .SS Summary
 .IT Iterator Design Pattern
 .i1 Every \fIiterable type\fR defines its own iterator
