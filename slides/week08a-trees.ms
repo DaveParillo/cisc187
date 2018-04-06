@@ -170,48 +170,44 @@ c|c|c|c|c|c|c|c|c.
 A!B!C!D!E!F!G!H!I
 .TE
 .SS Examples
-.IT Print tree elements
+.IT A project #2 example
 .i1s
-Stream 1 tree element overloading \*[c]operator <<\*[r]
+Stream '20Q' tree overloading \*[c]operator <<\*[r]
 .CW
   template <class T>
   std::ostream& operator<< (std::ostream& os, 
                             const tree<T>* root) {
-    if (root == nullptr) return os << \m[green]"null"\m[];
-
-    if (is_leaf(root)) {
-      return os << root->value;
+    if (root == nullptr) return os;
+    if (mesa::is_leaf(root)) {
+        return os << \m[green]"A:"\m[] << root->value << \m[green]'\\n'\m[];
     }
+    os << \m[green]"Q:"\m[] << root->value << \m[green]'\\n'\m[];
+    os << root->left; 
+    os << root->right;
+    return os;
 
-    return os << root->value 
-              << \m[green]" ("\m[] << root->left 
-              << \m[green]", "\m[] << root->right << \m[green]")\\n"\m[];
   }
 .R
 .i1e
-.bp
-.IT Print entire tree
 .i1s
-with indenting at each level
+Print tree elements
 .CW
-  template <class T>
-  void print(const tree<T>* root, 
-             const std::uint16_t indent) {
-    for (int i = 0; i < indent; ++i) {
-      std::cout << \m[green]"   "\m[]";    \m[green]// indent\m[]
-    }
-    if (root == nullptr) {
-      std::cout << \m[green]"null"\m[];
-      return;
-    }
+  mesa::tree<string>* game_data;
+  \m[green]// fill tree with data\m[]
 
-    std::cout << root;
-
-    if (is_leaf(root)) return;
-    print (root->left, indent+1);
-    print (root->right, indent+1);
+  std::cout << game_data;
+.R
+.i1e
+.i1s
+Save tree elements
+.CW
+  std::ofstream ofs("saved_game.txt");
+  if (ofs) {
+    ofs << game_data;
+    ofs.close();
+  } else {
+    std::cerr << "Problem opening output file\\n";
   }
 .R
 .i1e
-
 
