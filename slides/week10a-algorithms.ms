@@ -1,4 +1,4 @@
-.ds title STL ALgorithms
+.ds title STL Algorithms
 .pdfinfo /Title \*[title]
 .TL
 .gcolor blue
@@ -6,7 +6,7 @@
 .gcolor
 .LP
 .ce 1
-Week 7
+Week 10
 .EQ
 delim $$
 .EN
@@ -16,9 +16,7 @@ delim $$
 .IT Generic programming
 .IT Algorithms and parameterization
 .IT Standard algorithms
-.i1 copy, sort, ...
-.IT Input and output iterators
-.IT Algorithms not in the STL
+.IT Refactoring to algorithms
 .SS Review
 .IT A \fBcontainer\fR is a generic collection
 .i1 Allows storing data using well-known data structures
@@ -58,8 +56,11 @@ is not very different from counting them in a \*[c]vector\*[r]
 
 
 .IT These are the goals of the STL
-.SS The STL
+.i1 Other projects have different goals
+.SS STL Algorithms
 .IT Part of the ISO C++ standard
+.i1 More than 100 algorithms for searching, counting, and manipulating ranges
+.i2 C++17 ads 69 more (mostly overloads)
 .IT Algorithms are organized into broad categories
 .i1 Non-modifying sequence operations
 .i2 \fCfor_each\fR, \fCcount(_if)\fR, \fCfind(_if)\fR, \fCsearch\fR
@@ -76,32 +77,48 @@ is not very different from counting them in a \*[c]vector\*[r]
 .i2 Binary search operations
 .i3 \fCupper_bound\fR, \fClower_bound\fR
 .i2 Set operations
-.i3 \fCmerge\fR, \fCdifference\fR, \fCintersection\fR, \fCunion\fR
-.i2 Heap operations
-.i3 Operations on specially sorted trees
+.i2 Heap operations (operations on specially sorted trees)
 .IT Mostly non-numeric in nature
-.i1 Only 5 standard algorithms specifically do computations
+.i1 Only 5 standard algorithms specifically do computations in C++11
 .i2 \fCiota\fR, \fCaccumulate\fR, \fCinner_product\fR, \fCpartial_sum\fR, \fCadjacent_difference\fR
-.i3 Of these, \fCiota\fR and \fCaccumulate\fR are by far most commonly used
-.i2 C++17 will add 6 more
-.IT STL algorithms work with strings and container types
-.i1 Anything \fBiterable\fR
+.i2 C++17 adds 6 more
+.i3 \fCreduce\fR, \fCtransform_reduce\fR, and 4 'scan' algorithms
+.IT STL algorithms work with iterators
+.i1 Instead of being passed a specific container type directly
 .IT Other standard libraries and algorithms exist
-.i1 Boost, Microsoft, SGI, ...
+.i1 Boost, Microsoft, POCO, Qt ...
+
+.IT An admission of guilt
+.i1 You have all been writing STL algorithms for weeks in lab
+.i2 \*[c]count\*[r] and \*[c]count_if\*[r]
+.i2 \*[c]copy\*[r] and \*[c]copy_if\*[r]
+.i2 \*[c]fill_sequence\*[r] and \*[c]fill_n\*[r]
+.i2 \*[c]append\*[r]
+.i1 Almost every lab function that took iterators or pointers as input
 .SS STL and loops
 .IT STL algorithms are essentially wrappers around loops
 .i1 Most tasks you've written so far could be rewritten using algorthms
+
+.IT One way to think about STL algorithms
+.i1 They are \fInamed loops\fR
+.i1 Not just any old loop
+.i2 but one important
+.i2 and general enough
+.i2 to justify getting named and encapsulated in its own function.
+.SS Why bother?
 .IT Why prefer algorithms to hand-written loops?
 .i1 Efficiency
 .i2 Algorithms are often more efficient than the loops programmers produce
 .i1 Correctness
-.i2 Writing loops is more subject to errors than is calling algorithms
+.i2 Writing loops is more subject to errors than algorithm calls
 .i1 Maintainability
-.i2 Algorithm calls often yield code that is clearer and more straightforward than the corresponding explicit loops
+.i2 Algorithm calls result in clearer code
+.i2 More straightforward than the corresponding explicit loops
 
-.i1 But . . .
+.IT But . . .
 .i1 STL algorithms take time to master
 .i1 And loops are obviously still important!
+
 .SS Basic Model
 .IT Recall our goals:
 .i1 Avoiding repetition & using regular, compact syntax
@@ -173,7 +190,7 @@ Or using find()
 .IT \fCx = count_if(b,e,p)\fR
 .i1 x is the number of elements in [b,e) for which p(x) is true
 .IT \fCsort(b,e)\fR
-.i1 sort [b,e) using <
+.i1 sort [b,e) using \*[c]operator<\*[r]
 .IT \fCsort(b,e,c)\fR
 .i1 sort [b,e) using compare function c
 .bp
@@ -200,6 +217,8 @@ Or using find()
 .br
 .RS
 \s-4 (basically a binary search for v)\s+4
+.br
+\s-4 the range must be sorted\s+4
 .RE
 .IT \fCequal(b,e,b2)\fR
 .i1 do all elements of [b,e) and [b2,b2+(e-b)) compare equal?
@@ -208,7 +227,7 @@ Or using find()
 .i1 Tests to see if one sequence is a permutation of a second one; 
 .i2 in other words, it contains all the same members, possibly in a different order.
 .IT \fCis_sorted\fR
-.i1 Contains functions for determining if a sequence is ordered
+.i1 Test if a sequence is ordered
 .i2 Also now in the STL as of C++11
 .IT \fCclamp\fR
 .i1 Ensures a value remains between a pair of boundary values 
@@ -217,56 +236,13 @@ Or using find()
 .i1 Tests the elements of a sequence and returns \*[c]true\*[r] if exactly one of the elements in the sequence has a particular property
 .i2 There are also algorithms for \fCall_of\fR, \fCany_of\fR, and \fCnone_of\fR as of C++11 
 .i2 Boost contains these as well
-.SS Input and output iterators
-.IT Recall an iterator is an abstraction of a pointer
-.i1 And anything can be pointed to
-.i2 So why not a stream?
-.i2 Think of a stream as a sequence of bytes
-.IT An output iterator lets you point to an output stream
-.i1s
-Create an ostream_iterator using a template
-.CW
-  ostream_iterator<int>(cout, ", ");
-.R
-
-The optional second argument defines a delimiter
-.i1e
-.i2 The delimiter is written after each output operation
-.IT Using iterators 'the hard way'
-.i1s
-Manual write, increment, write...
-.CW
-  ostream_iterator<string> oo(cout);
-
-  *oo = "Hello, ";  \m[green]// aka cout << "Hello, "\m[]
-  ++oo;             \m[green]// increment output pointer\m[]
-  *oo = "world!\\n"; \m[green]// aka cout << "world!\\n"\m[]
-.R
-.i1e
+.SS Refactoring to algorithms
+.PS 5 3
+box invis;
+.PE
+.ce 1
+Turning non-generic algorithms into generic ones
 .bp
-.IT The 'hard way' works
-.i1 But it's not the most interesting use of these iterators
-.IT Input and output interators are frequently used with algorithms
-.i1s
-Write a vector to standard output
-.CW
-  vector<int> v {3, 1, 4, 1, 5, 9}
-  ostream_iterator<int> it( cout, " " );
-  copy( v.begin(), v.end(), it );
-.R
-.i1e
-.i1s
-Or fill a vector from standard input
-.CW
-  copy( istream_iterator<int>( cin ),
-        istream_iterator<int>(),   \m[green]// <-- note "end()"\m[]
-        back_inserter( v ) );
-.R
-.i1e
-.i1 \fCstd::back_inserter\fR is a convenience function
-.i1 Performs a \fCpush_back\fR operation on the provided container
-.i2 Using the value pointed to by the current iterator position
-.SS A non-generic \fCsum()\fR
 .IT Given two functions
 .i1s
 Each sums the values provided
@@ -277,9 +253,21 @@ Each sums the values provided
     for (int i = 0; i < n; ++i ) sum += array[i];
     return sum;
   }
-
-  struct Node { Node* next; int data; };
-  int sum(Node* first) { \m[green]//sum ints in list\m[]
+.R
+.i1e
+.bp
+.IT Given two functions
+.i1s
+Each sums the values provided
+.CW	 
+  \m[green]//sum ints in array\m[]
+  double sum(double array[], int n) {
+    double sum = 0;
+    for (int i = 0; i < n; ++i ) sum += array[i];
+    return sum;
+  }
+  \m[green]//sum ints in list\m[]
+  int sum(node* first) {
     int s = 0;
     while (first) {    \m[green]//first not false or zero\m[]
       s += first->data;
@@ -295,9 +283,9 @@ Each sums the values provided
 .i1s
 Start with some pseudo-code
 .CW
-  int sum(\m[red]data\m[])  \m[green]// somehow parameterize this\m[]
+  \m[red]T\m[] sum(\m[red]data\m[])  \m[green]// somehow parameterize this\m[]
   {
-    int s = 0;
+    \m[red]T\m[] s = 0;
     while (\m[red]not at end\m[]) {  \m[green]// loop through all elements\m[]
           s = s + \m[red]get value;\m[] \m[green]// compute sum\m[]
           \m[red]get next data element;\m[]
@@ -312,7 +300,7 @@ Start with some pseudo-code
 .i1 Get next element
 .SS Generic template example
 .IT STL style approach to support both containers
-.i1 class \fCIter\fR must be an \fCInput_terator\fR
+.i1 class \fCIter\fR must be an \fCInputIterator\fR
 .i1s
 class \fCT\fR must support \fC+\fR and \fC=\fR
 .CW
@@ -369,29 +357,19 @@ Let's allow any binary operator
 .i1s
 \*[c]multiplies\*[r] is a STL function for object multiplying
 .CW
-  \m[green]// using std::accumulate\m[]
-  #include <numeric>
-  void f(list<double>& ld)
-  {
-    double product = 
-             accumulate(ld.begin(), 
-                        ld.end(), 
-                        \m[red]\fB1.0\fP, multiplies<double>()\m[]);
+  #include <numeric>    \m[green]// for std::accumulate\m[]
+  #include <functional> \m[green]// for std::multiplies\m[]
+
+  void f(list<double>& ld) {
+    double 
+    product = 
+      accumulate(ld.begin(), 
+                 ld.end(), 
+                 \m[red]\fB1.0\fP, std::multiplies<double>()\m[]);
   }
 .R
 .i1e
-.IT Note we initialized multiply with 1.0
-.SS A note about returning iterators
-.IT Recall \fCend()\fR point to 1 past the end
-.i1 \fINot\fR the last element
-.i1 Needed to easily and consistently represent an empty sequence
-.i2 If \fCbegin() == end()\fR
-.IT The 'one past the end' location is not an element
-.i1 You can't dereference it
-.i1 You can compare it to another iterator
-.IT Returning the end of the sequence is the standard idiom for 'not found'
-.i1 A handy generalization for when you want to use an element other than \fCend()\fR as the last iterator in a sequence
-
+.i1 Note we initialized accumulate with something other than 0
 .SS Summary
 .IT Algorithms and parameterization
 .i1 Strive to make code more generic, not less
@@ -399,13 +377,9 @@ Let's allow any binary operator
 .i1 Take one or more sequences
 .i2 Usually an iterator pair
 .i1 Takes one or more operations
-.i2 Usually a function object - functions & lambdas work too
 .i1 Failure condition traditionally indicated by returning the second iterator in the pair
 .i2 Often \fCend()\fR in example code, but can be anything after the first iterator
 .IT Remember to consider the STL & friends
 .i1 Many common problems have robust solutions already written for you in a standard library
-.IT Input and output iterators
-.i1 Often used in conjunction with standard algorithms
-.IT Algorithms not in the STL
-.IT \*[c]std::accumulate\*[r]
+.IT Refactoring sums into \*[c]std::accumulate\*[r]
 
