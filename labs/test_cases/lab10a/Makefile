@@ -1,11 +1,25 @@
 
-lab      := lab5a
-includes := lab5a.h
-srcs     := lab5a.cpp
+lab      := lab10a
+includes := $(lab).h
+srcs     := $(lab).cpp
 
 # common.mk includes step1 (checks $files)
 include /var2/lopt/share/cisc187/common.mk
 
+files     := $(files) main.cpp
 
-check: tbd 
+check: step1 step2 step3 
+
+step2: clean
+	@echo -n "test make_vector: "
+	@c++ ${CXXFLAGS} $(CHECK_HOME)/$(lab)/$@.cpp $(CURDIR)/$(srcs) -o $(exe)
+	@$(exe) || $(fail)
+
+
+step3: clean
+	@echo -n "test expunge: "
+	@c++ ${CXXFLAGS} $(CHECK_HOME)/$(lab)/$@.cpp $(CURDIR)/$(srcs) -o $(exe)
+	@$(exe) || $(fail)
+
+
 
