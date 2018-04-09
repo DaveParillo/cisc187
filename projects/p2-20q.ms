@@ -92,7 +92,7 @@ of the following requirements:
 Process command line arguments: 
 .RS
  \*[c]-h\*[r] to display \*[c]h\*[r]elp text and exit.
- \*[c]-f\*[r] to load a game tree from \*[c]f\*[r]file, or from stdin
+ \*[c]-f\*[r] to load a game tree from \*[c]f\*[r]file
 .RE
 .IP \n+[step].
 Gameplay proceeds as in the \m[blue]Outline of play\m[].
@@ -190,8 +190,6 @@ Also, remember that the 'root' node of a binary tree is at the tree mid point.
     Options:
       -h   Show this text.
       -f   Load a game tree from a file
-           A game game also be loaded into the program using
-           standard input instead of passing in a file name
 .R
 .h2 Play a default game
 .LP
@@ -284,13 +282,4 @@ it can learn the more it is played.
   Goodbye!
 .R
 .RE
-
-The same game could be played using the following command line:
-
-.RS
-.CW
-  ./20q < tree1.txt
-.R
-.RE
-
 
