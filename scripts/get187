@@ -1,0 +1,61 @@
+#!/bin/bash
+
+top_dir=`pwd`
+output_file=""
+verbose=0
+
+echo "Not yet implemented"
+
+exit 0
+
+
+# Usage info
+show_help() {
+   cat << EOF
+Usage: ${0##*/} [-hv] [-f OUTFILE] [FILE]...
+Do stuff with FILE and write the result to standard output. With no FILE
+or when FILE is -, read standard input.
+   
+  -h          display this help and exit
+  -f OUTFILE  write the result to OUTFILE instead of standard output.
+  -v          verbose mode. Can be used multiple times for increased
+              verbosity.
+EOF
+}
+
+while getopts hvf: opt; do
+  case $opt in
+    h)
+      show_help
+      exit 0
+      ;;
+    v)
+      verbose=$((verbose+1))
+      ;;
+    f)
+      output_file=$OPTARG
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+    *)
+      show_help >&2
+      exit 2
+      ;;
+  esac
+done
+
+
+shift "$((OPTIND-1))"
+
+if [ $verbose -gt 0 ]; then
+  printf 'verbose=<%d>\noutput_file=<%s>\nLeftovers:\n' "$verbose" "$output_file"
+  printf '<%s>\n' "$@"
+  echo $top_dir
+fi
+

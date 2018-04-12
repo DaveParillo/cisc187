@@ -1,0 +1,82 @@
+#!/bin/sh
+
+top_dir=`pwd`
+lab_dir=""
+lab_name=""
+verbose=0
+OPTIND=1
+
+# Usage info
+show_help() {
+   cat << EOF
+Usage: ${0##*/} [-hv] lab_name
+submit a lab 
+   
+  -h          display this help and exit
+  -v          verbose mode. Can be used multiple times for increased
+              verbosity.
+  lab_name    The name a of lab: lab1a, lab1b, etc.
+              Do not use quotation marks or spaces.
+EOF
+}
+
+while getopts ":hv" opt; do
+  case $opt in
+    h)
+      show_help
+      exit 0
+      ;;
+    v)
+      verbose=$((verbose+1))
+      ;;
+    *)
+      show_help >&2
+      exit 2
+      ;;
+  esac
+  
+  shift
+done
+
+lab_name="$@"
+
+shift "$((OPTIND-1))"
+
+if [ -z $lab_name ]; then
+  echo -e "No lab specified.\n"
+  show_help >&2
+  exit 2
+fi
+
+if [ $verbose -gt 0 ]; then
+  printf 'lab_name: "%s"\nRemaining cmd line:\n' "$lab_name"
+  printf '"%s"\n' "$@"
+  printf 'running make in "%s"\n' "$top_dir"
+fi
+
+lab_dir=/var2/lopt/share/cisc187/$lab_name
+
+if [ -d $lab_dir ]; then
+#  make -f $lab_dir/Makefile submit
+
+  dest=/var2/home/turnitin.d
+  name=`/usr/bin/whoami`
+  stamp=`date +%s`
+  fname=${lab_name}_${name}_${stamp}.zip
+
+  zip -r $fname *.h *.cpp
+  cp $fname $dest
+  chmod 644 $dest/$fname
+  if [ $? -eq 0 ]; then
+    echo "Your assignment was handed in as:    $dest/$fname"
+    echo "A copy is also in this directory as: $fname"
+    echo "now go and have some fun."
+  else
+    echo "Possible problem turning in your assignment.  Ask for help."
+  fi 
+
+else
+  printf 'No lab named "%s" exists\n' "$lab_name"
+fi
+
+
