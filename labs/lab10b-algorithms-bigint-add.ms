@@ -28,13 +28,15 @@ For example:
   \m[green]//
   //     Most significant digit                      least
   //               v                                   v\m[]
-  vector<int> x   {0,0,0,0,0,0,0,8,9,0,1,2,3,4,5,6,7,8,9};
+  vector<int> x   {0,0,0,0,0,0,0,9,9,0,1,2,3,4,5,6,7,8,9};
   vector<int> y                     {9,8,7,6,5,4,3,2,1,9};
 .R
 
 Your add function should use the \*[c]std::transform\*[r] 
 algorithm to add each digit of the two input vectors
 and store the results in a new vector.
+
+The result should be: \fC1000000000008\fR
 
 You may use \*[c]std::plus<int>()\*[r] to perform the addition
 and then check for carry as a second step, or write a custom lambda.
