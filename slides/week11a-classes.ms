@@ -7,13 +7,12 @@ Data Structures and Classes
 .gcolor
 .LP
 .ce 1
-Week 9
+Week 11
 .SS Overview
 .IT Sections 9.1 - 9.4, 9.7 of the text
 .IT Review of procedures
 .IT Data Structures
 .IT Member access
-.IT Using \*[c]const\*[r] in classes
 .IT Interfaces and implementation
 .SS Procedural programming
 .IT The first half of this course emphasized \fIprocedural programming\fR
@@ -26,14 +25,21 @@ Week 9
 .i2 In a namespace
 .i2 In a compilation unit
 .i1 Data is passed around or returned from functions
+.SS Scalability problems
+.IT Every function is 'public'
+.i1 A program has access to every function
+.i2 Even if it shouldn't call it
+
 .IT Data management issues
 .i1 In very large programs
 .i1 Who actually owns a piece of data can be a problem
-.i1 Object-Oriented Programming is one solution to this data management problem
-.SS Data Structures
+
+.IT Object-Oriented Programming (OOP) techniques
+.i1 Provides a solution to both problems
+.SS OO Data Structures
 .IT It's not enough to have data
-.IT It must be organized to be useful
-.IT A data structure is 
+.IT OOP defines a specific organizational structure
+.IT A object oriented data structure is 
 .i1s
 A meaningful representation of data 
 .br
@@ -43,9 +49,9 @@ A meaningful representation of data
 .IT Together, the data and operations form an \fIabstract data type\fR
 .IT When you write a class
 .i1 Your are creating a new Abstract Data Type (ADT)
-.i1 Sometimes called a \fIuser defined type\fR
+.i1 Sometimes called a \fIuser defined type\fR, or just \fItype\fR
 .SS Relationship to struct
-.IT In C++, a struct is a class
+.IT In C++, a \*[c]struct\*[r] is a \*[c]class\*[r]
 .i1s
 With default public access
 .CW
@@ -62,9 +68,9 @@ With default public access
 .R
 .i1e
 .SS Simple class
-.IT In C++, a class has private default member access by default
+.IT In C++, a \*[c]class\*[r] has \*[c]private\*[r] default member access by default
 .i1s
-This class does nothing
+This \*[c]class\*[r] does nothing
 .CW
   class Talk {
     void hello() {
@@ -142,16 +148,16 @@ Continuing the definition of Fibonacci from the previous slide
 .i1s
 Date functions
 .CW
-  struct Date {
+  struct date {
     int y, m, d;
     \m[green]// constructor\m[]
-    Date ();
+    date ();
     \m[green]// also a constructor\m[]
-    Date (int y, int m, int d);
+    date (int y, int m, int d);
     \m[green]// also a constructor\m[]
-    Date (const Date& d);
+    date (const date& d);
     \m[green]// NOT a constructor!\m[]
-    Date get_date ();
+    date get_date ();
   };
 .R
 .i1e
@@ -195,18 +201,18 @@ When is it not acceptable?
 .i1s
 Date class functions
 .CW
-  class date {
+  class Date {
     int y, m, d; \m[green]// private implied\m[]
     public:
-      date ();
-      date (int y, int m, int d);
-      std::tuple<int,int,int> date ();
+      Date ();
+      Date (int y, int m, int d);
+      std::tuple<int,int,int> as_tuple ();
   };
 .R
 .i1e
 .IT This class does not allow direct access to y, m, and d
 .i1 They can only be set using the 3 arg constructor provided
-.i1 And can only be retrieved using \fCtuple date\fR function
+.i1 And can only be retrieved using \fCas_tuple\fR function
 .IT Public member function are the class \fBinterface\fR
 .IT Everything hidden are \fBimplementation details\fR
 .i1 No one needs to know (or care) how a Date is implemented
@@ -216,12 +222,16 @@ Date class functions
 File date.h
 .CW
   \m[green]#include <tuple>\m[]
+  \m[green]// No universal rule mandates uppercase class names\m[]
   class date {
     int y, m, d;
     public:
+      \m[green]// Define default constructor\m[]
+      \m[green]// using initializer list syntax (C++11)\m[]
       date ()
         : y{1776}, m{7}, d{4}
       { }
+      \m[green]// Declare other constructors & functions\m[]
       date (int y, int m, int d);
       std::tuple<int,int,int> as_tuple ();
       int year ();
@@ -254,72 +264,6 @@ File date.cpp
 .R
 .i1e
 .IT As is, this class still needs a lot of work!
-.SS Abstraction
-.IT A poorly abstracted car class
-.i1s
-File car.h
-.CW
-  class Car {
-    private:
-      double speed_;
-      double heading_;
-      int    x_;
-      int    y_;
-    public:
-
-      double car::speed ();
-      double car::heading ();
-      int    car::x ();
-      int    car::y ();
-
-      void car::speed (double speed);
-      void car::heading (double direction);
-      void car::x (int new_x);
-      void car::y (int new_y);
-  };
-.R
-.bp
-.IT Better
-.i1 Not every private member needs to be visible
-.i1s
-It makes no sense to modify location directly
-.CW
-  \m[green]// some helper types\m[]
-  enum class Direction { CENTER, LEFT, RIGHT };
-  \m[green]// a location on a cartesian grid\m[]
-  struct Point {
-    double x;   
-    double y;
-  };
-
-class Car {
-  private:
-    string name_;       \m[green]// Make/model of this car\m[]
-    double speed_;
-    double heading_;
-    Point  location_;   \m[green]// relative position of car\m[]
-.bp
-    \m[green]// OK in C++11\m[]
-    double angle_ = 0;  \m[green]// current steering angle\m[]
-    double rate_ = 0;   \m[green]// current change in speed\m[]
-
-  public:
-    Car(const std::string& name) 
-      : name_{name}, speed_{0}, 
-        heading_{90}, location_{0, 0} 
-    {}
-    \m[green]//mutator functions (setters)\m[]
-    double steer (Direction dir);
-    double accelerate (double rate);
-
-    \m[green]//accessor functions (getters)\m[]
-    std::string name() const;
-    double speed()    const;
-    double heading()  const;
-    Point  location() const;
-    void   update();
-.R
-.i1e
 .SS Summary
 .IT In C++ a class is a struct
 .i1 With default private access
@@ -328,10 +272,6 @@ class Car {
 .IT Constructors
 .IT Data must be organized to be useful
 .IT Data + operations = ADT (abstract data type)
-.IT Why Bother?
-.i1s
-.B Abstraction
-.i1e
 .IT General principles
 .i1 Keep data private
 .i1 Keep class interfaces simple & minimal
