@@ -1,61 +1,67 @@
-.ds CH Lab #9a: ADT's and classes
+.ds CH Lab #11a: ADT's and classes
 .TL
 \*[CH]
 .NH
-Tiny, simple classes: 50 points, 45 minutes \fImaximum\fR
+Tiny, simple classes: 100 points, 90 minutes \fImaximum\fR
 .time_box
 .QP
 Design and implement a few simple classes.  
 The goal is become comfortable writing code in a new style.
 That is, encapulating functions inside classes.
 
-Do not waste time making these classes "perfect."
+These classes do not need to reside in namepsace mesa.
 
 Ensure all class data is private and implement the following:
 .RS
 .nr step 0 1
 .IP \n+[step].
-Create a simple 'Clock' class.
+Create the files \fClab11a.h\fR and \fClab11a.cpp\fR.
+
+.IP \n+[step].
+Define a class \*[c]Clock\*[r] in file \fClab11a.h\fR.
 .RS
 .IP a.
-It should have 1 member string to store a time value.
+It should have 1 member to store the time in a \*[c]double\*[r].
 .IP b.
-Add functions to change and retrieve the time.
+Add two functions to the class named \*[c]time\*[r] to change and retrieve the time.
 .IP c.
-Use the assert macro to test these two functions work correctly.
+Implement the class in \fClab11a.cpp\fR.
 .RE
 .IP \n+[step].
-Create a simple 'Complex' class.
+Define a class \*[c]Clock\*[r] in file \fClab11a.h\fR.
 .RS
 .IP a.
-It needs two member variables: one for the real part oof the number and one for the imaginary part
+Add two \*[c]double\*[r] member variables: one for the real part of the number and one for the imaginary part
 .IP b.
 Create a default constructor to initialize the number to (0,0).
 Use initializer list syntax.
-.IP b.
-Create a two argument constructor to initialize the number to (double real, double imaginary).
 .IP c.
-Add functions to retrieve the complex value components (real part and imaginary part).
+Create a two argument constructor to initialize the number to 
+.br
+(double real, double imaginary).
 .IP d.
-Use the assert macro to test these two functions work correctly.
+Add functions to retrieve the complex value components (real part and imaginary part).
+.IP e.
+Implement the class in \fClab11a.cpp\fR.
 .RE
 .IP \n+[step].
-Create a simple 'Truck' class.
+Define a class \*[c]Clock\*[r] in file \fClab11a.h\fR.
 .RS
 .IP a.
-Define a member variable 'tires' to store the number of tires on the vehicle.
-Initialize the variable to some value > 4.
+Define a \*[c]uint16_t\*[r] member variable to store the number of tires on the vehicle.
+.br
+Create a default constructor to initialize the tires to 6.
 .IP b.
-Add a function 'pop_tire' that reduces the number of tires by 1.
+Create a one argument constructor to initialize the tires to a provided value.
 .IP c.
-Use the assert macro to test the class.
+Add a \*[c]void\*[r] function \*[c]pop_tire\*[r] that reduces the number of tires by 1.
+.br
+Do not allow this function to reduce the number when the number of tires is already 0.
+.IP d.
+Implement the class in \fClab11a.cpp\fR.
 .RE
-.bp
-.NH
-Dog class: 50 points, 45 minutes \fImaximum\fR
-.time_box
-.QP
-Create a Dog class from the following \*[c]struct\*[r]:
+.IP \n+[step].
+Create a \*[c]Dog\*[r] class from the following \*[c]struct\*[r]:
 .CW
   enum class Size {SMALL, MEDIUM, LARGE};
 
@@ -64,32 +70,42 @@ Create a Dog class from the following \*[c]struct\*[r]:
     Size sz;
   };              
 .R
-
-Keep definitions and declarations in separate compilation units.
-
 .RS
-.nr step 0 1
-.IP \n+[step].
-Transfer the struct to a class.  
+.IP a.
+Refactor the \*[c]struct\*[r] into a \*[c]class\*[r] in file \fClab11a.h\fR.  
+.br
 Make \fCname\fR and \fCsz\fR private.
-.IP \n+[step].
-Add a constructor so that the dog size can be set when a Dog is initialized.
-.IP \n+[step].
-Implement \fCbark()\fR so that:
+.bp
+.IP b.
+Add a constructor so that the dog name and  size can be set when a Dog is created.
+.IP c.
+Add default values for your Dog class: \fC"Fido"\fR and \fCSize::MEDIUM\fR.
+.IP d.
+Add functions to retrieve name and Size.
+.br
+Add a function to change the name of a Dog.
+.IP e.
+Add a function \*[c]std::string Dog::bark() const\*[r] such that:
 .RS
 .IP \(bu
-LARGE dogs say "Woof"
+LARGE dogs return "Woof"
 .IP \(bu
-MEDIUM dogs say "Ruff"
+MEDIUM dogs return "Ruff"
 .IP \(bu
-SMALL dogs say "Yip"
+SMALL dogs return "Yip"
 .RE
-.IP \n+[step].
-Create a vector of 3 dogs.
-Give them names and different sizes.
-.IP \n+[step].
-Have each Dog bark.
-.IP \n+[step].
-Write your Dog class so that it passes the unit tests provided. 
 .RE
+.RE
+
+Check your progress using the \*[c]check187\*[r] script:
+.CW
+    check187 lab11a
+.R
+
+Turn in your completed lab using the \*[c]submit187\*[r] script:
+.CW
+    submit187 lab11a
+.R
+
+Consider writing a program that uses the classes implemented in this lab.
 
