@@ -161,41 +161,6 @@ Date functions
   };
 .R
 .i1e
-.SS Questions
-
-What are the issues with the original \*[c]Date struct\*[r] presented in the chapter?
-.CW
-
-  struct Date
-  {
-    int y;    \m[green]// year\m[]
-    int m;    \m[green]// month\m[]
-    int d;    \m[green]// day\m[]
-  }
-.R
-
-.bp
-
-What are the invariants of the \*[c]Date class\*[r] in the chapter?
-.bp
-
-
-When should functions be put in the class definition?
-
-
-
-When should they be defined outside of the class?  
-
-
-Why?
-.bp
-
-
-
-When is it acceptable to use a \*[c]struct\*[r]?  
-
-
-When is it not acceptable?
 .SS Interface and implementation
 .IT A class is by default private
 .i1s
@@ -263,7 +228,6 @@ File date.cpp
   int date::day ()   { return d; }
 .R
 .i1e
-.IT As is, this class still needs a lot of work!
 .SS Summary
 .IT In C++ a class is a struct
 .i1 With default private access
