@@ -55,9 +55,11 @@ Create a default constructor to initialize the tires to 6.
 Create a one argument constructor to initialize the tires to a provided value.
 .IP c.
 Add a \*[c]void\*[r] function \*[c]pop_tire\*[r] that reduces the number of tires by 1.
+.IP d.
+Add a \*[c]uint16_t\*[r] function \*[c]tires\*[r] that returns the number of tires.
 .br
 Do not allow this function to reduce the number when the number of tires is already 0.
-.IP d.
+.IP e.
 Implement the class in \fClab11a.cpp\fR.
 .RE
 .IP \n+[step].
