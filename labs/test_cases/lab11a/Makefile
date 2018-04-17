@@ -6,6 +6,7 @@ srcs     := $(lab).cpp
 # common.mk includes step1 (checks $files)
 include /var2/lopt/share/cisc187/common.mk
 
+check: step1 step2 step3 step4 step5
 
 step2: clean
 	@echo -n "test clock: "
