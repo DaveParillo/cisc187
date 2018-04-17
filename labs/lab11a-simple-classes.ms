@@ -28,7 +28,7 @@ Add two functions to the class named \*[c]time\*[r] to change and retrieve the t
 Implement the class in \fClab11a.cpp\fR.
 .RE
 .IP \n+[step].
-Define a class \*[c]Clock\*[r] in file \fClab11a.h\fR.
+Define a class \*[c]Complex\*[r] in file \fClab11a.h\fR.
 .RS
 .IP a.
 Add two \*[c]double\*[r] member variables: one for the real part of the number and one for the imaginary part
@@ -45,7 +45,7 @@ Add functions to retrieve the complex value components (real part and imaginary 
 Implement the class in \fClab11a.cpp\fR.
 .RE
 .IP \n+[step].
-Define a class \*[c]Clock\*[r] in file \fClab11a.h\fR.
+Define a class \*[c]Truck\*[r] in file \fClab11a.h\fR.
 .RS
 .IP a.
 Define a \*[c]uint16_t\*[r] member variable to store the number of tires on the vehicle.
