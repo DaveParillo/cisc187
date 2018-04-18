@@ -5,22 +5,15 @@
 .TL
 \*[LH]
 .LP
-The goal of this project is to extend the functional calculator
-from project 2.
-The previous project still used a simplified \fIprefix\fR notation that only
-processed 1 operation at a time.
-In that calculator, 
-first an operation was read in, 
-then that operation was applied to all the numbers read in after.
-While it is possible to construct a \fIprefix\fR notation calculator,
-changing our calculator to use \fIpostfix\fR notation simplifies things a bit.
+The goal of this project is to create a simple calculator that can perform
+arithmetic operations on integers of (practically) unlimited size.
 
-In this project, the calculator will use \fIpostfix\fR notation.
-It will also transition from a mostly functional program to using
-C++ objects working together using a \fIdesign pattern\fR.
-It will use the \fIChain of Responsibility\fR pattern 
+In this project, the calculator must use \fIpostfix\fR notation.
+Rahter than the functional programming style used in the first two projects,
+this project should use object oriented programming techniques.
+It should use the \fIChain of Responsibility\fR pattern 
 to abstract away the actual operations performed from the calculator class.
-The calculator class is transformed into a simple driver with no knowledge about
+The calculator class is merely a simple driver with no knowledge about
 the actual calculations performed.
 .h1 Turn in Requirements
 .LP
@@ -28,8 +21,8 @@ All projects will be graded according to the project rubric in BlackBoard.
 
 Before uploading your project, make sure it meets all of the rubric criteria in order to get full credit.
 .RS
-.nr step 1 1
-.IP \n[step].
+.nr step 0 1
+.IP \n+[step].
 Ensure the top of each source file includes your name and student ID.
 .IP \n+[step].
 Ensure the intent behind every program element is "crystal clear".
@@ -37,15 +30,15 @@ Add documentation where it makes sense to do so.
 .IP \n+[step].
 Ensure all project requirements are met and all results are correct.
 .IP \n+[step].
-Your finished project should be able to build using \fCmake\fR executed on buffy.
+Your finished project should be able to build using \fCg++\fR or \fCmake\fR executed on buffy.
 .IP \n+[step].
-Create a zip file of all of your project files and upload to BlackBoard.
-Remember to "clean" your project before submitting it - it will be much smaller.
+Use the \fCturnitin\fR script to submit your project files.
+
+Remember to remove any temporary or unwanted files and executables from 
+your project before submitting it.
 .RE
 .h1 Input and Output
 .LP
-The inputs to this program are exactly the same as for program 1,
-except for the fact that input equations must use postfix notation.
 The input to this program should 
 .BI
 read from standard input
@@ -54,7 +47,9 @@ and the output should be
 .BI
 directed to standard output
 .R . 
-All the requirements from previous projects related to standard input and output apply.
+
+Do \fBNOT\fR put code in your program to open a file by name using a file stream, or file open.
+Your program should only read \*[c]std::cin\*[r].
 
 The input stream will consist of a series of arithmetic expressions. 
 To simplify the project, all expressions will be in \fIpostfix\fR notation.  
@@ -170,8 +165,27 @@ The character \fC#\fR represents the command prompt.
 It may look different on your computer.
 .h2 Invoke help
 .LP
-This should only require minor modification to account for postfix notation.
-The help text should be mostly unchanged from project 1.
+Provide an \fBaccurate description\fR of how to run the program, then exit.
+.CW
+  # ./calc -h
+  Usage: ./calc [-h] [-v] 
+  to run the program interactively. To run using standard input:
+      echo 'equation' | ./calc
+  where 'equation' is a prefix notation equation, i.e. '+ 2 2'
+  or:
+      ./calc < input_file.txt
+  where 'input_file.txt' contains prefix notation equations, one per line
+
+  Options:
+    -h   Show this text
+    -v   Set a verbose output flag.  Default = false.
+
+  Running with no input from standard in enters 'interactive mode'.
+  Equations can be entered one per line.
+  The program runs until 'quit' is the first word on a line or EOF is reached.
+  #
+.R
+
 .h2 Using an input file
 .LP
 With the verbose output option set:
