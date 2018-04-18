@@ -1,10 +1,8 @@
-.ds CH Lab #10a: Boost::Test and Book
+.ds CH Lab #12a: Boost::Test and Book
 .so headings.ms
 .TL
 \*[CH] software lab
 .so cover-page.ms
-
-
 .bp
 .NH
 Using \*[c]Boost::Test\m[]\fB: 20 points, 10 minutes \fImaximum\fR
@@ -15,12 +13,16 @@ Verify you can login to buffy and run a Boost unit test.
 Boost is installed on the buffy server.
 
 .RS
-.nr step 1 1
-.IP \n[step].
-Download the files that are provided as part of this lab.
+.nr step 0 1
 .IP \n+[step].
-Copy them to buffy, if you didn't download them directly there and cd to the
-\fClab10a-files\fR directory.
+Copy the files that are provided as part of this lab.
+The file are in
+.CW
+  ~dparillo/public_html/cisc187/labs/lab12a-files.zip
+.R
+
+Unzip the files and cd into the directory \*[c]lab12a-files\*[r].
+
 .IP \n+[step].
 Type \fCmake hello\fR.
 You should see the following:
@@ -81,8 +83,8 @@ class: 40 points, 45 minutes \fImaximum\fR
 This exercise creates a \*[c]Book\*[r] class that might exist as part of a software
 program for a library.
 .RS
-.nr step 1 1
-.IP \n[step].
+.nr step 0 1
+.IP \n+[step].
 Complete the \*[c]Book\*[r] class.  
 
 It already includes members for ISBN, title, author, and copyright date.
@@ -96,8 +98,8 @@ For the ISBN, a string of length 10 is enough error checking.
 .IP \n+[step].
 Add operators to the \*[c]Book\*[r] class.  
 
-Have the \*[c]==\*[r] and \*[c]!=\*[r] operators compare the ISBN's for two books.
-Have the \*[c]<<\*[r] operator print the title, author and ISBN on separate lines.
+Have \*[c]operator ==\*[r] and \*[c]operator !=\*[r] compare the ISBN's for two books.
+Have \*[c]operator <<\*[r] stream the title, author and ISBN on separate lines.
 
 .IP \n+[step].
 Create an enumerated type for the \*[c]Book\*[r] class called \*[c]Genre\*[r].
@@ -108,14 +110,14 @@ FICTION
 .IP \(bu
 NONFICTION
 .IP \(bu
-PERIODICAl
+PERIODICAL
 .IP \(bu
 BIOGRAPHY
 .IP \(bu
 CHILDREN
 .RE  
 
-Use the Directions source from the week 10 enum examples as a template, if you like.
+Use the Directions source from the week 12 enum examples as a template, if you like.
 
 .IP \n+[step].
 Give each \*[c]Book\*[r] a \*[c]Genre\*[r] and make appropriate changes to the \*[c]Book\*[r]
@@ -125,5 +127,15 @@ constructor and member functions.
 
 When complete, verify the \*[c]Book\*[r] class functions as expected by running the provided
 Boost unit tests.
+
+Check your progress using the \*[c]check187\*[r] script:
+.CW
+    check187 lab12a
+.R
+
+Turn in your completed lab using the \*[c]submit187\*[r] script:
+.CW
+    submit187 lab12a
+.R
 
 
