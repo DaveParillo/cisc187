@@ -9,7 +9,7 @@ The goal of this project is to create a simple calculator that can perform
 arithmetic operations on integers of (practically) unlimited size.
 
 In this project, the calculator must use \fIpostfix\fR notation.
-Rahter than the functional programming style used in the first two projects,
+Rather than the functional programming style used in the first two projects,
 this project should use object oriented programming techniques.
 It should use the \fIChain of Responsibility\fR pattern 
 to abstract away the actual operations performed from the calculator class.
@@ -163,6 +163,13 @@ http://www.oodesign.com/command-pattern.html
 This section provides expected outputs from your finished program.
 The character \fC#\fR represents the command prompt.
 It may look different on your computer.
+
+You are under no compulsion to attempt to replicate these examples exactly.
+They do, however, provide reasonable goals, and you are free to emulate
+these examples.
+
+Your output should make sense for your application.
+
 .h2 Invoke help
 .LP
 Provide an \fBaccurate description\fR of how to run the program, then exit.
@@ -215,7 +222,7 @@ With the verbose output option set:
 Under no circumstances should your program throw an unhandled exception, abort, or crash.
 A new situation you now need to handle is having too few operators or operands.
 
-The following exmples show what handling bad inputs might look like when runnign interactively.
+The following examples show what handling bad inputs might look like when running interactively.
 
 .CW
   ./calc
