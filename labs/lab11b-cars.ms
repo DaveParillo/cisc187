@@ -1,37 +1,131 @@
-.ds CH Lab #9b: Car simulation
+.ds CH Lab #11b: Car abstraction
 .so headings.ms
 .TL
 \*[CH]
 .NH
-Car simulation: 100 points, 90 minutes \fImaximum\fR
+Car abstraction: 100 points, 90 minutes \fImaximum\fR
 .time_box
 .QP
 Implement some functions in a \fBvery\fR simple car simulation.
-
 Some of the code has been provided.
 You are expected to complete the rest.
-While people may collaborate freely, this is not a team lab.
-Everyone should hand in their own work.
-
-The goal is to implement a car the can speed up, turn, 
+The goal is to implement a car that can speed up, turn, 
 and slow down.
-
-Follow the guidance provided in the source code.
-
-The Car class provided defines the interface you are expected to implement.
-Do not expose any other private in this class.
-
-When complete, running the program should produce output similar to:
 .RS
+.nr step 0 1
+.IP \n+[step].
+Create the files \fCCar.h\fR and \fCCar.cpp\fR.
+.IP \n+[step].
+Define an \*[c]enum class\*[r] \*[c]Direction\*[r] in file \fCCar.h\fR:
 .CW
-  Mesa Jolt (0.0, 0.0)	Speed: 0.0	Heading: 90
-
-  Mesa Jolt (-1275.0, 0.0)	Speed: 50.0	Heading: 90
-
-  Mesa Jolt (-1755.9, 320.9)	Speed: 50.0	Heading: 5
-
-  Mesa Jolt (-1862.7, 1541.2)	Speed: 0.0	Heading: 5
+  enum class Direction { CENTER, LEFT, RIGHT };
 .R
+.br
+Define a \*[c]struct\*[r] \*[c]Point\*[r] in file \fCCar.h\fR:
+.CW
+  struct Point {
+    double x;   
+    double y;
+  };
+.R
+.br
+Define both of these types in the \*[c]namespace\*[r] mesa.
+.IP \n+[step].
+Declare a class \*[c]Car\*[r] in file \fCCar.h\fR:
+.CW
+  namespace mesa {
+    \m[green]/**
+     * An abstraction demonstration.
+     *
+     * Functions that use this class must use steer,
+     * accelerate, and update to change the state of the Car.
+     */\m[]
+    class Car {
+      \m[blue]private:\m[]
+        double speed_;
+        double heading_;
+        Point  location_;   \m[green]// relative position of car\m[]
+        double angle_ = 0;  \m[green]// current steering angle\m[]
+        double rate_ = 0;   \m[green]// current change in speed\m[]
+      \m[blue]public:\m[]
+        \m[green]// getters\m[]
+        double speed()    const { return speed_;    }
+        double heading()  const { return heading_;  }
+        Point  location() const { return location_; }
+    };
+  }
+.R
+.bp
+.IP \n+[step].
+Add a public member function to the \*[c]Car\*[r] class to steer the car:
+.CW
+  \m[green]/**
+   * Steer the car by changing direction.
+   * Choices are LEFT, RIGHT, and CENTER.
+   * CENTER means no change in direction.
+   * @return a new heading
+   */\m[]
+  double steer (Direction dir);
+
+.R
+.br
+This function should modify the steer \*[c]angle_\*[r],
+which then modifies \*[c]heading_\*[r].
+
+Do not allow the steer angle to grow > +10 or < -10
+regardless of how many times this function is called.
+.IP \n+[step].
+Add a public member function to the \*[c]Car\*[r] class to change the car acceleration:
+.CW
+  \m[green]/**
+   * Change the car speed by (de)accelerating.
+   * Positive values will increase car speed.
+   * Negative values will reduce car speed.
+   * Zero values leave the car speed unchanged.
+   * @return a new speed
+   */\m[]
+  double accelerate (double rate);
+
+.R
+.br
+This function should modify the car \*[c]rate_\*[r],
+which then modifies \*[c]speed_\*[r].
+
+Do not allow the acceleration rate to grow > +3 or < -3
+regardless of how many times this function is called.
+
+.IP \n+[step].
+Add a public member function to the \*[c]Car\*[r] class to move the car each simulation time step:
+.CW
+  \m[green]/**
+   * Move car based on current speed and heading.
+   */\m[]
+  void   update();
+.R
+
+Use this code as the implementation for the update function:
+.CW
+  void mesa::Car::update() {
+    static const double dtor = std::acos(-1)/180.0;
+    const auto angle = dtor * heading_;
+    location_.x += std::cos(angle) * speed_;
+    location_.y += std::sin(angle) * speed_;
+  }
+.R
+
+You will need to \*[c]#include <cmath>\*[r] to support this function.
+
 .RE
 
+Check your progress using the \*[c]check187\*[r] script:
+.CW
+    check187 lab11b
+.R
+
+Turn in your completed lab using the \*[c]submit187\*[r] script:
+.CW
+    submit187 lab11b
+.R
+
+Consider writing a program that uses your Car class.
 
