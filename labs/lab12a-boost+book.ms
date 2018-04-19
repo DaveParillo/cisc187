@@ -18,10 +18,10 @@ Boost is installed on the buffy server.
 Copy the files that are provided as part of this lab.
 The file are in
 .CW
-  ~dparillo/public_html/cisc187/labs/lab12a-files.zip
+  ~dparillo/public_html/cisc187/labs/lab12a-files/
 .R
 
-Unzip the files and cd into the directory \*[c]lab12a-files\*[r].
+Copy the files into a new directory and cd into the directory you created.
 
 .IP \n+[step].
 Type \fCmake hello\fR.
