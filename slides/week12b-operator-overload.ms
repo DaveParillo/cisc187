@@ -5,14 +5,14 @@ Operator Overloading
 .gcolor
 .LP
 .ce 1
-Week 10
+Week 12
 .EQ
 delim $$
 .EN
 .SS Overview
 .IT The \*[c]*this\*[r] pointer
-.IT General Syntax of operator overloading
-.IT Basic Rules of operator overloading
+.IT General syntax of operator overloading
+.IT Basic rules of operator overloading
 .IT Member or Non-member?
 .IT Common operators to overload
 .IT User-defined casts
@@ -26,19 +26,47 @@ delim $$
 .i1 Stored in \*[c]*this\*[r]
 .IT Not just any old object
 .i1 *this is immutable
+.SS The \fIthis\fP pointer
+.IT Every class function has access to a pointer to the current object
+.i1 Stored in \*[c]*this\*[r]
+.IT Not just any old object
+.i1 *this is immutable
 .IT Typical uses
 .i1s
-Check and return the current object
+Modify and return the current object
 .CW
-  Foo equals(Foo value) {
-    if (value == *this) return *this;
-    \m[green]// do other things to determine equality\m[]
+  Foo& operator+=(const Foo& rhs) {
+    \m[green]// actual addition of rhs to *this\m[]
+    return *this;
   }
-
 .R
 .i1e
-.i1 Operator overloads
-.i1 Builder pattern
+.SS The \fIthis\fP pointer
+.IT Every class function has access to a pointer to the current object
+.i1 Stored in \*[c]*this\*[r]
+.IT Not just any old object
+.i1 *this is immutable
+.IT Typical uses
+.i1s
+Modify and return the current object
+.CW
+  Foo& operator+=(const Foo& rhs) {
+    \m[green]// actual addition of rhs to *this\m[]
+    return *this;
+  }
+.R
+.i1e
+.i1s
+Resolve ambiguity between member variables and function parameters.
+.CW
+  struct Dog
+    string dog_name = "Fido";
+    void   set_name (string dog_name) const {
+      this->dog_name = dog_name;
+    }
+  };
+.R
+.i1e
 .SS Why bother with operator overloads?
 .IT When we say \fIoperator overload\fR in C++
 .i1 We \fIdon't\fR mean \fCMyClass.subtract()\fR
@@ -46,9 +74,9 @@ Check and return the current object
 .RS
 \s-8
 .CW
- Complex x;
+ Complex root;
  Rational a {2,3}, b{6,1}, c{5,3};
- x = (-b + std::sqrt(b*b + 4*a*c)) / (2*a);
+ root = (-b + std::sqrt(b*b + 4*a*c)) / (2*a);
 .R
 
 \s+8
@@ -63,7 +91,7 @@ instead of
  x.setComplex((-1.0 * b.add(
       Math.sqrt(b.multiply(b)
       .add(c.multiply(a.multiply(4)))))) 
-      / (a.multiply(2));
+      / (a.multiply(2)));
 .R
 .RE
 .SS General syntax
@@ -76,7 +104,8 @@ instead of
 .IT Operator overloads are just functions with special names
 .RS 
 .CW
- Rational operator+(Rational lhs, const Rational& rhs)
+ Rational operator+(Rational lhs, i
+                    const Rational& rhs)
 .R
 .RE
 .IT Generally implemented as either
@@ -89,7 +118,7 @@ instead of
 .i2s
 There is not universal agreement on the wisdom of using \*[c]cout\*[r] and overloading
 the bitshift operator \*[c]<<\*[r].
-.12e
+.i2e
 .i3 Partly because the iostream library is huge compared to stdio
 .IT Don't change expected behavior
 .i1 it is perfectly legal to overload \*[c]operator+\*[r] to subtract from the right operand
@@ -236,31 +265,63 @@ Suppose we want to concatenate a Rational to a string?
 .CW
   Rational a {2,3};
   std::string s = {"A = "};
+  s += a;
+.R
+.i1e
+.bp
+.SS Conversion operators
+.IT C++ allows you to create operators to convert between your type and other ADT's
+.i1s
+Suppose we want to concatenate a Rational to a string?
+.CW
+  Rational a {2,3};
+  std::string s = {"A = "};
   s += a;                   \m[green]// will not compile\m[]
 .R
 .i1e
 .i2s
-\fCerror: no viable overloaded '+='\fR
-.RS
-\s-8
+Example compiler message
 .CW
-  candidate function not viable: no known conversion from 'Rational' to
+  error: no viable overloaded '+='
+  candidate function not viable: 
+  no known conversion from 'Rational' to
   'const std::__1::basic_string<char>' for 1st argument
-  _LIBCPP_INLINE_VISIBILITY basic_string& operator+=(const basic_strin...
+  _LIBCPP_INLINE_VISIBILITY basic_string& operator+=(const basic_string...
 .R
-.RE
 .i2e
+.bp
+.SS Conversion operators
+.IT C++ allows you to create operators to convert between your type and other ADT's
 .i1s
+Suppose we want to concatenate a Rational to a string?
+.CW
+  Rational a {2,3};
+  std::string s = {"A = "};
+  s += a;                   \m[green]// will not compile\m[]
+.R
+.i1e
+.i2s
+Example compiler message
+.CW
+  error: no viable overloaded '+='
+  candidate function not viable: 
+  no known conversion from 'Rational' to
+  'const std::__1::basic_string<char>' for 1st argument
+  _LIBCPP_INLINE_VISIBILITY basic_string& operator+=(const basic_string...
+.R
+.i2e
+.i1 Solution
+.i2s
 Overload \*[c]operator <type>() const\*[r] as a member function
 .CW
-  Rational::operator std::string () const {
+  Rational::\m[blue]operator\m[] \m[red]std::string\m[] () \m[red]const\m[] {
     std::stringstream ss;
     \m[green]// n_ & d_ are private members of Rational\m[]
     ss << n_ << '/' << d_;
     return ss.str();
   }
 .R
-.i1e
+.i2e
 .bp
 .IT Conversion are implicit by default
 .i1 Can perform \fIimplicit conversion\fR
@@ -283,77 +344,10 @@ As the name implies, only get called when code uses an explicit conversion
 .i1e
 .IT A complete example is at
 .i1 http://en.cppreference.com/w/cpp/language/explicit
-.SS One last overload...
 
-.ce 99
-.CW
-operator ()
-
-.R
-The function call operator
-
-.ce 0
-.SS Motivation
-.IT Many functions in the STL take a function as an argument.
-.IT Suppose we want to count the number of short strings in a vector
-.i1 There is a count_if function in the STL
-.i2 Takes a range of iterators and a \fIpredicate\fR function
-.i1s
-A simple \fCcount_if\fR example
-\s-4
-.CW
-  bool less_than_5(const string& str) {
-    return str.size() < 5;
-  }
-  size_t num_short_strings(const vector<string>& v) {
-    return count_if(v.begin(), v.end(), less_than_5);
-  }
-.R
-.i1e
-.IT We can write as many functions like this as we need
-.i1 \fCless_than_10\fR, etc.
-.IT Gets tedious quickly
-.i1 And not very flexible 
-.i2 Every new comparison is a recompile
-.bp
-.IT Goal
-.i1 Avoid writing a new function for every value to compare
-.i1s
-Simple: let's add a parameter \fCsize\fR:
-.CW
-  bool less_than(const string& str, size_t size) {
-    return str.size() < size;
-  }
-.R
-
-Sadly, we can't use this function in \fCcount_if\fR
-.i1e
-.IT The new function is arguably more generic
-.i1 But we can't use our 'improved' \fCless_than\fR in \fCcount_if\fR
-.i2 Predicate must be a \fIunary\fR function
-.IT The improved function is less useful than the old
-.i1 Even though we made it 'generic'
-.IT We need a way to pass more than one parameter
-.i1 to a function that can only take 1 parameter
-.i1 We need a \fIfunction object\fR
-.SS Functions and overloads
-.IT We have been overloading functions all semester
-.IT One operator we haven't discussed yet
-.i1 \*[c]operator ()\*[r]
-.IT The \fIfunction call operator\fR
-.IT No magic here
-.i1 Any class can override this operator
-.i1 Allows a class to be called like a function
-.IT Also commonly referred to as a \fIfunctor\fR for short
-
-.IT Problem
-.i1s
-The \fCcount_if\fR function needs a unary function 
-.br
- that returns whether a string is less than an arbitrary length
-.i1e
-.SS Functors
-.IT Solution
+.SS Function objects
+.IT A \fIfunction object\fR is an object that encapsulates an overloaded  \*[c]operator()\*[r]
+.IT Introduced in C++ before lambdas existed
 .i1 Create a \fIunary function object\fR
 .i2 Whose constructor takes 1 parameter
 .i2 And stores it as a class member
@@ -364,20 +358,20 @@ And determines if it is short enough
   class ShorterThan {
     public:
       \m[green]// Accept and store an int parameter\m[]
-      \m[red]explicit ShorterThan(size_t max) 
-         : sz(max) {}\m[]
-      \m[green]// Is the string length is less than \m[]
-      \m[green]// the stored size limit?\m[]
-      \m[red]bool operator() (const string& str) const {
+      \m[red]explicit ShorterThan\m[](size_t max) 
+         : sz(max) {}
+      \m[green]// Is str less than the stored size limit?\m[]
+      \m[red]bool operator()\m[] (const string& str) const {
         return str.size() < sz;
-      }\m[]
+      }
     private:
       \m[red]const size_t sz;\m[]
   };
 .R
 .i1e
 .SS Using functors
-.IT Use a functor like any other class
+.IT A 'functor' is another term for 'function object'
+.IT Use a functor much like a lambda
 .i1s
 We can use it like this
 .CW
@@ -404,6 +398,7 @@ or omit the temporary object
 .i1 Objects that behave like pointers are smart pointers
 .i1 Function objects may have other member functions and attributes
 .i2 Function objects have a state
+.i1 \*[c]std::function\*[r] accepts function objects
 .IT Each function object has its own type.
 .i1 Ordinary functions have different types only when their signatures differ
 .i1 Function objects can have different types when their signatures are the same

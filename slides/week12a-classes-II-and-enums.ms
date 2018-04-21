@@ -5,16 +5,14 @@ Classes and enumerations
 .gcolor
 .LP
 .ce 1
-Week 10
+Week 12
 .SS Overview
 .IT Read Chapter 9, \*[sect]9.5 - 9.8
 .IT Classes
 .i1 Writing good interfaces
 .IT Default behaviors
-.i1 Copying
 .i1 Constructors
 .IT Enumerations
-.IT Boost
 .SS Class interfaces
 .IT Introduced last week
 .i1 Interface and implementation
@@ -25,12 +23,12 @@ Week 10
 .bp
 .IT Provide constructors
 .IT Make copying efficient (or prevent it)
-.i1 We will cover this in weeks 12 and 13
+.i1 We will cover this in weeks 13 and 14
 .IT Use types correctly
 .i1 To provide good argument checking
 .IT Identify non-modifying member functions
 .IT Free resources correctly
-.i1 We'll get to this in week 12
+.i1 We'll get to this in week 14
 .IT Composition
 .SS Constructors
 .IT Initialize objects
@@ -97,7 +95,7 @@ Make an object of type Car
 .i1 If it looks like a function, C++ will attempt to interpret it as a function
 .i2 This is a side-effect of the ability to overload basically everything in C++
 .i1 This is the motivation behind C++11 'initializer syntax'
-.i1 See examples/week05/item06-most-vexing-parse
+.i1 See examples/week07/sequential_containers/item06-most-vexing-parse
 .i1s
 For a Car
 .CW
@@ -218,8 +216,8 @@ What is output from this program?
 .R
 \s+8
 .bp
-.nr step 1 1
-\n[step].  Does this program compile without error?  
+.nr step 0 1
+\n+[step].  Does this program compile without error?  
 
 .RS
 Without warning? 
@@ -282,10 +280,8 @@ Even when the number is a valid \fCDirection\fR.
 .i1 Class interfaces
 .IT \*[c]static\*[r] variables
 .IT Default behaviors
-.i1 Copying
-.i1 Constructors
-.i2 Know when the compiler will generate constructors
-.i2 And when it won't
+.i1 Know when the compiler will generate constructors
+.i1 And when it won't
 .IT Enumerations
 .i1 Prefer \*[c]class enum\*[r] to plain \*[c]enum\*[r]
 
