@@ -10,6 +10,8 @@ A rational number class: 100 points, 90 minutes \fImaximum\fR
 The goal of this lab is to explore creating a class that can
 perform math operations much like the fundamental types.
 
+In all steps, ensure that your operator overloads are member functions only when appropriate.
+
 .RS
 .nr step 0 1
 .IP \n+[step].
@@ -24,56 +26,67 @@ for example:
 1 over 1 , -4 over 7 , or x over y
 .EN
 
+Use the following to compute the greatest common divisor of the numerator and denominator:
+.CW
+  #pragma once
+  #include <cmath>
+  \m[green]//
+  // Compute the Greatest Common Divisor of two integers
+  // In C++17, it is provided.
+  // see http://en.cppreference.com/w/cpp/numeric/gcd
+  //\m[]
+  #define IntegralType class
+  template <IntegralType M, IntegralType N>
+  auto gcd(M x, N y) -> decltype(x+y) { 
+    return y == 0 ? std::abs(x) : gcd(y, x % y); 
+  }
+.R
 .IP \n+[step].
-Create operators for assignment, addition, subtraction, multiplication, division, and equality.
-Since each set of operations is so similar, 
-consider having each member in the group implement a different operator
-and consolidating your work.
-
-Ensure that your operators are only member functions when it is appropriate.
-
-The following relationships may prove useful:
-
-\fBAddition\fR
-.EQ
-a over b + c over d = {ad + bc} over bd
-.EN
-
-\fBSubtraction\fR
-.EQ
-a over b - c over d = {ad - bc} over bd
-.EN
-
-
-\fBMultiplication\fR
-.EQ
-a over b times c over d = ac over bd
-.EN
-
-
-\fBDivision\fR
-.EQ
-a over b \[u00F7] c over d = ad over bc
-.EN
-
-\fBEquality\fR
+Create a two argument constructor. 
+The constructor should take \*[c]long\*[r]s for the numerator and denominator.
+Default the numerator to 0 and the denominator to 1.
+.IP \n+[step].
+Create a conversion constructor and a function \fCto_double()\fR 
+that converts a \*[c]Rational\*[r] to a \*[c]double\*[r].
+.IP \n+[step].
+Create operator overloads for assignment and equality.
+The formula for equality is:
 .EQ
 a over b = c over d roman {" if and only if, "} ad = bc
 .EN
-
 .IP \n+[step].
-Create a function to_double() that converts a \*[c]Rational\*[r] into a \*[c]double\*[r] primitive.
-
+Create operator overloads for addition.
+The formula for addition is:
+.EQ
+a over b + c over d = {ad + bc} over bd
+.EN
+.IP \n+[step].
+Create operator overloads for subtraction.
+The formula for subtraction is:
+.EQ
+a over b - c over d = {ad - bc} over bd
+.EN
+.IP \n+[step].
+Create operator overloads for multiplication.
+The formula for multiplication is:
+.EQ
+a over b times c over d = ac over bd
+.EN
+.IP \n+[step].
+Create operator overloads for division.
+The formula for division is:
+.EQ
+a over b \[u00F7] c over d = ad over bc
+.EN
 .IP \n+[step].
 Answer the following questions:
 .RS
 .IP a.
 How is the \*[c]Rational\*[r] class better than the fundamental type \*[c]double\*[r]? Worse?
-
 .IP b.
 Give an example where the \*[c]Rational\*[r] class gives a mathematically better result 
 over using the fundamental type \*[c]double\*[r].
-
+.br
 Provide an explanation for why this is true.
 .RE
 
