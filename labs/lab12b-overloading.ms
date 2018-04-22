@@ -2,7 +2,6 @@
 .so headings.ms
 .TL
 \*[CH]
-.so cover-page.ms
 .NH
 A rational number class: 100 points, 90 minutes \fImaximum\fR
 .time_box
@@ -45,9 +44,16 @@ Use the following to compute the greatest common divisor of the numerator and de
 Create a two argument constructor. 
 The constructor should take \*[c]long\*[r]s for the numerator and denominator.
 Default the numerator to 0 and the denominator to 1.
+Provide functions \fCnumerator\fR and \fCdenominator\fR that return the respective parts of a Rational.
 .IP \n+[step].
 Create a conversion constructor and a function \fCto_double()\fR 
 that converts a \*[c]Rational\*[r] to a \*[c]double\*[r].
+
+Create a conversion constructor 
+that converts a \*[c]Rational\*[r] to a \*[c]std::string\*[r].
+
+If you want unit tests to display the contents of your object,
+then you should consider overloading \*[c]operator <<\*[r].
 .IP \n+[step].
 Create operator overloads for assignment and equality.
 The formula for equality is:
@@ -78,19 +84,6 @@ The formula for division is:
 .EQ
 a over b \[u00F7] c over d = ad over bc
 .EN
-.IP \n+[step].
-Answer the following questions:
-.RS
-.IP a.
-How is the \*[c]Rational\*[r] class better than the fundamental type \*[c]double\*[r]? Worse?
-.IP b.
-Give an example where the \*[c]Rational\*[r] class gives a mathematically better result 
-over using the fundamental type \*[c]double\*[r].
-.br
-Provide an explanation for why this is true.
-.RE
-
-Record your answers in file \fCRational.h\fR.
 .RE
 
 Check your progress using the \*[c]check187\*[r] script:
