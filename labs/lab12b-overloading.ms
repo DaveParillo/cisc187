@@ -46,10 +46,10 @@ The constructor should take \*[c]long\*[r]s for the numerator and denominator.
 Default the numerator to 0 and the denominator to 1.
 Provide functions \fCnumerator\fR and \fCdenominator\fR that return the respective parts of a Rational.
 .IP \n+[step].
-Create a conversion constructor and a function \fCto_double()\fR 
+Create a conversion operator overload and a function \fCto_double()\fR 
 that converts a \*[c]Rational\*[r] to a \*[c]double\*[r].
 
-Create a conversion constructor 
+Create a conversion operator overload 
 that converts a \*[c]Rational\*[r] to a \*[c]std::string\*[r].
 
 If you want unit tests to display the contents of your object,
