@@ -67,7 +67,7 @@ SCENARIO( "Test Rational construction") {
     WHEN("the values are {3,0}") {
       Rational r {3,0};
       THEN( "the value should be 3/0" ) {
-        REQUIRE (r.numerator() == 1);
+        REQUIRE (r.numerator() == 3);
         REQUIRE (r.denominator() == 0);
       }
     }
