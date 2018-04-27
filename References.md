@@ -43,6 +43,10 @@ Week:
   [Code visualization](http://www.pythontutor.com/cpp.html#code=//%20Example%20C%2B%2B%20code%20for%20OPT%0Aint%20main%28%29%20%7B%0A%20%20int%20*x%20%3D%20new%20int%3B%0A%20%20int%20*x_array%20%3D%20new%20int%5B10%5D%3B%0A%0A%20%20x_array%5B1%5D%20%3D%201%3B%0A%20%20x_array%5B3%5D%20%3D%203%3B%0A%20%20x_array%5B5%5D%20%3D%205%3B%0A%0A%20%20delete%20x%3B%0A%20%20delete%5B%5D%20x_array%3B%0A%20%20return%200%3B%0A%7D&curInstr=6&mode=display&origin=opt-frontend.js&py=cpp&rawInputLstJSON=%5B%5D) for C, C++, Python, Java, Ruby and others
 
 ## Week 2
+#### String and Vector
+
+
+## Week 3
 #### Function basics
 * [Chapter 8](http://stroustrup.com/Programming/8_functions.ppt) slides from textbook.
 * From: cppreference.com: 
@@ -62,8 +66,8 @@ Week:
 * [Herb Sutter's GOTW #94](https://herbsutter.com/2013/08/12/gotw-94-solution-aaa-style-almost-always-auto/)
 
 
-## Week 3
-#### Function templates and exception handling
+## Week 4
+#### Function templates and overloads
 * [Chapter 19](http://stroustrup.com/Programming/19_vector.ppt) slides from textbook.
 * From cppreference.com
   * C++ [templates](http://en.cppreference.com/w/cpp/language/templates) overview
@@ -71,6 +75,7 @@ Week:
   * Template [parameters and template arguments](http://en.cppreference.com/w/cpp/language/template_parameters) and 
     [template argument deduction](http://en.cppreference.com/w/cpp/language/template_argument_deduction)
   * [static cast](http://en.cppreference.com/w/cpp/language/static_cast) 
+#### Exception handling
   * Overview of the [error handling](http://en.cppreference.com/w/cpp/error) library and 
     [exceptions](http://en.cppreference.com/w/cpp/language/exceptions)
   * [try-catch](http://en.cppreference.com/w/cpp/language/try_catch) and 
@@ -79,7 +84,11 @@ Week:
 ### More to explore
 * Post from Eric Lippert on [vexing exceptions](https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/)
 
-## Week 4
+## Week 5
+#### Pointers
+
+
+## Week 6
 #### Function pointers and lambda expressions
 * From cppreference.com
   * C++ [lambda expressions](http://en.cppreference.com/w/cpp/language/lambda) and
@@ -87,19 +96,13 @@ Week:
 * Descriptions of [lambda expressions](https://msdn.microsoft.com/en-us/library/dd293608.aspx)
   from Microsoft's MSDN
 
-## Week 5
-#### Linear containers and iterators
+## Week 7
+#### Containers
 * [Chapter 20](http://stroustrup.com/Programming/20_containers.ppt) slides from textbook.
 * From cppreference.com
   * C++ Concepts: [Container](http://en.cppreference.com/w/cpp/concept/Container) and 
     [SequenceContainer](http://en.cppreference.com/w/cpp/concept/SequenceContainer)
-  * C++ Concepts: [Iterator](http://en.cppreference.com/w/cpp/concept/Iterator) and 
-    [ForwardIterator](http://en.cppreference.com/w/cpp/concept/ForwardIterator)
-  * [vector::begin()](http://en.cppreference.com/w/cpp/container/vector/begin) and 
-    [vector::end](http://en.cppreference.com/w/cpp/container/vector/end)
   * Overview of the [container](http://en.cppreference.com/w/cpp/container) library
-
-## Week 6
 #### Associative containers
 * [Chapter 21](http://stroustrup.com/Programming/21_algorithms.ppt) slides from textbook.
 * From cppreference.com
@@ -112,7 +115,20 @@ Week:
   * [std::unordered_map](http://en.cppreference.com/w/cpp/container/unordered_map) and 
     [std::hash](http://en.cppreference.com/w/cpp/utility/hash)
 
-## Week 7
+## Week 8
+#### Trees
+
+#### Midterm
+
+## Week 9
+#### Iterators
+* From cppreference.com
+  * C++ Concepts: [Iterator](http://en.cppreference.com/w/cpp/concept/Iterator) and 
+    [ForwardIterator](http://en.cppreference.com/w/cpp/concept/ForwardIterator)
+  * [vector::begin()](http://en.cppreference.com/w/cpp/container/vector/begin) and 
+    [vector::end](http://en.cppreference.com/w/cpp/container/vector/end)
+
+## Week 10
 #### STL algorithms
 * [Chapter 21](http://stroustrup.com/Programming/21_algorithms.ppt) slides from textbook.
 * From cppreference.com
@@ -126,6 +142,8 @@ Week:
     [back_inserter](http://en.cppreference.com/w/cpp/iterator/back_inserter)
 
 ### More to explore
+* [The World Map of C++ STL Algorithms](http://www.fluentcpp.com/getthemap/), 
+  part of a presentation on [105 STL Algorithms in an hour](https://www.youtube.com/watch?v=bXkWuUe9V2I).
 * C++ Seasoning - a great presentation by Sean Parent at Going Native 2013
   [video](https://channel9.msdn.com/Events/GoingNative/2013/Cpp-Seasoning) and
   [slides](http://sean-parent.stlab.cc/presentations/2013-09-11-cpp-seasoning/cpp-seasoning.pdf)
@@ -133,10 +151,7 @@ Week:
 * Other Algorithm libraries
   * Boost [algorithms](http://www.boost.org/doc/libs/1_62_0/libs/libraries.htm#Algorithms)
 
-## Week 8
-#### Midterm
-
-## Week 9
+## Week 11
 #### Structure and class basics
 * [Chapter 9 slides](http://stroustrup.com/Programming/9_classes.ppt) from textbook.
 * [Classes I](http://www.cplusplus.com/doc/tutorial/classes/) tutorial from cplusplus.com
@@ -149,7 +164,7 @@ Week:
   [cplusplus.com beginner forums](http://www.cplusplus.com/forum/beginner/5980/)
    and Colin Walls' [blog](https://blogs.mentor.com/colinwalls/blog/2014/06/02/struct-vs-class-in-c/)
 
-## Week 10
+## Week 12
 #### Class interfaces and overloading
 * [Chapter 9 slides](http://stroustrup.com/Programming/9_classes.ppt) from textbook.
 * C++ Core Guidelines for 
@@ -162,8 +177,8 @@ Week:
 * [Initialization](http://en.cppreference.com/w/cpp/language/initialization) and 
   [Constructors and member initialization lists](http://en.cppreference.com/w/cpp/language/initializer_list) from cppreference.com
 
-## Week 11
-#### Class inheritance and polymorphism
+## Week 13
+#### Class inheritance and composition
 * [Chapter 14](http://stroustrup.com/Programming/14_class_design.ppt) slides from textbook.
 * [class templates](http://en.cppreference.com/w/cpp/language/class_template) cppreference 
   * Template [parameters and template arguments](http://en.cppreference.com/w/cpp/language/template_parameters) and 
@@ -184,7 +199,7 @@ Week:
     
 * A good article from Herb Sutter on [virtual functions](http://www.gotw.ca/publications/mill18.htm)
 
-## Week 12
+## Week 14
 #### Memory management
 * [Chapter 17](http://stroustrup.com/Programming/17_free_store.ppt) slides from textbook.
 * cppreference.com desriptions of 
@@ -195,20 +210,21 @@ Week:
     [reinterpret cast](http://en.cppreference.com/w/cpp/language/reinterpret_cast), and 
     [dynamic cast](http://en.cppreference.com/w/cpp/language/dynamic_cast),
 
-### More to explore
-* [Pointers vs references](http://www.cplusplus.com/articles/ENywvCM9/) from cplusplus.com
-
-## Week 13
 #### Copying and moving memory
 * [Chapter 18](http://stroustrup.com/Programming/18_arrays.ppt) slides from textbook.
-* From cppreference.com: [copy constructors](http://en.cppreference.com/w/cpp/language/copy_constructor) 
-  and [copy assignment](http://en.cppreference.com/w/cpp/language/copy_assignment).
+* From cppreference.com: 
+  * [copy constructors](http://en.cppreference.com/w/cpp/language/copy_constructor) 
+  * [copy assignment](http://en.cppreference.com/w/cpp/language/copy_assignment).
+  * [Rule of Five / Rule of zero](http://en.cppreference.com/w/cpp/language/rule_of_three)
+
+### More to explore
+* [Pointers vs references](http://www.cplusplus.com/articles/ENywvCM9/) from cplusplus.com
 * [CppCoreGuidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) 
   summary of 
   [Resource management guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#S-resource) on GitHub
-* [Rule of Five / three / zero](http://en.cppreference.com/w/cpp/language/rule_of_three)
 
-## Week 14
+
+## Week 15
 #### Serialization
 * From isocpp.org [serialization FAQ](https://isocpp.org/wiki/faq/serialization)
 * Boost [serialization](http://www.boost.org/doc/libs/1_62_0/libs/serialization/doc/index.html)
@@ -220,8 +236,6 @@ Week:
   * [Basic Input/Output](http://www.cplusplus.com/doc/tutorial/basic_io/) and 
     [File I/O](http://www.cplusplus.com/doc/tutorial/files/) from cplusplus.com
 
-## Week 15
-
 ## Week 16
 #### Final Exam
 
@@ -232,6 +246,9 @@ First, take a well-earned rest.  
 When you are ready to think about programming again, consider the following for further reading. 
 Some of these books have been around for a long time, 
 but they are all classics and still have considerable value.
+
+### For fun
+* [Map of the C++17 Lands](http://fearlesscoder.blogspot.com/2017/02/the-c17-lands.html)
 
 
 ### Suggested reading
