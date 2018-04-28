@@ -174,14 +174,13 @@ Your output should make sense for your application.
 .LP
 Provide an \fBaccurate description\fR of how to run the program, then exit.
 .CW
-  # ./calc -h
   Usage: ./calc [-h] [-v] 
   to run the program interactively. To run using standard input:
-      echo 'equation' | ./calc
-  where 'equation' is a prefix notation equation, i.e. '+ 2 2'
+	echo 'equation' | ./calc
+  where 'equation' is a postfix notation equation, i.e. '2 2 +'
   or:
-      ./calc < input_file.txt
-  where 'input_file.txt' contains prefix notation equations, one per line
+  	./calc < input_file.txt
+  where 'input_file.txt' contains postfix notation equations, one per line
 
   Options:
     -h   Show this text
