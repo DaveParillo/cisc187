@@ -5,7 +5,7 @@ Class Design
 .gcolor
 .LP
 .ce 1
-Week 11
+Week 13
 .SS Overview
 .IT Chapter 14 of the text
 .IT Visualizing class designs
