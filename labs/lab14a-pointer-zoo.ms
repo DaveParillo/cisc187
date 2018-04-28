@@ -1,4 +1,4 @@
-.ds CH Lab #12b: Pointer Zoo
+.ds CH Lab #14a: Pointer Zoo
 .so headings.ms
 .TL
 \*[CH]
@@ -60,6 +60,4 @@ Example output
   Address in give_shot    : 0x7f8772c04dc0
   Address in treat_anmials: 0x7f8772c04dc0
 .R
-.bp
-.so reflection2.ms
 

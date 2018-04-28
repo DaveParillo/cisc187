@@ -1,4 +1,4 @@
-.ds CH Lab #14a: Input and Output streams
+.ds CH Lab #15a: Input and Output streams
 .so headings.ms
 .TL
 \*[CH]

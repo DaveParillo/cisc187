@@ -1,4 +1,4 @@
-.ds CH Lab #13b: Deep copies
+.ds CH Lab #14b: Deep copies
 .so headings.ms
 .TL
 \*[CH]

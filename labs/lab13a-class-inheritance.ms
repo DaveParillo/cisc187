@@ -1,4 +1,4 @@
-.ds CH Lab #11a: Class inheritance
+.ds CH Lab #13a: Class inheritance
 .so headings.ms
 .TL
 \*[CH]
