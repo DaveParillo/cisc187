@@ -12,6 +12,7 @@ Week 3
 .i1 \*[c]auto\*[r]
 .IT Functions
 .IT Scope
+.IT Recursion
 .SS Chapter review
 .IT Big idea
 .i1 What matters is how ideas can be expressed in code
@@ -199,6 +200,80 @@ Why is this useful?
    auto x = Type { init_value };
 .R
 .i1e
+.SS Recursion
+.IT My expectation is this is a 'reminder'
+
+.IT A text definition
+.i1 A statement defined in terms of itself
+.i1 For example,
+.i2 An \fBIinteger literal constant\fR is either
+.i3 A digit (one of 0,1,2,3,4,5,6,7,8,9), or
+.i3 A digit followed by a \fBinteger literal constant\fR
+.IT A math definition
+.i1s
+The N\*{th\*} Fibonacci number
+.EQ
+F sub n = F sub {n-1} + F sub {n-2} roman {", with "} F sub 1 = 1, F sub 2 = 1
+.EN
+.i1e
+.IT A software definition
+.i1 Any method that calls itself
+.SS Definitions
+.IT Recursive functions are not infinite loops
+.i1 Base case
+.i2 Provides final conditions
+.i2 Values for which no recursion required
+.i2 Prevents the definition from being completely circular
+.i3 \fCF1 = 1, F2 = 1\fR
+.i1 Recursive case
+.i2 Implements the definition of the recursion
+.i2 Typically a simple algorithm
+.i2 Calls itself as part of the algorithm
+.SS Recursive functions
+.IT Two flavors
+.IT Directly recursive
+.i1 Function A calls A
+.CW 
+  long factorial(int n) {
+    if (n == 1) return 1;
+    return n * factorial (n-1);
+  }
+.R
+.IT Indirectly recursive
+.i1 Function A calls B (which calls C), which  calls A
+.i2 Use sparingly!
+.SS Usefulness
+.IT Recursion is useful because it is often the simplest solution to a problem
+.IT Aids in analysis
+.IT It is often neither the most time or space efficient solution!
+.IT But some compilers can create an iterative function form the recursive source
+.i1 Typically the function needs to be \fItail recursive\fR
+.i1 That is, the recursive call is the last line of the function
+.SS When to use recursion
+.IT Given some problem, \fIP\fR
+.IT If there is a smallest problem of type \fIP\fR
+.i1 Can solve directly and trivially
+.i1 This is your base case
+.IT For problems larger than the smallest type
+.i1 Can the problem be broken into a smaller version of the same type of problem as \fIP\fR?
+.i1 It \fBmust\fR approach the base case
+.i1 This is your recursive case
+.SS Recursion and iteration
+.IT Recursion and iteration are equivalent
+.i1 Any while loop 
+.IT can be rewritten as a recursive function
+.IT Any recursive function
+.i1 Can be rewritten as a while loop
+.IT Trade-offs
+.i1 Recursive functions can be easier to write and understand
+.i1 Fibonacci sequence, Towers of Hanoi, Grammar / Syntax checking
+.IT Recursive solutions are (almost) guaranteed to use more memory and run more slowly
+.i1 Some recursive solutions are impossible due to stack space limits
+.i1 This 'rule' is language dependent (i.e. Scala, Smalltalk, LISP)
+.IT Rule of thumb
+.i1 If the recursive function is easy to write, use it
+.i1 If time and space costs are important
+.i2 Take the extra time to write an iterative equivalent
 .SS Summary
 .IT Big ideas
 .i1 How \fBideas\fR are \fIexpressed\fR in \fBcode\fR
@@ -210,4 +285,7 @@ Why is this useful?
 .i1 \*[c]auto\*[r] can make code easier to read
 .i1 Use an explicit initializer when \*[c]auto\*[r] deduces an undesired type
 .i1 We'll find more uses for auto later
+.IT Recursive functions
+.i1 vs. iterative functions
+.i1 Base and recursive case
 

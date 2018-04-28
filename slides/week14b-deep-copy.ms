@@ -5,7 +5,7 @@ Copying Memory
 .gcolor
 .LP
 .ce 1
-Week 13
+Week 14
 .SS Overview
 .IT Chapter 18 of the text
 .IT Copying memory
@@ -26,7 +26,7 @@ Week 13
 .SS Copy constructors
 .IT Create a new class from an existing instance
 .IT Called during
-.i1 Initialization: \fC T a = b; or T a(b);\fR
+.i1 Initialization: \fC T a = b; or T a {b};\fR
 .i2 where b is of type T
 .i1 Argument passing: \fCfunction argument passing: f(a)\fR
 .i2 where \fCa\fR is of type \fCT\fR 
@@ -124,83 +124,6 @@ it almost certainly requires all three.
       Base& operator=(Base&&)      = default;
   };
 .R
-.SS Recursion
-.IT My expectation is this is a 'reminder'
-.i1 Consider reviewing your first semester text
-.i1 This is for Wednesday's lab
-.IT A text definition
-.i1 A statement defined in terms of itself
-.i1 For example,
-.i2 An \fBIinteger literal constant\fR is either
-.i3 A digit (one of 0,1,2,3,4,5,6,7,8,9), or
-.i3 A digit followed by a \fBinteger literal constant\fR
-.IT A math definition
-.i1s
-The N\*{th\*} Fibonacci number
-.EQ
-F sub n = F sub {n-1} + F sub {n-2} roman {", with "} F sub 1 = 1, F sub 2 = 1
-.EN
-.i1e
-.IT A software definition
-.i1 Any method that calls itself
-.SS Definitions
-.IT Recursive functions are not infinite loops
-.i1 Base case
-.i2 Provides final conditions
-.i2 Values for which no recursion required
-.i2 Prevents the definition from being completely circular
-.i3 \fCF1 = 1, F2 = 1\fR
-.i1 Recursive case
-.i2 Implements the definition of the recursion
-.i2 Typically a simple algorithm
-.i2 Calls itself as part of the algorithm
-.SS Recursive functions
-.IT Two flavors
-.IT Directly recursive
-.i1 Function A calls A
-.CW 
-  long factorial(int n) {
-    if (n == 1) return 1;
-    return n * factorial (n-1);
-  }
-.R
-.IT Indirectly recursive
-.i1 Function A calls B (which calls C), which  calls A
-.i2 Use sparingly!
-.SS Usefulness
-.IT Recursion is useful because it is often the simplest solution to a problem
-.IT Aids in analysis
-.IT It is often neither the most time or space efficient solution!
-.IT But some compilers can create an iterative function form the recursive source
-.i1 Typically the function needs to be \fItail recursive\fR
-.i1 That is, the recursive call is the last line of the function
-
-.SS When to use recursion
-.IT Given some problem, \fIP\fR
-.IT If there is a smallest problem of type \fIP\fR
-.i1 Can solve directly and trivially
-.i1 This is your base case
-.IT For problems larger than the smallest type
-.i1 Can the problem be broken into a smaller version of the same type of problem as \fIP\fR?
-.i1 It \fBmust\fR approach the base case
-.i1 This is your recursive case
-
-.SS Recursion and iteration
-.IT Recursion and iteration are equivalent
-.i1 Any while loop 
-.IT can be rewritten as a recursive function
-.IT Any recursive function
-.i1 Can be rewritten as a while loop
-.IT Trade-offs
-.i1 Recursive functions can be easier to write and understand
-.i1 Fibonacci sequence, Towers of Hanoi, Grammar / Syntax checking
-.IT Recursive solutions are (almost) guaranteed to use more memory and run more slowly
-.i1 Some recursive solutions are impossible due to stack space limits
-.i1 This 'rule' is language dependent (i.e. Scala, Smalltalk, LISP)
-.IT Rule of thumb
-.i1 If the recursive function is easy to write, use it
-.i1 If time and space costs are important
-.i2 Take the extra time to write an iterative equivalent
 .SS Summary
 .IT Every class defines default constructors and destructors
 .i1 Know when they are created (and not)
@@ -208,6 +131,4 @@ F sub n = F sub {n-1} + F sub {n-2} roman {", with "} F sub 1 = 1, F sub 2 = 1
 .IT Rule of 3 / 5 / 0
 .IT Recursion
 .i1 May be required in a copy constructor
-.i1 Base and recursive case
-.i1 Recursion vs iteration
 

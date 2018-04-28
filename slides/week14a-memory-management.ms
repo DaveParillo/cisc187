@@ -5,7 +5,7 @@ Memory management
 .gcolor
 .LP
 .ce 1
-Week 12
+Week 14
 .SS Overview
 .IT Chapter 17 of the text
 .IT Pointer ownership
