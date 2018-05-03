@@ -1,11 +1,11 @@
 
-lab      := lab5a
-includes := lab5a.h
-srcs     := lab5a.cpp
+lab      := lab13b
+includes := Boat.h RowBoat.h SailBoat.h
+srcs     := Boat.cpp RowBoat.cpp SailBoat.cpp
 
 # common.mk includes step1 (checks $files)
 include /var2/lopt/share/cisc187/common.mk
 
 
-check: tbd 
+check: step1 
 
