@@ -3,6 +3,10 @@
 #include <iostream>
 #include <vector>
 
+//
+//  filling a vector ends up creating copies again
+//
+
 int main () {
   std::vector<Animal> v {
     Animal{"alice"},

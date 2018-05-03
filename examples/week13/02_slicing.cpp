@@ -4,6 +4,12 @@
 
 using std::cout;
 
+//
+// Pass by value copies the derived class to a new base
+//
+// pass by reference allows the called function to access the derived type
+//
+
 int main () {
   Animal a = {"Alice"};
   Canine c = {"Chuck"};

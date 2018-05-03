@@ -1,9 +1,15 @@
 #include "Animal.h"
 
 #include <functional>   // std::reference_wrapper and std::ref
-#include <memory>       // std::unique_ptr
 #include <iostream>
 #include <vector>
+
+//
+// can solve the vector copy problem by either:
+// 1. Create a vector of pointers
+//    - could have used std::unique_ptr<> instead of raw pointer
+// 2. Use std::reference_wrapper
+//
 
 int main () {
   std::vector<Animal*> v;
