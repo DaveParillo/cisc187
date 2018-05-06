@@ -16,7 +16,7 @@ Boost is installed on the buffy server.
 .nr step 0 1
 .IP \n+[step].
 Copy the files that are provided as part of this lab.
-The file are in
+The files are in
 .CW
   ~dparillo/public_html/cisc187/labs/lab12a-files/
 .R
