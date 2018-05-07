@@ -1,9 +1,9 @@
 #pragma once
 
-#include <iostream>
-#include <string>
-
 #include "Canine.h"
+
+#include <iosfwd>
+#include <string>
 
 class Wolf : public Canine {
 
@@ -19,3 +19,4 @@ class Wolf : public Canine {
 };
 
 std::ostream& operator<<(std::ostream& os, const Wolf& rhs);
+

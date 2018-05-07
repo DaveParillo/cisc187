@@ -1,6 +1,5 @@
-#include <iostream>
-
 #include "Dog.h"
+#include <iostream>
 
 void Dog::play() 
 {

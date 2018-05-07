@@ -1,15 +1,14 @@
 #pragma once
 
-#include <iostream>
-#include <string>
-
 #include "Pet.h"
 #include "Animal.h"
+
+#include <string>
 
 class Canine : public Animal {
 
   public:
-    virtual ~Canine() {}
+    virtual ~Canine() = default;
     virtual std::string make_sound()       const override {
       return "woof!";
     }

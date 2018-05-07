@@ -5,7 +5,7 @@
 class Pet {
 
   public:
-    virtual ~Pet() {}
+    virtual ~Pet() = default;
 
     virtual bool is_friendly() const = 0;
 

@@ -7,57 +7,65 @@ Pointer Zoo: 100 points, 60 minutes \fImaximum\fR
 .time_box
 .QP
 This exercise is intended to increase familiarity with 
-using pointers and the class concepts form the last two weeks: 
+using pointers and the class concepts from the last two weeks: 
 virtual functions, overloads, etc.
+
+The key idea is that the \*[c]Animal\*[r], \*[c]Pet\*[r], 
+and \*[c]Robot\*[r] classes represent \fIinterfaces\fR.
+The \*[c]Pet\*[r] class, for example, defines an interface (a contract)
+which guarantees that all implementing classes must honor.
+
+When the \*[c]Pet\*[r] interface is passed to a funciton,
+The function only knows about the \*[c]Pet\*[r] part of the object.
+It doesn't know if the \*[c]Pet\*[r] is a 
+\*[c]Cat\*[r], \*[c]Fish\*[r], or \*[c]RoboDog\*[r].
+
 .RS
 .nr step 0 1
 .IP \n+[step].
-Download the supporting files for this lab from buffy.  There is a link in Blackboard.
+Download the supporting files for this lab from buffy.
+The files are in
+.CW
+  ~dparillo/public_html/cisc187/labs/lab14a-files/
+.R
+
+Copy the files into a new directory and cd into the directory you created.
+
+You should be able to type \fCmake\fR.
+The provided makefile should produce an executable named \fCzoo\fR.
+
+.IP \n+[step].
+Implement a function \fCvector<Pet*>& make_pets()\fR that 
+adds a \*[c]Cat\*[r], \*[c]Dog\*[r], 
+\*[c]Fish\*[r], and a \*[c]RoboDog\*[r] to the vector.
+.IP \n+[step].
+Implement a function \fCvoid play_with_pets(vector<Pet*>&, uint16_t n)\fR that 
+contains a loop that plays with each pet \fBn times\fR.
+.IP \n+[step].
+Implement a function \fCvector<unique_ptr<Animal>> make_animals()\fR that 
+adds a \*[c]Cat\*[r], \*[c]Dog\*[r], 
+\*[c]Owl\*[r], and a \*[c]Wolf\*[r] to the vector.
+.IP \n+[step].
+Implement a function \fCvoid treat_animals(const unique_ptr<Animal>&)\fR that 
+gives each \*[c]Animal\*[r] a shot.
+
+When an \*[c]Animal\*[r] gets a shot,
+call its \*[c]make_sound()\*[r] function.
+
 .IP \n+[step].
 The code in the file \fCmain.cpp\fR is incomplete.
 Complete the program using the prompts in the comments provided.
-.IP \n+[step].
-When finished, submit the completed source code using the turnitin script,
-or zip the source directory and upload to Blackboard.
 .RE
-.SH
-Summary Question
-.QP
-Which of the variables / objects in your \fCmain.cpp\fR are on the stack?  
 
-Which are on the heap?
-.SH
-Example output
-.LP
+
+Check your progress using the \*[c]check187\*[r] script:
 .CW
-  Address in play_with     : 0x7f8772c04cc0
-  Address in play_with_pets: 0x7f8772c04cc0
-  Fido wants to fetch!!
-  Address in play_with     : 0x7f8772c04d00
-  Address in play_with_pets: 0x7f8772c04d00
-  Jaws wants to swim ...
-  Address in play_with     : 0x7f8772c04d40
-  Address in play_with_pets: 0x7f8772c04d40
-  Robie wants to beep!
-  Address in play_with     : 0x7f8772c04d90
-  Address in play_with_pets: 0x7f8772c04d90
-  beep!
-  beep!
-  beep!
-  beep!
-  beep!
-  Charge: 94
-  Giving a shot to Fluffy who says meow.
-  Address in give_shot    : 0x7f8772c04d98
-  Address in treat_anmials: 0x7f8772c04d98
-  Giving a shot to Fido who says arf, arf!
-  Address in give_shot    : 0x7f8772c04cd8
-  Address in treat_anmials: 0x7f8772c04cd8
-  Giving a shot to Jaws who says bubble . . .
-  Address in give_shot    : 0x7f8772c04d18
-  Address in treat_anmials: 0x7f8772c04d18
-  Giving a shot to White Fang who says Woo woo woooooooo!
-  Address in give_shot    : 0x7f8772c04dc0
-  Address in treat_anmials: 0x7f8772c04dc0
+    check187 lab14a
 .R
+
+Turn in your completed lab using the \*[c]submit187\*[r] script:
+.CW
+    submit187 lab14a
+.R
+
 

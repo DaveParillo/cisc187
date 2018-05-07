@@ -1,9 +1,9 @@
 #pragma once
 
-#include <iostream>
-#include <string>
-
 #include "Animal.h"
+
+#include <iosfwd>
+#include <string>
 
 struct Owl : public Animal {
 
@@ -20,3 +20,4 @@ struct Owl : public Animal {
 };
 
 std::ostream& operator<<(std::ostream& os, const Owl& rhs);
+

@@ -1,6 +1,5 @@
-#include <iostream>
-
 #include "RoboDog.h"
+#include <iostream>
 
 void RoboDog::play() 
 {

@@ -1,6 +1,5 @@
-#include <iostream>
-
 #include "Cat.h"
+#include <iostream>
 
 void Cat::play() 
 {

@@ -1,6 +1,5 @@
-#include <iostream>
-
 #include "Fish.h"
+#include <iostream>
 
 void Fish::play() 
 {

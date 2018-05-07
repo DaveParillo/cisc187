@@ -1,10 +1,10 @@
 #pragma once
 
-#include <iostream>
-#include <string>
-
 #include "Pet.h"
 #include "Canine.h"
+
+#include <iosfwd>
+#include <string>
 
 class Dog : public Pet, public Canine {
 
@@ -25,3 +25,4 @@ class Dog : public Pet, public Canine {
 };
 
 std::ostream& operator<<(std::ostream& os, const Dog& rhs);
+
