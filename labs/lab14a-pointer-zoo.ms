@@ -35,11 +35,11 @@ You should be able to type \fCmake\fR.
 The provided makefile should produce an executable named \fCzoo\fR.
 
 .IP \n+[step].
-Implement a function \fCvector<Pet*>& make_pets()\fR that creates a vector,
+Implement a function \fCvector<Pet*> make_pets()\fR that creates a vector,
 adds a \*[c]Cat\*[r], \*[c]Dog\*[r], 
 \*[c]Fish\*[r], and a \*[c]RoboDog\*[r] to the vector and returns it.
 .IP \n+[step].
-Implement a function \fCvoid play_with_pets(vector<Pet*>&, uint16_t n)\fR that 
+Implement a function \fCvoid play_with_pets(const vector<Pet*>&, const uint16_t n)\fR that 
 contains a loop that plays with each pet \fBn times\fR.
 .IP \n+[step].
 Implement a function \fCvector<unique_ptr<Animal>> make_animals()\fR that creates a vector, 
