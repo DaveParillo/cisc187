@@ -15,7 +15,7 @@ and \*[c]Robot\*[r] classes represent \fIinterfaces\fR.
 The \*[c]Pet\*[r] class, for example, defines an interface (a contract)
 which guarantees that all implementing classes must honor.
 
-When the \*[c]Pet\*[r] interface is passed to a funciton,
+When the \*[c]Pet\*[r] interface is passed to a function,
 The function only knows about the \*[c]Pet\*[r] part of the object.
 It doesn't know if the \*[c]Pet\*[r] is a 
 \*[c]Cat\*[r], \*[c]Fish\*[r], or \*[c]RoboDog\*[r].
