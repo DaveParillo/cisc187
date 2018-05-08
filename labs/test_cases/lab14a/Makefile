@@ -8,7 +8,7 @@ srcs     := lab14a.cpp \
 # common.mk includes step1 (checks $files)
 include /var2/lopt/share/cisc187/common.mk
 
-file := $(files) main.cpp
+files := $(files) main.cpp
 logfile := $(CURDIR)/step6.txt
 
 check: step1 step2 step3 step4 step5 step6
