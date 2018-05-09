@@ -1,67 +1,74 @@
-#include <iostream>
-
 #include "Person.h"
 
-using std::cout;
-using std::endl;
+#include <iostream>
+#include <memory>
 
-void change_and_compare(Person& a, Person& b);
-void copy1(Person& a);
-void copy2(Person& a);
+using std::shared_ptr;
+using std::cout;
+
+void change_and_compare(Person&, Person&);
+void copy1(Person&);
+void copy2(Person&);
 
 int main () 
 {
-  Person a;
-  Person* b = new Person();
-  Person* c = new Person();
+  // Deep copy scenario #1
+  // create objects a,b,c
+  Person a {"Alice"};
+  shared_ptr<Person> b (new Person{"Bob"});
+  auto c = std::make_shared<Person>("Carol");
 
   b->child(c);
   a.child(b);
 
-  a.message("Alice");
-  b->message("Bob");
-  c->message("Carol");
-  cout << "Copy 1: " << endl;
-  cout << "Original: " << '\t';
+  cout << "Copy 1: \n";
+  cout << "Original: \t";
   cout << a << '\t';
   copy1(a);
 
-  cout << "Copy 2: " << endl;
-  cout << "Original: " << '\t';
-  cout << a << '\t';
-  copy2(a);
+  // Deep copy scenario #2
+  // create objects d,e,f
+  Person d {"Dan"};
+  auto e = std::make_shared<Person>("Edith");
+  auto f = std::make_shared<Person>("Fred");
 
-  cout << endl;
+  e->child(f);
+  d.child(e);
+
+  cout << "Copy 2: \n";
+  cout << "Original: \t";
+  cout << d << '\t';
+  copy2(d);
+
+  cout << std::endl;
   return 0;
 }
 
-void copy1(Person& a)
+void copy1(Person& x)
 {
-  Person* xcopy = new Person(a);
-  change_and_compare(a, *xcopy);
-  delete xcopy;
+  auto xcopy = std::make_shared<Person>(x);
+  change_and_compare(x, *xcopy);
 }
 
-void copy2(Person& a)
+void copy2(Person& x)
 {
-  Person xcopy;
-  xcopy = a;
-  change_and_compare(a, xcopy);
+  Person xcopy(x);
+  change_and_compare(x, xcopy);
 }
 
 void change_and_compare(Person& x, Person& y)
 {
-  cout << "Copy: " << '\t';
-  cout << y << endl;
+  cout << "Copy: \t";
+  cout << y << std::endl;
 
-  cout << "change and compare: " << endl;
-  y.message("Alpha");
-  y.child()->message("Beta");
-  y.child()->child()->message("Charlie");
-  cout << "Original: " << '\t';
+  cout << "changing only the 'copy' objects: \n";
+  y.name("First");
+  y.child()->name("Second");
+  y.child()->child()->name("Third");
+  cout << "Original: \t";
   cout << x << '\t';
-  cout << "Copy: " << "\t";
-  cout << y << endl;
+  cout << "Copy: \t";
+  cout << y << std::endl;
 }
 
 

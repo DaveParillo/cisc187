@@ -1,8 +1,9 @@
+#include "Person.h"
 #include <iostream>
 
-#include "Person.h"
-
-std::ostream& operator<<(std::ostream& os, Person& p) {
-    return os << p.message();
+std::ostream& operator<<(std::ostream& os, const Person& p) {
+  os << p.name() << '\t';
+  if (p.has_child()) os << *(p.child()) << ' ';
+  return os;
 }
 
