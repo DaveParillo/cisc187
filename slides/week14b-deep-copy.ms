@@ -10,7 +10,6 @@ Week 14
 .IT Chapter 18 of the text
 .IT Copying memory
 .IT Rule of 3 / 5 / 0 
-.IT Recursion (briefly)
 .SS Constructors
 .IT \fBEvery\fR C++ class defines or deletes
 .i1 A default constructor
@@ -129,6 +128,4 @@ it almost certainly requires all three.
 .i1 Know when they are created (and not)
 .i1 And when they are called
 .IT Rule of 3 / 5 / 0
-.IT Recursion
-.i1 May be required in a copy constructor
 
