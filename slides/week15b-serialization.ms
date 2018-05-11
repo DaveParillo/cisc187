@@ -106,7 +106,7 @@ Using standard C one could literally use \*[c]memcpy\*[r]
 .IT Simple case
 .i1 Objects not part of an inheritance hierarchy
 .i1 Add \fCserialize() / deserialize()\fR functions to each class
-.i1 Serialize should accept, modify, and eturn an \*[c]ostream\*[r]
+.i1 Serialize should accept, modify, and return an \*[c]ostream\*[r]
 .i2 Same basic pattern as \*[c]operator<<\*[r]
 .i1 Consider adding a version number parameter
 .i2 Provides an ability to handle future changes to your class
@@ -123,7 +123,7 @@ But is a bit more complicated
 \0int is the number of characters to read in
 \0char* is the sequence of characters to read
 .CW
-  1:3:1:5:2:35:13:hello, world!
+  \m[red]1\m[]:3:\m[red]1\m[]:5:\m[red]2\m[]:35:\m[red]13\m[]:hello, world!
 .R
 .i3e
 .SS Serializing an inheritance hierarchy
