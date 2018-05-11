@@ -1,10 +1,6 @@
 
 .TL
 .gcolor blue
-I/O streams
-
-and
-
 Serialization
 .gcolor
 .LP
