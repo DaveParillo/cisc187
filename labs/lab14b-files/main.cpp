@@ -46,8 +46,9 @@ int main ()
 
 void copy1(Person& x)
 {
-  auto xcopy = std::make_shared<Person>(x);
-  change_and_compare(x, *xcopy);
+  Person xcopy;
+  xcopy = x;
+  change_and_compare(x, xcopy);
 }
 
 void copy2(Person& x)
