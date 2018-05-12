@@ -18,9 +18,9 @@ CXXFLAGS+= ${INCLUDES}
 
 files    := $(incl) $(srcs)
 
-.PHONY: clean step1 step2 step3 step4 step5 step6 step7 step8 step9 step10 step11 step12
+PROGS := step1 step2 step3 step4 step5 step6
 
-PROGS := step1 step2 step3 step4
+.PHONY: clean $(PROGS)
 
 all: ${PROGS}
 
@@ -30,17 +30,43 @@ step1:
 		test -r $$f && $(ok) || $(fail); \
 	done
 
-
-
 step2: clean
+	@echo -e "\033[1;32mtest constants mesa::one and mesa::zero\033[0m"
 	c++ ${CXXFLAGS} ${@}.cpp ../BigInt.cpp -o $@ 
 	./$@
 
 step3: clean
+	@echo -e "\033[1;32mtest default,string,long constructors\033[0m"
 	c++ ${CXXFLAGS} ${@}.cpp ../BigInt.cpp -o $@ 
 	./$@
 
 step4: clean
+	@echo -e "\033[1;32mtest equivalence overloads\033[0m"
+	c++ ${CXXFLAGS} ${@}.cpp ../BigInt.cpp -o $@ 
+	./$@
+
+step5: clean
+	@echo -e "\033[1;32mtest copy and move constructors and assignment operators\033[0m"
+	c++ ${CXXFLAGS} ${@}.cpp ../BigInt.cpp -o $@ 
+	./$@
+
+step6: clean
+	@echo -e "\033[1;32mtest BigInt + and += operators\033[0m"
+	c++ ${CXXFLAGS} ${@}.cpp ../BigInt.cpp -o $@ 
+	./$@
+
+step7: clean
+	@echo -e "\033[1;32mtest BigInt ++ operators\033[0m"
+	c++ ${CXXFLAGS} ${@}.cpp ../BigInt.cpp -o $@ 
+	./$@
+
+step8: clean
+	@echo -e "\033[1;32mtest BigInt * and *= operators\033[0m"
+	c++ ${CXXFLAGS} ${@}.cpp ../BigInt.cpp -o $@ 
+	./$@
+
+step9: clean
+	@echo -e "\033[1;32mtest BigInt pow function\033[0m"
 	c++ ${CXXFLAGS} ${@}.cpp ../BigInt.cpp -o $@ 
 	./$@
 

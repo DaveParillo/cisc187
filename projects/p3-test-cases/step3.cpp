@@ -39,7 +39,7 @@ SCENARIO( "Test BigInt default construction") {
 }
 
 TEST_CASE("Test BigInt construction from an integral type") {
-  CHECK (string(BigInt{0}) == "0");
+  REQUIRE_MESSAGE (string(BigInt{0}) == "0", "This test uses the std::string conversion operator");
   CHECK (string(BigInt{0}) == string(zero));
   CHECK (string(BigInt{1}) == "1");
   CHECK (string(BigInt{1}) == string(one));
@@ -63,10 +63,10 @@ TEST_CASE("Test BigInt construction from -1") {
 }
 
 TEST_CASE("Test BigInt construction from a std::string") {
-  CHECK (string(BigInt{"0"}) == "0");
-  CHECK (string(BigInt{"1"}) == "1");
+  REQUIRE (string(BigInt{"0"}) == "0");
+  REQUIRE (string(BigInt{"1"}) == "1");
   BigInt actual {"11235813"};
-  CHECK (string(actual) == "11235813");
+  REQUIRE (string(actual) == "11235813");
   vector<int> expected = {1,1,2,3,5,8,1,3};
   for (auto i = 0u; i < expected.size(); ++i) {
       CAPTURE(i);
@@ -90,6 +90,27 @@ TEST_CASE("Test BigInt construction from a std::string with leading zeros") {
   }
 }
 
+TEST_CASE("Test BigInt construction from a std::string with only zeros") {
+  CHECK (string(BigInt{"00"}) == "0");
+  CHECK (string(BigInt{"000"}) == "0");
+}
+
+TEST_CASE("Test BigInt construction from a std::string with surrounding spaces") {
+  CHECK (string(BigInt{" 1"}) == "1");
+  CHECK (string(BigInt{"  1"}) == "1");
+  CHECK (string(BigInt{"01 "}) == "1");
+  CHECK (string(BigInt{" 1 "}) == "1");
+  BigInt actual {"   011235813    "};
+  vector<int> expected = {1,1,2,3,5,8,1,3};
+
+  CHECK (string(actual) == "11235813");
+  auto actual_size = actual.as_vector().size();
+  CHECK (actual_size == expected.size());
+  for (auto i = 0u; i < expected.size(); ++i) {
+      CAPTURE(i);
+      CHECK(actual.as_vector()[i] == expected[i]);
+  }
+}
 
 TEST_CASE("Test BigInt construction from a long std::string") {
   BigInt actual {"987654321098765432109876543210"};

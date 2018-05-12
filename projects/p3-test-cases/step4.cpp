@@ -2,16 +2,10 @@
 
 #include "../BigInt.h"
 #include <doctest.h>
-#include <limits>
-#include <string>
-#include <vector>
 
 using mesa::BigInt;
 using mesa::zero;
 using mesa::one;
-using std::string;
-using std::vector;
-
 
 //
 // For these tests to compile create:
@@ -33,7 +27,6 @@ TEST_CASE( "Test BigInt operator==") {
   CHECK (operator==(x,z));
 }
 
-
 TEST_CASE( "Test BigInt operator!=") {
   REQUIRE (operator!=(BigInt{0}, one));
   REQUIRE (operator!=(BigInt{1}, zero));
@@ -45,10 +38,44 @@ TEST_CASE( "Test BigInt operator!=") {
 }
 
 TEST_CASE( "Test BigInt operator>") {
+  CHECK (operator>(one,zero));
+  CHECK (!operator>(one,one));
+  CHECK (operator>(BigInt {34},BigInt {33}));
+  CHECK (!operator>(BigInt {9999},BigInt {9999}));
   CHECK (operator>(BigInt {"9876543211"},BigInt {"9876543210"}));
+  CHECK (operator>(BigInt {"12345678901234567899876543211"},
+                   BigInt {"12345678901234567899876543210"}));
+}
+
+TEST_CASE( "Test BigInt operator<") {
+  CHECK (operator<(zero,one));
+  CHECK (!operator<(one,zero));
+  CHECK (!operator<(one,one));
+  CHECK (operator<(BigInt {33},BigInt {34}));
+  CHECK (!operator<(BigInt {9999},BigInt {9999}));
+  CHECK (operator<(BigInt {"12345678901234567899876543210"},
+                   BigInt {"12345678901234567899876543211"}));
 }
 
 
+TEST_CASE( "Test BigInt operator>=") {
+  CHECK (operator>=(one,zero));
+  CHECK (operator>=(one,one));
+  CHECK (operator>=(BigInt {34},BigInt {33}));
+  CHECK (operator>=(BigInt {9999},BigInt {9999}));
+  CHECK (operator>=(BigInt {"9876543211"},BigInt {"9876543210"}));
+  CHECK (operator>=(BigInt {"12345678901234567899876543210"},
+                   BigInt {"12345678901234567899876543210"}));
+}
 
-
+TEST_CASE( "Test BigInt operator<=") {
+  CHECK (operator<=(zero,one));
+  CHECK (operator<=(one,one));
+  CHECK (operator<=(BigInt {33},BigInt {34}));
+  CHECK (operator<=(BigInt {9999},BigInt {9999}));
+  CHECK (operator<=(BigInt {"12345678901234567899876543210"},
+                   BigInt {"12345678901234567899876543211"}));
+  CHECK (operator<=(BigInt {"12345678901234567899876543210"},
+                   BigInt {"12345678901234567899876543210"}));
+}
 
