@@ -18,7 +18,7 @@ CXXFLAGS+= ${INCLUDES}
 
 files    := $(incl) $(srcs)
 
-PROGS := step1 step2 step3 step4 step5 step6 step7 step8 step9
+PROGS := step1 step2 step3 step4 step5 step6 step7 step8 step9 step10 step11 step12 step13
 
 .PHONY: clean $(PROGS)
 
@@ -68,6 +68,26 @@ step8: clean
 step9: clean
 	@echo -e "\033[1;32mtest BigInt pow function\033[0m"
 	c++ ${CXXFLAGS} ${@}.cpp ../BigInt.cpp -o $@ 
+	./$@
+
+step10: clean
+	@echo -e "\033[1;32mtest Command::OperandPusher::execute function\033[0m"
+	c++ ${CXXFLAGS} ${@}.cpp ../BigInt.cpp ../OperandPusher.cpp -o $@ 
+	./$@
+
+step11: clean
+	@echo -e "\033[1;32mtest Command::Add::execute function\033[0m"
+	c++ ${CXXFLAGS} ${@}.cpp ../BigInt.cpp ../Add.cpp -o $@ 
+	./$@
+
+step12: clean
+	@echo -e "\033[1;32mtest Command::Multiply::execute function\033[0m"
+	c++ ${CXXFLAGS} ${@}.cpp ../BigInt.cpp ../Multiply.cpp -o $@ 
+	./$@
+
+step13: clean
+	@echo -e "\033[1;32mtest Command::Power::execute function\033[0m"
+	c++ ${CXXFLAGS} ${@}.cpp ../BigInt.cpp ../Power.cpp -o $@ 
 	./$@
 
 clean : 
