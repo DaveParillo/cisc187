@@ -12,23 +12,36 @@ using mesa::one;
 //  -  operator+ and +=
 //
 
-
-TEST_CASE( "Test BigInt operator+ simple") {
+TEST_CASE( "Test BigInt operator+ identity") {
   REQUIRE (operator==(zero, zero+zero));
   REQUIRE (operator==(BigInt{1}, zero+one));
   REQUIRE (operator==(BigInt{99}, BigInt{99}+zero));
+}
 
+TEST_CASE( "Test BigInt operator+ simple") {
   REQUIRE (operator==(BigInt{5}, BigInt{2}+BigInt{3}));
+  REQUIRE (operator==(BigInt{5555}, BigInt{1234}+BigInt{4321}));
+  REQUIRE (operator==(BigInt{9999}, BigInt{1234}+BigInt{8765}));
 }
 
 
-TEST_CASE( "Test BigInt operator+ simple cummutative law") {
+TEST_CASE( "Test BigInt operator+ commutative property") {
   REQUIRE (operator==(BigInt{2}+BigInt{3}, 
                       BigInt{3}+BigInt{2}));
   REQUIRE (operator==(BigInt{111111}+BigInt{3333}, 
                       BigInt{3333}+BigInt{111111}));
   REQUIRE (operator==(BigInt{222}+BigInt{111}+BigInt{333}, 
                       BigInt{333}+BigInt{111}+BigInt{222}));
+}
+
+TEST_CASE( "Test BigInt operator+ associative property") {
+  auto a = BigInt{2}+BigInt{3}; 
+  auto b = BigInt{3}+BigInt{4}; 
+  REQUIRE (operator==(a+BigInt{4}, b+BigInt{2}));
+
+  auto c = BigInt{98765}+BigInt{"9876543209990123456790"}; 
+  auto d = BigInt{"9876543209990123456790"}+BigInt{9999}; 
+  REQUIRE (operator==(c+BigInt{9999}, d+BigInt{98765}));
 }
 
 TEST_CASE( "Test BigInt operator+ with carry") {
