@@ -1,9 +1,9 @@
 
 CXXFLAGS+= -std=c++11 
 
-all: clean point
+all: clean points
 
-point : point.o main.o
+points : point.o main.o
 	c++ ${CXXFLAGS} -o $@ $^
 
 point.o : 
@@ -13,4 +13,4 @@ main.o :
 	c++ ${CXXFLAGS} -o $@ -c main.cpp
 
 clean : 
-	rm -f point *.o mydata.txt
+	rm -f points *.o mydata.txt

@@ -5,14 +5,14 @@
 
 int main() {
   std::string fname = "mydata.txt";
-  auto original_points = get_points();
+  //auto original_points = get_points();
 
   std::cout << "\nPoints entered:\n";
-  show_points (original_points);
-  write_points(original_points, fname);
+  //show_points (original_points);
+  //write_points(original_points, fname);
 
-  auto processed_points = read_points(fname);
+  //auto processed_points = read_points(fname);
   std::cout << "\nPoints read back in from file:\n";
-  show_points(processed_points);
+  //show_points(processed_points);
 }
 
