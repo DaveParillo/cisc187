@@ -28,6 +28,11 @@ SCENARIO( "Test BigInt constants exist") {
       CHECK (string(one) == string(one));
     }
   }
+  GIVEN( "both constants are defined" ) {
+    THEN( "one should not equal zero" ) {
+      CHECK (string(zero) != string(one));
+    }
+  }
 }
 
 
