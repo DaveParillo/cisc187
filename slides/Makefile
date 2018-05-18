@@ -9,7 +9,7 @@ else
 	PAGE = -pet -T $(format) -P-l -P-p11.5i,8.5i -mspdf slides.ms 
 endif
 
-all: welcome slides
+all: welcome slides final-prep
 
 .PHONY: clean
 
@@ -18,13 +18,11 @@ grades:
 	tbl ../grading-criteria.ms > ../grading-criteria.tbl
 
 
-welcome:
-	make grades
-	if [ $(format) = "ascii" ]; then \
-		groff $(PAGE) welcome.ms > $@.$(format); \
-	else \
-		groff $(PAGE) welcome.ms | ps2pdf - welcome.pdf; \
-	fi 
+welcome: grades
+	groff $(PAGE) $@.ms | ps2pdf - $@.pdf; \
+
+final-prep:
+	groff $(PAGE) $@.ms | ps2pdf - $@.pdf; \
 
 slides:
 	for i in `/bin/ls $(o)*.ms`; do \
