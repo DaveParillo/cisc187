@@ -53,10 +53,28 @@ cin and the meaning of statements like:
 .i1 Probably have used many 
 .i1 Perhaps even created a few
 .IT Type safety and type conversions
-.i1 Widening conversions
-.i1 Narrowing conversions
+.IT Widening conversions
+.i1 For example: \*[c]int\*[r] to \*[c]float\*[r]
+.IT Narrowing conversions
+.i1 For example: \*[c]float\*[r] to \*[c]int\*[r]
+.IT Implicit vs explicit type conversions
+.bp
 .IT File Input and output
-.i1 C-style \*[c]printf\*[r] and \*[c]scanf\*[r]
+.i1s
+C-style \*[c]printf\*[r] and \*[c]scanf\*[r]
+.CW
+    #include <stdio.h>
+
+    int main (void) {
+      int rc = puts("Hello World");
+      if (rc == EOF) {
+        perror("puts()");
+      }
+      puts("Goodbye");
+      printf("\tcruel world!\n");
+    }
+.R
+.i1e
 .i1 C++-style input and output file streams
 .i2 Possibly also using \*[c]stringstream\*[r]s
 
@@ -117,7 +135,7 @@ arrow
 E: ellipse "Modern" "C++" width 1.5 height .75
 .PE
 \s-4
-where 'Modern' C++ is C++11, 14, and soon C++17 and 20
+where 'Modern' C++ is C++11, 14, or C++17
 \s+4
 .i1e
 .i1s
@@ -160,123 +178,98 @@ Solutions are posted on buffy (http://209.129.16.61/~dparillo) as well
 .IT I'm not assuming much familiarity with any operating system
 .i1 i.e. any command prompt or terminal environments
 .i1 hardware beyond broad generalities
-.SS Parsing command line arguments
-.IT This information is for the extra credit part of the lab
-.IT A fundamental part of all *nix programs
-.i1 *nix is short for \fIUnix & friends, MacOS X, and GNU/Linux\fR
+.SS A simple C++11 test
+.IT If you need to verify you can compile the code used in this course
+.i1s
+This code from \fCexamples/week01\fR will only compile on C++11
+.CW
+  #include <iostream>
 
-.IT Many libraries exist to parse the command line
-.i1 \fCgetopt\fR is one of the oldest
-.i2 Ships with all *nix C and C++ compilers
-.i2 And is pretty easy to use (but a bit limited)
-.i3 Its limitations are the main motivator behind the numerous alternatives
-.i3 Programmers, expecially *nix programmers hate being told what to do!
-.IT Other options for processing argv include
-.i1 Using Boost::program_options
-.i2 It's a bit 'heavier', but is cross platform
-.i1 Invent your own solution
-.i2 It's a matter of iterating through a 2 dimensional array of \*[c]char\*[r]
-.bp
-.IT
-Function \fCmain()\fR traditionally takes two arguments that provide information
+  int main() {
+    int test[] = { 1, 2, 3, 5, 8 };  \m[green]// initializer list\m[]
+    for (auto i: test) {             \m[green]// range-for loop\m[]
+      std::cout << "i is " << i << '\n';
+    }
+    return 0;
+  }
+.R
+.i1e
+.IT You may need to determine how to set
+.i1 \fC-std=c++11\fR for your compiler
+.IT Your environment should be setup already on the Mesa server
+.SS Parsing command line arguments
+.IT What is the \fIcommand line\fR?
+.i1 Function \fCmain()\fR traditionally takes two arguments that provide information
 about the command line
-.i1 \fCint argc\fR: the total number of arguments, strings separated by whitespace
-.i1 \fCchar *argv[]\fR: an array of these strings
-.i2 Can also be specified as: \fCchar **argv\fR, which is the same thing
+.i2 \fCint argc\fR: the total number of arguments, C-strings separated by whitespace
+.i2 \fCchar *argv[]\fR: an array of these C-strings
+.i3 Can also be specified as: \fCchar **argv\fR, which is the same thing
 .IT If you run a program named \fCfoo\fR invoked as 
-.i1 \fC/home/dave/foo -n 10 www.sdmesa.edu\fR
+.i1 \fC/home/dave/foo -c 10 www.sdmesa.edu\fR
 .i1s
 Your \fCargc\fR would be set = 4 and \fCargv\fR would contain
-.RS
 .RS
 .CW
 \s-8
  argv[0]:  "/home/dave/foo"
- argv[1]:  "-n"
+ argv[1]:  "-c"
  argv[2]:  "10"
  argv[3]:  "www.sdmesa.edu"
 \s+8
 .R
+.RE
 .i1e
-.RE
-.RE
-.IT The examples directory contains example command line argument processing for
-.i1 getopt
-.i1 Boost::program_options
-.i1 Two different ways to parse using standard C and C++
-.bp
-.IT The \fCgetopt\fR function makes parsing these strings simple
-.LI
-It sets 3 important global variables:
-.i1 \fCoptarg\fR:A pointer to the current option argument, if there is one
-.i1 \fCoptind\fR:An index to the next argv pointer to process when \fCgetopt()\fR is called again
-.i1 \fCoptopt\fR:The last known option provided
+.IT Important points
+.i1 The first 'argument' is the name of the program
+.i1 All arguments are C-strings
+.i2 The argument "10" is not a number
+.i2 But can be converted to one
+.SS Example
 .IT
-Use \fCgetopt()\fR by calling it repeatedly until there are no options left to process.
-The method signature is:
-.i1 \s-4\fCint getopt (int argc, char* const argv[], const char *optstring)\fR\s+4
-.i2 \fCoptstring\fR tells \fCgetopt\fR how to interpret the strings encountered in \fCargv[]\fR
-.SS "getopt() Example"
-\s-(10
+Command line parsing example
+.i1s
+Using most standard C library functions
 .CW
-.B1
- #include <unistd.h>        \m[green]// getopt declaration resides in this header\m[]
-.B2
-
+  #include <cstdint>    \m[green]// uint16_t\m[]
+  #include <cstdlib>    \m[green]// atoi\m[]
+  #include <cstring>    \m[green]// strcmp\m[]
   #include <iostream>
-  #include <string>
-  using std::string;
-   
-  int main(int argc, char* argv[]) {
-    int c;
-    int debug = 0;
-    int num_critters = 25;
-    string view = "default";
-    string prog = argv[0];
-.bp
-    while ((c = getopt (argc, argv, \m[red]"hdv:n:"\m[])) != -1) {
-      switch (c) {
-        case 'd':
-          debug++;
-          break;
-        case 'n':
-          num_critters = std::atoi(\m[red]optarg\m[]);
-          break;
-        case 'v':
-          view = \m[red]optarg\m[];
-          break;
-        case 'h':            \m[green]// fall-through is intentional\m[]
-        default:
-          show_help(prog);
-          break;
+
+  int main(int argc, char** argv) {
+    \m[blue]bool\m[] debug = false;
+    \m[blue]std::uint16_t\m[] count = 1;
+    for (int i=1; i < argc; ++i) {
+      if (!std::str\m[red]n\m[]cmp(argv[i], "-h", \m[red]2\m[])) {
+        help(argv[0]);
+      } else if (!std::strcmp(argv[i], "-d")) {
+        debug = \m[blue]true\m[];
+      } else if (!std::strcmp(argv[i], "-c")) {
+        ++i;
+        if (i < argc) {
+          count = \m[red]atoi\m[](argv[i]);
+        } else {
+          std::cerr << "Error using '-c' argument: no count specified\n";
+          usage(argv[0]);
+        }
       }
-.R
-\s+(10
-.IT
-Things to notice
-.i1 the third argument passed to \fCgetopt\fR describes what is expecrted on the command line.
-.i2 A single letter for each command line switch
-.i2 If a value is expected, for example \fC-m 100\fR, then a single full colon should appear after the switch.
-.SS "Help"
-.LP
-A help function is customary if argument processing fails
-\s-(10
-.CW
-  /**
-   * Display help for this program.
-   * @param name the name of this program as determined by argv[0]
-   */
-  static void show_usage(const string& name) {
-    std::cerr << "Usage: " << name << " [-hd] [-v view] [-n #]"
-      << "Options:\\n"
-      << "  -h   Show this text\\n"
-      << "  -d   Enable debug output.\\n"
-      << "  -v   Set the view used.  The default is a text view.\\n"
-      << "  -n   Set the number of Critters for each Species.  Default = 25.\\n"
-      << std::endl;
-    exit(0);
+    }
+    return count;
   }
 .R
-\s+(10
-
+.i1e
+.SS Summary
+.IT What you should already know
+.i1 Fundamental types, arrays, struct
+.i1 Basic C and C++ style I/O
+.i1 Traditional (pre-C++11) loops and conditionals
+.i1 Writing programs composed (mostly) of a single function
+.IT What I don't expect you to know
+.i1 C++, pointers, or the standard library
+.i1 Working with the command line
+.IT The command line
+.i1 A 2D array of \*[c]char\*[r]
+.i1 Many libraries exist to parse the command line
+.i1 The examples directory contains example command line argument processing for
+.i2 getopt
+.i2 Boost::program_options
 

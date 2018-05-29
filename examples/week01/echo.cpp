@@ -57,7 +57,7 @@ unsigned process_args(int argc, char** argv) {
       if (i < argc) {
         repeat = atoi(argv[i]);
       } else {
-        std::cerr << "Error using '-r' argument: no repeat spacified\n";
+        std::cerr << "Error using '-r' argument: no repeat specified\n";
         usage(argv[0]);
       }
     }

@@ -59,19 +59,22 @@ very good error output
 .i3 Pull requests welcome
 .SS General Goals
 .IT Read \fIand understand\fR code
-.IT Know and use the libraries
+.IT Know and use the standard library
 .IT Write code that clearly expresses intent 
 .i1 const-correctness, range-for, prefer functions to loops
 .IT Create type safe classes
 .IT Code to interfaces, not implementations
 .SS Course Outline
+.IT Review types
+.IT Intro to \*[c]std::string\*[r] and \*[c]std::vector\*[r]
 .IT Functions
 .i1 Overloading, pointers to functions
 .i1 Pass-by-value and pass-by-reference
 .i1 Lambda functions
+.IT STL containers
 .IT Midterm
 .IT Iterators
-.IT STL containers and algorithms
+.IT STL algorithms
 .IT Classes and structures
 .i1 Introduction to classes & class design
 .i1 Class interfaces
@@ -95,7 +98,7 @@ very good error output
 .i2 That means you completed the assigned reading
 .IT Quiz each Wednesday
 .IT Lab assignments
-.i1 Completed in class - typically in groups or 3 or 4
+.i1 Completed in class - some in groups or 3 or 4
 .i2 Some labs are meant to be completed alone
 .IT Projects
 .i1 \m[red]\fBMust\fR be your own work!!\m[]
@@ -116,7 +119,7 @@ You collect 4 zero's in a row
 .IT No credit for late projects, readings, or labs
 .IT If you miss an exam
 .i1 See me so that we can schedule a makeup time
-.IT Projects "late" is based on when it is uploaded to blackboard or 'turnitin'
+.IT Projects "late" is based on when it is submitted on the Mesa server
 .i1 As determined by server clock
 .IT On a happier note
 .i1 Projects handed in \fIearly\fR earn +1% for each day before the deadline 
