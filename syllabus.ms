@@ -1,12 +1,12 @@
 .ds LH Data Structures in C++
 .ds CH CISC-187
-.ds RH CRN 20504
+.ds RH CRN 59548
 .ds CF %
-.ds deadline 09 Feb 2018
+.ds deadline 31 Aug 2018
 .TL
 Data Structures in C++
 .br
-\m[red]\*[RH]\m[]
+\m[red]\*[RH]\m[], Fall 2018
 .AU
 Dave Parillo
 .AI
@@ -38,7 +38,7 @@ The following textbook is \fBrequired\fR for this course:
 .QP
 \fBParillo, David\fP. 
 \fIIntermediate Modern C++\fP. 
-Online: https://daveparillo.github.io/intermediate-cpp/, Jan 2018.
+Online: https://daveparillo.github.io/intermediate-cpp/, Jun 2018.
 .LP
 The following textbook is \fBoptional\fR for this course:
 .QP
@@ -145,7 +145,7 @@ Students found to be in violation of Administrative Procedure 3100.3 Honest Acad
 will receive a grade of zero on the assignment, quiz, or exam in question and may be referred 
 for disciplinary action in accordance with Administrative Procedure 3100.2, 
 Student Disciplinary Procedures.  
-There is an academic integrity 'quiz' that is the first quiz in Blackboard.  
+There is an academic integrity 'quiz' given during the first week.
 I will not grade anything after week 2 until you complete this.
 .bp
 .SH
@@ -174,13 +174,14 @@ including attendance, as follows:
 Labs, quizzes and exams are completed \fIin class\fR.
 
 Attendance is based on work completed in class. 
-Permanent removal from the course for lack of attendance is at my discretion, 
+Permanent removal from the course after the drop deadline of \*[deadline]\m[]
+due to lack of attendance is at my discretion.
 following standard Community College District course attendance guidelines:  
 failure to show up for class or failure to complete 
 assignments, tests, or quizzes. 
 
-It is the student's responsibility to add, drop, or withdraw from classes 
-before the "last day to drop" date, \m[red]\*[deadline]\m[].
+It is the student's responsibility to drop classes
+before the drop deadline: \m[red]\*[deadline]\m[].
 Petitions to add, drop, or withdraw after the deadline 
 will not be approved without proof of circumstances 
 beyond the student's control, 
@@ -189,14 +190,10 @@ Lack of money to pay fees is \fBnot\fR considered an extenuating circumstance.
 Students anticipating difficulty in paying fees before the add deadline should 
 check with the Financial Aid Office about sources of funds or other 
 alternatives for which they may be eligible.
-If a student decides to withdraw or drop from this course, 
-they must do so on or before the date specified by 
-the Academic Calendar as to the last day to withdraw or drop. 
-Students are responsible for processing the WITHDRAWAL or DROP action.
-
-\fBFailure to drop by the "last day to drop" date, 
-\m[red]\*[deadline]\m[], will result in a grade being assigned, 
-regardless of attendance.\fR 
+Students are responsible for processing the withdrawal or drop action.
+Students who remain enrolled in a class beyond the published withdrawal deadline, 
+as stated in the class schedule, will receive an evaluative letter grade in the class
+regardless of attendance.
 .SH
 Accommodation of Disability
 .LP
