@@ -3,9 +3,8 @@
 .TL
 \*[CH]
 .NH
-Car abstraction: 100 points, 90 minutes \fImaximum\fR
-.time_box
-.QP
+Car abstraction: 4 points, 90 minutes \fImaximum\fR
+.LP
 Implement some functions in a \fBvery\fR simple car simulation.
 Some of the code has been provided.
 You are expected to complete the rest.
@@ -117,6 +116,7 @@ You will need to \*[c]#include <cmath>\*[r] to support this function.
 
 .RE
 
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab11b

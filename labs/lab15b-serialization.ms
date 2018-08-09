@@ -3,9 +3,8 @@
 .TL
 \*[CH]
 .NH
-Serialization : 100 points,  90 minutes \fImaximum\fR
-.time_box
-.QP
+Serialization : 4 points,  90 minutes \fImaximum\fR
+.LP
 In this lab, the goal is to perform some very simple serialization using boost::serialization.
 
 .RS

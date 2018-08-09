@@ -20,7 +20,7 @@ As programmers, this is useful, because at its core, programming involves manipu
 transforming source code into executable machine code, 
 converting database query results into readable reports, etc.
 .NH
-Exploring the Linux server: 20 pts, 30 minutes \fImaximum\fR
+Exploring the Linux server: 1 pts, 30 minutes \fImaximum\fR
 .LP
 Ensure you have your user name and default password for buffy.
 .RS
@@ -81,7 +81,7 @@ If you cannot log in, raise your hand immediately!
 .RE
 .bp
 .NH
-Vim tutorial: 50 pts, 30 minutes \fImaximum\fR
+Vim tutorial: 2 pts, 30 minutes \fImaximum\fR
 .LP
 Either \*[c]vi\*[r] or \*[c]vim\*[r] is installed on essentially every *nix computer by default.
 If you plan to program in C++, 
@@ -108,7 +108,7 @@ Setup a recommended set of \*[c]vim\*[r] defaults:
  \*[c]cp ~dparillo/public_html/cisc187/examples/_vimrc ~/.vimrc\*[r]
 .RE
 .NH
-Hello world: 30 points, 15 minutes \fImaximum\fR
+Hello world: 1 points, 15 minutes \fImaximum\fR
 .LP
 Using \*[c]vim\*[r] create a simple hello world and get it to run.
 .RS
@@ -138,7 +138,7 @@ Turn in your completed lab using the \*[c]submit187\*[r] script:
 \fC   submit187 lab1a\fR
 .bp
 .NH
-Extra credit
+Extra credit: 4 points
 .LP
 Parsing the command line:  about an hour
 

@@ -2,9 +2,8 @@
 .TL
 \*[CH]
 .NH
-Tiny, simple classes: 100 points, 90 minutes \fImaximum\fR
-.time_box
-.QP
+Tiny, simple classes: 4 points, 90 minutes \fImaximum\fR
+.LP
 Design and implement a few simple classes.  
 The goal is become comfortable writing code in a new style.
 That is, encapulating functions inside classes.
@@ -99,6 +98,7 @@ SMALL dogs return "Yip"
 .RE
 .RE
 
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab11a

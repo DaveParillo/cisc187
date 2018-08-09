@@ -3,8 +3,8 @@
 .TL
 \*[CH]
 .NH
-Writing function overloads: 50 points, 60 minutes \fImaximum\fR
-.time_box
+Writing function overloads: 2 points, 60 minutes \fImaximum\fR
+.LP
 .RS
 .nr step 0 1
 .IP \n+[step].
@@ -32,8 +32,8 @@ Check your progress using the \*[c]check187\*[r] script:
 
 
 .NH
-Refactoring to a template: 50 points, 60 minutes \fImaximum\fR
-.time_box
+Refactoring to a template: 2 points, 60 minutes \fImaximum\fR
+.LP
 .RS
 .nr step 0 1
 .IP \n+[step].

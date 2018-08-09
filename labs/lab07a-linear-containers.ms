@@ -32,8 +32,7 @@ you will end up destroying the temp copy in each function.
 .RE
 .bp
 .NH
-Stacks: 100 points, 60 minutes \fImaximum\fR
-.time_box
+Stacks: 4 points, 60 minutes \fImaximum\fR
 .QP
 .RS
 .nr step 0 1
@@ -80,6 +79,7 @@ Write a function template that compares two \*[c]std::stack\*[r]s:
 .R
 .RE
 
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab7a

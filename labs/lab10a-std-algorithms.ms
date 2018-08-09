@@ -5,9 +5,8 @@
 .LP
 The goal of today's lab is to practice working with STL algorithms.
 .NH
-Standard algorithms: 100 points, 90 minutes \fImaximum\fR
-.time_box
-.QP
+Standard algorithms: 4 points, 90 minutes \fImaximum\fR
+.LP
 .RS
 .nr step 0 1
 .IP \n+[step].
@@ -62,7 +61,8 @@ Do not use loops.
 
 (Hint: Use the remove_copy_if algorithm and a custom function).
 .RE
-.QP
+
+.LP
 If you need a reference for the algorithm API's, use \fCwww.cppreference.com\fR.
 
 Check your progress using the \*[c]check187\*[r] script:

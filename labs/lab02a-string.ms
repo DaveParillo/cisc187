@@ -2,10 +2,11 @@
 .so headings.ms
 .TL
 \*[CH]
+.so cover-page.ms
 .bp
-.NH
-Using std::string: 100 points, 90 minutes \fImaximum\fR
-.time_box
+.SH
+Using std::string: 4 points, 90 minutes \fImaximum\fR
+.LP
 The purpose of this exercise is to practice working with \*[c]std::string\*[r].
 
 We will be writing a program that takes strings from the comamnd line,
@@ -23,7 +24,7 @@ Create a simple main function.
 
 You do not need to use getopt or any special command line argument handling to complete this lab.
 .IP \n+[step].
-Create a \*[c]std::string\*[r] object and assign \fCargv\fR to it.
+Create a \*[c]std::string\*[r] object and assign \fCargv\fR to it, one index at a time.
 
 .IP \n+[step].
 Print the original text followed by a newline.

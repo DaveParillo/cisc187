@@ -7,8 +7,8 @@ Working with the
 .code 
 map
 .B
-class: 100 points, 90 minutes \fImaximum\fR
-.time_box
+class: 4 points, 90 minutes \fImaximum\fR
+.LP
 
 The goal of this lab is to compute and display the frequency of words encountered in a word list.
 Both case sensitive and case insensitive frequencies will be generated.
@@ -117,6 +117,7 @@ When complete, your output should resemble the following:
 .RE
 .RE
 
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab7b

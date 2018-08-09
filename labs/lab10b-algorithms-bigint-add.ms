@@ -10,9 +10,8 @@ and to get a start in the capabilities required in Project #3.
 
 .bp
 .NH
-BigInt add: 100 points, 90 minutes \fImaximum\fR
-.time_box
-.QP
+BigInt add: 4 points, 90 minutes \fImaximum\fR
+.LP
 .RS
 .nr step 0 1
 .IP \n+[step].
@@ -75,8 +74,9 @@ which will now be least to most significant.
 The results can be added to using a back_inserter
 and the final results reversed again.
 .RE
-
 .RE
+
+.LP
 If you need a reference for the algorithm API's, use \fCwww.cppreference.com\fR.
 
 Check your progress using the \*[c]check187\*[r] script:

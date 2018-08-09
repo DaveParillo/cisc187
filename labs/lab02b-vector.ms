@@ -2,10 +2,9 @@
 .so headings.ms
 .TL
 \*[CH]
-.bp
-.NH
-Using std::vector: 100 points, 90 minutes \fImaximum\fR
-.time_box
+.SH
+Using std::vector: 4 points, 90 minutes \fImaximum\fR
+.LP
 The purpose of this exercise is to practice working with \*[c]std::vector\*[r].
 
 We will be writing a program that takes values from the command line,

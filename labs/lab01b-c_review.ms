@@ -7,8 +7,9 @@ This lab reviews the core programming concepts you learned in your first semeste
 .so cover-page.ms
 .bp
 .NH
-Making change: 60 points, 30 minutes \fImaximum\fR
+Making change: 2.5 points, 30 minutes \fImaximum\fR
 .time_box
+.LP
 .RS
 Given:
 .CW
@@ -65,8 +66,9 @@ What changes should be made to make the results match expectations?
 .RE
 .bp
 .NH
-Code quiz: 40 points, 30 minutes \fImaximum\fR 
+Code quiz: 1.5 points, 30 minutes \fImaximum\fR 
 .time_box
+.LP
 .RS
 The quizzes conducted each Wednesday are primarily in this format.
 Consider this a dry run for the rest of the semester.
@@ -182,6 +184,7 @@ g.  bool z = false;
 Extra Credit: Programming pool: about 30 minutes
 .LP
 .time_box
+.LP
 .RS
 Pull the following code snippets from the pool and place them in the Triangle program where there are underscores in the code.
 

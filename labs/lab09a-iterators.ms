@@ -28,9 +28,8 @@ Think about what you will need to do to avoid an infinite loop.
 .RE
 
 .NH
-Iterators: 100 points, 90 minutes \fImaximum\fR
-.time_box
-.QP
+Iterators: 4 points, 90 minutes \fImaximum\fR
+.LP
 .RS
 .nr step 0 1
 .IP \n+[step].
@@ -98,7 +97,7 @@ The predicate function should evaluate the current iterator value and return a \
 
 .RE
 
-
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab9a

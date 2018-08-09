@@ -5,7 +5,7 @@
 .so cover-page.ms
 .bp
 .NH
-Pass by reference and pass by value: 40 points, 30 minutes \fImaximum\fR
+Pass by reference and pass by value: 2 points, 30 minutes \fImaximum\fR
 .time_box
 .QP
 Given 3 functions: 
@@ -85,7 +85,7 @@ _
 
 .bp
 .NH
-Debugging: 30 points, 30 minutes \fImaximum\fR
+Debugging: 2 points, 30 minutes \fImaximum\fR
 .time_box
 The purpose of this exercise is to provide an appreciation for following namespace best practices.
 

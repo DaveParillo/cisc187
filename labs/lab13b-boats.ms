@@ -2,12 +2,9 @@
 .so headings.ms
 .TL
 \*[CH]
-
-.bp
 .NH
-Boats: 100 points, 60 minutes \fImaximum\fR
-.time_box
-.QP
+Boats: 4 points, 60 minutes \fImaximum\fR
+.LP
 Use the following code snippets and place them in the provided classes where there are underscores in the code.
 
 You may use a snippet more than once.

@@ -2,9 +2,9 @@
 .so headings.ms
 .TL
 \*[CH]
-.NH
-Shape area: 100 points, 90 minutes \fImaximum\fR
-.time_box
+.SH
+Shape area: 4 points, 90 minutes \fImaximum\fR
+.LP
 .RS
 The goal of this lab is to explore templates in more detail.
 .nr step 0 1
@@ -117,6 +117,7 @@ Ensure your functions will work with all the C++ fundamental types.
 If you have created your templates correctly, then they should.
 .RE
 
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab4b

@@ -2,10 +2,9 @@
 .so headings.ms
 .TL
 \*[CH]
-.NH
-Stacks: 100 points, 90 minutes \fImaximum\fR
-.time_box
-.QP
+.SH
+Stacks: 4 points, 90 minutes \fImaximum\fR
+.LP
 .RS
 .nr step 0 1
 .IP \n+[step].
@@ -44,6 +43,7 @@ To use \*[c]mesa::greater\*[r], call \*[c]std::sort\*[r].
 
 .RE
 
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab6a

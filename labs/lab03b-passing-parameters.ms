@@ -2,12 +2,9 @@
 .so headings.ms
 .TL
 \*[CH]
-.NH
-Passing and returning values: 100 points, 90 minutes \fImaximum\fR
-.time_box
-.QP
-
-.RS
+.SH
+Passing and returning values: 4 points, 90 minutes \fImaximum\fR
+.LP
 .nr step 0 1
 .IP \n+[step].
 Create 2 files \fClab3b.h\fR and \fClab3b.cpp\fR.
@@ -94,8 +91,7 @@ The function should return:
     badge
 .R
 
-.RE
-
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab3b

@@ -3,9 +3,8 @@
 .TL
 \*[CH]
 .NH
-Shallow and Deep Copies: 100 points, 90 minutes \fImaximum\fR
-.time_box
-.QP
+Shallow and Deep Copies: 4 points, 90 minutes \fImaximum\fR
+.LP
 This exercise is intended to increase familiarity with 
 using smart pointers and how to create copy constructors and copy assignment functions
 when the class contains pointers to objects.
@@ -86,6 +85,7 @@ Do \fBnot\fR change anything in \fCmain.cpp\fR.
 Run valgrind to ensure your copy functions do not potentially result in any undefined behavior.
 .RE
 
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab14b

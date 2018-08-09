@@ -2,10 +2,9 @@
 .so headings.ms
 .TL
 \*[CH]
-.NH
-Cipher: 100 points, 90 minutes \fImaximum\fR
-.time_box
-.QP
+.SH
+Cipher: 4 points, 90 minutes \fImaximum\fR
+.LP
 The goal of this lab is to replace all of the functions in the week 6 cipher example
 with lambda expressions.
 
@@ -46,6 +45,7 @@ for example.
 
 .RE
 
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab6b

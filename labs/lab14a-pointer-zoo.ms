@@ -3,9 +3,8 @@
 .TL
 \*[CH]
 .NH
-Pointer Zoo: 100 points, 60 minutes \fImaximum\fR
-.time_box
-.QP
+Pointer Zoo: 4 points, 60 minutes \fImaximum\fR
+.LP
 This exercise is intended to increase familiarity with 
 using pointers and the class concepts from the last two weeks: 
 virtual functions, overloads, etc.
@@ -64,6 +63,7 @@ Complete the program using the prompts in the comments provided.
 Ensure that when complete, no memory has leaked.
 .RE
 
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab14a

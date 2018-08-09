@@ -3,8 +3,8 @@
 .TL
 \*[CH]
 .NH
-Base and derived classes: 40 points, 45 minutes \fImaximum\fR
-.time_box
+Base and derived classes: 2 points, 45 minutes \fImaximum\fR
+.LP
 .RS
 .nr step 0 1
 .IP \n+[step].
@@ -157,7 +157,7 @@ If a relationship doesn't make sense, explain why.
 
 .bp
 .NH
-Abstract classes: 60 points, 45 minutes \fImaximum\fR
+Abstract classes: 2 points, 45 minutes \fImaximum\fR
 .time_box
 .QP
 Given the following classes and a main method that uses them:

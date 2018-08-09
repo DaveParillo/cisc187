@@ -2,9 +2,9 @@
 .so headings.ms
 .TL
 \*[CH]
-.NH
-Pointers and arrays: 100 points, 90 minutes \fImaximum\fR
-.time_box
+.SH
+Pointers and arrays: 4 points, 90 minutes \fImaximum\fR
+.LP
 .RS
 This exercise is intended to build your understanding of pointers and their relation to arrays. 
 
@@ -57,8 +57,7 @@ If you properly cleaned up after your pointers, you should see the following lin
 Otherwise, you see information indicating memory leaks or other memory related errors.
 .RE
 
-
-
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab5a

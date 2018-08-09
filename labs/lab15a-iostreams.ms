@@ -3,9 +3,8 @@
 .TL
 \*[CH]
 .NH
-Reading Points from a file: 100 points, 60 minutes \fImaximum\fR
-.time_box
-.QP
+Reading Points from a file: 4 points, 60 minutes \fImaximum\fR
+.LP
 In this lab, the goal is to reinforce the basic concepts from this chapter.
 
 \fBGame plan:\fR is to prompt the user for data, store the data temporarily in memory,

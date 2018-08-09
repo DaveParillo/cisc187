@@ -5,9 +5,8 @@
 .so cover-page.ms
 .bp
 .NH
-Using \*[c]Boost::Test\m[]\fB: 20 points, 10 minutes \fImaximum\fR
-.time_box
-.QP
+Using \*[c]Boost::Test\m[]\fB: 0.5 points, 10 minutes \fImaximum\fR
+.LP
 Verify you can login to buffy and run a Boost unit test.
 
 Boost is installed on the buffy server.
@@ -49,7 +48,7 @@ The remainder of this lab will be spent getting the other tests provided to pass
 The 
 .code Date
 .B
-class: 40 points, 45 minutes \fImaximum\fR
+class: 2 points, 45 minutes \fImaximum\fR
 .time_box
 .QP
 This exercise recreates the \*[c]Date\*[r] class from the textbook with some modifications.
@@ -77,7 +76,7 @@ Boost unit tests.
 The 
 .code Book
 .B
-class: 40 points, 45 minutes \fImaximum\fR
+class: 1.5 points, 45 minutes \fImaximum\fR
 .time_box
 .QP
 This exercise creates a \*[c]Book\*[r] class that might exist as part of a software

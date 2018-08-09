@@ -10,9 +10,8 @@ The goal of today's lab is to practice working with more advanced iterator opera
 Do not use any STL algorithms in this lab!
 .RE
 .NH
-Iterators: 100 points, 90 minutes \fImaximum\fR
-.time_box
-.QP
+Iterators: 4 points, 90 minutes \fImaximum\fR
+.LP
 .RS
 .nr step 0 1
 .IP \n+[step].
@@ -83,6 +82,7 @@ This function should call \*[c]mesa::copy_if\*[r] and use
 Make the function \*[c]inline\*[r] and implement it in \fClab9b.h\fR.
 .RE
 
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab9b

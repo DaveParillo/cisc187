@@ -4,8 +4,8 @@
 \*[CH]
 .so cover-page.ms
 .bp
-.NH
-Student grades: 100 points, 90 minutes \fImaximum\fR
+.SH
+Student grades: 4 points, 90 minutes \fImaximum\fR
 .time_box
 .RS
 This exercise is intended to build your understanding of using vectors of pointers.
@@ -59,7 +59,7 @@ Is this the simplest implementation for this problem using vectors?
 
 What should be done to simplify this program?
 
-
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab5b

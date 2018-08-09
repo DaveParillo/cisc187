@@ -3,9 +3,8 @@
 .TL
 \*[CH]
 .NH
-A rational number class: 100 points, 90 minutes \fImaximum\fR
-.time_box
-.QP
+A rational number class: 4 points, 90 minutes \fImaximum\fR
+.LP
 The goal of this lab is to explore creating a class that can
 perform math operations much like the fundamental types.
 
@@ -86,6 +85,7 @@ a over b \[u00F7] c over d = ad over bc
 .EN
 .RE
 
+.LP
 Check your progress using the \*[c]check187\*[r] script:
 .CW
     check187 lab12b
