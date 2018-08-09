@@ -60,7 +60,7 @@ is not very different from counting them in a \*[c]vector\*[r]
 .SS STL Algorithms
 .IT Part of the ISO C++ standard
 .i1 More than 100 algorithms for searching, counting, and manipulating ranges
-.i2 C++17 ads 69 more (mostly overloads)
+.i2 C++17 adds 69 more (mostly overloads)
 .IT Algorithms are organized into broad categories
 .i1 Non-modifying sequence operations
 .i2 \fCfor_each\fR, \fCcount(_if)\fR, \fCfind(_if)\fR, \fCsearch\fR
