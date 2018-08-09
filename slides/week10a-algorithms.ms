@@ -97,7 +97,7 @@ is not very different from counting them in a \*[c]vector\*[r]
 .i1 Almost every lab function that took iterators or pointers as input
 .SS STL and loops
 .IT STL algorithms are essentially wrappers around loops
-.i1 Most tasks you've written so far could be rewritten using algorthms
+.i1 Most tasks you've written so far could be rewritten using algorithms
 
 .IT One way to think about STL algorithms
 .i1 They are \fInamed loops\fR
@@ -162,7 +162,7 @@ Suppose we want to find an int in a vector
   \m[green]// hand-rolled loop  \m[]
   vector<int>::iterator 
   my_find(vector<int>& v, int x) {
-    for(auto p = v.begin(); p != v.end(),++p) {
+    for(auto p = v.begin(); p != v.end(); ++p) {
       if (x == *p) return p;
     }
     \m[green]// did not find  x\m[]

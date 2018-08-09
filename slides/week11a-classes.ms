@@ -178,7 +178,7 @@ Date class functions
 .IT This class does not allow direct access to y, m, and d
 .i1 They can only be set using the 3 arg constructor provided
 .i1 And can only be retrieved using \fCas_tuple\fR function
-.IT Public member function are the class \fBinterface\fR
+.IT Public member functions are the class \fBinterface\fR
 .IT Everything hidden are \fBimplementation details\fR
 .i1 No one needs to know (or care) how a Date is implemented
 .bp
