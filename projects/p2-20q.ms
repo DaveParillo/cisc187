@@ -36,7 +36,7 @@ while each leaf node stores the computer's guess.
 
 The game can be run either by loading an existing 20 questions tree from a text file 
 or by starting with a default tree (described below). 
-
+.bp
 .h2 Outline of play
 .LP
 Your program should be able to play at least 1 round of 20 questions.
@@ -59,7 +59,7 @@ Continue asking questions until the computer reaches a leaf node.
 Display the leaf node value and ask the user if this guess is correct.
 .RS
 .IP a.
-If the user answers \m[green]Yes\m[] the computer won.
+If the user answers \m[green]Yes\m[], then the computer wins.
 Ask the user if they want to play again.
 .IP b.
 If the user answers \m[green]No\m[] then ask the user:
@@ -72,12 +72,13 @@ A question that differentiates their object from the object just guessed by the 
 Whether the answer to the new question is \m[green]Yes\m[] or \m[green]No\m[].
 .RE
 .IP c.
-Use the new information to update the in memory tree.
+Use the new information to update the in memory tree
+and then ask the user if they want to play again.
 .RE
 .IP \n+[step].
 Before exiting, ask the user if they want to save the game.
 
-If yes, the program should store the data in the binary tree in a file.
+If yes, the program should write all the binary tree data to a file.
 
 This file can be a plain text file.
 .RE
@@ -92,10 +93,10 @@ of the following requirements:
 Process command line arguments: 
 .RS
  \*[c]-h\*[r] to display \*[c]h\*[r]elp text and exit.
- \*[c]-f\*[r] to load a game tree from \*[c]f\*[r]file
+ \*[c]-f\*[r] to load a game tree from \*[c]f\*[r]ile
 .RE
 .IP \n+[step].
-Gameplay proceeds as in the \m[blue]Outline of play\m[].
+Gameplay proceeds as in the \m[blue]Outline of play\m[] section.
 .IP \n+[step].
 While the program executes, it should be clear what input is expected from the player.
 .IP \n+[step].
@@ -104,7 +105,14 @@ You should assume I will provide a game file too large to fit in stack memory.
 If your game can't load my game file because of a 'stack overflow' error,
 then you can't get full credit for this project.
 .IP \n+[step].
-No memory leaks.
+You must store all runtime game data in a binary tree data structure.
+
+This \*[c]struct\*[r] must define pointers to the right and left child nodes,
+which are themselves of type binary tree.
+.IP \n+[step].
+Use IO streams to read and write data from saved game files.
+.IP \n+[step].
+No memory leaks when analyzed using valgrind on the mesa server.
 .IP \n+[step].
 Program functions should be small and each function should perform
 exactly one task.
@@ -178,7 +186,22 @@ every time.
 If your program ever loses track of tree nodes, 
 entire sections of the tree could seem to disappear.
 
-Also, remember that the 'root' node of a binary tree is at the tree mid point.
+Do not make this more complicated than necessary.
+In order to correctly save all game state,
+you only need to know if the tree node is a question or an answer.
+For example:
+.CW
+    Q:Is it bigger than a breadbox?
+    A:a mouse
+    A:a programmer
+.R
+
+Is a perfectly adequate file format.
+If your program works correctly, 
+then all question nodes should have exactly 2 children.
+All answer nodes should have exactly 0 children.
+
+You are not obligated to copy this format.
 
 .h1 Example output
 .h2 Show help
@@ -215,24 +238,24 @@ while the user's responses are shown in green.
   \m[green]yes\m[]
   Is it bigger than a breadbox?
   \m[green]yes\m[]
-  Is it a computer scientist?
+  Is it a programmer?
   \m[green]no\m[]
   OK, what was it?
   \m[green]a bag of trash\m[]
-  Give me a question that would distinguish a bag of trash from a computer scientist
+  Give me a question that would distinguish a bag of trash from a programmer
   \m[green]Is it worth a lot of money?\m[]
   And would the answer to the question for a bag of trash be yes or no?
   \m[green]no\m[]
   Would you like to play again?
   \m[green]no\m[]
   Your final game tree was:
-  0: Is it bigger than a breadbox?
-  1:   No: Do you eat it with eggs?
-  2:      No: a mouse
-  3:      Yes: spam
-  4:   Yes: Is it worth a lot of money?
-  5:      No: a bag of trash
-  6:      Yes: a computer scientist
+  Is it bigger than a breadbox?
+    No: Do you eat it with eggs?
+       No: a mouse
+       Yes: spam
+    Yes: Is it worth a lot of money?
+       No: a bag of trash
+       Yes: a programmer
   Would you like to save your game?
   \m[green]yes\m[]
   Please enter a filename to save your game
@@ -254,26 +277,26 @@ it can learn the more it is played.
   \m[green]yes\m[]
   Is it worth a lot of money?
   \m[green]yes\m[]
-  Is it a computer scientist?
+  Is it a programmer?
   \m[green]no\m[]
   OK, what was it?
   \m[green]a house\m[]
-  Give me a question that would distinguish a house from a computer scientist
+  Give me a question that would distinguish a house from a programmer
   \m[green]Does it know Java?\m[]
   And would the answer to the question for a house be yes or no?
   \m[green]no\m[]
   Would you like to play again?
   \m[green]no\m[]
   Your final game tree was:
-  0: Is it bigger than a breadbox?
-  1:   No: Do you eat it with eggs?
-  2:      No: a mouse
-  3:      Yes: spam
-  4:   Yes: Is it worth a lot of money?
-  5:      No: a bag of trash
-  6:      Yes: Does it know Java?
-  7:         No: a house
-  8:         Yes: a computer scientist
+  Is it bigger than a breadbox?
+    No: Do you eat it with eggs?
+       No: a mouse
+       Yes: spam
+    Yes: Is it worth a lot of money?
+       No: a bag of trash
+       Yes: Does it know Java?
+          No: a house
+          Yes: a programmer
   Would you like to save your game?
   \m[green]yes\m[]
   Please enter a filename to save your game
