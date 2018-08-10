@@ -36,7 +36,8 @@
 # new expression begins.
  3432 3333 9999 + * ^ * * 6666 +
 
-# Even though the previous expression is in error, this should still work
+# Even though the previous expression is in error, 
+# this should still execute before the program exits
 2 2 +
 
 
