@@ -250,6 +250,18 @@ but they are all classics and still have considerable value.
 ### For fun
 * [Map of the C++17 Lands](http://fearlesscoder.blogspot.com/2017/02/the-c17-lands.html)
 
+### Coding challenges and puzzles
+* [exercism.io](https://exercism.io) Code practice and mentorship for everyone.  
+  Level up your programming skills with 2,545 exercises across 47 languages
+* [C++ Quiz](http://cppquiz.org/) a simple online quiz you can use to test your knowledge of C++
+* [Project Euler](https://projecteuler.net) a series of challenging mathematical/computer 
+  programming problems that will require more than just mathematical insights to solve. 
+  Although mathematics will help you arrive at elegant and efficient methods, 
+  the use of a computer and programming skills will be required to solve most problems.
+* [Code Chef](https://www.codechef.com) CodeChef is a not-for-profit educational initiative.
+  They provide this platform as a way to practice and compete in friendly competition.
+* [UVa Online Judge](https://uva.onlinejudge.org) is one of the few sites that has and online
+  and a published set of problems.
 
 ### Suggested reading
 
