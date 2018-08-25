@@ -29,5 +29,7 @@ int main()
   e[0] = 'H';
   printf ("\nb and e strings:\n  %s %s\n", b, e);
 
+  // a = e;    // compile error.  C strings are not assignable
+
   return 0;
 }
