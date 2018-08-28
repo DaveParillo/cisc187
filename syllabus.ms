@@ -174,7 +174,7 @@ including attendance, as follows:
 Labs, quizzes and exams are completed \fIin class\fR.
 
 Attendance is based on work completed in class. 
-Permanent removal from the course after the drop deadline of \*[deadline]\m[]
+Permanent removal from the course after the drop deadline of \m[red]\*[deadline]\m[]
 due to lack of attendance is at my discretion.
 following standard Community College District course attendance guidelines:  
 failure to show up for class or failure to complete 
