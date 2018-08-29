@@ -4,7 +4,6 @@ ifndef CXXFLAGS
 endif
 
 PROGS = asciitable \
-		change \
 		hello \
 		hello_c \
 		phrase-o-matic \
@@ -12,6 +11,7 @@ PROGS = asciitable \
 		random \
 		random_clib \
 		std11-test \
+		time
 
 all: $(PROGS)
 
