@@ -5,7 +5,8 @@
 .SH
 Using std::vector: 4 points, 90 minutes \fImaximum\fR
 .LP
-The purpose of this exercise is to practice working with \*[c]std::vector\*[r].
+The purpose of this exercise is to practice working with \*[c]std::vector\*[r]
+and traditional loops.
 
 We will be writing a program that takes values from the command line,
 and performs a series of operations.
@@ -49,6 +50,8 @@ The program should output:
     10
 .R
 
+Do not use any standard library functions to compute the sum.
+
 .IP \n+[step].
 Compute the \fBmean\fR of all of the numbers in the \*[c]vector\*[r].
 
@@ -60,6 +63,8 @@ The program should output:
 .CW
     2.5
 .R
+
+Do not use any standard library functions to compute the mean.
 
 .IP \n+[step].
 Print only the \fBodd\fR numbers in the \*[c]vector\*[r].
@@ -84,6 +89,8 @@ The program should output:
 .CW
     4 3 2 1
 .R
+
+Do not use any standard library functions to reverse the vector.
 
 .IP \n+[step].
 Check your progress using the \*[c]check187\*[r] script:
