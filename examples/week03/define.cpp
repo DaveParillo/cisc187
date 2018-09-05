@@ -21,15 +21,17 @@ int main() {
   auto a = -5;
   const int b = 0;
 
+  cout << "CALL_WITH_MAX(++a, b),    a = \t";
   for (int i = 1; i < 11; ++i) {
-    CALL_WITH_MAX(++a, b);              // call f, but throw away the result
-    cout << i << ", a: " << a << '\n';  // a should be one larger each iteration
+    CALL_WITH_MAX(++a, b);        // call f, but throw away the result
+    cout << a << ' ';             // a should be one larger each iteration
   }
 
   a = -5;
+  cout << "\nCALL_WITH_MAX(++a, b+10), a = \t";
   for (int i = 1; i < 11; ++i) {
     CALL_WITH_MAX(++a, b+10);
-    cout << i << ", a: " << a << '\n';
+    cout << a << ' ';
   }
 
   return 0;
