@@ -15,7 +15,7 @@ check: part1 part2
 
 part1: step1p1 step2p1
 
-part2: step1p2
+part2: step1p2 step2p2 step3p2
 
 
 step1p1:
@@ -32,7 +32,19 @@ step1p2:
 
 step2p1: clean
 	@echo -n "test abs overloads: "
-	@c++ ${CXXFLAGS} $(CHECK_HOME)/$(lab)/$@.cpp $(part1_srcs) -o $(exe)
+	@c++ ${CXXFLAGS} $(CHECK_HOME)/$(lab)/$@.cpp $(CURDIR)/$(part1_srcs) -o $(exe)
+	@$(exe) || $(fail)
+
+
+step2p2: clean
+	@echo -n "test printFavorite: "
+	@c++ ${CXXFLAGS} $(CHECK_HOME)/$(lab)/$@.cpp -o $(exe)
+	@$(exe) || $(fail)
+
+
+step3p2: clean
+	@echo -n "test square: "
+	@c++ ${CXXFLAGS} $(CHECK_HOME)/$(lab)/$@.cpp -o $(exe)
 	@$(exe) || $(fail)
 
 
