@@ -320,3 +320,5 @@ but they are all classics and still have considerable value.
    
     More Effective C++ says to prefer smart pointers over new & delete</li>
 
+* http://www.open-std.org is a bare bones site with a huge amount of detailed information 
+  related to open standards: C, C++, Python, Vulnerability information, and more.
