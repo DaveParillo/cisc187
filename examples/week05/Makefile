@@ -5,6 +5,7 @@ endif
 ifndef CFLAGS
 	CFLAGS = -Wall -Wextra -pedantic -std=c11
 endif
+CFLAGS += -Wno-unused-parameter
 
 PROGS = 01-pointers-and-references \
 		02-array-copy \

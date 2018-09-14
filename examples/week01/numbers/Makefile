@@ -3,9 +3,10 @@ ifndef CXXFLAGS
 	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
 endif
 
-ifndef CXXFLAGS
+ifndef CFLAGS
 	CFLAGS=-Wall -Wextra -pedantic -std=c11
 endif
+CFLAGS+=-Wno-unused-parameter 
 
 PROGS = binary-print \
         float \

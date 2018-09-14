@@ -5,14 +5,13 @@
 // Does is make sense for a Square to inherit from Rectangle?
 
 #include "Rectangle.h"
+#include <cstddef>
 #include <iostream>
-
-using std::size_t;
 
 class Square : public Rectangle {
   public:
-    void   height(size_t new_height) override;
-    void   width (size_t new_width) override;
+    void   height(std::size_t new_height) override;
+    void   width (std::size_t new_width) override;
     size_t height() const override;
     size_t width()  const override;
   private:

@@ -1,6 +1,7 @@
 // from Effective C++, item # 35
 //
 #include "Square.h"
+#include <cstddef>
 #include <iostream>
 
 using std::size_t;

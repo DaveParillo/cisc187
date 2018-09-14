@@ -1,7 +1,8 @@
 CXX = c++
 ifndef CXXFLAGS
-	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
+	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11 
 endif
+CXXFLAGS += -Wno-unused-parameter -Wno-unused-variable
 
 PROGS = 01-pinch_of_pseudocode \
 		02-case1_const \

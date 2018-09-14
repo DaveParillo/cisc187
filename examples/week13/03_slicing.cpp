@@ -25,7 +25,7 @@ int main () {
     call_cr (v[i]);
   }
 */
-  cout << "\nCalling pass non-owning pointer\n";
+  std::cout << "\nCalling pass non-owning pointer\n";
   for (auto i = 0u; i < v.size(); ++i) {
     call_p (&v[i]);
   }

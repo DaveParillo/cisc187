@@ -18,8 +18,8 @@ class C {
     C() : a(), b() {}
 
   private:
-    B b;
     A a;
+    B b;
 };
 
 int main() {

@@ -8,7 +8,6 @@ CXXFLAGS+=-I..
 PROGS = add \
 		call-stack \
 		define \
-		echo \
 		passing-parameters \
 		passing-parameters-test \
 		simple-parameter \

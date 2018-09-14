@@ -4,6 +4,7 @@ ifndef CXXFLAGS
 endif
 
 PROGS = asciitable \
+		echo \
 		hello \
 		hello_c \
 		phrase-o-matic \

@@ -1,5 +1,6 @@
 #include "Rectangle.h"
 
+#include <iostream>
 
 double Rectangle::area() const
 { 

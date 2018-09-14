@@ -3,7 +3,7 @@ ifndef CXXFLAGS
 	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
 endif
 
-CXXFLAGS=-I..
+CXXFLAGS+=-I..
 
 PROGS = 01-hello \
 		02-struct \
