@@ -146,45 +146,6 @@ Allocates \fInew memory\fR on the free-store
 .R
 \s+8
 .IT If we pass in only \fCp\fR, what happens?
-.SS Non-const references vs. pointers
-.IT Some programmers consider passing by non-const reference bad form
-.i1s
-Because the call syntax is the same as pass by value
-.CW
-  void func (int& x);
-
-  int main() {
-    int x = 5;
-    func(x);       \m[green]// will x change?\m[]
-  }
-.R
-.i1e
-.bp
-.IT Some programmers consider passing by non-const reference bad form
-.i1s
-Because the call syntax is the same as pass by value
-.CW
-  void func (int& x);
-
-  int main() {
-    int x = 5;
-    func(x);       \m[green]// will x change?\m[]
-  }
-.R
-.i1e
-.i1s
-For this reason, a function that takes a \fInon-owning pointer\fR is preferred
-.CW
-  void func (int* x);
-
-  int main() {
-    int x = 5;
-    func(&x);       \m[green]// Caller expects x to change\m[]
-  }
-.R
-.i1e
-
-
 .SS Pointers
 .IT A pointer can point to \fIanything\fR
 .i1 Or nothing
@@ -227,49 +188,6 @@ For this reason, a function that takes a \fInon-owning pointer\fR is preferred
   }
 .R
 .bp
-.SS Pointers 
-.IT All the examples in the book assume you are not insane
-.i1 It uses \*[c]operator[]\*[r] only when the type is an array.
-.CW
-  int* a = new int[3];
-  a[0] = 6;
-  a[1] = a[0] + 2;
-  int* x = new int{3};
-  int y = *x + 2;
-.R
-.IT But pointers provide no safeguards
-.IT Does this compile?
-\s-8
-.CW
-  #include <iostream>
-  using std::cout;
-  using std::endl;
-  int main() 
-  {
-    int* x = new int{3};
-    int y = x[99] + 2;
-    cout << y << endl;
-  }
-\s+8
-.R
-.bp
-.IT Yes.
-.i1 Even with \fC -Wall -Wextra\fR
-.i2 g++ does not make a peep
-.i1s
-Even in clang with \fC -Weverything\fR
-.CW
-  warning: generalized initializer lists are incompatible with C++98 [-Wc++98-compat]
-    int* x = new int{3};
-                    ^
-.R
-.i1e
-.IT No compiler will inform you that
-.i1 You just accessed a piece of memory 98 \*[c]int\*[r]s past the one you own
-.i1 Whatever it is, you then added 2 to it
-.i1 And assigned that value to \fCy\fR
-.IT Heck, it doesn't even know your pointer is just to one \*[c]int\*[r] 
-and not an \fIarray\fR of \*[c]int\*[r]s
 .SS Null pointers
 .IT We mentioned that unlike a reference
 .i1 A pointer might point to 'nothing'
