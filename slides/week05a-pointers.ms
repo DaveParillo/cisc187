@@ -104,7 +104,7 @@ Once dereferenced, it's treated exactly like any other variable of that type
 
 .SS Free-store pointers
 .IT Up to now, all our pointers have been \fIstack pointers\fR
-.IT Can point to heap memory also
+.IT Can point to free-store memory also
 .IT The \*[c]new\*[r] operator
 .i1s
 Allocates \fInew memory\fR on the free-store
@@ -119,12 +119,14 @@ Allocates \fInew memory\fR on the free-store
                          \m[green]// uninitialized ints\m[]
 .R
 .i1e
-.IT Use the \*[c]delete\*[r] keyword to free memory allocated using \*[c]operator new\*[r]
+.IT Use \*[c]operator delete\*[r] to free memory 
+.i1s
+Allocated using \*[c]operator new\*[r]
 .CW
-
   delete   p1;  \m[green]// free memory allocated for p1\m[]
   delete[] p4;  \m[green]// free array memory\m[]
 .R
+.i1e
 .SS Pointers and References
 .IT We can pass pointers to a function that expects a reference
 \s-8
@@ -165,19 +167,18 @@ Allocates \fInew memory\fR on the free-store
 
 .bp
 .IT What does this program print?
-\s-8
+.i1s
+Does it compile?
 .CW
   #include <iostream>
   using std::cout;
   using std::endl;
-  int main() 
-  {
+  int main() {
     int* p1 = new int;
     int* p2 = new int{5};
 
     int x = *p1;  \m[green]// put the int pointed to by p1 in x\m[]
     int y = *p2;
-
     cout << "P1:  " << p1  << "P2:  " << p2  << endl;
     cout << "X:   " << x   << "Y:   " << y   << endl;
     cout << "&X:  " << &x  << "&Y:  " << &y  << endl;
@@ -186,7 +187,7 @@ Allocates \fInew memory\fR on the free-store
     cout << "&(*P2): " << &(*p2) << endl;
   }
 .R
-.bp
+.i1e
 .SS Null pointers
 .IT We mentioned that unlike a reference
 .i1 A pointer might point to 'nothing'

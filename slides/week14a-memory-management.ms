@@ -9,9 +9,9 @@ Week 14
 .SS Overview
 .IT Pointer ownership
 .IT "Smart" pointers
+.IT GSL \*[c]owner<T*>\*[r]
 .IT Destroying memory
-.i1 The right way!
-.SS Relation to week 4
+.SS Relation to week 5
 .IT Introduced pointers during week 5
 .i1 Sections 17.2 - 17.4
 .i1 Should be a review of first semester pointer work
@@ -113,6 +113,20 @@ Resource cleanup handled automatically
 .i1 Requires C++14, uses some C++17 features
 .IT GSL pointers contains 'ownership pointers'
 .i1s
+Defined as a templated type alias
+.CW
+  namespace gsl { template <typename T> owner = T; }
+.R
+.i1e
+.IT Operations that would cause the pointer to point elsewhere are disabled
+.i1 \*[c]operator++()\*[r], \*[c]operator--()\*[r], etc.
+.i1 \*[c]operator+=(std::ptrdiff_t)\*[r]
+.i1 \*[c]operator[](std::ptrdiff_t) const\*[r]
+.i1 Anything that adds/subtracts from pointer value
+.SS GSL Example
+.IT \*[c]owner<T*>\*[r] is easy to use
+.i1 But still just a marker.
+.i1s
 A wrapper around a pointer type
 .CW
   #include <cassert>
@@ -122,14 +136,39 @@ A wrapper around a pointer type
   int main() {
     gsl::owner<int*> p = new int(13);
     assert (*p == 13);
-
     func(p);
     assert (*p == 14);
+    delete p;
   }
-
   void func (int* i) {
     *i += 1;
   }
+.R
+.i1e
+.bp
+.IT More examples
+.i1s
+Return an owner from a function
+.CW
+  gsl::owner<int*> meaning_of_life() { 
+    return gsl::owner<int*>(new int(42)); 
+  }
+.R
+.i1e
+
+.i1s
+Owners must be assigned to owners
+.CW
+  int* foo =  meaning_of_life(); \m[green]// bad\m[]
+  gsl::owner<int*> baz =  meaning_of_life(); \m[green]// good\m[]
+.R
+.i1e
+
+.i1s
+Do not assign references to owners
+.CW
+  int foo = 13;
+  gsl::owner<int*> owned =  &foo; \m[green]// bad\m[]
 .R
 .i1e
 .SS Summary

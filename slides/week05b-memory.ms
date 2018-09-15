@@ -109,10 +109,10 @@ Doesn't improve much.
   double* calc(const int res_size, const int max) {
     double* p = new double[max];        \m[green]//temp memory\m[]
 \m[red]
-    std::unique_ptr<double[]> res {new double[res_size]()};\m[]
+    std::unique_ptr<double[]> res {
+             new double[res_size]()};\m[]
 
     for (int i = 0; i< res_size; ++i) { res[i] = i; }
-
     \m[green]// use p to calculate results to be put in res\m[]
     delete[] p;    \m[green]// free temp memory \m[]
     return res.release();    \m[green]// give away pointer\m[]
@@ -156,7 +156,7 @@ But it \fBcan\fR be \fImoved\fR
 .R
 .i1e 
 .SS Avoiding manual memory management
-.IT The calc example doesn't really need any explicit pointer management
+.IT The calc example doesn't need pointer management
 .i1s
 A \*[c]vector\*[r] manages its own memory
 .CW
@@ -164,6 +164,7 @@ A \*[c]vector\*[r] manages its own memory
 
   \m[red]vector<double>\m[]
   calc(const int res_size, const int max) {
+    \m[green]// vector data is on the free store\m[]
     vector<double>  res (res_size);
     for (int i = 0; i< res_size; ++i) {
       res.push_back(i);
