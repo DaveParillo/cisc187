@@ -1,5 +1,5 @@
 #include "student.h"
-#include "math.h"
+#include "average.h"
 
 #include <iomanip>
 #include <iostream>
@@ -20,7 +20,8 @@ std::vector<student*> load_classroom() {
         // Your code here. add students to the classroom
         input.clear();
     }
-    return classroom;
+    // uncomment the return when you have created something to return
+    //return classroom;
 }
 
 std::ostream& operator<< (std::ostream& os, const std::vector<student*>& rhs) {

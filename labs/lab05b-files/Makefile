@@ -8,7 +8,7 @@ CXXFLAGS+= -g
 .PHONY: clean test
 
 grades: clean
-	c++ ${CXXFLAGS} -o grades main.cpp math.cpp student.cpp
+	c++ ${CXXFLAGS} -o grades main.cpp average.cpp student.cpp
 
 clean: 
 	rm -f grades 

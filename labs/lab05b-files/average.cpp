@@ -1,5 +1,5 @@
 
-#include "math.h"
+#include "average.h"
 
 #include <numeric>
 #include <vector>
