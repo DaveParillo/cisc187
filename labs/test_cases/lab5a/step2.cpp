@@ -44,14 +44,6 @@ SCENARIO( "Compute the invariants of to_lower") {
         REQUIRE(doctest::toString(orig) == doctest::toString(expected));
       }
     }
-    WHEN( "nothing is provided" ) {
-        char orig[6];
-        char expected[6];
-      THEN( "nothing should be returned" ) {
-        mesa::to_lower(orig);
-        REQUIRE(doctest::toString(orig) == doctest::toString(expected));
-      }
-    }
   }
 }
 

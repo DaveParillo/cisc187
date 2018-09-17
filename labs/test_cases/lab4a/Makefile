@@ -13,7 +13,8 @@ include /var2/lopt/share/cisc187/common.mk
 
 check: part1 part2
 
-part1: step1p1 step2p1
+#part1: step1p1 step2p1
+part1: step1p1
 
 part2: step1p2 step2p2 step3p2
 
