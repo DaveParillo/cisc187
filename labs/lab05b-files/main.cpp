@@ -1,4 +1,4 @@
-#include "math.h"
+#include "average.h"
 #include "student.h"
 
 #include <iostream>

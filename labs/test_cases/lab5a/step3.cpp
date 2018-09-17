@@ -13,7 +13,8 @@ static void do_check(string orig) {
     auto actual = mesa::copy(&orig[0]);
     REQUIRE(actual != expected);
     for (int i = 0; actual[i]; ++i) {
-      REQUIRE(actual[i] == expected[i]);
+      CAPTURE (i);
+      CHECK(actual[i] == expected[i]);
     }
     //delete[] actual;
   }
@@ -35,6 +36,19 @@ SCENARIO( "Copy C string") {
       do_check("~!@#$-09876asdf;lkj");
     }
   }
+
+  GIVEN( "a C string with an early null" ) {
+    WHEN( "'howdy\0alice' is provided" ) {
+      do_check("howdy\0alice");
+    }
+  }
+
+  GIVEN( "a C string with only null" ) {
+    WHEN( "'\0' (null) is provided" ) {
+      do_check("\0");
+    }
+  }
+
 }
 
 

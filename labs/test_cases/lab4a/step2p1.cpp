@@ -64,7 +64,6 @@ SCENARIO( "take the absolute value of a number") {
       }
     }
 
-
   }
 
   GIVEN( "unsigned integral types" ) {
