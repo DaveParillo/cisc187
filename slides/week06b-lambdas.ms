@@ -12,7 +12,35 @@ Week 6
 .i1 Syntax
 .i1 Usage
 .IT std::function again
-.SS Lambdas
+.SS \fCcount_if\fP
+.IT Motivation
+.i1 Many functions in the STL take a function as an argument.
+.i1 Suppose we want to count the number of short strings in a vector
+.i2 There is a count_if function in the STL
+.i2 Takes a \m[red]range of pointers\m[] and a \fIpredicate\fR function
+.i2s
+A possible \*[c]count_if\*[r] function
+.CW
+  template<class ForwardIterator, class Predicate>
+  std::size_t count_if(\m[red]ForwardIterator begin,
+                       ForwardIterator end\m[], Predicate p)
+.R
+.i2e
+.bp
+.IT Motivation
+.i1 Many functions in the STL take a function as an argument.
+.i1 Suppose we want to count the number of short strings in a vector
+.i2 There is a count_if function in the STL
+.i2 Takes a range of pointers and a \m[red]\fIpredicate\fR function\m[]
+.i2s
+A possible \*[c]count_if\*[r] function
+.CW
+  template<class ForwardIterator, class Predicate>
+  std::size_t count_if(ForwardIterator begin,
+                       ForwardIterator end, \m[red]Predicate p\m[])
+.R
+.i2e
+.bp
 .IT Motivation
 .i1 Many functions in the STL take a function as an argument.
 .i1 Suppose we want to count the number of short strings in a vector
@@ -22,13 +50,13 @@ Week 6
 A possible \*[c]count_if\*[r] function
 .CW
   template<class ForwardIterator, class Predicate>
-  std::size_t count_if(ForwardIterator begin,
-                       ForwardIterator end, Predicate p)
+  std::size_t count_if(ForwardIterator \m[blue]begin\m[],
+                       ForwardIterator \m[blue]end\m[], Predicate \m[red]p\m[])
   {
     std::size_t result = 0;
-    while (begin!=end) {
-      if (p(*begin)) ++result;
-      ++begin;
+    while (\m[blue]begin\m[]!=\m[blue]end\m[]) {
+      if (\m[red]p(\m[]\m[blue]*begin\m[]\m[red])\m[]) ++result;
+      \m[blue]++begin\m[];
     }
     return result;
   }
@@ -55,7 +83,7 @@ We can use \fCcount_if\fR
 .R
 .i1e
 .IT We can write as many functions like this as we need
-.i1 \fCless_than_10\fR, etc.
+.i1 \fCless_than_10\fR, \fCless_than_35\fR, etc.
 .IT Gets tedious quickly
 .i1 And not very flexible 
 .i2 Every new comparison is a recompile

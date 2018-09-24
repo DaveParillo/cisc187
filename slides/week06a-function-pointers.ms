@@ -8,8 +8,7 @@ Pointers & function pointers
 Week 6
 .SS Overview
 .IT Constant pointers
-.IT Destroying memory
-.IT Pointers to \*[c]void*\*[r]
+.IT Using void pointers
 .IT Function pointers
 .SS Constant pointers
 .IT Pointers can be declared \*[c]const\*[r] 
@@ -91,71 +90,6 @@ Week 6
 .i1 For p3, the pointer can't be reassigned, but x can change
 
 .i1 In p4, both are held constant
-.SS Destroying memory
-.IT Some noticed last week how easy it is to incorrectly cleanup 
-pointers even when they are all in a single function
-.i1s 
-Consider the following:
-\s-4
-.CW
-  \m[green]// calc returns a pointer to a double\m[]
-  double* calc(int res_size, int max)
-  \m[green]// the caller is responsible for the memory allocated for res\m[]
-  {
-    double* p = new double[max];        \m[green]//temp memory\m[]
-    double* res = new double[res_size];
-    \m[green]// use p to calculate results to be put in res\m[]
-    delete[] p;    \m[green]// free temp memory \m[]
-    return res;    \m[green]// can't free this here!\m[]
-  }
-  int main()
-  {
-    double* r = calc(100,1000);
-    \m[green]// use r\m[]
-    delete[] r;    \m[green]// easy to forget, error prone\m[]
-  }
-.R
-.i1e
-.IT Note
-.i1 Deleting a \fInull pointer\fR does nothing
-.CW
-    double* d = nullptr;  \m[green]// C++11 preferred syntax\m[]
-    double* x = 0;        \m[green]// 'classic' syntax\m[]
-    delete d;
-    delete d;
-    delete d;   \m[green]// unlike a non-null, no crash\m[]
-.R
-\s+4
-.SS void pointers
-.IT \*[c]void*\*[r] means
-.i1 Pointer to some memory the compiler doesn't know the type of
-.i2 It is (almost) a raw machine address
-.IT Legitimate uses
-.i1 Calls between functions in different languages
-.i1 Templates where the provided value could literally be \fIanything\fR
-.i2 Like the actual implementation of \*[c]new\*[r] in C++
-.IT Important!
-.i1 \*[c]void*\*[r] is not the same as \*[c]void\*[r]
-.i1s
-There are no objects of type void
-.CW
-  int i;           \m[green]// declare an int\m[]
-  void x;          \m[green]// error!  void is not a type\m[]
-  void print();    \m[green]// function returns nothing\m[]
-.R
-.i1e
-.i1s
-\fBAny\fR pointer can be assigned to \*[c]void*\*[r]
-.CW
-  int*    i  = new int{5}; 
-  double* x  = new double[10];
-  int*    j  = i;             \m[green]// OK\m[]
-  void*   p1 = i;             \m[green]// OK\m[]
-  void*   p2 = d;             \m[green]// OK\m[]
-  int*    i2 = p1;            \m[green]// error\m[]
-.R
-.i1e
-
 .SS Using void pointers
 .IT The compiler can't know the size of the value pointed to
 .i1s
@@ -373,14 +307,11 @@ We can send different functions to apply_func
 .SS Summary
 .IT Pointers and \*[c]const\*[r]
 .i1 Where \*[c]const\*[r] appears controls what is constant
-.IT Destroy memory carefully
-.i1 Too much gets you in as much trouble as too little
-.i1 Memory leaks are the #1 source of bugs in C/C++ programs
 .IT Pointers to \*[c]void*\*[r]
-.i1 Use when you must, don't otherwise
-.i2 You're giving up what little checking the compiler can do
+.i1 Can assign anything to \*[c]void*\*[r]
+.i2 Must cast to associate size with \*[c]void*\*[r]
 .IT Function pointers
-.i1 Old school syntax
+.i1 Traditional syntax
 .i1 C++11 \*[c]std::function\*[r] syntax
 
 
