@@ -6,6 +6,7 @@ endif
 PROGS = 01-list \
 		02-stack \
 		03-queue \
+		04-stack-init \
 		item04-call-empty-not-size-equals-0
 
 all: $(PROGS)
