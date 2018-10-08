@@ -149,16 +149,18 @@ A temp structure is needed
 .rt
 
 .CW
-  void levelorder(tree<T>* node, 
-                  queue<tree<T>*> q) {
-    if (node != nullptr) {
-      q.push(node);
+  void levelorder(tree<T>* node) {
+    if (node == nullptr) {
+             return;
     }
+    std::queue<tree<T>*> q;
+    q.push(node);
     while (!q.empty()) {
-      visit(q.front());
+      auto tmp = q.front();
+      visit(tmp);
       q.pop();
-      levelorder(node->left, q);
-      levelorder(node->right, q);
+      if(tmp->left)  q.push(tmp->left);
+      if(tmp->right) q.push(tmp->right);
     }
   }
 .R
@@ -169,6 +171,7 @@ center tab(!);
 c|c|c|c|c|c|c|c|c.
 A!B!C!D!E!F!G!H!I
 .TE
+.IT Note this is not a recursive function
 .SS Examples
 .IT A project #2 example
 .i1s
