@@ -26,8 +26,7 @@ tree<T>* make_tree(T value) {
 // make a complete binary tree
 template <class T>
 tree<T>* make_tree(T value, tree<T>* left, tree<T>* right) {
-  auto root = new tree<T>;
-  root->value = value;
+  auto root = make_tree(value);
   root->left  = left;
   root->right = right;
   return root;
@@ -40,7 +39,7 @@ std::ostream& operator<< (std::ostream& os, const tree<T>* root) {
     return os << "A:" << root->value << '\n';
   }
   os << "Q:" << root->value << '\n';
-  os << root->left;
+  operator<< (os, root->left);  // same as os << root->left; 
   os << root->right;
   return os;
 }
