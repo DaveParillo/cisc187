@@ -10,7 +10,7 @@ int main () {
   std::string line;
   while (getline(is, line)) {
     std::cout << line << std::endl;
-    line = "";
+    line.clear();
   }
 
   is.close();                // close file
