@@ -1,5 +1,7 @@
 format=ps
 o=week
+uname_s := $(shell uname -s)
+
 ifeq ($(format),ascii)
 	PAGE = -pet -T $(format) -P-c -ms slides.ms 
 else
@@ -17,19 +19,26 @@ all: welcome slides final-prep
 grades:
 	tbl ../grading-criteria.ms > ../grading-criteria.tbl
 
+define make_pdf
+	if [ $(uname_s) = "Darwin" ]; then \
+		groff $(PAGE) $(1) | pstopdf -i -o $(1).pdf; \
+	else \
+		groff $(PAGE) $(1) | ps2pdf - $(1).pdf; \
+	fi
+endef
 
 welcome: grades
-	groff $(PAGE) $@.ms | ps2pdf - $@.pdf; \
+	$(call make_pdf,$@.ms)
 
 final-prep:
-	groff $(PAGE) $@.ms | ps2pdf - $@.pdf; \
+	$(call make_pdf,$@.ms)
 
 slides:
 	for i in `/bin/ls $(o)*.ms`; do \
 		if [ $(format) = "ascii" ]; then \
 			groff $(PAGE) $$i > $$i.$(format); \
 		else \
-			groff $(PAGE) $$i | ps2pdf - $$i.pdf; \
+	        $(call make_pdf,$$i) \
 		fi \
 	done
 
