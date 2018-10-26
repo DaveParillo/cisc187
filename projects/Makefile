@@ -4,6 +4,16 @@ ifeq ($(format),ascii)
 else
 	page = -pet -T $(format)
 endif
+uname_s := $(shell uname -s)
+
+
+define make_pdf
+	if [ $(uname_s) = "Darwin" ]; then \
+		groff $(page) -ms ../macros.ms -d the_date=`date "+%Y-%m-%d"` $(1) | pstopdf -i -o $(1).pdf; \
+	else \
+		groff $(page) -ms ../macros.ms -d the_date=`date "+%Y-%m-%d"` $(1) | ps2pdf - $(1).pdf; \
+	fi
+endef
 
 all:  projects
 
@@ -19,7 +29,7 @@ help:
 
 projects:
 	for i in `/bin/ls *.ms`; do \
-	groff $(page) -ms ../macros.ms -d the_date=`date "+%Y-%m-%d"` $$i | ps2pdf - $$i.pdf; \
+	$(call make_pdf,$$i) \
 	done
 
 
