@@ -24,7 +24,7 @@ In all steps, ensure that your operator overloads are member functions only when
 .RS
 .nr step 0 1
 .IP \n+[step].
-Create the files \fCRational.h\fR and \fCRational.cpp\fR.
+Create the file \fCRational.h\fR
 
 .IP \n+[step].
 Create a function in \fCRational.h\fR to reduce fractions 
@@ -59,6 +59,7 @@ parts of a Rational.
 
 .IP \n+[step].
 Create a two argument constructor. 
+Make the denominator default value = 1.
 
 This constructor must reduce the numerator and denominator arguments using the 
 \*[c]gcd\*[r] function.
@@ -79,12 +80,26 @@ that converts a
 .br
 \*[c]Rational\*[r] to a \*[c]double\*[r].
 
+If the denominator contains 0, 
+then return
+.br
+\*[c]std::numeric_limits<double>::infinity()\*[r].
+
 .IP \n+[step].
 Create a conversion operator overload 
 that converts a \*[c]Rational\*[r] to a \*[c]std::string\*[r].
 
 The string should separate numerator and denominator with the '/' character.
 No spaces.
+Other requirements:
+.RS
+.IP a.
+If the numerator is zero, return "0".
+.IP b.
+If the numerator equals the denominator, return "1".
+.IP c.
+If the denominator is zero, return "inf".
+.RE
 
 .IP \n+[step].
 Create a \*[c]std::ostream\*[r] overload 

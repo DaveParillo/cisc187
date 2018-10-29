@@ -1,58 +1,22 @@
-.ds CH Lab #12b: Classes and overloading
+.ds CH Lab #12b: Operator overloading
 .so headings.ms
 .TL
 \*[CH]
 .NH
-A rational number class: 4 points, 90 minutes \fImaximum\fR
+Adding operator overloads to Rational: 4 points, 90 minutes \fImaximum\fR
 .LP
-The goal of this lab is to explore creating a class that can
-perform math operations much like the fundamental types.
+The goal of this lab is to add math operations to Rational
+so that it behaves much like the fundamental types.
 
 In all steps, ensure that your operator overloads are member functions only when appropriate.
 
 .RS
 .nr step 0 1
 .IP \n+[step].
-Create the files \fCRational.h\fR and \fCRational.cpp\fR.
+Copy the file \fCRational.h\fR 
+from the previous lab.
+You may use your own or my posted solution.
 
-.IP \n+[step].
-Design and implement a number class \*[c]Rational\*[r] in the source files created in step 1.
-
-A rational number is a number that can be expressed as a fraction of two integers,
-for example: 
-.EQ
-1 over 1 , -4 over 7 , or x over y
-.EN
-
-Use the following to compute the greatest common divisor of the numerator and denominator:
-.CW
-  #pragma once
-  #include <cmath>
-  \m[green]//
-  // Compute the Greatest Common Divisor of two integers
-  // In C++17, it is provided.
-  // see http://en.cppreference.com/w/cpp/numeric/gcd
-  //\m[]
-  #define IntegralType class
-  template <IntegralType M, IntegralType N>
-  auto gcd(M x, N y) -> decltype(x+y) { 
-    return y == 0 ? std::abs(x) : gcd(y, x % y); 
-  }
-.R
-.IP \n+[step].
-Create a two argument constructor. 
-The constructor should take \*[c]long\*[r]s for the numerator and denominator.
-Default the numerator to 0 and the denominator to 1.
-Provide functions \fCnumerator\fR and \fCdenominator\fR that return the respective parts of a Rational.
-.IP \n+[step].
-Create a conversion operator overload and a function \fCto_double()\fR 
-that converts a \*[c]Rational\*[r] to a \*[c]double\*[r].
-
-Create a conversion operator overload 
-that converts a \*[c]Rational\*[r] to a \*[c]std::string\*[r].
-
-If you want unit tests to display the contents of your object,
-then you should consider overloading \*[c]operator <<\*[r].
 .IP \n+[step].
 Create operator overloads for assignment and equality.
 The formula for equality is:
