@@ -4,6 +4,8 @@ struct A {
   virtual void foo (int a = 1) {
     std::cout << "A: " << a;
   }
+
+  virtual ~A() = default;
 };
 
 // A virtual function call uses the default arguments 
@@ -16,8 +18,8 @@ struct A {
 // read that last sentence again.
 //
 struct B : A {     // public A is redundant here (it's a struct)
-  virtual void foo (int a = 2) {
-    std::cout << "B: " << a;
+  virtual void foo (int b = 2) {
+    std::cout << "B: " << b;
   }
 };
 
