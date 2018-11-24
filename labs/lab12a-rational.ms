@@ -41,7 +41,7 @@ Use the following to compute the greatest common divisor of the numerator and de
   //\m[]
   #define IntegralType class
   template <IntegralType M, IntegralType N>
-  auto gcd(M x, N y) -> decltype(std::max(x,y)) { 
+  auto gcd(M x, N y) -> decltype(x+y) { 
     return y == 0 ? std::abs(x) : gcd(y, x % y); 
   }
 .R
