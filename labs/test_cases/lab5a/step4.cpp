@@ -45,7 +45,7 @@ SCENARIO( "Count letters in C string matching a character") {
 
 SCENARIO( "Compute the invariants of count") {
 
-  GIVEN( "a C string with an early null" ) {
+  GIVEN( "a C string with only null" ) {
     WHEN( "nothing is provided" ) {
         char empty[6];
       THEN("the count should be zero" ) {

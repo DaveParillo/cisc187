@@ -3,90 +3,113 @@
 #include <Rational.h>
 #include <doctest.h>
 
-SCENARIO( "Test Rational construction") {
-  GIVEN( "a default rational" ) {
-    Rational r;
-    THEN( "the default value should be 0" ) {
-      REQUIRE (r.numerator() == 0);
-      REQUIRE (r.denominator() == 1);
+SCENARIO( "Check equality") {
+  GIVEN( "a single rational" ) {
+    Rational<int> a {1,3};
+    WHEN("compared with itself") {
+      THEN( "it should be considered equal (reflexive property)" ) {
+        REQUIRE (a == a);
+      }
     }
   }
-  GIVEN( "a rational constructed with one argument" ) {
-    WHEN("the numerator is 0") {
-      Rational r {0};
-      THEN( "the value should be 0" ) {
-        REQUIRE (r.numerator() == 0);
-        REQUIRE (r.denominator() == 1);
+  GIVEN( "eqivalent rationals" ) {
+    WHEN("a = 1/3, b = 1/3") {
+      Rational<int> a {1,3};
+      Rational<int> b {1,3};
+      THEN( "the two numbers should be considered equal (a==b)" ) {
+        REQUIRE (a == b);
+      }
+      AND_THEN( "symmetry should also hold (b==a)" ) {
+        REQUIRE (b == a);
       }
     }
-    WHEN("the numerator is 1") {
-      Rational r {1};
-      THEN( "the value should be 1" ) {
-        REQUIRE (r.numerator() == 1);
-        REQUIRE (r.denominator() == 1);
+    WHEN("a = 1/2, b = 5/10") {
+      Rational<int> a {1,2};
+      Rational<int> b {5,10};
+      THEN( "the two numbers should be considered equal" ) {
+        REQUIRE (a == b);
+        CHECK (a <= b);
       }
     }
-    WHEN("the numerator is -1") {
-      Rational r {-1};
-      THEN( "the value should be -1" ) {
-        REQUIRE (r.numerator() == -1);
-        REQUIRE (r.denominator() == 1);
+    WHEN("there are 3 equal numbers, a == b == c") {
+      Rational<int> a {1,3};
+      Rational<int> b {3,9};
+      Rational<int> c {9,27};
+      THEN( "equality is symmetric" ) {
+        REQUIRE ((a == b && b == a));
       }
-    }
-    WHEN("the numerator is 13") {
-      Rational r {13};
-      THEN( "the value should be 13" ) {
-        REQUIRE (r.numerator() == 13);
-        REQUIRE (r.denominator() == 1);
+      AND_THEN( "equality is transitive" ) {
+        REQUIRE ((a == b && b == c && a == c));
       }
+      AND_THEN( "a <= b <= c" ) {
+        CHECK (a <= b);
+        CHECK (b <= c);
+        CHECK (a <= c);
+      }
+      Rational<int> d {1,9};
+      Rational<int> e {2,18};
+      Rational<int> f {-1,-9};
+      CHECK_MESSAGE(d == d, "reflexive property");
+      CHECK_MESSAGE((d == e && e == d), "symmetry property");
+      CHECK_MESSAGE((d == e && e == f && d == f), "transitive property");
     }
   }
 
-  GIVEN( "a rational constructed with two parameters" ) {
-    WHEN("the values are {0,1}") {
-      Rational r {0,1};
-      THEN( "the value should be 0" ) {
-        REQUIRE (r.numerator() == 0);
-        REQUIRE (r.denominator() == 1);
+  GIVEN( "two unequal rationals" ) {
+    WHEN("a = 1/3, b = 1/4") {
+      Rational<int> a {1,3};
+      Rational<int> b {1,4};
+      THEN( "the two numbers should be considered not equal (a!=b)" ) {
+        REQUIRE (a != b);
+      }
+      AND_THEN( "symmetry should also hold (b!=a)" ) {
+        REQUIRE (b != a);
+      }
+      AND_THEN( "b < a" ) {
+        REQUIRE (b < a);
+      }
+      AND_THEN( "a > b" ) {
+        REQUIRE (a > b);
       }
     }
-    WHEN("the values are {-22,7}") {
-      Rational r {-22,7};
-      THEN( "the value should be -22/7" ) {
-        REQUIRE (r.numerator() == -22);
-        REQUIRE (r.denominator() == 7);
+    WHEN("a = 1/9, b = 1/11") {
+      REQUIRE (Rational<int>{1,9} > Rational<int>{1,11});
+      REQUIRE (Rational<int>{1,11} < Rational<int>{1,9});
+    }
+    WHEN("there are 3 unequal numbers, a != b != c") {
+      Rational<int> a {2,3};
+      Rational<int> b {2,9};
+      Rational<int> c {8,27};
+      THEN( "a != b" ) {
+        REQUIRE (a != b);
+      }
+      AND_THEN( "b != c" ) {
+        REQUIRE (b != c);
+      }
+      AND_THEN( "a != c (transitive property)" ) {
+        REQUIRE (a != c);
       }
     }
-    WHEN("the values are {-22,7}") {
-      Rational r {-22,7};
-      THEN( "the value should be -22/7" ) {
-        REQUIRE (r.numerator() == -22);
-        REQUIRE (r.denominator() == 7);
+  }
+  GIVEN( "two unequal rationals" ) {
+    WHEN("a = 1/3, b = 1/4") {
+      Rational<int> a {1,3};
+      Rational<int> b {1,4};
+      AND_WHEN("a is assigned to b") {
+        b = a;
+        THEN( "the two numbers should be considered equal" ) {
+          REQUIRE (a == b);
+        }
       }
-    }
-    WHEN("the values are {3,0}") {
-      Rational r {3,0};
-      THEN( "the value should be 3/0" ) {
-        REQUIRE (r.numerator() == 3);
-        REQUIRE (r.denominator() == 0);
+      AND_WHEN("b is assigned to a") {
+        a = b;
+        THEN( "the two numbers should be considered equal" ) {
+          REQUIRE (a == b);
+        }
       }
     }
   }
 
 }
-
-
-SCENARIO ("test invariants of construction") {
-  GIVEN ("a rational number with numerator and denominator 0") {
-    WHEN("the numerator is 0, gcd(0,0) will segfault") {
-      Rational r {0,0};
-      THEN( "just assign 0 to both and do not try to compute gcd(0,0)" ) {
-        REQUIRE (r.numerator() == 0);
-        REQUIRE (r.denominator() == 0);
-      }
-    }
-  }
-}
-
 
 

@@ -71,8 +71,8 @@ SCENARIO( "Compute the invariants of equal_to" * doctest::timeout(0.5) ) {
     }
     a.pop();
     WHEN( "the both stacks are empty" ) {
-      THEN( "equal_to should return false" ) {
-        REQUIRE(mesa::equal_to(a,b) == false);
+      THEN( "equal_to should return true" ) {
+        REQUIRE(mesa::equal_to(a,b) == true);
       }
     }
   }

@@ -59,7 +59,7 @@ SCENARIO( "Find substring in C string") {
 
 SCENARIO( "Compute the invariants of find") {
 
-  GIVEN( "a C string with an early null" ) {
+  GIVEN( "an empty C string" ) {
     WHEN( "nothing is provided" ) {
       const char* empty = "";
       THEN("the result should be the null cahracter" ) {

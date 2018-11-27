@@ -37,12 +37,6 @@ SCENARIO( "Copy C string") {
     }
   }
 
-  GIVEN( "a C string with an early null" ) {
-    WHEN( "'howdy\0alice' is provided" ) {
-      do_check("howdy\0alice");
-    }
-  }
-
   GIVEN( "a C string with only null" ) {
     WHEN( "'\0' (null) is provided" ) {
       do_check("\0");

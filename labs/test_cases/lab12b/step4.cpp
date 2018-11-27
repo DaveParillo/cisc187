@@ -3,49 +3,49 @@
 #include <Rational.h>
 #include <doctest.h>
 
-#include <limits>
+const Rational<int> zero = Rational<int>{0};
+const Rational<int> one = Rational<int>{1};
 
-SCENARIO( "convert a rational to a double") {
-  //      CHECK (275 == doctest::Approx(actual));
-  GIVEN ("a valid rational number") {
-    WHEN("the Rational is 0") {
-      Rational r {0};
-      THEN( "the value should convert to 0" ) {
-        REQUIRE (r.to_double() == 0);
-        //REQUIRE (double(r) == 0);
+SCENARIO( "Check addition") {
+  GIVEN( "a single rational" ) {
+    WHEN("added to itself") {
+      THEN( "it should equal a+a" ) {
+        REQUIRE (one+one == Rational<int>{2});
+        REQUIRE (Rational<int>{13/3}+Rational<int>{13/3} == Rational<int>{26/3});
       }
     }
-    WHEN("the rational is 1/2") {
-      Rational r {1,2};
-      THEN( "the value should convert to 0.5" ) {
-        REQUIRE (r.to_double() == doctest::Approx(0.5));
-        //REQUIRE (double(r) == doctest::Approx(0.5));
+    WHEN("zero is added to anything") {
+      THEN( "the identity value should be preserved" ) {
+        REQUIRE (zero+zero == zero);
+        REQUIRE (one+zero == one);
+        REQUIRE (zero+one == one);
+        REQUIRE (Rational<int>{2}+zero == Rational<int>{2});
+        REQUIRE (zero+Rational<int>{-22,7} == Rational<int>{-22,7});
       }
     }
-    WHEN("the rational is {-22,7}") {
-      Rational r {-22,7};
-      THEN( "the value should convert to -pi" ) {
-        REQUIRE (r.to_double() == doctest::Approx(-3.14).epsilon(0.01));
-        //REQUIRE (double(r) == doctest::Approx(-3.14).epsilon(0.01));
+    WHEN("one is added to anything") {
+      THEN( "the value should increase by 1" ) {
+        REQUIRE (Rational<int>{2}+one == Rational<int>{3});
+        REQUIRE (one+Rational<int>{-22,7} == Rational<int>{-15,7});
+      }
+    }
+  }
+  GIVEN( "two rationals" ) {
+    REQUIRE (Rational<int>{2} + Rational<int>{3} == Rational<int>{5});
+    REQUIRE (Rational<int>{2} + Rational<int>{-2} == zero);
+    WHEN("using += ") {
+      Rational<int> a {1,2};
+      Rational<int> b {2};
+      Rational<int> c {1,2};
+      Rational<int> d {2};
+      THEN( "a += b should change a in the same manner as a = a+b" ) {
+        REQUIRE (a+b == c+d);
+        a+=b;
+        REQUIRE (a == c+d);
       }
     }
   }
 }
 
-SCENARIO ("test invariants of to_double") {
-  GIVEN ("a rational number with denominator 0") {
-    WHEN("the numerator is 1") {
-      Rational r {1,0};
-      THEN( "the value should convert +inf" ) {
-        REQUIRE (r.to_double() == std::numeric_limits<double>::infinity());
-      }
-    }
-    WHEN("the numerator is 0") {
-      Rational r {0,0};
-      THEN( "the value should convert +inf" ) {
-        REQUIRE (r.to_double() == std::numeric_limits<double>::infinity());
-      }
-    }
-  }
-}
+
 
