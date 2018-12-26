@@ -1,18 +1,18 @@
 .ds LH Data Structures in C++
 .ds CH CISC-187
-.ds RH CRN 59548
+.ds RH CRN 20504
 .ds CF %
-.ds deadline 31 Aug 2018
+.ds deadline 8 Feb 2019
 .TL
 Data Structures in C++
 .br
-\m[red]\*[RH]\m[], Fall 2018
+\m[red]\*[RH]\m[], Spring 2019
 .AU
 Dave Parillo
 .AI
 \fBE-Mail: \fP dparillo@sdccd.edu
-\fBOffice Hours: \fP M & W 6:00 - 7:00 PM, K201B
-\fBClass Meets: \fP M & W, 7:05 - 10:00 PM, K201B
+\fBOffice Hours: \fP M & W 6:00 - 7:00 PM, BT218
+\fBClass Meets: \fP M & W, 7:05 - 10:00 PM, BT218
 .SH
 Course Description
 .LP
@@ -38,7 +38,7 @@ The following textbook is \fBrequired\fR for this course:
 .QP
 \fBParillo, David\fP. 
 \fIIntermediate Modern C++\fP. 
-Online: https://daveparillo.github.io/intermediate-cpp/, Jun 2018.
+Online: https://daveparillo.github.io/intermediate-cpp/, Jan 2019.
 .LP
 The following textbook is \fBoptional\fR for this course:
 .QP
@@ -53,7 +53,7 @@ which you may find useful.
 Required Supplies
 .LP
 Access to the Mesa cislinux server, mesa-cislinux.sdmesa.sdccd.cc.ca.us (buffy) is required.
-Access is only available through a Secure shell program (ssh).
+Access is only available through a secure shell program (ssh).
 All campus computers, both in class and in the LRC have ssh clients.
 To access this server off campus, you need your own ssh client.
 If you have a Linux or MacOS X computer, ssh is already installed.
