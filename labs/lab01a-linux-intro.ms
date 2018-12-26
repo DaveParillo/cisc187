@@ -72,7 +72,7 @@ It has thousands of features.
 No one knows them all, that is not the point.
 It is a very efficient editor that has intuitive commands.
 Most commands 'reward' you, if you know how to touch type.
-Additionally, many system commands use basic \*[v]vi\*[r] 
+Additionally, many system commands use basic \*[c]vi\*[r] 
 navigation commands.
 Learning vim helps learning other parts of *nix based systems.
 .RS
@@ -131,6 +131,10 @@ Having robust handling of complex command-line arguments makes your application 
 You can 'roll your own' command line argument processing, or use a library.
 Library functions such as Unix \*[c]getopt\*[r] or \*[c]boost::program_options\*[r],
 are designed specifically to ease the burden of command-line processing. 
+
+If you need help, review the discussion of command line argument processing in the textbook.
+
+Perform the following steps:
 .RS
 .nr step 0 1
 .IP \n+[step].
