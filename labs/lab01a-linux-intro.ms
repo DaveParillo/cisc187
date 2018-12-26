@@ -57,28 +57,8 @@ Use the \*[c]passwd\*[r] program to change your login password from the default.
 Pick something you can remember!!
 
 If you forget it I can't help you and it may take a few days to reset it.
-.IP \n+[step].
-Setup your development environment for this course.
-
-Only perform these steps if instructed to do so.
-.RS
-.IP a.
-Change the default shell from \fCzsh\fR to \fCbash\fR:
-.br
- \*[c]chsh --shell /bin/bash\*[r]
-.IP b.
-Copy bash shell resource and convenience functions:
-.br
- \*[c]cp ~dparillo/public_html/_bash_profile ~/.bash_profile\*[r]
-.br
- \*[c]cp ~dparillo/public_html/_bashrc ~/.bashrc\*[r]
-.IP c.
-Open a new \*[c]git bash\*[r] or \*[c]putty\*[r] window and ssh to buffy.
-
-Observe the differences.
 
 If you cannot log in, raise your hand immediately!
-.RE
 .bp
 .NH
 Vim tutorial: 2 pts, 30 minutes \fImaximum\fR
@@ -92,6 +72,9 @@ It has thousands of features.
 No one knows them all, that is not the point.
 It is a very efficient editor that has intuitive commands.
 Most commands 'reward' you, if you know how to touch type.
+Additionally, many system commands use basic \*[v]vi\*[r] 
+navigation commands.
+Learning vim helps learning other parts of *nix based systems.
 .RS
 .nr step 0 1
 .IP \n+[step].
