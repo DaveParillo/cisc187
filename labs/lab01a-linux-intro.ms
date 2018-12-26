@@ -108,7 +108,7 @@ Setup a recommended set of \*[c]vim\*[r] defaults:
  \*[c]cp ~dparillo/public_html/cisc187/examples/_vimrc ~/.vimrc\*[r]
 .RE
 .NH
-Hello world: 1 points, 15 minutes \fImaximum\fR
+Hello world: 1 point, 15 minutes \fImaximum\fR
 .LP
 Using \*[c]vim\*[r] create a simple hello world and get it to run.
 .RS
