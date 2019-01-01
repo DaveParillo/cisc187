@@ -107,19 +107,22 @@ Ensure it displays \fCHello, world!"\fR followed by a new line.
 Compile the program using the command: 
 .br
 \fC   make hello\fR
-.IP \n+[step].
-To check your progress on completing the lab, use the \*[c]check187\*[r] script:
-.br
-\fC   check187 lab1a\fR
-.br
+.RE
+
+Check your progress using the \*[c]check187\*[r] script:
+.CW
+    check187 lab1a
+.R
+
 The script will evaluate your progress and test your work.
 
 You should continue working on it until all tests pass (\m[green]OK\m[])
-.IP \n+[step].
+
 Turn in your completed lab using the \*[c]submit187\*[r] script:
-.br
-\fC   submit187 lab1a\fR
-.bp
+.CW
+    submit187 lab1a
+.R
+
 .NH
 Extra credit: 4 points
 .LP
@@ -131,6 +134,11 @@ Having robust handling of complex command-line arguments makes your application 
 You can 'roll your own' command line argument processing, or use a library.
 Library functions such as Unix \*[c]getopt\*[r] or \*[c]boost::program_options\*[r],
 are designed specifically to ease the burden of command-line processing. 
+
+The getopt library is not portable to Windows.
+
+Generally, only use a library if parsing a large number of command line arguments.
+The standard library function \*[c]strcmp\*[r] is generally fine for many applications.
 
 If you need help, review the discussion of command line argument processing in the textbook.
 
