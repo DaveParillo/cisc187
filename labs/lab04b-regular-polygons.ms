@@ -20,15 +20,10 @@ All code should be in the \*[c]mesa\*[r] namespace.
 
 .IP \n+[step].
 Create a template to compute the area of a circle.
-.RS
-.IP a.
-The function should be \*[c]constexpr\*[r].
-.IP b.
-The return type should be \*[c]double\*[r].
-.IP c.
-The function name should be \*[c]area\*[r]
-and it should take a single template parameter for the radius.
-.RE
+.CW
+  template <class T>
+  constexpr double area(const T radius) { . . . 
+.R
 
 \fBNote:\fC As a \*[c]constexpr\*[r] function, 
 C++11 will not allow adding code to check the invariants.
@@ -39,16 +34,12 @@ An area function with two parameters should compute the area of a regular polygo
 .RS
 .IP \n+[step].
 Create a template to compute the perimeter of a regular polygon.
-.RS
-.IP a.
-The return type should be \*[c]double\*[r].
-.IP b.
-The function name should be \*[c]perimeter\*[r]
-and it should take a single template parameter for the length of a side
-and an \*[c]uint16_t\*[r] for the number of sides.
-.IP c.
+.CW
+  template <class T>
+  double perimeter(const T length, uint16_t num_sides) { . . . 
+.R
+
 Remember to check for the invariants of perimeter.
-.RE
 
 General formula for perimeter of a regular polygon:
 .EQ
@@ -63,17 +54,12 @@ where:
 
 .IP \n+[step].
 Create a template to compute the apothem of a regular polygon.
-.RS
-.IP a.
-The return type should be \*[c]double\*[r].
-.IP b.
-The function name should be \*[c]apothem\*[r]
-and it should take a two template parameters.
-One for the length of a side
-and an \*[c]uint16_t\*[r] template parameter for the number of sides.
-.IP c.
+.CW
+  template <Numeric T, uint16_t num_sides>
+  double apothem(const T length) { . . . 
+.R
+
 Remember to check for the invariants of the function.
-.RE
 
 General formula for apothem of a regular polygon:
 .br
@@ -90,16 +76,16 @@ not degrees, so the argument to the
 tangent function is $180 over n pi over 180 = pi over n$ rather than $180 over n$.
 
 .IP \n+[step].
-Create an area function template with one type parameter and 
-a non-type \*[c]uint16_t\*[r] template parameter.
-The type parameter should indicate the length of each side of the polygon.
-The non-type parameter should indicate the number of sides of the polygon.
+Create a function template to compute the area of a regular polygon.
+.CW
+  template <Numeric T, uint16_t num_sides>
+  auto area(const T length) -> decltype(length * 1.0f) { . . . 
+.R
+
+Use the perimeter and apothem templates written in the previous steps to
+compute the area.
+
 This function should compute the area of a regular polygon with an arbitrary number of sides.
-
-Deduce the return type from the length parameter.
-Hint: Use auto and a trailing return type.
-
-And remember to check for the invariants of the function.
 
 Once you have the apothem and perimeter, the area is:
 .EQ
@@ -111,6 +97,9 @@ where:
 .br
 \fBp\fR = perimeter
 .RE
+
+Remember to check for the invariants of the function.
+
 .IP \n+[step].
 Ensure your functions will work with all the C++ fundamental types.
 
