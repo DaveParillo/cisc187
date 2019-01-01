@@ -55,7 +55,7 @@ where:
 .IP \n+[step].
 Create a template to compute the apothem of a regular polygon.
 .CW
-  template <Numeric T, uint16_t num_sides>
+  template <class T, uint16_t num_sides>
   double apothem(const T length) { . . . 
 .R
 
@@ -78,7 +78,7 @@ tangent function is $180 over n pi over 180 = pi over n$ rather than $180 over n
 .IP \n+[step].
 Create a function template to compute the area of a regular polygon.
 .CW
-  template <Numeric T, uint16_t num_sides>
+  template <class T, uint16_t num_sides>
   auto area(const T length) -> decltype(length * 1.0f) { . . . 
 .R
 
