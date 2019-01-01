@@ -10,7 +10,7 @@ Passing and returning values: 4 points, 90 minutes \fImaximum\fR
 Create 2 files \fClab3b.h\fR and \fClab3b.cpp\fR.
 
 Use \fClab3b.h\fR to store the declarations for all lab functions and 
-\fClab3b.cpp\fR to store the function defintions.
+\fClab3b.cpp\fR to store the function definitions.
 
 For the remainder of this lab, the struct and all functions should be placed in the 
 \*[c]namespace mesa\*[r].
@@ -33,7 +33,10 @@ returns a \fCtrigon\fR that is a Pythagorean triple using Euclid's formula:
 
 You need to include \*[c]<cstdint>\*[r] to use the \*[c]uint16_t\*[r] type.
 
-Given two parameters \fCm\fR and \fCn\fR, when \fCm\fR > \fCn\fR > \fC0\fR, the following:
+Use Euclid's formula to create a Pythagorean triple
+from the two parameters \fCm\fR and \fCn\fR.
+
+When \fCm\fR > \fCn\fR > \fC0\fR, the following:
 .EQ
   a = m sup 2 - n sup 2
 .EN
@@ -44,10 +47,10 @@ Given two parameters \fCm\fR and \fCn\fR, when \fCm\fR > \fCn\fR > \fC0\fR, the 
   c = m sup 2 + n sup 2
 .EN
 
-create a Pythagorean right triangle.
+will create a Pythagorean right triangle.
 
 If parameter \fCm\fR is less than \fCn\fR, 
-or \fCn < 1\fR the resultant trigon should equal \fC{0,0,0}\fR.
+or \fCn < 1\fR the \fCmake_triple\fR should return \fC{0,0,0}\fR.
 
 .IP \n+[step].
 Write a function \fCscale\fR that takes a \fCtrigon\fR reference and a \*[c]float\*[r] factor and
@@ -77,7 +80,7 @@ To compute the area, first compute the semi-perimeter:
 
 Compute the area using the semi-perimeter:
 .EQ
-  a = sqrt{s (s-a) * (s-b) * (s-c)}
+  a = sqrt{s(s-a)(s-b)(s-c)}
 .EN
 
 If any side of the \fCtrigon\fR is 0, then return 0 for the area.
