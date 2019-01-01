@@ -46,5 +46,5 @@ zip:
 clean:
 	rm -f roles.tbl
 	rm -f *.ascii
-	rm -f *.pdf
+	rm -f *.pdf *.ps
 
