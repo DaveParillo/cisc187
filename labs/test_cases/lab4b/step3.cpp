@@ -13,12 +13,12 @@ SCENARIO( "Compute the perimeter of a polygon") {
     }
     WHEN( "the length of each side is 2.71828 and number of side is 3" ) {
       THEN( "the perimeter should be 8.1548" ) {
-        REQUIRE( mesa::perimeter(2.71828,3)  == doctest::Approx(8.1548));
+        CHECK( mesa::perimeter(2.71828,3)  == doctest::Approx(8.1548));
       }
     }
     WHEN( "the length of each side is 5 and number of side is 13" ) {
       THEN( "the perimeter should be 65" ) {
-        REQUIRE( mesa::perimeter(unsigned(5),13)  == 65);
+        CHECK( mesa::perimeter(unsigned(5),13)  == 65);
       }
     }
   }
@@ -35,17 +35,17 @@ SCENARIO( "Compute the invariants of perimeter") {
     }
     WHEN( "the length of each side is 1 and number of sides is 0" ) {
       THEN( "the perimeter should be 0" ) {
-        REQUIRE( mesa::perimeter(1,0)  == doctest::Approx(0));
+        CHECK( mesa::perimeter(1,0)  == doctest::Approx(0));
       }
     }
     WHEN( "both length of each side and number of sides is 0" ) {
       THEN( "the perimeter should be 0" ) {
-        REQUIRE( mesa::perimeter(0,0)  == doctest::Approx(0));
+        CHECK( mesa::perimeter(0,0)  == doctest::Approx(0));
       }
     }
     WHEN( "the length of each side is 1 and number of sides is 2" ) {
       THEN( "the perimeter should be 0" ) {
-        REQUIRE( mesa::perimeter(1,2)  == doctest::Approx(0));
+        CHECK( mesa::perimeter(1,2)  == doctest::Approx(0));
       }
     }
     WHEN( "the length of each side is -13 and number of sides is 7" ) {

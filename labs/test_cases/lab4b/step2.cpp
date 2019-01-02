@@ -13,17 +13,17 @@ SCENARIO( "Compute the area of a circle") {
     }
     WHEN( "2 is provided" ) {
       THEN( "4*PI should be returned" ) {
-        REQUIRE( mesa::area(2) == doctest::Approx(4.*M_PI));
+        CHECK( mesa::area(2) == doctest::Approx(4.*M_PI));
       }
     }
     WHEN( "8.5 is provided" ) {
       THEN( "226.98 should be returned" ) {
-        REQUIRE( mesa::area(8.5) == doctest::Approx(226.98));
+        CHECK( mesa::area(8.5) == doctest::Approx(226.98));
       }
     }
     WHEN( "13.21 is provided" ) {
       THEN( "548.221 should be returned" ) {
-        REQUIRE( mesa::area(13.21) == doctest::Approx(548.221));
+        CHECK( mesa::area(13.21) == doctest::Approx(548.221));
       }
     }
   }
