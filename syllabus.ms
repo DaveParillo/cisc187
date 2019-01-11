@@ -125,6 +125,17 @@ c c c c c c.
 >= 90 ! >= 80, < 90 ! >= 70, < 80 ! >= 60, < 70 !  < 60
 .TE
 .SH
+This class can be taken for Honors credit.
+.LP
+See me about taking this course for Honors credit.
+You'll agree to do extra, more challenging work, 
+and we will both sign an Honors contract. 
+For more information about the honors program at Mesa, 
+refer to 
+\fC\m[blue]http://www.sdmesa.edu/honors\m[]\fR
+or stop by the on-campus honors center.
+Honors contracts are due week 3.
+.SH
 Policy Regarding Late or Incomplete Work
 .LP
 .B
@@ -147,7 +158,6 @@ for disciplinary action in accordance with Administrative Procedure 3100.2,
 Student Disciplinary Procedures.  
 There is an academic integrity 'quiz' given during the first week.
 I will not grade anything after week 2 until you complete this.
-.bp
 .SH
 Student Code of Conduct
 .LP
