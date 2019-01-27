@@ -71,7 +71,7 @@ C-style \*[c]printf\*[r] and \*[c]scanf\*[r]
         perror("puts()");
       }
       puts("Goodbye");
-      printf("\tcruel world!\n");
+      printf("\\tcruel world!\\n");
     }
 .R
 .i1e
@@ -96,8 +96,7 @@ C-style \*[c]printf\*[r] and \*[c]scanf\*[r]
 
 .SS Important!
 .IT If \fBany\fR of the material on the preceding slides sounds unfamiliar
-.i1 Review the material in chapters 1-7 of the text
-.i1 Review the online \fIIntermediate C++\fR text
+.i1 Review the material in chapters 1-7 of \fIProgramming Principles\fR
 .i1 Review the material from your first semester text
 
 
@@ -112,8 +111,8 @@ or
 .IT C++
 .i1 Most of you have learned mostly C (probably) 
 .i2 or some strange C/C++ hybrid (CHide)
-.i1 The C++ you have learned is probably not \fIModern C++\fR
-.i2 It's most likely C++98
+.i1 The C++ you have learned is probably not C++11 or later
+.i2 Probably C++98
 .i1s
 \fBNote:\fR C++ is actually a federation of several languages:
 .PS
@@ -135,7 +134,7 @@ arrow
 E: ellipse "Modern" "C++" width 1.5 height .75
 .PE
 \s-4
-where 'Modern' C++ is C++11, 14, or C++17
+where 'Modern' C++ is C++11 or later
 \s+4
 .i1e
 .i1s
@@ -203,7 +202,7 @@ This code from \fCexamples/week01\fR will only compile on C++11
 about the command line
 .i2 \fCint argc\fR: the total number of arguments, C-strings separated by whitespace
 .i2 \fCchar *argv[]\fR: an array of these C-strings
-.i3 Can also be specified as: \fCchar **argv\fR, which is the same thing
+.i3 Can also be specified as: \fCchar** argv\fR, which is the same thing
 .IT If you run a program named \fCfoo\fR invoked as 
 .i1 \fC/home/dave/foo -c 10 www.sdmesa.edu\fR
 .i1s
@@ -223,7 +222,6 @@ Your \fCargc\fR would be set = 4 and \fCargv\fR would contain
 .i1 The first 'argument' is the name of the program
 .i1 All arguments are C-strings
 .i2 The argument "10" is not a number
-.i2 But can be converted to one
 .SS Example
 .IT
 Command line parsing example
@@ -246,7 +244,7 @@ Using most standard C library functions
       } else if (!std::strcmp(argv[i], "-c")) {
         ++i;
         if (i < argc) {
-          count = \m[red]atoi\m[](argv[i]);
+          count = \m[red]std::atoi\m[](argv[i]);
         } else {
           std::cerr << "Error using '-c' argument: no count specified\n";
           usage(argv[0]);

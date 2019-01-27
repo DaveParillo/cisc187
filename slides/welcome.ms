@@ -34,14 +34,13 @@ Data Structures in C++
 .i2 Notepad++, Vim, Emacs, Atom, or similar
 .i3 I \fIprefer\fR that you avoid using an IDE
 .IT Required tools
-.i1 C++11 ISO compliant compiler
+.i1 C++14 ISO compliant compiler
 .i2s
 .gcolor blue
-\fBclang\fP is highly recommended:
+\fBclang\fP is highly recommended
 .gcolor
-very good error output
 .i2e
-.i3 gnu C++ is OK, and is installed on buffy
+.i2 gnu C++ and clang both installed on buffy
 .i1 An \fIssh client\fR
 .i2 Need this to access the server buffy
 .i2 \fIgit\fR is recommended, \fIputty\fR is fine also
@@ -87,8 +86,8 @@ very good error output
 .SS Schedule
 .IT This is a \fIprogramming intensive\fR course!
 .i1 Every lab involves writing code
-.i1 Projects are about 3 hours per week outside of class
-.i1 Reading the textbook should involve an hour or two of coding
+.i1 Projects are about \fB12-20 hours\fR outside of class
+.i1 Reading the textbook should involve an hour or so of coding
 .IT Course website
 .i1 Activities listed for each week
 .i2 Slides, assigned reading, labs, projects
@@ -99,7 +98,7 @@ very good error output
 .IT Quiz each Wednesday
 .IT Lab assignments
 .i1 Completed in class - some in groups or 3 or 4
-.i2 Some labs are meant to be completed alone
+.i2 Most labs are meant to be completed alone
 .IT Projects
 .i1 \m[red]\fBMust\fR be your own work!!\m[]
 .i1 3 total, due roughly every 4 weeks
@@ -122,9 +121,9 @@ You collect 4 zero's in a row
 .IT Projects "late" is based on when it is submitted on the Mesa server
 .i1 As determined by server clock
 .IT On a happier note
-.i1 Projects handed in \fIearly\fR earn +1% for each day before the deadline 
-.i2 Maximum of 10% added to the project grade.
-.i2 The maximum score for a project is still 100%
+.i1 Projects handed in \fIearly\fR earn +0.1 Grade Point for each day before the deadline 
+.i2 Maximum of 1 Grade Point added to the project grade.
+.i2 The maximum score for a project is still 100% (5 points)
 .SS Academic Integrity
 .IT Don't cheat
 .IT If I think you have cheated, then you get a 0
@@ -146,7 +145,7 @@ You collect 4 zero's in a row
 .i1 The hour before each class (6-7, M & W)
 .i1 By appointment
 .i2 Sorry, I have a FT (non-teaching) job
-.i1 Building I-400, cafe
+.i1 Mesa Commons
 .i1 Other options? 
 .IT Email is always an option
 .i1 dparillo@sdccd.edu
