@@ -22,6 +22,29 @@ step2:
 	c++ $(srcs) ${CXXFLAGS} ${LDLIBS} ${LDFLAGS} ${INCLUDES}  -o $(exe) 
 
 step3:
-	@/var2/lopt/share/cisc187/$(lab)/check $(exe)
+	@echo -e "\033[1;32mtest 'hello -h'\033[0m:"
+	@$(exe) -h
+	@echo -e "\033[1;32mtest 'hello' default output\033[0m:"
+	@$(exe)
+	@echo -e "\033[1;32mtest 'hello -r 1'\033[0m:"
+	@$(exe) -r 1
+	@echo -e "\033[1;32mtest 'hello -r 3'\033[0m:"
+	@$(exe) -r 3
+	@echo -e "\033[1;32mtest 'hello -r 8'\033[0m:"
+	@$(exe) -r 8
+	@echo -e "\033[1;32mtest 'hello -n Alice'\033[0m:"
+	@$(exe) -n Alice
+	@echo -e "\033[1;32mtest 'hello -n Blair'\033[0m:"
+	@$(exe) -n Blair
+	@echo -e "\033[1;32mtest 'hello -n Cassandra'\033[0m:"
+	@$(exe) -n Cassandra
+	@echo -e "\033[1;32mtest 'hello -n Alice -r 2'\033[0m:"
+	@$(exe) -n Alice -r 2
+	@echo -e "\033[1;32mtest 'hello -n Blair -r 4'\033[0m:"
+	@$(exe) -n Blair -r 4
+	@echo -e "\033[1;32mtest 'hello -n Cassandra -r 6'\033[0m:"
+	@$(exe) -n Cassandra -r 6
+  
+
 
 
