@@ -18,7 +18,7 @@ Week 2
 These declarations all do the same thing
 .CW
  \m[green]// the char array must be null terminated\m[]
- char a[] = {'h', 'e', 'l', 'l', 'o', '\0'};
+ char a[] = {'h', 'e', 'l', 'l', 'o', '\\0'};
 
  \m[green]// The null character == 0\m[]
  char b[] = {'h', 'e', 'l', 'l', 'o', 0};
@@ -175,7 +175,7 @@ Pro tip: always use \*[c]empty()\*[r] if the container offers it
 .IT There are strings of other character types
 .i1 \*[c]std::wstring\*[r] wraps \*[c]std::basic_string<wchar_t>\*[r]
 .i1 \*[c]std::u16string\*[r] wraps \*[c]std::basic_string<char16_t>\*[r]
-.i1 \*[c]std::u32string\*[r] wraps \*[c]std::basic_string<char16_t>\*[r]
+.i1 \*[c]std::u32string\*[r] wraps \*[c]std::basic_string<char32_t>\*[r]
 .SS Interoperability
 .IT A C string is \fBnot\fR a \*[c]std::string\*[r] 
 .i1 Can't use a \*[c]std::string\*[r] when a C string is expected
