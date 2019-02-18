@@ -116,23 +116,48 @@ What if our functions do basically the same thing?
 .IT New keyword: \*[c]template\*[r]
 .i1 Followed by template parameters in angle brackets <>
 .i1s
-For example
+General form;
 .CW
   template <template-parameters> function-declaration 
 .R
 .i1e
+.IT Refactoring to a template
+.i1 Using similarities of the two \*[c]sum\*[r] functions
 .i1s
-Then our previous sum functions collapse down to
+Identify the places where the types are duplicated:
 .CW
-  template <class T> T sum (T a, T b) {  
+  \m[red]int\m[] sum (\m[red]int\m[] a, \m[red]int\m[] b);
+
+  \m[red]double\m[] sum (\m[red]double\m[] a, \m[red]double\m[] b);
+.R
+
+and replace with template parameters:
+.CW
+  \m[blue]template <class T>\m[]
+  \m[red]T\m[] sum (\m[red]T\m[] a, \m[red]T\m[] b) {  
     return a+b;
   }
 .R
 .i1e
+.SS Template identifiers
 .IT The identifier 'T' is traditional placeholder for a generic type
 .i1 But any valid variable name could be used
-.i2 In beginner tutorials \fCAnyType\fR is not uncommon
+.i1s
+Some examples:
+.CW
+  template <class AnyType>
+  AnyType sum (AnyType a, AnyType b) {  
+    return a+b;
+  }
+
+  template <class Addable>
+  Addable sum (Addable a, Addable b) {  
+    return a+b;
+  }
+.R
+.i1e
 .IT Templates are completely specified in header files normally
+.i1 Placing the function defintion for a template in a cpp file is almost always an error.
 .SS Using templated functions
 .IT Not very different from a non-templated function
 .i1s
@@ -196,27 +221,29 @@ You can explicitly provide the type
 .IT This is a weak area in templates and requires lots of messy defensive programming
 .i1 What if your template assumes a type has a \fCpush_back()\fR function?
 .IT In C++17 and C++20 two new ideas will enforce these types of template constraints
-.i1 Concepts
-.i2 Describes a \fBnamed set of requirements\fR for a type.
-.i2 See: http://en.cppreference.com/w/cpp/concept
-.i1 Requires
-.i2 A \fIrequires clause\fR is an additional constraint on template arguments or a function
-.i1 Currently, this is all part of an experimental techncial spec.
+.SS Concepts and Requirements
+.IT Concepts
+.i1 Describes a \fBnamed set of requirements\fR for a type.
+.i1 See: http://en.cppreference.com/w/cpp/concept
+.IT Requires
+.i1 A \fIrequires clause\fR is an additional constraint on template arguments or a function
+
+.IT Currently, this is all part of an experimental techncial spec.
 
 .IT Don't panic!
-.i1 This slide is not testable
-.i2 But can make template arguments more readable
+.i1 Concepts are not testable
+.i2 But you should know the vocabulary exists
 .SS Concepts example
 .IT A 'cheater' way to use concepts
 .i1 just define a name for \*[c]typename\*[r]
 \s-4
 .CW
   #include <iostream>
-  #define Number typename
+  #define Numeric typename
 
   \m[green]// Same template as before
-  // 'typename' replaced with 'Number' \m[]
-  template <Number T, int N> T multiply (T val) {
+  // 'typename' replaced with 'Numeric' \m[]
+  template <Numeric T, int N> T multiply (T val) {
     return val * N;
   }
 .R
@@ -235,5 +262,4 @@ You can explicitly provide the type
 .i1 Argument to another function
 .IT Non-template arguments behave like function parameters
 .IT Templates must be implemented in the include file
-.IT Concepts
 
