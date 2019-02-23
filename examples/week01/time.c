@@ -25,11 +25,11 @@ int main (int argc, char** argv)
 
   uint64_t len = strftime(buf, bufsize, "%Y-%m-%d %H:%M:%S", &gmt );
   printf("from strftime (gmt):\n");
-  printf("universal time is now %s (%llu characters)\n", buf, len);
+  printf("universal time is now %s (%lu characters)\n", buf, len);
 
   len = strftime(buf, bufsize, "%Y-%m-%d %H:%M:%S %Z", &localt );
   printf("from strftime (localt):\n");
-  printf("local time is now %s (%llu characters)\n", buf, len);
+  printf("local time is now %s (%lu characters)\n", buf, len);
 
   return 0;
 }
