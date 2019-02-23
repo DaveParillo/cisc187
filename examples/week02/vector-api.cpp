@@ -10,7 +10,7 @@
 using std::string;
 using std::vector;
 
-vector<string> make_vector() {
+static vector<string> make_vector() {
   return {
      "reach", "clear", "fall", "set", "yard",
      "liquid", "wise", "badge", "four", "coherent"
@@ -43,8 +43,9 @@ TEST_SUITE("test vector API") {
         CHECK_THROWS_AS(words.at(99), std::out_of_range);
 
         // [] does not include bounds checking
-        WARN_MESSAGE(words[-1] == empty, "positions before start of vector are indeterminate");
-        WARN_MESSAGE(words[99] == empty, "positions after end of vector are indeterminate");
+        // these lines probably crash - try uncommenting them
+        // WARN_MESSAGE(words[-1] == empty, "positions before start of vector are indeterminate");
+        // WARN_MESSAGE(words[99] == empty, "positions after end of vector are indeterminate");
     }
     TEST_CASE("element access") {
         auto words = make_vector();
