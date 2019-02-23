@@ -1,4 +1,5 @@
-CXX = c++
+CC = clang
+CXX = clang++
 ifndef CXXFLAGS
 	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
 endif
