@@ -1,6 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include "../options.hpp"
+#include "../options.h"
 #include <doctest.h>
 
 using mesa::option;

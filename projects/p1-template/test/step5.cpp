@@ -2,7 +2,7 @@
 
 #include <cstring>
 
-#include "../options.hpp"
+#include "../options.h"
 #include <doctest.h>
 
 using mesa::option;
