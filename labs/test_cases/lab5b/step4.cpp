@@ -3,6 +3,7 @@
 #include <student.h>
 #include <doctest.h>
 
+#include <iostream>
 #include <string>
 #include <sstream>
 #include <vector>
@@ -17,17 +18,28 @@ SCENARIO( "Stream a classroom") {
     std::vector<student*> v = {&a, &b, &c};
 
     WHEN( "the students are Alice, Bob, and Clara" ) {
-      THEN( "the class should stream" ) {
-        std::ostringstream os;
-        os << v;
-        auto actual = os.str();
-        std::string expected = "Name:\tAlice\tId:\t1\tAvg:\t2\n";
-        expected += "Name:\tBob\tId:\t67890\tAvg:\t85.89\n";
-        expected += "Name:\tClara\tId:\t98765\tAvg:\t88.6\n";
-        REQUIRE(actual == expected);
+      std::ostringstream os;
+      os << v;
+      auto actual = os.str();
+      std::string line1 = "Name:\tAlice\tId:\t1\tAvg:\t2";
+      std::string line2 = "Name:\tBob\tId:\t67890\tAvg:\t85.89";
+      std::string line3 = "Name:\tClara\tId:\t98765\tAvg:\t88.6";
+      THEN( "the first line should contain Alice data" ) {
+        auto end = actual.find("2")+1;
+        std::string actual_line = actual.substr(0, end);
+        CHECK(actual_line == line1);
+      }
+      AND_THEN( "the second line should contain Bob data" ) {
+        auto start = actual.find("Bob")-6;
+        std::string actual_line = actual.substr(start, line2.size());
+        CHECK(actual_line == line2);
+      }
+      AND_THEN( "the last line should contain Clara data" ) {
+        auto start = actual.find("Clara")-6;
+        std::string actual_line = actual.substr(start, line3.size());
+        CHECK(actual_line == line3);
       }
     }
-
   }
 }
 

@@ -4,6 +4,8 @@ fail     := (echo -e "\033[1;31mfail\033[0m"; exit 1)
 files    := $(includes) $(srcs)
 exe      := $(CURDIR)/test_$(lab).exe
 
+CC := clang
+CXX := clang++
 CHECK_HOME:=/var2/lopt/share/cisc187
 CXXFLAGS = -std=c++11 -Wall -Wextra -pedantic 
 CXXFLAGS+= -I/var2/lopt/include -I$(CURDIR)

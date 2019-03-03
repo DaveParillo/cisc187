@@ -14,7 +14,7 @@ SCENARIO( "Find substring in C string") {
         THEN("find should return 'LLO'" ) {
           string actual = mesa::find(orig, "LL");
           string expected = "LLO";
-          REQUIRE_MESSAGE(!actual.empty(), "response form find came back empty!");
+          REQUIRE_MESSAGE(!actual.empty(), "response from find came back empty!");
           REQUIRE(actual == expected);
         }
       }
@@ -22,7 +22,7 @@ SCENARIO( "Find substring in C string") {
         THEN("find should return 'HELLO'" ) {
           string actual = mesa::find(orig, "HE");
           string expected = "HELLO";
-          REQUIRE_MESSAGE(!actual.empty(), "response form find came back empty!");
+          REQUIRE_MESSAGE(!actual.empty(), "response from find came back empty!");
           REQUIRE(actual == expected);
         }
       }
@@ -30,7 +30,7 @@ SCENARIO( "Find substring in C string") {
         THEN("find should return 'ELLO'" ) {
           string actual = mesa::find(orig, "E");
           string expected = "ELLO";
-          REQUIRE_MESSAGE(!actual.empty(), "response form find came back empty!");
+          REQUIRE_MESSAGE(!actual.empty(), "response from find came back empty!");
           REQUIRE(actual == expected);
         }
       }
@@ -41,7 +41,7 @@ SCENARIO( "Find substring in C string") {
         THEN("find should return 'blue fish'" ) {
           string actual = mesa::find(orig, "blue");
           string expected = "blue fish";
-          REQUIRE_MESSAGE(!actual.empty(), "response form find came back empty!");
+          REQUIRE_MESSAGE(!actual.empty(), "response from find came back empty!");
           REQUIRE(actual == expected);
         }
       }
@@ -49,7 +49,7 @@ SCENARIO( "Find substring in C string") {
         THEN("find should return 'fish, red fish, two fish, blue fish'" ) {
           string actual = mesa::find(orig, "fish");
           string expected = "fish, red fish, two fish, blue fish";
-          REQUIRE_MESSAGE(!actual.empty(), "response form find came back empty!");
+          REQUIRE_MESSAGE(!actual.empty(), "response from find came back empty!");
           REQUIRE(actual == expected);
         }
       }
