@@ -57,11 +57,6 @@ SCENARIO( "Compute the invariants of count_if") {
         REQUIRE( mesa::count_if(&x[0], &x[0], is_even) == 0);
       }
     }
-    WHEN( "begin > end" ) {
-      THEN( "0 should be returned" ) {
-        REQUIRE( mesa::count_if(&x[1], &x[0], is_even) == 0);
-      }
-    }
   }
 }
 
