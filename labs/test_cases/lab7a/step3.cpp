@@ -21,7 +21,10 @@ SCENARIO( "Reverse a stack" * doctest::timeout(0.5)) {
     for (const auto& i: v) expected.push(i);
     WHEN( "the values are reversed" ) {
       std::stack<int> reversed = mesa::reverse (x);
-      THEN("the reversed stack should equal the expected") {
+      THEN("the reversed stack size should equal the original") {
+          REQUIRE (reversed.size() == expected.size());
+      }
+      AND_THEN("the reversed stack should equal the expected") {
         while (!reversed.empty()) {
           REQUIRE (reversed.top() == expected.top());
           reversed.pop();
@@ -51,7 +54,10 @@ SCENARIO( "Reverse a stack" * doctest::timeout(0.5)) {
     expected.push("Alice");
     WHEN( "the names are reversed" ) {
       std::stack<std::string> reversed = mesa::reverse (names);
-      THEN("the reversed stack should equal the expected") {
+      THEN("the reversed stack size should equal the original") {
+          REQUIRE (reversed.size() == expected.size());
+      }
+      AND_THEN("the reversed stack should equal the expected") {
         while (!reversed.empty()) {
           REQUIRE (reversed.top() == expected.top());
           reversed.pop();

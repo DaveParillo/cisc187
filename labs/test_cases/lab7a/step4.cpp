@@ -4,6 +4,7 @@
 #include <doctest.h>
 
 #include <algorithm>
+#include <deque>
 #include <stack>
 #include <string>
 #include <vector>
@@ -11,11 +12,9 @@
 SCENARIO( "Compare two stacks for equality" * doctest::timeout(0.5)) {
 
   GIVEN( "two stack of 10 ints, 0 through 9" ) {
-    std::stack<int> x;
-    std::stack<int> y;
-    std::vector<int> v(10);
-    std::iota(v.begin(), v.end(), 0);
-    for (const auto& i: v) { x.push(i); y.push(i);}
+    std::deque<int> v = {0,1,2,3,4,5,6,7,8,9};
+    std::stack<int> x(v);
+    std::stack<int> y(v);
 
     WHEN( "the values are equal" ) {
       THEN("equal_to should return true") {
@@ -31,13 +30,14 @@ SCENARIO( "Compare two stacks for equality" * doctest::timeout(0.5)) {
   GIVEN( "a stack of 7 names, Alice through Greg" ) {
     std::stack<std::string> x;
     std::stack<std::string> y;
-    x.push("Alice");     y.push("Alice");
-    x.push("Bob");       y.push("Bob");
-    x.push("Clarice");   y.push("Clarice");
-    x.push("Darla");     y.push("Darla");
-    x.push("Earl");      y.push("Earl");
-    x.push("Fran");      y.push("Fran");
-    x.push("Greg");      y.push("Greg");
+    x.push("Alice");
+    x.push("Bob");
+    x.push("Clarice");
+    x.push("Darla");
+    x.push("Earl");
+    x.push("Fran");
+    x.push("Greg");
+    y = x;
 
     WHEN( "the values are equal" ) {
       THEN("equal_to should return true") {
