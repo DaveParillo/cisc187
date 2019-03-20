@@ -22,11 +22,18 @@ unless otherwise noted, place all code in the \*[c]mesa\*[r] namespace.
 Create the files \fClab7b.h\fR, \fClab7b.cpp\fR, and \fCmain.cpp\fR.
 .IP \n+[step].
 Create a function \*[c]to_lower\*[r] that converts a string to all lower case characters.
+.CW
+  string to_lower(const string&);
+.R
 
 Bonus:  do this without using any raw loops.
 .IP \n+[step].
 Create an overload for function \*[c]operator<<\*[r] that streams a word list
 to a provided output stream.
+.CW
+  std::ostream& 
+    operator<<(std::ostream&, const map<string, size_t>&);
+.R
 
 Do not put the \*[c]operator<<\*[r] function in the  \*[c]mesa\*[r] namespace.
 
@@ -36,10 +43,14 @@ Create a function \*[c]frequency_table\*[r] with the following characteristics:
 .IP a.
 It should take as parameters a word list: a \*[c]vector<string>\*[r] of words and
 a function that performs some operation on each word in the list.
+.CW
+  map<string, size_t>
+    frequency_table(const std::vector<string>&, 
+                    std::function<string (const string&)>);
+.R
 
-The function should take a single constant string parameter and return a string
 .IP b.
-Create a new empty frequency table: a \*[c]map<string, std::size_t>\*[r].
+Create a new empty frequency table: a \*[c]map<string, size_t>\*[r].
 .IP c.
 Loop on each word in the \*[c]vector\*[r] and use the function to make a
 frequency table entry.
@@ -60,7 +71,7 @@ The remaining steps are optional extra practice.
 \fBOptional step\fR
 
 Create a function \*[c]print_common\*[r] that takes two parameters: 
-a \*[c]map<string, std::size_t>\*[r] and a minimum frequency.
+a \*[c]map<string, size_t>\*[r] and a minimum frequency.
 It should print all elements in the map where 
 the word frequency is greater than or equal to the frequency provided.
 .bp
