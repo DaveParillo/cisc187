@@ -13,7 +13,6 @@ Week 1
 .i1 What are the differences between them?
 .i1 Why do they exist?
 .i1 What are 'header guards'?
-.i1 What is \*[c]#pragma once\*[r]?
 .IT What happens during compilation?  Linking?
 .IT How to use function main(), argc, and argv
 .IT cout and the meaning of statements like:

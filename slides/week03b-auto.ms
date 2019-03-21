@@ -59,58 +59,6 @@ Week 3
 .i2 A variable or function declared in some scope
 .i3 is valid (in scope) from the point of declaration to the end of that scope
 .i1 Whenever you can, avoid complicated nesting of scopes. Keep it simple.
-.SS Keyword: \fCextern\fP
-.IT A major source of confusion!
-.IT Primarily handy for global variables
-.i1 You'll inherit code with globals, I'm sure
-.i1 Prefer to minimize globals in your own code
-.i1s
-Declare the existence of a variable
-.BI
-in a header file
-.R
-.CW
-  #ifndef HEADER_H
-  #define HEADER_H
-
-  \m[green]// any source file that includes this 
-  // will be able to use "global_x"\m[]
-  extern int global_x;
-
-  void print_global_x();
-
-  #endif
-.R
-.i1e
-.i1 At this point, the compiler only knows the type and the name
-.i2 We have \fIdeclared\fR, but not yet \fIdefined\fR \fCglobal_x\fR
-.bp
-.IT Now we need to define \fCglobal_x\fR
-.i1s
-We can define it in \fBonly 1 place\fR, or the compiler complains
-.br
-Source file 1:
-.CW
-  #include "header.h"
-  \m[green]// it needs to be defined\m[]
-  int global_x; \m[green]// but only once\m[]
-  int main() {
-      \m[green]// and initialized!\m[]
-      global_x = 5;
-      print_global_x();
-  }
-.R
-.br
-Source file 2:
-.CW
-  #include "header.h"
-  #include <iostream>
-  \m[green]// int global_x;  // this would be an error\m[]
-  void print_global_x() {
-      \m[green]// global_x is in scope everywhere!\m[]
-      std::cout << global_x << std::endl;
-  }
-.R
 .SS The \fCauto\fP keyword
 .IT This may be 'old news', but here it is
 .IT \*[c]auto\*[r] determines a type based on an initializer
@@ -279,7 +227,6 @@ F sub n = F sub {n-1} + F sub {n-2} roman {", with "} F sub 1 = 1, F sub 2 = 1
 .i1 How \fBideas\fR are \fIexpressed\fR in \fBcode\fR
 .i1 Declarations and definitions
 .i1 Scope
-.i2 \*[c]extern\*[r]
 .IT Using \*[c]auto\*[r]
 .i1 Prefer auto over explicit types
 .i1 \*[c]auto\*[r] can make code easier to read

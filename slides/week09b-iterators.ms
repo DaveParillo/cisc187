@@ -135,7 +135,7 @@ Or fill a vector from standard input
 .i1s
 Move an iterator forward
 .CW
-  std::vector<int> v {3,1,4,1,5,9,2,6,5,3 };
+  std::vector<int> v {3,1,4,1,5,9,2,6,5,3};
   auto it = v.begin();
   std::advance(it, 7); \m[green]//move it forward 7 places\m[]
 .R
@@ -151,19 +151,19 @@ Move an iterator forward
 .i1s
 Use a raw array or a vector both in an iterator like way
 .CW
-#include <iostream>
-#include <vector>
-#include <iterator>
- 
-int main() {
-    std::vector<int> v = { 3, 1, 4 };
-    auto vi = std::begin(v);
-    std::cout << *vi << '\\n'; 
- 
-    int a[] = { -5, 10, 15 };
-    auto ai = std::begin(a);
-    std::cout << *ai << '\\n';
-}
+  #include <iostream>
+  #include <vector>
+  #include <iterator>
+   
+  int main() {
+      std::vector<int> v = { 3, 1, 4 };
+      auto vi = std::begin(v);
+      std::cout << *vi << '\\n'; 
+   
+      int a[] = { -5, 10, 15 };
+      auto ai = std::begin(a);
+      std::cout << *ai << '\\n';
+  }
 .R
 .i1e
 .SS Summary

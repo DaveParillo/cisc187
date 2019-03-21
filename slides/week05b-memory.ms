@@ -76,7 +76,7 @@ Given:
   }
 .bp
 .R
-.IT Use Foo on the heap safely
+.IT Use Foo on the heap
 .i1s
 Create a \*[c]unique_ptr\*[r] of Foo
 .CW
@@ -101,7 +101,7 @@ Create a \*[c]unique_ptr\*[r] of Foo
 .SS Smart pointer calc
 .IT Adding \*[c]unique_ptr\*[r] to our calc function
 .i1s
-Doesn't improve much.
+Doesn't improve anything.
 .CW
   #include <cstdio>
   #include <memory>
@@ -179,14 +179,13 @@ A \*[c]vector\*[r] manages its own memory
 .R
 .i1e 
 .SS Summary
-.IT Destroy memory carefully
-.i1 Too much gets you in as much trouble as too little
-.i1 Memory 'leaks' are the #1 source of bugs in C/C++ programs
-.IT Ownership issues
+.IT Memory 'leaks' are the #1 source of bugs in C/C++ programs
+
 .IT Rules of thumb
-.i1 Prefer containers over \*[c]<memory>\*[r]
+
+.i1 Prefer types over \*[c]<memory>\*[r]
+
 .i1 Prefer \*[c]<memory>\*[r] over raw \*[c]new\*[r] and \*[c]delete\*[r]
-.i1 We will cover more techniques in week 14
 
 .IT Use \fBvalgrind\fR to check for memory leaks
 

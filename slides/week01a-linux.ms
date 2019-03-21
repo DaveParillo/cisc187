@@ -124,28 +124,34 @@ Your \fCargc\fR would be set = 4 and \fCargv\fR would contain
 .i1s
 Using most standard C library functions
 .CW
-  #include <cstdint>    \m[green]// uint16_t\m[]
+  #include <cstdint>    \m[green]// int16_t\m[]
   #include <cstdlib>    \m[green]// atoi\m[]
   #include <cstring>    \m[green]// strcmp\m[]
   #include <iostream>
 
   int main(int argc, char** argv) {
     \m[blue]bool\m[] debug = false;
-    \m[blue]std::uint16_t\m[] count = 1;
+    \m[blue]int16_t\m[] count = 1;
     for (int i=1; i < argc; ++i) {
-      if (!std::str\m[red]n\m[]cmp(argv[i], "-h", \m[red]2\m[])) {
+      if (\m[blue]std::str\m[]\m[red]n\m[]\m[blue]cmp\m[](argv[i], "-h", \m[red]2\m[]) == 0) {
         help(argv[0]);
-      } else if (!std::strcmp(argv[i], "-d")) {
+      } else if (\m[blue]std::strcmp\m[](argv[i], "-d") == 0) {
         debug = \m[blue]true\m[];
 .R
+.i1e
 .bp
+.IT Continue parsing the command line
+.i1s
+Parse an arg with a number after it:
+
 .CW
-      } else if (!std::strcmp(argv[i], "-c")) {
+
+      } else if (std::strcmp(argv[i], "-c") == 0) {
         ++i;
         if (i < argc) {
           count = \m[red]std::atoi\m[](argv[i]);
         } else {
-          std::cerr << "Error using '-c' argument: no count specified\n";
+          std::cerr << "Error using '-c' argument: no count specified\\n";
           usage(argv[0]);
         }
       }
@@ -161,7 +167,8 @@ Using most standard C library functions
 .IT The command line
 .i1 A 2D array of \*[c]char\*[r]
 .i1 Many libraries exist to parse the command line
-.i1 The examples directory contains example command line argument processing for
-.i2 getopt
-.i2 Boost::program_options
+.i1 \*[c]std::strcmp\*[r] is universally available
+.i2 And portable
+.i2 And easy to understand
+.i2 But a bit more work
 
