@@ -13,7 +13,7 @@ Standard algorithms: 4 points, 90 minutes \fImaximum\fR
 Create the files \fClab10a.h\fR, \fClab10a.cpp\fR,
 and \fCmain.cpp\fR.
 
-File \fCmain.cpp\fR is just for extra credit, if you choose.
+File \fCmain.cpp\fR is just for extra practice, if you choose.
 
 In the steps that follow, place all code in the \*[c]mesa\*[r] namespace.
 .IP \n+[step].
@@ -75,12 +75,11 @@ Turn in your completed lab using the \*[c]submit187\*[r] script:
     submit187 lab10a
 .R
 
-.NH
-Extra credit
-.QP
-.RS
-.nr step 0 1
-.IP \n+[step].
+.SH
+Try This!
+.LP
 Implement a main that uses the functions implemented in this lab.
-.RE
+
+Performing this extra step will help you understand how to use 
+the functions you created in the lab.
 
