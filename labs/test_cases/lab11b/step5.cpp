@@ -1,72 +1,38 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include <Car.h>
+#include <vector>
 #include <doctest.h>
+#include <point.h>
 
-using mesa::Direction;
+SCENARIO( "Test point copy constructor") {
 
-SCENARIO( "Accelerate a Car") {
-  GIVEN( "a default Car" ) {
-    mesa::Car c;
-    THEN( "the default speed should be 0" ) {
-      CHECK (c.speed() == doctest::Approx(0));
-    }
-    WHEN( "accelerate(1) is called the first time" ) {
-      auto actual = c.accelerate(1);
-      THEN( "the new speed should be 1" ) {
-        CHECK (1 == doctest::Approx(actual));
-      }
-    }
-    WHEN( "accelerate(-1) is called the first time" ) {
-      auto actual = c.accelerate(-1);
-      THEN( "the new speed should be 0" ) {
-        CHECK (0 == doctest::Approx(actual));
-      }
-    }
-    WHEN( "accelerate(1.5) is called twice (after 1,-1)" ) {
-      double actual;
-      actual = c.accelerate(1.5);
-      actual = c.accelerate(1.5);
-      THEN( "the new speed should be 4.5" ) {
-        CHECK (4.5 == doctest::Approx(actual));
-      }
-      AND_WHEN( "accelerate(-2.0) is called once" ) {
-        actual = c.accelerate(-2.0);
-        THEN( "the new speed should be 5.5 (acceleration rate is now 1.0)" ) {
-          CHECK (5.5 == doctest::Approx(actual));
-        }
-      }
-    }
-  }
+  GIVEN( "a point" ) {
+    mesa::point a {3,5};
 
-  GIVEN( "a default Car" ) {
-    mesa::Car c;
-    WHEN( "accelerate(1.5) is called twice" ) {
-      double actual;
-      actual = c.accelerate(1.5);
-      actual = c.accelerate(1.5);
-      THEN( "the new speed should be 4.5" ) {
-        CHECK (4.5 == doctest::Approx(actual));
-      }
-      AND_WHEN( "accelerate(-1.5) is called twice" ) {
-        actual = c.accelerate(-1.5);
-        actual = c.accelerate(-1.5);
-        THEN( "the new speed should be 6 (acceleration rate is now 0)" ) {
-          CHECK (6 == doctest::Approx(actual));
-        }
-      }
-      AND_WHEN( "accelerate(-2.5) is called three times" ) {
-        actual = c.accelerate(-2.5);
-        actual = c.accelerate(-2.5);
-        actual = c.accelerate(-2.5);
-        THEN( "the new speed should be 0" ) {
-          CHECK (0 == doctest::Approx(actual));
-        }
+    WHEN ("the point is constructed from another point") {
+      std::vector<mesa::point> v;
+      v.push_back(a);
+      THEN( "the points should have the same values" ) {
+        CHECK (v[0].x == a.x);
+        CHECK (v[0].y == a.y);
       }
     }
+
+    WHEN ("the point is copied to another point") {
+      mesa::point p = a;
+      THEN( "the values should match in both points" ) {
+        CHECK (p.x == a.x);
+        CHECK (p.y == a.y);
+      }
+    }
+
   }
 
 }
+
+
+
+
 
 
 

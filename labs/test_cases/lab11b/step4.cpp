@@ -1,70 +1,42 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include <Car.h>
 #include <doctest.h>
+#include <point.h>
 
-using mesa::Direction;
+SCENARIO( "Test point 2 arg constructor") {
 
-SCENARIO( "Steer a Car") {
-  GIVEN( "a default Car" ) {
-    mesa::Car c;
-    THEN( "the default heading should be 0" ) {
-      CHECK (c.heading() == doctest::Approx(0));
+  GIVEN( "a point constructed from 2 values" ) {
+    mesa::point p {3,5};
+
+    THEN( "the values should be 3,5" ) {
+      CHECK (p.x == 3);
+      CHECK (p.y == 5);
     }
-    AND_WHEN( "steer(RIGHT) is called the first time" ) {
-      auto actual = c.steer(Direction::RIGHT);
-      THEN( "the new direction should be 1" ) {
-        CHECK (1 == doctest::Approx(actual));
+
+    WHEN ("the values are 21,34") {
+      mesa::point p {21,34};
+      THEN( "the values should be 21,34" ) {
+        CHECK (p.x == 21);
+        CHECK (p.y == 34);
       }
     }
-    AND_WHEN( "steer(LEFT) is called the first time" ) {
-      auto actual = c.steer(Direction::LEFT);
-      THEN( "the new direction should be 359" ) {
-        CHECK (359 == doctest::Approx(actual));
+
+    WHEN ("the values are -8,-5") {
+      mesa::point p {-8,-5};
+      THEN( "the values should be -8,-5" ) {
+        CHECK (p.x == -8);
+        CHECK (p.y == -5);
       }
     }
-    WHEN( "steer(RIGHT) is called twice" ) {
-      double actual;
-      actual = c.steer(Direction::RIGHT);
-      actual = c.steer(Direction::RIGHT);
-      THEN( "the final direction should be 3" ) {
-        CHECK (3 == doctest::Approx(actual));
-      }
-    }
-    WHEN( "steer(LEFT) is called 4 times" ) {
-      double actual;
-      actual = c.steer(Direction::LEFT);
-      actual = c.steer(Direction::LEFT);
-      actual = c.steer(Direction::LEFT);
-      actual = c.steer(Direction::LEFT);
-      THEN( "the final direction should be 350" ) {
-        CHECK (350 == doctest::Approx(actual));
-      }
-    }
-    WHEN( "steer(RIGHT) is called 13 times" ) {
-      double actual;
-      for (auto i = 0; i < 13; ++i) actual = c.steer(Direction::RIGHT);
-      THEN( "the final direction should be 85" ) {
-        CHECK (85 == doctest::Approx(actual));
-      }
-    }
-    WHEN( "steer(LEFT) is called 13 times" ) {
-      double actual;
-      for (auto i = 0; i < 13; ++i) actual = c.steer(Direction::LEFT);
-      THEN( "the final direction should be 275" ) {
-        CHECK (275 == doctest::Approx(actual));
-      }
-    }
-    WHEN( "steer(LEFT) is called 13 times, followed by CENTER 13 more times" ) {
-      double actual;
-      for (auto i = 0; i < 13; ++i) actual = c.steer(Direction::LEFT);
-      for (auto i = 0; i < 13; ++i) actual = c.steer(Direction::CENTER);
-      THEN( "the final direction should be 275" ) {
-        CHECK (275 == doctest::Approx(actual));
-      }
-    }
+
   }
 
 }
+
+
+
+
+
+
 
 

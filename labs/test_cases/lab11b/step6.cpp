@@ -1,44 +1,63 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include <Car.h>
 #include <doctest.h>
+#include <point.h>
 
-SCENARIO( "update a Car") {
-  GIVEN( "a default Car" ) {
-    mesa::Car c;
-    WHEN( "accelerate(1), then update are called once" ) {
-      auto actual = c.accelerate(1);
-      c.update();
-      THEN( "the {x,y} location should be {1,0}" ) {
-        CHECK (1 == doctest::Approx(actual));
-        CHECK (1 == doctest::Approx(c.location().x));
-        CHECK (0 == doctest::Approx(c.location().y));
+SCENARIO( "Test point == and !=") {
+
+  GIVEN( "a point" ) {
+    mesa::point a {3,5};
+    THEN( "that point should always equal itself" ) {
+      CAPTURE (a.x);
+      CAPTURE (a.y);
+      CHECK ((a == a));
+    }
+
+    WHEN ("the point 'p' is the same as point 'a'") {
+      mesa::point p = a;
+      CAPTURE (a.x);
+      CAPTURE (a.y);
+      CAPTURE (p.x);
+      CAPTURE (p.y);
+      THEN( "the points should have the same values" ) {
+        CHECK ((p == a));
+        CHECK ((p != a) == false);
       }
     }
-  }
-  GIVEN( "a default Car" ) {
-    mesa::Car c;
-    WHEN( "accelerate(1), then steer(RIGHT), then update is called once" ) {
-      c.accelerate(1);
-      c.steer(mesa::Direction::RIGHT);
-      c.update();
-      THEN( "the {x,y} location should be {0.999,0.0175}" ) {
-        CHECK (0.9998 == doctest::Approx(c.location().x).epsilon(0.01));
-        CHECK (0.0175 == doctest::Approx(c.location().y).epsilon(0.01));
-      }
-      WHEN( "update is called 3 more times" ) {
-        c.update();
-        c.update();
-        c.update();
-        THEN( "the {x,y} location should be {3.99,0.07}" ) {
-          CHECK (3.99 == doctest::Approx(c.location().x).epsilon(0.01));
-          CHECK (0.07 == doctest::Approx(c.location().y).epsilon(0.01));
-        }
+
+    WHEN ("the  p.x is the differnt from a.x") {
+      mesa::point p = a;
+      p.x = 17;
+      CAPTURE (a.x);
+      CAPTURE (a.y);
+      CAPTURE (p.x);
+      CAPTURE (p.y);
+      THEN( "the != operator should return true" ) {
+        CHECK ((p != a));
+        CHECK ((p == a) == false);
       }
     }
+
+    WHEN ("the  p.y is the differnt from a.y") {
+      mesa::point p = a;
+      p.y = 15;
+      CAPTURE (a.x);
+      CAPTURE (a.y);
+      CAPTURE (p.x);
+      CAPTURE (p.y);
+      THEN( "the != operator should return true" ) {
+        CHECK ((p != a));
+        CHECK ((p == a) == false);
+      }
+    }
+
   }
 
 }
+
+
+
+
 
 
 
