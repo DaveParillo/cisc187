@@ -40,7 +40,7 @@ int main() {
   printf("\nEnter the type of shape (0 = circle, 1 = rectangle) : ");
   scanf("%d", &shape.type);
 
-  shape.type = 0;
+  // shape.type = 0;
   process(shape);
 
   return (0);
