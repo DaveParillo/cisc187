@@ -1,7 +1,11 @@
 
 .TL
 .gcolor blue
-Abstraction
+const class functions
+
+and
+
+Unit testing
 .gcolor
 .LP
 .ce 1
