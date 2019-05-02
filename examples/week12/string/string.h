@@ -11,16 +11,23 @@ namespace mesa {
   class string
   {
     private:
-      size_t sz;
-      char* str;
+      size_t sz = 0;
+      char* str = nullptr;
     public:
-      string() 
-        : sz{0}, str{0}
-      { }
+      string()  = default;
 
-      string(string &other) = default;
+      string(string &other)
+        : sz {other.sz},
+          str {new char[sz+1]}
+      {
+        std::strcpy(str, other.str);
+      }
 
-      string(string&& other) = default;
+      string(string&& other)
+      {  
+        std::swap(sz,other.sz);
+        std::swap(str,other.str);
+      }   
 
       // The following constructor initializes the
       // string object with a C-string
@@ -28,12 +35,36 @@ namespace mesa {
         : sz  {std::strlen(other)},
         str {new char[sz+1]}
       { 
-        strcpy(str, other); 
+        std::strcpy(str, other); 
       }
-      string& operator=(const string&) = default;
-      string& operator=(string &&) = default;
+      
+      string& operator=(const string& rhs) 
+      {
+        if (sz != 0) {
+          delete [] str;
+        }
+        sz = rhs.sz;
+        str = new char[sz + 1];
+        strcpy(str, rhs.str);
+        return *this;
+      }
 
-      ~string() = default;
+      string& operator=(string&& rhs) 
+      {
+        if (this != &rhs)
+        {
+          std::swap(str, rhs.str);
+          std::swap(sz, rhs.sz);
+        }
+        return *this;
+      }
+
+      ~string() { 
+        if (sz != 0) {
+          delete [] str; 
+        }
+        str = nullptr;
+      }
 
       size_t length() const { return sz; }
       size_t size() const { return sz; }
@@ -43,13 +74,13 @@ namespace mesa {
       char*       data()       { return str; };
 
       // string append
-      string& operator+=(string &);
+      string& operator+=(const string &);
 
   };
 
 } // end namespace mesa
 
-inline
+  inline
 mesa::string operator+(mesa::string lhs, mesa::string& rhs)
 {
   lhs += rhs;

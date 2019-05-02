@@ -22,16 +22,16 @@
 //    return *this;
 // }
 
-mesa::string& mesa::string::operator+=(mesa::string& rhs)
+mesa::string& mesa::string::operator+=(const mesa::string& rhs)
 {
   char *tmp = str;
-  str = new char[strlen(str) + rhs.sz + 1];
-  strcpy(str, tmp);
-  strcat(str, rhs.str);
+  str = new char[sz + rhs.sz + 1];
+  std::strcpy(str, tmp);
+  std::strcat(str, rhs.str);
   if (sz != 0) {
     delete [] tmp;
   }
-  sz = strlen(str);
+  sz = std::strlen(str);
   return *this;
 }
 
@@ -45,3 +45,4 @@ std::istream& operator>>(std::istream& is, mesa::string& rhs)
   is.getline(rhs.data(), rhs.size());
   return is;
 }
+
