@@ -12,7 +12,7 @@ public:
  
 class AskMom : public GimmeStrategy {
 public:
-  Answer canIHave() {
+  Answer canIHave() override {
     std::cout << "Mommy? Can I have this?\n";
     return Answer::NO;
   }
@@ -20,7 +20,7 @@ public:
  
 class AskDad : public GimmeStrategy {
 public:
-  Answer canIHave() {
+  Answer canIHave() override {
     std::cout << "Dad, I really need this!\n";
     return Answer::NO;
   }
@@ -28,7 +28,7 @@ public:
  
 class AskGrandpa : public GimmeStrategy {
 public:
-  Answer canIHave() {
+  Answer canIHave() override {
     std::cout << "Grandpa, is it my birthday yet?\n";
     return Answer::NO;
   }
@@ -36,7 +36,7 @@ public:
  
 class AskGrandma : public GimmeStrategy {
 public:
-  Answer canIHave() {
+  Answer canIHave() override {
     std::cout << "Grandma, I really love you!\n";
     return Answer::YES;
   }
@@ -65,8 +65,18 @@ public:
  
 int main() {
   Gimme chain;
-  chain.canIHave();
+  chain.canIHave();   // no obligation to use the return value
+
+  std::cout << "\nrun through the whole chain again:\n";
+  // we can print the scoped enum return value,
+  // if we cast it to an int
+  std::cout << int(chain.canIHave()) << '\n';
+
+  // there is nothing special about the objects in the chain
+  // we can invoke any of them individually
+  std::cout << "ask mom directly\n";
+  AskMom mom;
+  mom.canIHave();
 }
  
  
-
