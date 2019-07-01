@@ -1,12 +1,12 @@
 .ds LH Data Structures in C++
 .ds CH CISC-187
-.ds RH CRN 20504
+.ds RH CRN 12255
 .ds CF %
-.ds deadline 8 Feb 2019
+.ds deadline 30 Aug 2019
 .TL
 Data Structures in C++
 .br
-\m[red]\*[RH]\m[], Spring 2019
+\m[red]\*[RH]\m[], Fall 2019
 .AU
 Dave Parillo
 .AI
