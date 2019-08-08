@@ -3,7 +3,7 @@
 .TL
 \*[CH]
 .LP
-The goal of this lab is to gain familiaraity with the
+The goal of this lab is to gain familiarity with the
 \*[c]std::stack\*[r] class and
 to understand some limitations of a stack.
 

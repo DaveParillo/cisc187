@@ -46,13 +46,13 @@ then create a copy constructor to make a point from another point.
 .IP \n+[step].
 Create 2 functions to check if 2 points are equivalent to eachother:
 .CW
-  bool operator==(const point& lhs, const point& rhs);
-  bool operator!=(const point& lhs, const point& rhs);   
+  inline
+  bool operator==(const point& lhs, const point& rhs) { . . . 
+  inline
+  bool operator!=(const point& lhs, const point& rhs) { . . . 
 .R
 
-Declare these in point.h, but do \fBnot\fR put them in the mesa namespace.
-
-Implement them in point.cpp.
+Define these in point.h, but do \fBnot\fR put them in the mesa namespace.
 
 
 .IP \n+[step].
