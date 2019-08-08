@@ -34,26 +34,22 @@ CISC 192 with a grade of "C" or better, or equivalent.
 .SH
 Textbooks
 .LP
-The following textbook is \fBrequired\fR for this course:
+The following textbooks are \fBrequired\fR for this course:
 .QP
 \fBParillo, David\fP. 
 \fIIntermediate Modern C++\fP. 
-Online: https://daveparillo.github.io/intermediate-cpp/, Jan 2019.
-.LP
-The following textbook is \fBoptional\fR for this course:
-.QP
+Online: https://daveparillo.github.io/intermediate-cpp/, May 2019.
+
 \fBStroustrup, Bjarne\fP. 
 \fIProgramming: Principles and Practice Using C++\fP. 
 Addison-Wesley Professional, 2\*[{]nd\*[}] edition,
 June 2014. ISBN: 978-0321992789.
-
-It contains extensive descriptions of all of the material covered in this course,
-which you may find useful.
 .SH
 Required Supplies
 .LP
+A GitHub account is required.
 Access to the Mesa cislinux server, mesa-cislinux.sdmesa.sdccd.cc.ca.us (buffy) is required.
-Access is only available through a secure shell program (ssh).
+Access to buffy is only available through a secure shell program (ssh).
 All campus computers, both in class and in the LRC have ssh clients.
 To access this server off campus, you need your own ssh client.
 If you have a Linux or MacOS X computer, ssh is already installed.
@@ -72,7 +68,8 @@ Understand from a C++ perspective, the control of program flow with a looping st
 Use C++ to provide a looping structure as a solution to a software problem.
 .RE
 
-A complete course outline is available at: \fChttp://209.129.16.61/~dparillo/\fR.
+A complete course outline is available at:
+\fChttp://209.129.16.61/~dparillo/\fR and on Canvas.
 .SH
 Student Learning Objectives
 .LP
@@ -118,12 +115,17 @@ Note: Dates and weights of course items are subject to change
 .SH
 Grading
 .LP
+Exams and assignments are graded on a 4.0 scale.
+Your final point scale will be converted to a letter grade
+at the end of the term using the following scale:
 .TS
 center tab(!);
 c c c c c c.
 \fBA\fP !  \fBB\fP ! \fBC\fP !  \fBD\fP !  \fBF\fP !
->= 90 ! >= 80, < 90 ! >= 70, < 80 ! >= 60, < 70 !  < 60
+>= 3.5 ! >= 2.5, < 3.5 ! >= 1.5, < 2.5 ! >= 0.5, < 1.5 !  < 0.5
 .TE
+
+All labs and projects are graded using a rubric in Canvas.
 .SH
 This class can be taken for Honors credit.
 .LP
@@ -181,12 +183,12 @@ Attendance Requirements
 The final grade in this class will be affected by active participation, 
 including attendance, as follows:
 
-Labs, quizzes and exams are completed \fIin class\fR.
+Labs and exams are completed \fIin class\fR.
 
 Attendance is based on work completed in class. 
 Permanent removal from the course after the drop deadline of \m[red]\*[deadline]\m[]
 due to lack of attendance is at my discretion.
-following standard Community College District course attendance guidelines:  
+Following standard Community College District course attendance guidelines:  
 failure to show up for class or failure to complete 
 assignments, tests, or quizzes. 
 
