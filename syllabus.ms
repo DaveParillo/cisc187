@@ -209,9 +209,14 @@ regardless of attendance.
 .SH
 Accommodation of Disability
 .LP
-Students with disabilities who may need academic accommodations are encouraged to discuss 
-their authorized accommodations from Disability Support Programs and Services (DSPS) 
-with their professors early in the semester so that accommodations may be 
+I have made every effort to make this course accessible to all students,
+including students with disabilities.
+If you encounter a problem accessing anything in this course,
+please contact me immediately by email and also contact the
+college Disability Support Programs and Services (DSPS) Office.
+Students with disabilities who may need academic accommodations are
+encouraged to discuss their authorized accommodations from DSPS 
+with me early in the semester so that accommodations may be 
 implemented as soon as possible.
 
 I will work with the DSPS Office to ensure that proper accommodations are 
