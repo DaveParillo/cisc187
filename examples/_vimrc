@@ -1,3 +1,6 @@
+" uncomment if pathogen package manager installed
+" see: https://github.com/tpope/vim-pathogen
+" execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
@@ -5,15 +8,14 @@ set nocompatible
 
 colorscheme slate
 
-"Override the name of the base colorscheme with the name of this custom one
-"let g:colors_name = "mycustom"
-"hi clear Comment
-"hi clear Type
+" change default colors from loud to more muted
 hi Comment ctermfg=239
 hi Include ctermfg=10
 
-command Hidecomments :hi Comment ctermfg=239
-command Showcomments :hi Comment ctermfg=3
+" Change default comment string for Commentary plugin
+" uncomment if installed
+" autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+
 
 set nobackup
 set noundofile
