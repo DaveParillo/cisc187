@@ -1,6 +1,4 @@
-" uncomment if pathogen package manager installed
-" see: https://github.com/tpope/vim-pathogen
-" execute pathogen#infect()
+execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
@@ -8,28 +6,47 @@ set nocompatible
 
 colorscheme slate
 
-" change default colors from loud to more muted
-hi Comment ctermfg=239
-hi Include ctermfg=10
+" Override the name of the base colorscheme with the name of this custom one
+let g:colors_name = "wheat"
+hi clear Comment
+hi Comment ctermfg=187 
 
-" Change default comment string for Commentary plugin
-" uncomment if installed
-" autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+command Hidecomments :hi Comment ctermfg=187 " wheat = 245, 222, 179
+command Showcomments :hi Comment ctermfg=4 
 
+function! s:CTest(stepNum)
+  execute '!cd ../build; test/step'. a:stepNum
+endfunction
 
-set nobackup
-set noundofile
-set tabstop=2
-set shiftwidth=2
-set expandtab                   " Convert tabs to spaces
-set autowrite
-set autoread
-set autochdir                   " Change directory to the current buffer when opening files.
+command! -nargs=1 Test call s:CTest(<f-args>)
+command Steps :!cd ../build; /bin/ls -1 test/step*
 
 :let mapleader = " "
 
-map <silent> <Leader>p  :bp<CR>
-map <silent> <Leader>n  :bNext<CR>
+" show an indicator if over 80 columns wide
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+" disable arrow keys: pedantic
+" noremap <Up>    <Nop>
+" noremap <Down>  <Nop>
+" noremap <Left>  <Nop>
+" noremap <Right> <Nop>
+
+
+set nobackup
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+set autowrite            " Write the file if I navigate to a different buffer
+set autoread             " Reload the file if it changes outside of vim
+set autochdir            " Change directory to the current buffer when opening files.
+
+" Change default comment string for Commentary plugin
+" autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+
+set tags=./tags,tags;
 
 " resize split windows by a % of current size
 nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
@@ -43,10 +60,6 @@ nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
 nnoremap <Leader>= <C-w>=
 
-
-" explicitly reference ctags file
-set tags=~/.tags
-
 " netrw preferences
 let g:netrw_liststyle = 3          " tree style
 
@@ -54,28 +67,7 @@ let g:netrw_browse_split = 4       " Open selected file in previous window
 let g:netrw_preview = 1            " split vertically
 let g:netrw_altv = 1               " file with :vsplit to the right of the browser.
 
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
+
+
+
 
