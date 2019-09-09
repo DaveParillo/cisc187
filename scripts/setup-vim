@@ -1,10 +1,8 @@
 #!/bin/sh
 
-#
-# setup vim for new students
-#
-
 vimrc=~dparillo/public_html/cisc187/examples/_vimrc
+fmt=~dparillo/public_html/cisc187/examples/_clang_format
+
 
 echo "setting up vim for account `whoami`"
 echo "replace ~.vimrc"
@@ -20,6 +18,13 @@ if [ $? -eq 1 ]; then
   echo local vimrc differs from ${vimrc}
   exit -1
 fi
+
+if [ -f ~/.clang-format ]; then
+  echo backup existing .clang-format
+  cp ~/.clang-format ~/.clang-format.bak
+fi
+cp ${fmt} ~/.clang-format
+
 
 echo install plugins
 mkdir -p ~/.vim/autoload ~/.vim/bundle
