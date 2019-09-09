@@ -1,5 +1,9 @@
 #!/bin/sh
 
+#
+# setup vim for new students
+#
+
 vimrc=~dparillo/public_html/cisc187/examples/_vimrc
 fmt=~dparillo/public_html/cisc187/examples/_clang_format
 
