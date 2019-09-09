@@ -44,7 +44,7 @@ Data Structures in C++
 .i1 An \fIssh client\fR
 .i2 Need this to access the server buffy
 .i2 \fIgit\fR is recommended, \fIputty\fR is fine also
-.i1 Blackboard
+.i1 Canvas
 .i2 Course registration required
 .bp
 .IT Textbook
@@ -93,12 +93,12 @@ Data Structures in C++
 .i2 Slides, assigned reading, labs, projects
 .i2 Contains all you need to know
 .IT Code Readings
-.i1 Each Monday - I expect everyone to come to class prepared
-.i2 That means you completed the assigned reading
-.IT Quiz each Wednesday
+.i1 I expect everyone to come to class prepared
+.i1 "Quiz" each for each week
 .IT Lab assignments
-.i1 Completed in class - some in groups or 3 or 4
+.i1 Completed in class - a few in groups of 3 or 4
 .i2 Most labs are meant to be completed alone
+.i2 Collaboration OK (and encouraged)
 .IT Projects
 .i1 \m[red]\fBMust\fR be your own work!!\m[]
 .i1 3 total, due roughly every 4 weeks
@@ -121,8 +121,8 @@ You collect 4 zero's in a row
 .IT Projects "late" is based on when it is submitted on the Mesa server
 .i1 As determined by server clock
 .IT On a happier note
-.i1 Projects handed in \fIearly\fR earn +0.1 Grade Point for each day before the deadline 
-.i2 Maximum of 1 Grade Point added to the project grade.
+.i1 Projects handed in \fIearly\fR earn +0.1 Point for each day before the deadline 
+.i2 Maximum of 1 point added to the project grade.
 .i2 The maximum score for a project is still 100% (5 points)
 .SS Academic Integrity
 .IT Don't cheat
@@ -134,9 +134,9 @@ You collect 4 zero's in a row
 .i1 I will not grade anything until you have completed it
 .SS Evaluation
 .LP 
-.CW "What you do:      50%"
+.CW "What you do:      60%"
 
-.CW "What you know: 	 50%"
+.CW "What you know: 	 40%"
 
 .so ../grading-criteria.tbl
 
@@ -145,7 +145,7 @@ You collect 4 zero's in a row
 .i1 The hour before each class (6-7, M & W)
 .i1 By appointment
 .i2 Sorry, I have a FT (non-teaching) job
-.i1 Mesa Commons
+.i1 Here, or in Mesa Commons
 .i1 Other options? 
 .IT Email is always an option
 .i1 dparillo@sdccd.edu
