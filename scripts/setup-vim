@@ -1,9 +1,5 @@
 #!/bin/sh
 
-#
-# setup vim for new students
-#
-
 vimrc=~dparillo/public_html/cisc187/examples/_vimrc
 fmt=~dparillo/public_html/cisc187/examples/_clang_format
 
@@ -63,6 +59,13 @@ if [ ! -d vim-cmake ]; then
 fi
 echo update vim help with vim-cmake
 vim -u NONE -c "helptags vim-cmake/doc" -c q
+
+if [ ! -d vim-diff-enhanced ]; then
+  echo install vim-diff-enhanced
+  git clone https://github.com/chrisbra/vim-diff-enhanced.git
+fi
+echo update vim help with vim-diff-enhanced
+vim -u NONE -c "helptags vim-diff-enhanced/doc" -c q
 
 echo vim setup complete
 

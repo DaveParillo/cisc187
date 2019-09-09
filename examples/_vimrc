@@ -132,6 +132,13 @@ let g:netrw_browse_split = 4       " Open selected file in previous window
 let g:netrw_preview = 1            " split vertically
 let g:netrw_altv = 1               " file with :vsplit to the right of the browser.
 
+" prefer vertical orientation when using :diffsplit
+set diffopt+=vertical
+" started In Diff-Mode set diffexpr (plugin not loaded yet)
+if &diff
+  let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+endif
+
 " clang-format integration
 map <Leader>f :pyf /var2/lopt/llvm/tools/clang/tools/clang-format/clang-format.py<cr>
 imap <Leader>f :pyf /var2/lopt/llvm/tools/clang/tools/clang-format/clang-format.py<cr>
