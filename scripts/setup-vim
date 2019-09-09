@@ -1,7 +1,10 @@
 #!/bin/sh
 
-vimrc=~dparillo/public_html/cisc187/examples/_vimrc
+#
+# setup vim for new students
+#
 
+vimrc=~dparillo/public_html/cisc187/examples/_vimrc
 
 echo "setting up vim for account `whoami`"
 echo "replace ~.vimrc"
