@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo "Correctness:"
+cppcheck --language=c++ --std=c++11 --std=posix --quiet $*
+
+#
+# Consider:
+#  --verbose=3
+#
+
+echo -e "\nCoding standards:"
+cpplint.py --filter=-runtime/int,-runtime/indentation_namespace,-whitespace,+whitespace/indent,-build/header_guard,-build/include_order,-readability/casting,-build/include --quiet --headers=h,hpp $*
+

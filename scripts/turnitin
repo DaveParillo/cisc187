@@ -24,14 +24,14 @@ stamp=`date +%s`
 fname=${name}_${stamp}.zip
 
 
-echo "About to turn in the files in $1"
+echo "About to turn in the files: $@"
 echo -n "Is this correct? [Y/n]:  "
 read response
 echo
 ans=`echo $response | tr '[:upper:]' '[:lower:]'`
 
 if [[ "x$ans" == "xy" || "x$ans" == "xyes" ]]; then
-  zip -r $fname $1 
+  zip -r $fname $@ 
   cp $fname $dest
   chmod 644 $dest/$fname
   if [ $? -eq 0 ]; then

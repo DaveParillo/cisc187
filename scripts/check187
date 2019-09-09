@@ -38,9 +38,10 @@ while getopts ":hv" opt; do
   shift
 done
 
-lab_name="$@"
-
 shift "$((OPTIND-1))"
+
+lab_name="$1"
+shift
 
 if [ -z $lab_name ]; then
   echo -e "No lab specified.\n"
@@ -57,7 +58,11 @@ fi
 lab_dir=/var2/lopt/share/cisc187/$lab_name
 
 if [ -d $lab_dir ]; then
-  make -f $lab_dir/Makefile check
+  if [ -z "$@" ]; then
+    make -f $lab_dir/Makefile check
+  else 
+    make -f $lab_dir/Makefile $@
+  fi
 else
   printf 'No lab named "%s" exists\n' "$lab_name"
 fi

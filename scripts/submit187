@@ -38,9 +38,10 @@ while getopts ":hv" opt; do
   shift
 done
 
-lab_name="$@"
-
 shift "$((OPTIND-1))"
+
+lab_name=$1
+shift
 
 if [ -z $lab_name ]; then
   echo -e "No lab specified.\n"
@@ -57,23 +58,7 @@ fi
 lab_dir=/var2/lopt/share/cisc187/$lab_name
 
 if [ -d $lab_dir ]; then
-#  make -f $lab_dir/Makefile submit
-
-  dest=/var2/home/turnitin.d
-  name=`/usr/bin/whoami`
-  stamp=`date +%s`
-  fname=${lab_name}_${name}_${stamp}.zip
-
-  zip -r $fname *.h *.cpp
-  cp $fname $dest
-  chmod 644 $dest/$fname
-  if [ $? -eq 0 ]; then
-    echo "Your assignment was handed in as:    $dest/$fname"
-    echo "A copy is also in this directory as: $fname"
-    echo "now go and have some fun."
-  else
-    echo "Possible problem turning in your assignment.  Ask for help."
-  fi 
+   make -f $lab_dir/Makefile submit
 
 else
   printf 'No lab named "%s" exists\n' "$lab_name"
