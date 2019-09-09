@@ -1,4 +1,3 @@
-#include "zoo.h"
 #include "Animal.h"
 #include "Cat.h"
 #include "Dog.h"
@@ -25,16 +24,16 @@ using std::unique_ptr;
 // Inform boost that our Pet and Animal classes are virtual
 // These and the EXPORT macros must appear AFTER 
 // all boost/archive headers
-BOOST_SERIALIZATION_ASSUME_ABSTRACT(Animal)
-BOOST_SERIALIZATION_ASSUME_ABSTRACT(Pet)
+// BOOST_SERIALIZATION_ASSUME_ABSTRACT(Animal)
+// BOOST_SERIALIZATION_ASSUME_ABSTRACT(Pet)
 
 // Any source module that contains serialization code
 // and is serializing a derived class not explicitly referred to in this file
-BOOST_CLASS_EXPORT(Cat)
-BOOST_CLASS_EXPORT(Dog)
-BOOST_CLASS_EXPORT(Fish)
-BOOST_CLASS_EXPORT(Wolf)
-BOOST_CLASS_EXPORT(RoboDog)
+// BOOST_CLASS_EXPORT(Cat)
+// BOOST_CLASS_EXPORT(Dog)
+// BOOST_CLASS_EXPORT(Fish)
+// BOOST_CLASS_EXPORT(Wolf)
+// BOOST_CLASS_EXPORT(RoboDog)
 
   
 static void usage(const char* name) {

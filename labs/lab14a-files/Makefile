@@ -1,4 +1,6 @@
-CXX = c++
+ifndef CXX
+CXX = g++
+endif
 ifndef CXXFLAGS
 	CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
 endif
