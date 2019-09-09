@@ -9,6 +9,9 @@ srcs=   ../Add.cpp \
 
 objs=$(srcs:%.cpp=%.o)
 incl=$(srcs:%.cpp=%.h)
+ifndef CXX
+CXX=g++
+endif
 ifndef CXXFLAGS
 CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
 endif
@@ -16,7 +19,7 @@ INCLUDES+=-I../../../examples/ -I/var2/lopt/include
 
 CXXFLAGS+= ${INCLUDES}
 
-files    := $(incl) $(srcs)
+files    := $(incl) $(srcs) Handler.h main.cpp
 
 PROGS := step1 step2 step3 step4 step5 step6 step7 step8 step9 step10 step11 step12 step13
 

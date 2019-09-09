@@ -18,7 +18,6 @@ using std::vector;
 //  - a default constructor,
 //  - a constructor to create a bigint from a string,
 //  - a constructor to create a bigint from a long,
-//  - a string conversion overload
 //  - a function 'as_vector' to return a copy of the underlying storage
 //
 
