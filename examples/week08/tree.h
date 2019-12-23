@@ -3,6 +3,12 @@
 #include <iostream>
 
 
+// struct tree {
+//   std::string value;
+//   tree<std::string>* left = nullptr;
+//   tree<std::string>* right = nullptr;
+// };
+
 template <class T>
 struct tree {
   T value;
