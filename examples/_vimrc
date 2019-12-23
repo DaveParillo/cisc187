@@ -52,6 +52,7 @@ command Steps :!cd ../build; /bin/ls -1 test/step*
 
 " Change default comment string for Commentary plugin
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+autocmd FileType cmake setlocal commentstring=\#\ %s
 
 :let mapleader = " "
 
@@ -140,8 +141,8 @@ if &diff
 endif
 
 " clang-format integration
-map <Leader>f :pyf /var2/lopt/llvm/tools/clang/tools/clang-format/clang-format.py<cr>
-imap <Leader>f :pyf /var2/lopt/llvm/tools/clang/tools/clang-format/clang-format.py<cr>
+map <C-K>f :pyf /var2/lopt/llvm/tools/clang/tools/clang-format/clang-format.py<cr>
+imap <C-K>f :pyf /var2/lopt/llvm/tools/clang/tools/clang-format/clang-format.py<cr>
 
 " vim:set ft=vim et sw=2:
 
