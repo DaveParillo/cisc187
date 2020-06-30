@@ -141,8 +141,8 @@ if &diff
 endif
 
 " clang-format integration
-map <C-K>f :pyf /var2/lopt/llvm/tools/clang/tools/clang-format/clang-format.py<cr>
-imap <C-K>f :pyf /var2/lopt/llvm/tools/clang/tools/clang-format/clang-format.py<cr>
+" map <C-K>f :pyf /var2/lopt/llvm/tools/clang/tools/clang-format/clang-format.py<cr>
+" imap <C-K>f :pyf /var2/lopt/llvm/tools/clang/tools/clang-format/clang-format.py<cr>
 
 " vim:set ft=vim et sw=2:
 
