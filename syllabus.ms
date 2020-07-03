@@ -11,8 +11,8 @@ Data Structures in C++
 Dave Parillo
 .AI
 \fBE-Mail: \fP dparillo@sdccd.edu
-\fBOffice Hours: \fP M & W 6:00 - 7:00 PM, BT209 or zoom
-\fBClass Meets: \fP M & W, 7:05 - 10:00 PM, BT209 or zoom
+\fBOffice Hours: \fP M & W 6:00 - 6:55 PM, Zoom
+\fBClass Meets: \fP M & W, 6:55 - 10:00 PM, Zoom
 .SH
 Course Description
 .LP
