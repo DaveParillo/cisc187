@@ -1,18 +1,18 @@
 .ds LH Data Structures in C++
-.ds CH CISC-187
-.ds RH CRN 12255
+.ds CH CISC 187
+.ds RH CRN 42927
 .ds CF %
-.ds deadline 30 Aug 2019
+.ds deadline 28 Aug 2020
 .TL
 Data Structures in C++
 .br
-\m[red]\*[RH]\m[], Fall 2019
+\m[red]\*[RH]\m[], Fall 2020
 .AU
 Dave Parillo
 .AI
 \fBE-Mail: \fP dparillo@sdccd.edu
-\fBOffice Hours: \fP M & W 6:00 - 7:00 PM, BT209 or Mesa Commons
-\fBClass Meets: \fP M & W, 7:05 - 10:00 PM, BT209
+\fBOffice Hours: \fP M & W 6:00 - 7:00 PM, BT209 or zoom
+\fBClass Meets: \fP M & W, 7:05 - 10:00 PM, BT209 or zoom
 .SH
 Course Description
 .LP
@@ -38,7 +38,7 @@ The following textbooks are \fBrequired\fR for this course:
 .QP
 \fBParillo, David\fP. 
 \fIIntermediate Modern C++\fP. 
-Online: https://daveparillo.github.io/intermediate-cpp/, May 2019.
+Online: https://daveparillo.github.io/cisc187-reader/, July 2020.
 
 \fBStroustrup, Bjarne\fP. 
 \fIProgramming: Principles and Practice Using C++\fP. 
@@ -68,8 +68,7 @@ Understand from a C++ perspective, the control of program flow with a looping st
 Use C++ to provide a looping structure as a solution to a software problem.
 .RE
 
-A complete course outline is available at:
-\fChttp://209.129.16.61/~dparillo/\fR and on Canvas.
+A complete course outline is available on Canvas.
 .SH
 Student Learning Objectives
 .LP
@@ -99,6 +98,13 @@ including opening and closing, connecting, and read and write operations.
 Identify and apply the various approaches pursued in C-family languages to 
 manage memory, including their respective impacts on program performance and efficiency. 
 .RE
+.SH
+Communication Policy
+.LP
+I will respond to any questions within 24 hours.
+I have a regular (non-teaching) job, so do not expect quick responses in the middle of the work day.
+Any inquiries sent over the weekend or on a holiday will be addressed on the following business day.
+Please feel free to contact me through Canvas messaging or regular email.
 .SH
 Evaluation
 .LP
@@ -235,4 +241,12 @@ Students must notify me in a timely manner and shall be afforded the opportunity
 to establish make up work or other alternative arrangements. 
 If a student elects to withdraw from the course on or after census, 
 a "W" shall be assigned and the district will work with the student to ensure
-that the W is not considered in progress probation and dismissal calculations. 
+that the W is not considered in progress probation and dismissal calculations.
+.SH
+Netiquette Guidelines
+.LP
+Respectful behavior is expected of you in our online learning environment.
+Please readthe Netiquette Guidelines (PDF) at
+http://www.sdccdonline.net/students/resources/NetiquetteGuidelines.pdf.
+
+
