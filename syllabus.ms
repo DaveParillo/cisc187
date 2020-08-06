@@ -38,10 +38,13 @@ The following textbooks are \fBrequired\fR for this course:
 .QP
 \fBParillo, David\fP. 
 \fIIntermediate Modern C++\fP. 
-Online: https://daveparillo.github.io/cisc187-reader/, July 2020.
+Online:
+.br
+\fC\m[blue]https://daveparillo.github.io/cisc187-reader/\m[]\fP, July 2020.
 
 \fBStroustrup, Bjarne\fP. 
 \fIProgramming: Principles and Practice Using C++\fP. 
+.br
 Addison-Wesley Professional, 2\*[{]nd\*[}] edition,
 June 2014. ISBN: 978-0321992789.
 .SH
@@ -128,7 +131,7 @@ at the end of the term using the following scale:
 center tab(!);
 c c c c c c.
 \fBA\fP !  \fBB\fP ! \fBC\fP !  \fBD\fP !  \fBF\fP !
->= 3.5 ! >= 2.5, < 3.5 ! >= 1.5, < 2.5 ! >= 0.5, < 1.5 !  < 0.5
+> 3.2 ! > 2.4, <= 3.2 ! > 1.6, <= 2.4 ! > 0.8, <= 1.6 !  <= 0.8
 .TE
 
 All labs and projects are graded using a rubric in Canvas.
@@ -182,7 +185,7 @@ The Student Code of Conduct can be found in Board of Trustees Policy,
 BP 3100, Student Rights, Responsibilities, Campus Safety and Administrative Due Process 
 posted on the District website at: 
 .br
-http://www.sdccd.edu/public/district/policies/index.shtml
+\fC\m[blue]http://www.sdccd.edu/public/district/policies/index.shtml\m[]\fR
 .SH
 Attendance Requirements
 .LP
@@ -247,6 +250,7 @@ Netiquette Guidelines
 .LP
 Respectful behavior is expected of you in our online learning environment.
 Please readthe Netiquette Guidelines (PDF) at
-http://www.sdccdonline.net/students/resources/NetiquetteGuidelines.pdf.
+.br
+\fC\m[blue]http://www.sdccdonline.net/students/resources/NetiquetteGuidelines.pdf\m[]\fR.
 
 
