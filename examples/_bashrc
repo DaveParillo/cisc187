@@ -1,0 +1,111 @@
+# Sample .bashrc for CISC187
+
+# The default config files on buffy are rather repetitive
+# and lack some settings that make working in the shell more
+# convenient.
+# 
+# In CISC 187 consider replacing the default .bash_profile
+# and .bashrc with the versions here.
+
+#. /etc/profile.d/bash_completion.sh
+
+# complete filenames when invoking make or c++
+#complete -f -X '*.cpp' make
+complete -f make
+complete -f c++
+complete -f g++
+complete -f clang
+complete -f clang++
+
+# Some applications read the EDITOR variable to determine your favourite text
+# editor. So uncomment the line below and enter the editor of your choice :-)
+export EDITOR=/usr/bin/vim
+
+alias ls='ls -CF'
+alias mkae='make'
+
+stty erase ^?
+umask 077
+
+# ignore and erase duplicate entries from command history
+export HISTCONTROL=ignoreboth:erasedups
+export HISTFILESIZE=500
+export HISTSIZE=500
+
+# use vi to edit your command history
+set -o vi
+
+# allow people to connect with talk
+mesg n
+
+# function to check if a PATH entry already exists
+# and only add it if not present
+
+path_add() {
+  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+    PATH="${PATH:+"$PATH:"}$1"
+  fi
+}
+# prepend version
+path_push_front() {
+  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+    PATH="${1}:${PATH:+"$PATH"}"
+  fi
+}
+
+ldpath_add() {
+  if [ -d "$1" ] && [[ ":$LD_LIBRARY_PATH:" != *":$1:"* ]]; then
+    LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+"$LD_LIBRARY_PATH:"}$1"
+  fi
+}
+manpath_add() {
+  if [ -d "$1" ] && [[ ":$MANPATH:" != *":$1:"* ]]; then
+    MANPATH="${MANPATH:+"$MANPATH:"}$1"
+  fi
+}
+
+# Add paths to supplemental installs in /var2/lopt
+path_push_front /var2/lopt/bin
+# add your home directory bin for any personal executables
+path_add ~/bin
+path_add .
+
+# shared library path
+ldpath_add /var2/lopt/lib
+ldpath_add .
+
+#extra man pages
+manpath_add /var2/lopt/share/man
+#export MANPATH=${MANPATH}:/var2/lopt/share/man
+
+# enables proper color and fonts in ncurses
+# and enables viewing source code with syntax highlighting
+export TERM=screen-256color
+
+# Set default C++ and C compilers
+# export CC=gcc
+# export CXX=g++
+export CC=clang
+export CXX=clang++
+
+# Bash prompt 
+export PS1='\[\033[36m\]\u@\h:\[\033[0m\]\[\033[32m\]\w\[\033[0m\] \[\033[32m\]\[\033[0m\]\n\$ '
+
+# variables that came with buffy
+path_add /usr/hla
+path_add /usr/local/bin
+path_add /var2/local/bin
+
+#setup for High Level Assembly Language (HLA):
+export hlalib=/usr/hla/hlalib/hlalib.a
+export hlainc=/usr/hla/include
+
+# system variables
+export IGNOREEOF=10
+export LINES
+export COLUMNS
+export LS_OPTIONS='--color=none'
+export LARCH_PATH=/usr/share/splint/lib
+
+
+

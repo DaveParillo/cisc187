@@ -50,9 +50,9 @@ static void help(const char* name) {
 unsigned process_args(int argc, char** argv) {
   unsigned repeat = 1;
   for (int i=1; i < argc; ++i) {
-    if (!std::strncmp(argv[i], "-h", 2)) {
+    if (std::strncmp(argv[i], "-h", 2) == 0) {
       help(argv[0]);
-    } else if (!std::strncmp(argv[i], "-r", 2)) {
+    } else if (std::strncmp(argv[i], "-r", 2) == 0) {
       ++i;
       if (i < argc) {
         repeat = atoi(argv[i]);
