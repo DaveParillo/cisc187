@@ -1,0 +1,22 @@
+
+top_dir=~/public_html/cisc187
+
+cd $top_dir
+git pull
+
+for i in . labs slides projects
+# 
+# the use of 'touch' here is to silence make warnings about clock skew.
+# The buffy clock is several minutes slow
+#
+do
+  cd $i
+#  touch Makefile *.ms  
+  make clean
+  make
+  chmod go+r *.pdf
+  cd $top_dir
+done
+
+chmod -R u+rwX,go+rX,go-w $top_dir
+
