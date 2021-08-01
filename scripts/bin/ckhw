@@ -1,0 +1,27 @@
+#!/bin/sh
+
+student="all"
+if [[ $# -eq 2 ]]; then
+  student=$2
+elif [[ $# -lt 1 ]]; then
+  echo "must set lab to eval, i.e. lab2"
+  exit
+fi
+lab=$1
+
+fire_id=`ls *.zip | cut -d_ -f 1 | cut -c 5-`
+read -ra students -d '' <<<"$fire_id"
+
+for i in "${students[@]}"; do
+  unzip fire${i}* -d $i
+  echo
+  echo === checking fire $i ===
+  echo
+  cd $i
+
+  check187 $lab
+
+  echo === end of fire $i ===
+  read -p "enter to continue . . ."
+  cd ..
+done

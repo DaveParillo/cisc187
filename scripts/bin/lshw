@@ -1,0 +1,5 @@
+#!/bin/sh
+
+hw="/var2/home/turnitin.d"
+/bin/ls -l $hw
+

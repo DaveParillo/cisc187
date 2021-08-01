@@ -1,0 +1,34 @@
+#!/bin/bash
+
+
+if [[ $# -ne 1 ]]; then
+  echo "must set lab to eval, i.e. lab2"
+  exit
+fi
+lab=$1
+
+for i in `/bin/ls -d cisc*`;
+do 
+  cd $i
+  echo
+  echo -e "=== checking \033[1;32m${i}\033[0m ==="
+  echo
+  git checkout master
+  cd ${1}-*
+  echo -e "\033[1;32m make makefiles\033[0m"
+  if [ -d build ]; then
+    rm -rf build
+  fi
+  mkdir build
+  cd build
+  echo -e "\033[1;32m build\033[0m"
+  cmake ..
+  make --keep-going
+  echo -e "\033[1;32m test\033[0m"
+  ctest -V
+
+  read -p "enter to continue . . ."
+  cd ../../..
+done
+
+

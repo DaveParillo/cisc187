@@ -1,0 +1,28 @@
+#!/bin/bash
+
+
+if [[ $# -ne 1 ]]; then
+  echo "must set lab to copy, i.e. lab02"
+  exit
+fi
+lab=$1
+top=`pwd`
+
+for i in `/bin/ls -d cisc*`;
+do 
+  echo
+  echo -e "=== copying \033[1;32m${i}\033[0m ==="
+  echo
+  cd $i/${lab}-*
+  git pull
+  mkdir solution
+  cp -a ${top}/solutions/${lab}-*/src/* solution
+  git add solution
+  git commit -m 'add lab solution'
+  git push
+
+  # read -p "enter to continue . . ."
+  cd ../..
+done
+
+

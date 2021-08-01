@@ -1,0 +1,27 @@
+#!/bin/bash
+
+
+if [[ $# -ne 1 ]]; then
+  echo "must set directory to copy, i.e. lab02"
+  exit
+fi
+files=$1
+top=`pwd`
+
+for i in `/bin/ls -d cisc*`;
+do 
+  echo
+  echo -e "=== copying \033[1;32m${i}\033[0m ==="
+  echo
+  cd $i
+  git pull
+  cp -a ${top}/assignments/${files} .
+  git add ${files}
+  git commit -m "update ${files}"
+  git push
+
+  # read -p "enter to continue . . ."
+  cd ..
+done
+
+

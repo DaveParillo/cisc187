@@ -1,0 +1,23 @@
+#!/bin/sh
+
+hw="/var2/home/turnitin.d"
+/bin/ls $hw
+if [ $? -gt 0 ]; then
+  echo Nothing to do
+  exit 0
+fi
+hw="${hw}/*"
+
+old_count=`/bin/ls *.zip | wc -l`
+src_count=`/bin/ls $hw | wc -l`
+mv $hw .
+dest_count=`/bin/ls *.zip | wc -l`
+dest_count=`expr $dest_count - $old_count`
+if [ $src_count -ne $dest_count ]; then
+  echo Mismatch moving files
+else
+  echo $src_count files moved
+fi
+
+ls -l
+

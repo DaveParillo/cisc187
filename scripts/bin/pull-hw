@@ -1,0 +1,14 @@
+#!/bin/bash
+
+for i in `/bin/ls -d cisc*`;
+do 
+  cd $i
+  echo -e "working: \033[1;32m${i}\033[0m"
+  git checkout master
+  git pull
+  cd ..
+done
+
+#for i in `/bin/ls -d cisc*`; do cd $i; git checkout master; vi lab01-hello/README.md;  echo finished $i;cd ..; read ans; done
+
+
