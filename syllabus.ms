@@ -1,18 +1,18 @@
 .ds LH Data Structures in C++
 .ds CH CISC 187
-.ds RH CRN 70988
+.ds RH CRN 82581
 .ds CF %
-.ds deadline 03 Sep 2021
+.ds deadline 11 Feb 2022
 .TL
 Data Structures in C++
 .br
-\m[red]\*[RH]\m[], Fall 2021
+\m[red]\*[RH]\m[], Spring 2022
 .AU
 Dave Parillo
 .AI
 \fBE-Mail: \fP dparillo@sdccd.edu
-\fBOffice Hours: \fP Mo & We 6:00 - 6:55 PM, Zoom
-\fBClass Meets: \fP Mo & We, 6:55 - 10:00 PM, Zoom
+\fBOffice Hours: \fP Tu & Th 6:00 - 6:55 PM, Zoom
+\fBClass Meets: \fP Tu & Th, 6:55 - 10:00 PM, Zoom
 .SH
 Course Description
 .LP
@@ -68,7 +68,24 @@ the control of program flow with a looping structure.
 .IP \n+[step].
 Use C++ to provide a looping structure as a solution to a software problem.
 .RE
-
+.bp
+.SH
+Course Learning Modules
+.LP
+CISC187 is organized into 5 modules:
+.TS
+center tab(:);
+lb lb lb
+l l.
+Module:Content:Duration
+_
+ : :
+Review:C++ Review, string, vector:2 weeks
+Functions:Functions, overloads, templates, pointers, and recursion:4 weeks
+Classes:Object-oriented programming, class templates, design patterns:4 weeks
+Containers:Sequential containers, iterators:4 weeks
+Searching and Sorting:Binary Search Trees, heaps, hashing, and sorting:2 weeks
+.TE
 A complete course outline is available on Canvas.
 .SH
 Student Learning Objectives
@@ -136,41 +153,16 @@ Honors contracts are due week 3.
 .SH
 Grading
 .LP
-Lab assignments are graded on a 4.0 scale, projects on a 5.0 scale.
+Assignments are graded on a point scale. 
+Points vary by assignment, but average about 12 points each.
 Points will be converted to a letter grade
-at the end of the term using the following scales:
-.TS
-center tab(!);
-l c c c c c c.
- ! \fBA\fP !  \fBB\fP ! \fBC\fP !  \fBD\fP !  \fBF\fP !
-Lab grades !  > 3.2 ! > 2.4, <= 3.2 ! > 1.6, <= 2.4 ! > 0.8, <= 1.6 !  <= 0.8
-.TE
-.TS
-center tab(!);
-c c c c c c.
- ! \fBA\fP !  \fBB\fP ! \fBC\fP !  \fBD\fP !  \fBF\fP !
-Project grades !  > 4.0 ! > 3.0, <= 4.0 ! > 2.0, <= 3.0 ! > 1.0, <= 2.0 !  <= 1.0
-.TE
+at the end of the term by dividing the points achieved by
+the total number of points possible.
 
 All labs and projects are graded using a rubric in Canvas.
 The averages for labs, projects, and exams are determined independently
-and the the final grade is determined by the weights described
+and the final grade is determined by the weights described
 in the evaluation section.
-.SH
-Policy Regarding Late or Incomplete Work
-.LP
-.B
-Zero credit for late work!
-.R
-There is no process for "making up" labs and quizzes.  
-No exceptions.
-
-If you cannot complete an exam or project on the scheduled date, 
-see me to arrange a makeup date as soon as possible.  
-If you have a serious medical condition and will miss more than 2 classes,
-please see me so that we can make arrangements.
-There are extra-credit labs and projects that can be completed as 
-a replacement for late work. 
 .SH
 Academic Integrity
 .LP
@@ -202,11 +194,7 @@ posted on the District website at:
 Attendance Requirements
 .LP
 The final grade in this class will be affected by active participation, 
-including attendance, as follows:
-
-Labs and exams are completed \fIduring class\fR.
-
-Attendance is based on work completed during class. 
+including attendance, based on work completed. 
 Permanent removal from the course after the drop deadline of \m[red]\*[deadline]\m[]
 due to lack of attendance is at my discretion.
 Following standard Community College District course attendance guidelines:  

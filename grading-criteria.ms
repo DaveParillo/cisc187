@@ -5,10 +5,7 @@ l c.
 Course Item:Percentage
 _
  :
-Programming Projects:30 %
-Lab Assignments:30 %
+Programming Projects:40 %
+Lab Assignments:20 %
 Exams:40 %
-_
- :
-Extra Credit:3 % (max)
 .TE
