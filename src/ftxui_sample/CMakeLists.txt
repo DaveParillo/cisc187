@@ -2,8 +2,8 @@ add_executable(intro main.cpp)
 
 target_link_libraries(
   intro
-  PRIVATE myproject::myproject_options
-          myproject::myproject_warnings)
+  PRIVATE cisc187::cisc187_options
+          cisc187::cisc187_warnings)
 
 target_link_system_libraries(
   intro
